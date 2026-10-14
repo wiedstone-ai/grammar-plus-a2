@@ -6491,7 +6491,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initStorage() {
   // Load GAS URL dari localStorage atau default
-  AppState.gasUrl = localStorage.getItem("grammar_a2_gas_url") || "";
+  AppState.gasUrl = localStorage.getItem("grammar_a2_gas_url") || (
+    APP_CONFIG.defaultScriptUrl && !APP_CONFIG.defaultScriptUrl.includes("placeholder")
+      ? APP_CONFIG.defaultScriptUrl
+      : ""
+  );
   
   // Load local students & scores cache
   const savedStudents = localStorage.getItem("grammar_a2_students");
@@ -6520,6 +6524,12 @@ function initStorage() {
   const savedScores = localStorage.getItem("grammar_a2_scores");
   if (savedScores) {
     try { AppState.scores = JSON.parse(savedScores); } catch (e) { AppState.scores = []; }
+  }
+
+  // Jika URL Google Apps Script tersedia, sinkronkan data siswa terbaru
+  if (AppState.gasUrl) {
+    fetchStudentsFromGAS();
+    fetchScoresFromGAS();
   }
 }
 
@@ -6756,7 +6766,88 @@ function handleStudentRegistration(e) {
   loginUser(newStudent);
 }
 
-function handleStudentLogin(e) {
+/**
+ * Memeriksa kecocokan password tanggal lahir secara fleksibel
+ * Mendukung format: DDMMYYYY, YYYY-MM-DD, DD-MM-YYYY, DD/MM/YYYY, dsb.
+ */
+function isDatePasswordMatching(inputPassword, storedDate) {
+  if (!inputPassword || !storedDate) return false;
+  if (String(inputPassword).trim() === String(storedDate).trim()) return true;
+
+  let sDay = "", sMonth = "", sYear = "";
+  const sStr = String(storedDate).trim();
+  if (sStr.includes("-")) {
+    const parts = sStr.split("-");
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        sYear = parts[0]; sMonth = parts[1].padStart(2, "0"); sDay = parts[2].padStart(2, "0");
+      } else {
+        sDay = parts[0].padStart(2, "0"); sMonth = parts[1].padStart(2, "0"); sYear = parts[2];
+      }
+    }
+  } else if (sStr.includes("/")) {
+    const parts = sStr.split("/");
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        sYear = parts[0]; sMonth = parts[1].padStart(2, "0"); sDay = parts[2].padStart(2, "0");
+      } else {
+        sDay = parts[0].padStart(2, "0"); sMonth = parts[1].padStart(2, "0"); sYear = parts[2];
+      }
+    }
+  } else {
+    const d = sStr.replace(/[^0-9]/g, "");
+    if (d.length === 8) {
+      if (d.startsWith("19") || d.startsWith("20")) {
+        sYear = d.substring(0, 4); sMonth = d.substring(4, 6); sDay = d.substring(6, 8);
+      } else {
+        sDay = d.substring(0, 2); sMonth = d.substring(2, 4); sYear = d.substring(4, 8);
+      }
+    }
+  }
+
+  if (sDay && sMonth && sYear) {
+    const validPerms = [
+      sDay + sMonth + sYear,
+      sYear + sMonth + sDay,
+      sMonth + sDay + sYear,
+      sDay + "-" + sMonth + "-" + sYear,
+      sYear + "-" + sMonth + "-" + sDay,
+      sDay + "/" + sMonth + "/" + sYear,
+      sYear + "/" + sMonth + "/" + sDay
+    ];
+    const cleanIn = String(inputPassword).replace(/[^0-9]/g, "");
+    for (let i = 0; i < validPerms.length; i++) {
+      if (String(inputPassword).trim() === validPerms[i] || cleanIn === validPerms[i].replace(/[^0-9]/g, "")) {
+        return true;
+      }
+    }
+  }
+
+  const cleanPass = String(inputPassword).replace(/[^0-9]/g, "");
+  const cleanSaved = String(storedDate).replace(/[^0-9]/g, "");
+  return cleanPass === cleanSaved;
+}
+
+function findStudentByCredentials(username, password) {
+  const cleanUsername = (username || "").toUpperCase().trim();
+  return AppState.students.find(s => {
+    const sUser = (s.username || "").toUpperCase().trim();
+    let userMatches = sUser === cleanUsername;
+
+    // Cek kemungkinan username versi lama atau regenerasi
+    if (!userMatches && s.nama && s.tanggalLahir) {
+      const genUser = generateUsername(s.nama, s.tanggalLahir);
+      if (genUser === cleanUsername) userMatches = true;
+    }
+
+    if (!userMatches) return false;
+
+    // Periksa password dengan verifikasi tanggal lahir fleksibel
+    return isDatePasswordMatching(password, s.password) || isDatePasswordMatching(password, s.tanggalLahir);
+  });
+}
+
+async function handleStudentLogin(e) {
   e.preventDefault();
   const username = document.getElementById("login-username").value.trim().toUpperCase();
   const password = document.getElementById("login-password").value.trim();
@@ -6779,23 +6870,19 @@ function handleStudentLogin(e) {
     return;
   }
 
-  // Cek pada data Siswa (dukung username DDMMYYYY baru maupun MMDDYYYY lama)
-  const cleanPassInput = password.replace(/[^0-9]/g, "");
-  const found = AppState.students.find(s => {
-    const sUser = (s.username || "").toUpperCase().trim();
-    if (sUser !== username) {
-      // Cek apakah username cocok dengan hasil generate ulang format DDMMYYYY
-      if (s.nama && s.tanggalLahir) {
-        const genUser = generateUsername(s.nama, s.tanggalLahir);
-        if (genUser !== username) return false;
-      } else {
-        return false;
-      }
+  // 1. Cek pada data lokal
+  let found = findStudentByCredentials(username, password);
+
+  // 2. Jika belum ditemukan lokal dan URL GAS tersedia, sinkronkan dari Google Spreadsheet
+  if (!found && AppState.gasUrl) {
+    showToast("Memeriksa akun di Google Spreadsheet...", "info");
+    try {
+      await fetchStudentsFromGAS();
+      found = findStudentByCredentials(username, password);
+    } catch (err) {
+      console.warn("GAS student fetch error during login:", err);
     }
-    const cleanSavedPass = (s.password || "").replace(/[^0-9]/g, "");
-    const cleanTgl = (s.tanggalLahir || "").replace(/[^0-9]/g, "");
-    return s.password === password || cleanPassInput === cleanSavedPass || cleanPassInput === cleanTgl;
-  });
+  }
 
   if (found) {
     loginUser(found);
@@ -6803,7 +6890,7 @@ function handleStudentLogin(e) {
     document.getElementById("form-login").reset();
     showToast(`Selamat datang kembali, ${found.nama}!`, "success");
   } else {
-    showToast("Username atau Tanggal Lahir tidak cocok! Pastikan sudah mendaftar.", "danger");
+    showToast("Username atau Tanggal Lahir (Password) tidak cocok! Pastikan tanggal lahir sesuai saat mendaftar.", "danger");
   }
 }
 
@@ -7925,6 +8012,45 @@ function testGasConnection() {
       if (statusElem) statusElem.innerText = "Koneksi Offline / Lokal";
       if (dot) dot.className = "dot-indicator";
     });
+}
+
+async function fetchStudentsFromGAS() {
+  if (!AppState.gasUrl) return;
+  try {
+    const res = await fetch(`${AppState.gasUrl}?action=getStudents`);
+    const data = await res.json();
+    if (data && data.status === "success" && Array.isArray(data.students)) {
+      let updated = false;
+      data.students.forEach(remoteStudent => {
+        const idx = AppState.students.findIndex(s => (s.username || "").toUpperCase() === (remoteStudent.username || "").toUpperCase());
+        if (idx >= 0) {
+          AppState.students[idx] = Object.assign({}, AppState.students[idx], remoteStudent);
+        } else {
+          AppState.students.push(remoteStudent);
+          updated = true;
+        }
+      });
+      if (updated) {
+        saveStudentsToStorage();
+      }
+    }
+  } catch (err) {
+    console.log("Could not fetch remote students from GAS:", err);
+  }
+}
+
+async function fetchScoresFromGAS() {
+  if (!AppState.gasUrl) return;
+  try {
+    const res = await fetch(`${AppState.gasUrl}?action=getScores`);
+    const data = await res.json();
+    if (data && data.status === "success" && Array.isArray(data.scores)) {
+      AppState.scores = data.scores;
+      saveScoresToStorage();
+    }
+  } catch (err) {
+    console.log("Could not fetch remote scores from GAS:", err);
+  }
 }
 
 function syncStudentToGAS(student) {

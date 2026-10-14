@@ -51,6 +51,7 @@ function doGet(e) {
           students.push({
             timestamp: row[0],
             username: row[1],
+            password: row[2],
             nama: row[3],
             tingkat: row[4],
             fase: row[5],
@@ -254,13 +255,9 @@ function doPost(e) {
         const p = String(row[2] || "").trim();
         const tgl = String(row[8] || "").trim();
         
-        // Cek kecocokan username dan password (bisa tanggal lahir atau format mmddyyyy)
+        // Cek kecocokan username dan password (bisa format DDMMYYYY, YYYY-MM-DD, dsb.)
         if (u === usernameInput) {
-          const cleanPInput = passwordInput.replace(/[^0-9]/g, "");
-          const cleanPRow = p.replace(/[^0-9]/g, "");
-          const cleanTgl = tgl.replace(/[^0-9]/g, "");
-          
-          if (p === passwordInput || cleanPInput === cleanPRow || cleanPInput === cleanTgl) {
+          if (isDatePasswordMatching(passwordInput, p) || isDatePasswordMatching(passwordInput, tgl)) {
             return jsonResponse({
               status: "success",
               role: row[9] || "Siswa",
@@ -318,3 +315,56 @@ function jsonResponse(data) {
   return ContentService.createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
+/**
+ * Validasi password tanggal lahir fleksibel (mendukung DDMMYYYY, YYYY-MM-DD, dsb.)
+ */
+function isDatePasswordMatching(inputPassword, storedDate) {
+  if (!inputPassword || !storedDate) return false;
+  if (String(inputPassword).trim() === String(storedDate).trim()) return true;
+
+  let sDay = "", sMonth = "", sYear = "";
+  const sStr = String(storedDate).trim();
+  if (sStr.includes("-")) {
+    const parts = sStr.split("-");
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        sYear = parts[0]; sMonth = parts[1].padStart(2, "0"); sDay = parts[2].padStart(2, "0");
+      } else {
+        sDay = parts[0].padStart(2, "0"); sMonth = parts[1].padStart(2, "0"); sYear = parts[2];
+      }
+    }
+  } else if (sStr.includes("/")) {
+    const parts = sStr.split("/");
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        sYear = parts[0]; sMonth = parts[1].padStart(2, "0"); sDay = parts[2].padStart(2, "0");
+      } else {
+        sDay = parts[0].padStart(2, "0"); sMonth = parts[1].padStart(2, "0"); sYear = parts[2];
+      }
+    }
+  }
+
+  if (sDay && sMonth && sYear) {
+    const validPerms = [
+      sDay + sMonth + sYear,
+      sYear + sMonth + sDay,
+      sMonth + sDay + sYear,
+      sDay + "-" + sMonth + "-" + sYear,
+      sYear + "-" + sMonth + "-" + sDay,
+      sDay + "/" + sMonth + "/" + sYear,
+      sYear + "/" + sMonth + "/" + sDay
+    ];
+    const cleanIn = String(inputPassword).replace(/[^0-9]/g, "");
+    for (let i = 0; i < validPerms.length; i++) {
+      if (String(inputPassword).trim() === validPerms[i] || cleanIn === validPerms[i].replace(/[^0-9]/g, "")) {
+        return true;
+      }
+    }
+  }
+
+  const cleanPass = String(inputPassword).replace(/[^0-9]/g, "");
+  const cleanSaved = String(storedDate).replace(/[^0-9]/g, "");
+  return cleanPass === cleanSaved;
+}
+
