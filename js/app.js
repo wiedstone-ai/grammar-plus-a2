@@ -11,7 +11,7 @@ const APP_CONFIG = {
   spreadsheetId: "1R_xCBJWrWJvttCYMzt07mZnOe_DimvH9TJX8MgPezBg",
   minPassingScore: 75, // KKM 75%
   defaultTeacherPin: "GURU123",
-  defaultScriptUrl: "https://script.google.com/macros/s/AKfycbx0q6Vq4g0zR7z0v4t0u_grammar_placeholder/exec"
+  defaultScriptUrl: "https://script.google.com/macros/s/AKfycbyF0aeMBvjnKYHWY9bWYesGhMH_hSLT1Da04PbFLFIOzjXFF5pKvezNKTMMKPZpqHRj/exec"
 };
 
 // State Aplikasi
@@ -1585,7 +1585,10 @@ function testGasConnection() {
       if (data.status === "success") {
         if (statusElem) statusElem.innerText = "Google Sheet Terhubung";
         if (dot) dot.className = "dot-indicator online";
-        showToast("Koneksi Google Spreadsheet Aktif!", "success");
+        showToast("Koneksi Google Spreadsheet Aktif! Menyinkronkan data lokal...", "success");
+        syncAllLocalDataToGAS();
+        fetchStudentsFromGAS();
+        fetchScoresFromGAS();
       } else {
         throw new Error(data.message);
       }
@@ -1594,6 +1597,17 @@ function testGasConnection() {
       if (statusElem) statusElem.innerText = "Koneksi Offline / Lokal";
       if (dot) dot.className = "dot-indicator";
     });
+}
+
+function syncAllLocalDataToGAS() {
+  if (!AppState.gasUrl) return;
+  const pendingStudents = AppState.students.filter(s => s.role !== "Guru");
+  if (pendingStudents.length > 0) {
+    pendingStudents.forEach(st => syncStudentToGAS(st));
+  }
+  if (AppState.scores && AppState.scores.length > 0) {
+    AppState.scores.forEach(sc => syncScoreToGAS(sc));
+  }
 }
 
 async function fetchStudentsFromGAS() {
