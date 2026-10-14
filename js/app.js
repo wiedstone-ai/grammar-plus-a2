@@ -121,7 +121,11 @@ function switchTab(targetId) {
   if (targetLink) targetLink.classList.add("active");
 
   // Hook render data
-  if (targetId === "section-capaian") {
+  if (targetId === "section-latihan") {
+    const sel = document.getElementById("exercise-unit-select");
+    const currentUnitId = AppState.selectedUnit ? AppState.selectedUnit.id : (sel ? parseInt(sel.value, 10) || 1 : 1);
+    loadUnitExercises(currentUnitId, false);
+  } else if (targetId === "section-capaian") {
     renderStudentRecord();
   } else if (targetId === "section-guru") {
     renderTeacherDashboard();
@@ -433,8 +437,14 @@ function showSuccessCardModal(student) {
           <div><strong>Nama:</strong> ${student.nama}</div>
           <div><strong>Kelas:</strong> Tingkat ${student.tingkat} | Fase ${student.fase} | Rombel ${student.rombel} | Presensi ${student.presensi}</div>
         </div>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <button class="btn btn-primary btn-lg" style="width: 100%; font-weight: 700;" onclick="closeModal('modal-account-card'); loadUnitExercises(1); switchTab('section-latihan');">
+          🚀 Mulai Kerjakan Latihan Sekarang &rarr;
+        </button>
+        <button class="btn btn-secondary" style="width: 100%;" onclick="copyUsername('${student.username}')">
+          📋 Salin Username Saya
+        </button>
       </div>
-      <button class="btn btn-primary" style="width: 100%;" onclick="copyUsername('${student.username}')">Salin Username Saya</button>
     `;
     openModal("modal-account-card");
   }
@@ -572,9 +582,15 @@ function closeUnitDetail() {
 // ==========================================
 // 5. ENGINE LATIHAN INTERAKTIF & PENILAIAN
 // ==========================================
-function loadUnitExercises(unitId) {
-  const unit = window.GRAMMAR_UNITS.find(u => u.id === unitId);
+function loadUnitExercises(unitId, shouldSwitchTab = true) {
+  const units = (window.ExercisesStore && window.ExercisesStore.getAllUnits()) || window.GRAMMAR_UNITS || [];
+  let unit = units.find(u => u.id === Number(unitId));
+  if (!unit && units.length > 0) {
+    unit = units[0];
+  }
   if (!unit) return;
+
+  AppState.selectedUnit = unit;
 
   // Cek apakah siswa sudah login
   if (!AppState.currentUser) {
@@ -583,11 +599,13 @@ function loadUnitExercises(unitId) {
     return;
   }
 
-  switchTab("section-latihan");
+  if (shouldSwitchTab) {
+    switchTab("section-latihan");
+  }
 
   const selector = document.getElementById("exercise-unit-select");
-  if (selector) {
-    selector.value = String(unitId);
+  if (selector && selector.value !== String(unit.id)) {
+    selector.value = String(unit.id);
   }
 
   renderExerciseForUnit(unit);
@@ -602,23 +620,36 @@ function renderExerciseForUnit(unit) {
     return;
   }
 
+  AppState.selectedUnit = unit;
+
+  // Cek progress siswa untuk menampilkan checklist jika sudah selesai
+  const completedIds = (window.ExercisesStore && AppState.currentUser)
+    ? window.ExercisesStore.getUserCompletedExercises(AppState.currentUser.username)
+    : [];
+
   container.innerHTML = `
     <div class="card" style="border-top: 4px solid #2563EB;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
         <div>
           <span class="badge badge-primary">Unit ${unit.id}</span>
           <h2 style="font-size: 1.3rem; font-weight: 800; color: #0F172A; margin-top: 0.25rem;">${unit.title}</h2>
+          <span style="font-size: 0.825rem; color: #64748B;">Materi & Latihan Resmi Buku Grammar Plus A2 (${unit.exercises.length} Latihan)</span>
         </div>
       </div>
 
-      <div class="exercise-tabs" style="display: flex; gap: 0.5rem; border-bottom: 1px solid #CBD5E1; padding-bottom: 0.5rem; margin-bottom: 1.25rem; overflow-x: auto;">
-        ${unit.exercises.map((ex, idx) => `
-          <button class="btn btn-secondary btn-sm ex-tab-btn ${idx === 0 ? 'btn-primary' : ''}" 
-                  onclick="selectExerciseTab('${ex.id}', ${unit.id})" 
-                  id="tab-btn-${ex.id}">
-            ${ex.title.split(":")[0]}
-          </button>
-        `).join("")}
+      <div class="exercise-tabs" style="display: flex; gap: 0.4rem; border-bottom: 1px solid #CBD5E1; padding-bottom: 0.6rem; margin-bottom: 1.25rem; overflow-x: auto; flex-wrap: wrap;">
+        ${unit.exercises.map((ex, idx) => {
+          const isDone = completedIds.includes(ex.id);
+          const tabLabel = ex.title.split(":")[0];
+          return `
+            <button class="btn btn-secondary btn-sm ex-tab-btn ${idx === 0 ? 'btn-primary' : ''}" 
+                    onclick="selectExerciseTab('${ex.id}', ${unit.id})" 
+                    id="tab-btn-${ex.id}"
+                    style="margin-bottom: 0.25rem;">
+              ${isDone ? '✓ ' : ''}${tabLabel} ${ex.page ? `(Hal ${ex.page})` : ''}
+            </button>
+          `;
+        }).join("")}
       </div>
 
       <div id="active-exercise-container">
@@ -632,7 +663,8 @@ function renderExerciseForUnit(unit) {
 }
 
 function selectExerciseTab(exId, unitId) {
-  const unit = window.GRAMMAR_UNITS.find(u => u.id === unitId);
+  const units = (window.ExercisesStore && window.ExercisesStore.getAllUnits()) || window.GRAMMAR_UNITS || [];
+  const unit = units.find(u => u.id === Number(unitId)) || AppState.selectedUnit;
   if (!unit) return;
   const ex = unit.exercises.find(e => e.id === exId);
   if (!ex) return;
@@ -655,13 +687,39 @@ function renderSingleExercise(exercise, unit) {
   if (!container) return;
 
   AppState.selectedExercise = exercise;
+  AppState.selectedUnit = unit;
+
+  let audioHtml = "";
+  if (exercise.audioTrack) {
+    const transcript = (window.AUDIO_TRANSCRIPTS || []).find(t => t.track.toLowerCase().includes(exercise.audioTrack.toLowerCase()));
+    const safeTrackId = exercise.audioTrack.replace(/[^a-zA-Z0-9]/g, "");
+    audioHtml = `
+      <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-size: 1.25rem;">🎧</span>
+          <span style="font-weight: 700; color: #1E3A8A; font-size: 0.9rem;">Latihan Listening: ${exercise.audioTrack}</span>
+        </div>
+        ${transcript ? `
+          <button type="button" class="btn btn-secondary btn-sm" onclick="toggleAudioTranscript('${safeTrackId}')">
+            📜 Lihat / Sembunyikan Naskah Audio
+          </button>
+        ` : ''}
+      </div>
+      ${transcript ? `
+        <div id="transcript-box-${safeTrackId}" style="display: none; background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.85rem; color: #334155; line-height: 1.6;">
+          <strong>Naskah Rekaman (${transcript.track}):</strong>
+          <pre style="white-space: pre-wrap; font-family: inherit; margin-top: 0.5rem; font-size: 0.825rem; color: #1E293B;">${transcript.content}</pre>
+        </div>
+      ` : ''}
+    `;
+  }
 
   let questionsHtml = "";
   if (exercise.type === "fill") {
     questionsHtml = exercise.questions.map((q, idx) => `
       <div class="question-item" id="q-box-${idx}">
-        <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off">`)}</div>
-        ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B;">Petunjuk: ${q.hint}</div>` : ''}
+        <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off">`)}</div>
+        ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.25rem;">💡 Petunjuk: ${q.hint}</div>` : ''}
         <div class="feedback-box" id="feedback-q-${idx}"></div>
       </div>
     `).join("");
@@ -678,6 +736,7 @@ function renderSingleExercise(exercise, unit) {
           `).join("")}
         </div>
         <input type="hidden" id="answer-q-${idx}" value="">
+        ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.25rem;">💡 Petunjuk: ${q.hint}</div>` : ''}
         <div class="feedback-box" id="feedback-q-${idx}"></div>
       </div>
     `).join("");
@@ -689,6 +748,7 @@ function renderSingleExercise(exercise, unit) {
       <span class="badge badge-primary">${exercise.questions.length} Butir Soal</span>
     </div>
     <p class="exercise-instruction">${exercise.instruction}</p>
+    ${audioHtml}
 
     <form id="exercise-form" onsubmit="submitExerciseGrade(event)">
       ${questionsHtml}
@@ -707,6 +767,13 @@ function renderSingleExercise(exercise, unit) {
       <!-- Hasil Penilaian Muncul Di Sini -->
     </div>
   `;
+}
+
+function toggleAudioTranscript(safeTrackId) {
+  const box = document.getElementById(`transcript-box-${safeTrackId}`);
+  if (box) {
+    box.style.display = box.style.display === "none" ? "block" : "none";
+  }
 }
 
 function selectOption(qIdx, optionValue) {
@@ -743,14 +810,31 @@ function submitExerciseGrade(e) {
     let userAnswer = "";
     if (exercise.type === "fill") {
       const inp = document.getElementById(`input-q-${idx}`);
-      userAnswer = inp ? inp.value.trim() : "";
+      const inpB = document.getElementById(`input-q-${idx}-b`);
+      const inpC = document.getElementById(`input-q-${idx}-c`);
+      if (inpC && inpC.value.trim()) {
+        userAnswer = `${inp ? inp.value.trim() : ''}, ${inpB ? inpB.value.trim() : ''}, ${inpC.value.trim()}`;
+      } else if (inpB && inpB.value.trim()) {
+        userAnswer = `${inp ? inp.value.trim() : ''}, ${inpB.value.trim()}`;
+      } else {
+        userAnswer = inp ? inp.value.trim() : "";
+      }
     } else {
       const hidden = document.getElementById(`answer-q-${idx}`);
       userAnswer = hidden ? hidden.value.trim() : "";
     }
 
     const expected = (q.answer || "").trim();
-    const isCorrect = isAnswerMatching(userAnswer, expected);
+    let isCorrect = isAnswerMatching(userAnswer, expected);
+
+    if (!isCorrect && q.alternateAnswers && Array.isArray(q.alternateAnswers)) {
+      for (const alt of q.alternateAnswers) {
+        if (isAnswerMatching(userAnswer, alt)) {
+          isCorrect = true;
+          break;
+        }
+      }
+    }
 
     if (isCorrect) correctCount++;
 
@@ -800,6 +884,18 @@ function submitExerciseGrade(e) {
     `;
   }
 
+  // Simpan progress persistent di ExercisesStore
+  if (window.ExercisesStore && AppState.currentUser) {
+    ExercisesStore.saveProgress(
+      AppState.currentUser.username,
+      exercise.id,
+      correctCount,
+      total,
+      `${percentage}%`,
+      isPassed ? "LULUS" : "REMIDI"
+    );
+  }
+
   // Simpan ke Rekaman Nilai
   const scoreRecord = {
     timestamp: new Date().toLocaleString("id-ID"),
@@ -829,9 +925,27 @@ function submitExerciseGrade(e) {
 
 function isAnswerMatching(user, expected) {
   if (!user || !expected) return false;
-  const cleanU = user.toLowerCase().replace(/['"`\s]/g, "");
-  const cleanE = expected.toLowerCase().replace(/['"`\s]/g, "");
-  return cleanU === cleanE;
+  const normalize = (str) => {
+    return String(str)
+      .toLowerCase()
+      .trim()
+      .replace(/[’‘`]/g, "'")
+      .replace(/["“”]/g, '"')
+      .replace(/[.,!?;:]+$/g, "")
+      .replace(/^['"]|['"]$/g, "")
+      .replace(/\s+/g, " ")
+      .replace(/cannot/g, "can't")
+      .trim();
+  };
+
+  const uNorm = normalize(user);
+  const eNorm = normalize(expected);
+
+  if (uNorm === eNorm) return true;
+
+  const uClean = uNorm.replace(/[^a-z0-9]/g, "");
+  const eClean = eNorm.replace(/[^a-z0-9]/g, "");
+  return uClean.length > 0 && uClean === eClean;
 }
 
 function resetCurrentExercise() {
