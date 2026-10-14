@@ -6429,7 +6429,7 @@ const APP_CONFIG = {
   spreadsheetId: "1R_xCBJWrWJvttCYMzt07mZnOe_DimvH9TJX8MgPezBg",
   minPassingScore: 75, // KKM 75%
   defaultTeacherPin: "GURU123",
-  defaultScriptUrl: "https://script.google.com/macros/s/AKfycbwZVZwuorMf9JZI97dnQqnBkpYxwAXBRsM9dcsoIja36O7EIFpV_9u448GqiQ30_jYM/exec"
+  defaultScriptUrl: "https://script.google.com/macros/s/AKfycbyGvEuuPCNKNwsFHt7qF976ahspzuAIGNKZ2-wSaSc3YjjWjhFAlNHsLx3VmEEpc-Cn/exec"
 };
 
 // State Aplikasi
@@ -6776,7 +6776,17 @@ function isDatePasswordMatching(inputPassword, storedDate) {
 
   let sDay = "", sMonth = "", sYear = "";
   const sStr = String(storedDate).trim();
-  if (sStr.includes("-")) {
+
+  // Dukung tanggal format ISO dari Google Sheet Date object (misal: 1979-05-18T17:00:00.000Z UTC -> 19-05-1979 WIB)
+  if (sStr.includes("T")) {
+    const d = new Date(sStr);
+    if (!isNaN(d.getTime())) {
+      const local = new Date(d.getTime() + (7 * 3600 * 1000));
+      sYear = String(local.getUTCFullYear());
+      sMonth = String(local.getUTCMonth() + 1).padStart(2, "0");
+      sDay = String(local.getUTCDate()).padStart(2, "0");
+    }
+  } else if (sStr.includes("-")) {
     const parts = sStr.split("-");
     if (parts.length === 3) {
       if (parts[0].length === 4) {
@@ -6842,8 +6852,19 @@ function findStudentByCredentials(username, password) {
 
     if (!userMatches) return false;
 
-    // Periksa password dengan verifikasi tanggal lahir fleksibel
-    return isDatePasswordMatching(password, s.password) || isDatePasswordMatching(password, s.tanggalLahir);
+    // 1. Periksa password dengan verifikasi tanggal lahir fleksibel
+    if (isDatePasswordMatching(password, s.password) || isDatePasswordMatching(password, s.tanggalLahir)) {
+      return true;
+    }
+
+    // 2. Jika input password cocok dengan 8 angka tanggal lahir pada username itu sendiri
+    const usernameDateDigits = (s.username || "").replace(/[^0-9]/g, "");
+    const inputDigits = String(password).replace(/[^0-9]/g, "");
+    if (usernameDateDigits.length >= 8 && inputDigits.length >= 8) {
+      if (usernameDateDigits.substring(0, 8) === inputDigits.substring(0, 8)) return true;
+    }
+
+    return false;
   });
 }
 
