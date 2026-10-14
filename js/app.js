@@ -25,10 +25,32 @@ const AppState = {
   scores: []
 };
 
+// Helper untuk mengambil seluruh unit secara aman
+function getGrammarUnits() {
+  if (typeof window !== "undefined" && window.ExercisesStore && typeof window.ExercisesStore.getAllUnits === "function") {
+    const su = window.ExercisesStore.getAllUnits();
+    if (su && su.length > 0) return su;
+  }
+  if (typeof ExercisesStore !== "undefined" && typeof ExercisesStore.getAllUnits === "function") {
+    const su = ExercisesStore.getAllUnits();
+    if (su && su.length > 0) return su;
+  }
+  if (typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS) && window.GRAMMAR_UNITS.length > 0) {
+    return window.GRAMMAR_UNITS;
+  }
+  if (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS) && GRAMMAR_UNITS.length > 0) {
+    return GRAMMAR_UNITS;
+  }
+  return [];
+}
+
 // ==========================================
 // 1. INISIALISASI SAAT HALAMAN DIMUAT
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
+  if (typeof ExercisesStore !== "undefined" && typeof ExercisesStore.init === "function") {
+    ExercisesStore.init();
+  }
   initStorage();
   initNavigation();
   initAuthUI();
@@ -39,6 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Render awal
   checkActiveSession();
   renderUnitGrid();
+
+  // Retry render jika data units masih proses parse di browser
+  setTimeout(() => {
+    const grid = document.getElementById("unit-grid-container");
+    if (grid && (!grid.children || grid.children.length === 0)) {
+      renderUnitGrid();
+    }
+  }, 250);
 });
 
 function initStorage() {
@@ -105,10 +135,13 @@ function switchTab(targetId) {
     return;
   }
   
-  // Guard untuk Guru Portal
-  if (targetId === "section-guru" && (!AppState.currentUser || AppState.currentUser.role !== "Guru")) {
-    openModal("modal-guru-auth");
-    return;
+  // Guard ketat untuk Guru Portal & Database Pengaturan (Siswa TIDAK BOLEH mengakses database)
+  if (targetId === "section-guru" || targetId === "section-pengaturan") {
+    if (!AppState.currentUser || AppState.currentUser.role !== "Guru") {
+      openModal("modal-guru-auth");
+      showToast("Akses Terbatas: Hanya Guru yang berhak mengakses portal dan database!", "warning");
+      return;
+    }
   }
 
   document.querySelectorAll(".tab-section").forEach(sec => sec.classList.remove("active"));
@@ -121,7 +154,9 @@ function switchTab(targetId) {
   if (targetLink) targetLink.classList.add("active");
 
   // Hook render data
-  if (targetId === "section-latihan") {
+  if (targetId === "section-materi") {
+    renderUnitGrid();
+  } else if (targetId === "section-latihan") {
     const sel = document.getElementById("exercise-unit-select");
     const currentUnitId = AppState.selectedUnit ? AppState.selectedUnit.id : (sel ? parseInt(sel.value, 10) || 1 : 1);
     loadUnitExercises(currentUnitId, false);
@@ -177,12 +212,13 @@ function initAuthUI() {
 /**
  * FORMULA PEMBUATAN USERNAME:
  * - 3 huruf depan nama lengkap (huruf kapital)
- * - Tanggal lahir format MMDDYYYY disambung
+ * - Tanggal lahir format DDMMYYYY disambung (Hari, Bulan, Tahun)
+ * - Contoh: WIED lahir 19 Mei 1979 -> WIE19051979
  * - Jika ada tabrakan (sama), tambahkan akhiran A, B, C, dst.
  */
 function generateUsername(nama, tanggalLahir) {
   // Bersihkan nama (hanya huruf)
-  const cleanNama = nama.replace(/[^A-Za-z]/g, "").toUpperCase();
+  const cleanNama = (nama || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   const prefix3 = (cleanNama.length >= 3 ? cleanNama.substring(0, 3) : cleanNama.padEnd(3, "X")).toUpperCase();
 
   // Parse tanggal lahir: format HTML date picker biasanya 'YYYY-MM-DD'
@@ -202,17 +238,18 @@ function generateUsername(nama, tanggalLahir) {
       yyyy = parts[2];
     }
   } else {
-    // string mentah
+    // string mentah format DDMMYYYY
     const digits = tanggalLahir.replace(/[^0-9]/g, "");
     if (digits.length >= 8) {
-      mm = digits.substring(0, 2);
-      dd = digits.substring(2, 4);
+      dd = digits.substring(0, 2);
+      mm = digits.substring(2, 4);
       yyyy = digits.substring(4, 8);
     }
   }
 
-  const mmddyyyy = `${mm}${dd}${yyyy}`;
-  const baseUsername = `${prefix3}${mmddyyyy}`;
+  // Gunakan DDMMYYYY sesuai permintaan
+  const ddmmyyyy = `${dd}${mm}${yyyy}`;
+  const baseUsername = `${prefix3}${ddmmyyyy}`;
 
   // Ambil semua username yang sudah ada di database lokal
   const existingUsernames = AppState.students.map(s => (s.username || "").toUpperCase().trim());
@@ -324,10 +361,19 @@ function handleStudentLogin(e) {
     return;
   }
 
-  // Cek pada data Siswa
+  // Cek pada data Siswa (dukung username DDMMYYYY baru maupun MMDDYYYY lama)
   const cleanPassInput = password.replace(/[^0-9]/g, "");
   const found = AppState.students.find(s => {
-    if ((s.username || "").toUpperCase().trim() !== username) return false;
+    const sUser = (s.username || "").toUpperCase().trim();
+    if (sUser !== username) {
+      // Cek apakah username cocok dengan hasil generate ulang format DDMMYYYY
+      if (s.nama && s.tanggalLahir) {
+        const genUser = generateUsername(s.nama, s.tanggalLahir);
+        if (genUser !== username) return false;
+      } else {
+        return false;
+      }
+    }
     const cleanSavedPass = (s.password || "").replace(/[^0-9]/g, "");
     const cleanTgl = (s.tanggalLahir || "").replace(/[^0-9]/g, "");
     return s.password === password || cleanPassInput === cleanSavedPass || cleanPassInput === cleanTgl;
@@ -381,6 +427,26 @@ function checkActiveSession() {
   if (session) {
     try {
       AppState.currentUser = JSON.parse(session);
+      // Migrasi otomatis username siswa ke format DDMMYYYY jika sebelumnya terdaftar MMDDYYYY
+      if (AppState.currentUser && AppState.currentUser.role === "Siswa" && AppState.currentUser.nama && AppState.currentUser.tanggalLahir) {
+        const correctUser = generateUsername(AppState.currentUser.nama, AppState.currentUser.tanggalLahir);
+        if (AppState.currentUser.username !== correctUser) {
+          const oldUser = AppState.currentUser.username;
+          console.log(`Auto-migrating username from ${oldUser} to ${correctUser}`);
+          AppState.currentUser.username = correctUser;
+          localStorage.setItem("grammar_a2_session", JSON.stringify(AppState.currentUser));
+
+          const sRec = AppState.students.find(s => s.username === oldUser);
+          if (sRec) {
+            sRec.username = correctUser;
+            saveStudentsToStorage();
+          }
+
+          if (window.ExercisesStore && typeof window.ExercisesStore.migrateUserProgress === "function") {
+            window.ExercisesStore.migrateUserProgress(oldUser, correctUser);
+          }
+        }
+      }
     } catch (e) {
       AppState.currentUser = null;
     }
@@ -393,11 +459,26 @@ function updateUserStatusUI() {
   const statusContainer = document.getElementById("header-auth-status");
   const lockBanners = document.querySelectorAll(".lock-banner");
   const lockedContents = document.querySelectorAll(".locked-content");
+  const dbSyncBanner = document.getElementById("db-sync-banner");
+  const navSettings = document.querySelector('.nav-link[data-target="section-pengaturan"]');
+  const navGuru = document.querySelector('.nav-link[data-target="section-guru"]');
+
+  const isGuru = user && user.role === "Guru";
+
+  // Privasi Siswa: Sembunyikan Database Google Sheet dan Portal Guru dari Siswa
+  if (dbSyncBanner) {
+    dbSyncBanner.style.display = isGuru ? "block" : "none";
+  }
+  if (navSettings) {
+    navSettings.style.display = isGuru ? "inline-flex" : "none";
+  }
+  if (navGuru) {
+    navGuru.style.display = isGuru ? "inline-flex" : "none";
+  }
 
   if (!statusContainer) return;
 
   if (user) {
-    const isGuru = user.role === "Guru";
     statusContainer.innerHTML = `
       <div class="user-badge ${isGuru ? 'role-guru' : ''}">
         <span>${isGuru ? '👨‍🏫 Guru' : '🎓 Siswa'}: <strong>${user.nama}</strong> (${user.username})</span>
@@ -471,9 +552,20 @@ function initUnitBrowser() {
 
 function renderUnitGrid(filterKeyword = "") {
   const container = document.getElementById("unit-grid-container");
-  if (!container || !window.GRAMMAR_UNITS) return;
+  if (!container) return;
 
-  const filtered = window.GRAMMAR_UNITS.filter(u => {
+  const allUnits = getGrammarUnits();
+  if (!allUnits || allUnits.length === 0) {
+    setTimeout(() => {
+      const retryUnits = getGrammarUnits();
+      if (retryUnits && retryUnits.length > 0) {
+        renderUnitGrid(filterKeyword);
+      }
+    }, 200);
+    return;
+  }
+
+  const filtered = allUnits.filter(u => {
     const combined = `${u.id} ${u.title} ${u.english_title} ${u.category}`.toLowerCase();
     return combined.includes(filterKeyword);
   });
@@ -502,7 +594,8 @@ function renderUnitGrid(filterKeyword = "") {
 }
 
 function openUnitDetail(unitId) {
-  const unit = window.GRAMMAR_UNITS.find(u => u.id === unitId);
+  const units = getGrammarUnits();
+  const unit = units.find(u => u.id === Number(unitId));
   if (!unit) return;
 
   AppState.selectedUnit = unit;
@@ -583,12 +676,20 @@ function closeUnitDetail() {
 // 5. ENGINE LATIHAN INTERAKTIF & PENILAIAN
 // ==========================================
 function loadUnitExercises(unitId, shouldSwitchTab = true) {
-  const units = (window.ExercisesStore && window.ExercisesStore.getAllUnits()) || window.GRAMMAR_UNITS || [];
+  const units = getGrammarUnits();
   let unit = units.find(u => u.id === Number(unitId));
   if (!unit && units.length > 0) {
     unit = units[0];
   }
-  if (!unit) return;
+  if (!unit) {
+    setTimeout(() => {
+      const retryUnits = getGrammarUnits();
+      if (retryUnits && retryUnits.length > 0) {
+        loadUnitExercises(unitId, shouldSwitchTab);
+      }
+    }, 200);
+    return;
+  }
 
   AppState.selectedUnit = unit;
 
@@ -663,10 +764,10 @@ function renderExerciseForUnit(unit) {
 }
 
 function selectExerciseTab(exId, unitId) {
-  const units = (window.ExercisesStore && window.ExercisesStore.getAllUnits()) || window.GRAMMAR_UNITS || [];
+  const units = getGrammarUnits();
   const unit = units.find(u => u.id === Number(unitId)) || AppState.selectedUnit;
   if (!unit) return;
-  const ex = unit.exercises.find(e => e.id === exId);
+  const ex = unit.exercises ? unit.exercises.find(e => e.id === exId) : null;
   if (!ex) return;
 
   document.querySelectorAll(".ex-tab-btn").forEach(b => {
@@ -1123,7 +1224,7 @@ function renderTeacherDashboard() {
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">👥 Daftar Murid Terdaftar (${totalSiswa} Murid)</h3>
-        <span class="form-help">Username dihasilkan otomatis sesuai formula 3 huruf + MMDDYYYY</span>
+        <span class="form-help">Username dihasilkan otomatis sesuai formula 3 huruf + DDMMYYYY</span>
       </div>
 
       <div class="table-responsive">

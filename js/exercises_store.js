@@ -4,38 +4,91 @@
  */
 
 const ExercisesStore = {
-  STORAGE_KEY: "grammar_a2_exercises_v2",
+  STORAGE_KEY: "grammar_a2_exercises_v2.2",
   PROGRESS_KEY: "grammar_a2_progress_v2",
   db: null,
 
+  _getStorage(key) {
+    try {
+      if (typeof window !== "undefined" && window.localStorage) {
+        return window.localStorage.getItem(key);
+      }
+      if (typeof localStorage !== "undefined") {
+        return localStorage.getItem(key);
+      }
+    } catch (e) {
+      return null;
+    }
+    return null;
+  },
+
+  _setStorage(key, value) {
+    try {
+      if (typeof window !== "undefined" && window.localStorage) {
+        window.localStorage.setItem(key, value);
+        return true;
+      }
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem(key, value);
+        return true;
+      }
+    } catch (e) {
+      console.warn("Could not save to localStorage:", e);
+      return false;
+    }
+    return false;
+  },
+
   init() {
     try {
-      const stored = localStorage.getItem(this.STORAGE_KEY);
+      const sourceUnits = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
+        ? GRAMMAR_UNITS
+        : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
+
+      const stored = this._getStorage(this.STORAGE_KEY);
       if (stored) {
-        this.db = JSON.parse(stored);
-        // Sync window.GRAMMAR_UNITS with persistent DB
-        if (this.db && Array.isArray(this.db.units)) {
-          window.GRAMMAR_UNITS = this.db.units;
+        const parsed = JSON.parse(stored);
+        if (parsed && Array.isArray(parsed.units) && parsed.units.length >= 24) {
+          const u1 = parsed.units.find(u => u.id === 1);
+          if (u1 && u1.exercises && u1.exercises.length >= 9) {
+            this.db = parsed;
+            if (typeof window !== "undefined") window.GRAMMAR_UNITS = this.db.units;
+            return;
+          }
         }
-      } else if (window.GRAMMAR_UNITS) {
+      }
+
+      // Initialize from sourceUnits
+      if (sourceUnits && sourceUnits.length > 0) {
         this.db = {
-          version: "2.0.0",
+          version: "2.2.0",
           updatedAt: new Date().toISOString(),
-          units: window.GRAMMAR_UNITS
+          units: sourceUnits
         };
-        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.db));
+        if (typeof window !== "undefined") window.GRAMMAR_UNITS = sourceUnits;
+        this._setStorage(this.STORAGE_KEY, JSON.stringify(this.db));
       }
     } catch (e) {
       console.warn("ExercisesStore init warning:", e);
-      if (window.GRAMMAR_UNITS) {
-        this.db = { version: "2.0.0", units: window.GRAMMAR_UNITS };
-      }
+      const fallback = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
+        ? GRAMMAR_UNITS
+        : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
+      this.db = { version: "2.2.0", units: fallback };
+      if (typeof window !== "undefined") window.GRAMMAR_UNITS = fallback;
     }
   },
 
   getAllUnits() {
-    if (this.db && this.db.units) return this.db.units;
-    return window.GRAMMAR_UNITS || [];
+    if (this.db && Array.isArray(this.db.units) && this.db.units.length > 0) {
+      return this.db.units;
+    }
+    if (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS) && GRAMMAR_UNITS.length > 0) {
+      return GRAMMAR_UNITS;
+    }
+    if (typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS) && window.GRAMMAR_UNITS.length > 0) {
+      return window.GRAMMAR_UNITS;
+    }
+    return [];
   },
 
   getUnit(unitId) {
@@ -51,7 +104,8 @@ const ExercisesStore = {
   saveProgress(username, exId, score, total, percentage, status) {
     if (!username) return;
     try {
-      const existing = JSON.parse(localStorage.getItem(this.PROGRESS_KEY) || "{}");
+      const raw = this._getStorage(this.PROGRESS_KEY);
+      const existing = JSON.parse(raw || "{}");
       if (!existing[username]) existing[username] = {};
       existing[username][exId] = {
         score,
@@ -60,7 +114,7 @@ const ExercisesStore = {
         status,
         timestamp: new Date().toISOString()
       };
-      localStorage.setItem(this.PROGRESS_KEY, JSON.stringify(existing));
+      this._setStorage(this.PROGRESS_KEY, JSON.stringify(existing));
     } catch (e) {
       console.error("Failed to save progress:", e);
     }
@@ -69,7 +123,8 @@ const ExercisesStore = {
   getProgress(username, exId) {
     if (!username) return null;
     try {
-      const existing = JSON.parse(localStorage.getItem(this.PROGRESS_KEY) || "{}");
+      const raw = this._getStorage(this.PROGRESS_KEY);
+      const existing = JSON.parse(raw || "{}");
       return (existing[username] && existing[username][exId]) ? existing[username][exId] : null;
     } catch (e) {
       return null;
@@ -79,28 +134,58 @@ const ExercisesStore = {
   getUserCompletedExercises(username) {
     if (!username) return [];
     try {
-      const existing = JSON.parse(localStorage.getItem(this.PROGRESS_KEY) || "{}");
+      const raw = this._getStorage(this.PROGRESS_KEY);
+      const existing = JSON.parse(raw || "{}");
       return existing[username] ? Object.keys(existing[username]) : [];
     } catch (e) {
       return [];
     }
   },
 
-  resetToDefault() {
-    if (window.GRAMMAR_UNITS) {
-      this.db = {
-        version: "2.0.0",
-        updatedAt: new Date().toISOString(),
-        units: window.GRAMMAR_UNITS
-      };
-      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.db));
+  migrateUserProgress(oldUsername, newUsername) {
+    if (!oldUsername || !newUsername || oldUsername === newUsername) return;
+    try {
+      const raw = this._getStorage(this.PROGRESS_KEY);
+      const existing = JSON.parse(raw || "{}");
+      if (existing[oldUsername]) {
+        existing[newUsername] = Object.assign({}, existing[oldUsername], existing[newUsername] || {});
+        delete existing[oldUsername];
+        this._setStorage(this.PROGRESS_KEY, JSON.stringify(existing));
+      }
+    } catch (e) {
+      console.warn("Could not migrate progress:", e);
     }
+  },
+
+  resetToDefault() {
+    const sourceUnits = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
+      ? GRAMMAR_UNITS
+      : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
+    this.db = {
+      version: "2.2.0",
+      updatedAt: new Date().toISOString(),
+      units: sourceUnits
+    };
+    if (typeof window !== "undefined") window.GRAMMAR_UNITS = sourceUnits;
+    this._setStorage(this.STORAGE_KEY, JSON.stringify(this.db));
   }
 };
 
-// Auto init when script loads
+// Ensure window & global availability
+if (typeof window !== "undefined") {
+  window.ExercisesStore = ExercisesStore;
+}
+if (typeof global !== "undefined") {
+  global.ExercisesStore = ExercisesStore;
+}
+
+// Immediate init if DOM ready or when DOM loads
 if (typeof document !== "undefined") {
-  document.addEventListener("DOMContentLoaded", () => {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      ExercisesStore.init();
+    });
+  } else {
     ExercisesStore.init();
-  });
+  }
 }

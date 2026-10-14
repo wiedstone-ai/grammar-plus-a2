@@ -4648,3 +4648,15 @@ const AUDIO_TRANSCRIPTS = [
     "content": "Terry: Hi, Diane. Why weren't you at school today?\nDiane: I'm sick. I have the flu. Could you tell me if we have any homework for next week?\nTerry: Yes, there's going to be a Maths test on Tuesday and an English test on Thursday.\nDiane: Thanks! Could you do me a favour, please? Could you take some notes for me?\nTerry: Yes, of course! Get better soon!"
   }
 ];
+
+// Ensure window & global availability across modular scripts
+if (typeof window !== "undefined") {
+  window.GRAMMAR_UNITS = GRAMMAR_UNITS;
+  window.APPENDICES_DATA = typeof APPENDICES_DATA !== "undefined" ? APPENDICES_DATA : null;
+  window.AUDIO_TRANSCRIPTS = AUDIO_TRANSCRIPTS;
+}
+if (typeof global !== "undefined") {
+  global.GRAMMAR_UNITS = GRAMMAR_UNITS;
+  global.APPENDICES_DATA = typeof APPENDICES_DATA !== "undefined" ? APPENDICES_DATA : null;
+  global.AUDIO_TRANSCRIPTS = AUDIO_TRANSCRIPTS;
+}

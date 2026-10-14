@@ -20,13 +20,14 @@ with open("js/app.js", "r", encoding="utf-8") as f:
     app_js = f.read()
 
 # Replace css link with style
-html_standalone = html.replace(
-    '<link rel="stylesheet" href="css/styles.css">',
-    f'<style>\n{css}\n</style>'
+html_standalone = re.sub(
+    r'<link rel="stylesheet" href="css/styles\.css[^"]*">',
+    lambda m: f'<style>\n{css}\n</style>',
+    html
 )
 
 # Replace script tags with inlined scripts
-script_pattern = r'<!-- Scripts -->[\s\S]*?<script src="js/app.js"></script>'
+script_pattern = r'<!-- Scripts -->[\s\S]*?<script src="js/app\.js[^"]*"></script>'
 inlined_scripts = f"""<!-- Inlined Modular Scripts -->
   <script>
 {data_units}

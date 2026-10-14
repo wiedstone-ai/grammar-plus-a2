@@ -136,8 +136,8 @@ function doPost(e) {
         return jsonResponse({ status: "error", message: "Semua kolom pendaftaran wajib diisi!" });
       }
       
-      // Format tanggal lahir untuk username (mmddyyyy)
-      // Contoh input date picker: '2008-05-14' -> mm='05', dd='14', yyyy='2008'
+      // Format tanggal lahir untuk username (ddmmyyyy)
+      // Contoh input date picker: '2008-05-14' -> dd='14', mm='05', yyyy='2008'
       let mm = "", dd = "", yyyy = "";
       if (tanggalLahir.includes("-")) {
         const parts = tanggalLahir.split("-");
@@ -154,19 +154,19 @@ function doPost(e) {
           yyyy = parts[2];
         }
       } else {
-        // Asumsi format mmddyyyy mentah
-        mm = tanggalLahir.slice(0, 2);
-        dd = tanggalLahir.slice(2, 4);
+        // Asumsi format ddmmyyyy mentah
+        dd = tanggalLahir.slice(0, 2);
+        mm = tanggalLahir.slice(2, 4);
         yyyy = tanggalLahir.slice(4);
       }
       
-      const mmddyyyy = (mm + dd + yyyy).replace(/[^0-9]/g, "");
+      const ddmmyyyy = (dd + mm + yyyy).replace(/[^0-9]/g, "");
       
       // Ambil 3 huruf depan nama (hilangkan spasi atau simbol)
       const cleanName = nama.replace(/[^A-Z]/g, "");
       const prefix3 = (cleanName.length >= 3 ? cleanName.substring(0, 3) : cleanName.padEnd(3, "X")).toUpperCase();
       
-      const baseUsername = prefix3 + mmddyyyy;
+      const baseUsername = prefix3 + ddmmyyyy;
       
       // Kumpulkan semua username yang sudah ada untuk memeriksa duplikasi
       const existingUsernames = [];
