@@ -7,78 +7,123 @@
  * 2. Klik menu 'Extensions' (Ekstensi) -> 'Apps Script'.
  * 3. Hapus semua kode default di editor, lalu paste seluruh isi file ini.
  * 4. Klik ikon Save (Disket).
- * 5. Klik tombol biru 'Deploy' (Terapkan) -> 'New deployment' (Penerapan baru).
- * 6. Pada roda gigi 'Select type', pilih 'Web app' (Aplikasi web).
- * 7. Isi:
- *    - Description: Grammar Plus A2 Web API
- *    - Execute as: Me (email Anda)
- *    - Who has access: Anyone (Siapa saja, bahkan anonim - agar murid dari GitHub Pages bisa kirim nilai)
- * 8. Klik 'Deploy'. Salin Web App URL yang berakhiran '/exec'.
- * 9. Tempelkan URL tersebut ke website Anda pada menu 'Pengaturan Database'. Selesai!
+ * 5. Klik tombol biru 'Deploy' (Terapkan) -> 'Manage deployments' (Kelola penerapan).
+ *    Klik ikon Pensil -> Version: 'New version' -> Deploy.
+ *    (Atau jika penerapan pertama: Deploy -> New deployment -> Web app -> Execute as: Me -> Who has access: Anyone -> Deploy).
+ * 6. Salin Web App URL yang berakhiran '/exec'.
+ * 7. Tempelkan URL tersebut ke website Anda pada menu 'Pengaturan Database' (atau biarkan default). Selesai!
  */
 
 const SPREADSHEET_ID = "1R_xCBJWrWJvttCYMzt07mZnOe_DimvH9TJX8MgPezBg";
 
 function getSpreadsheet() {
   if (SPREADSHEET_ID && SPREADSHEET_ID !== "") {
-    return SpreadsheetApp.openById(SPREADSHEET_ID);
+    try {
+      return SpreadsheetApp.openById(SPREADSHEET_ID);
+    } catch (e) {
+      console.warn("openById gagal, mencoba getActiveSpreadsheet:", e);
+    }
   }
   return SpreadsheetApp.getActiveSpreadsheet();
 }
 
+/**
+ * Handle GET Requests (ping, getStudents, getScores, register, submitScore)
+ * Mendukung query parameters langsung agar tidak pernah terhambat masalah CORS browser.
+ */
 function doGet(e) {
-  const p = e.parameter || {};
+  const p = (e && e.parameter) ? e.parameter : {};
   const action = p.action || "ping";
-  
+  const callback = p.callback || "";
+  return handleAction(action, p, callback);
+}
+
+/**
+ * Handle POST Requests
+ */
+function doPost(e) {
+  let body = {};
+  try {
+    if (e && e.postData && e.postData.contents) {
+      body = JSON.parse(e.postData.contents);
+    }
+  } catch (ex) {
+    body = (e && e.parameter) ? e.parameter : {};
+  }
+  if (!body || Object.keys(body).length === 0) {
+    body = (e && e.parameter) ? e.parameter : {};
+  }
+
+  const action = body.action || (e && e.parameter && e.parameter.action) || "";
+  const callback = (e && e.parameter && e.parameter.callback) || "";
+  return handleAction(action, body, callback);
+}
+
+/**
+ * Pusat Handler Aksi Database
+ */
+function handleAction(action, body, callback) {
   try {
     const ss = getSpreadsheet();
-    
-    if (action === "ping") {
-      return jsonResponse({ status: "success", message: "Google Apps Script Grammar Plus A2 Aktif!", time: new Date() });
+    if (!ss) {
+      return jsonResponse({ status: "error", message: "Spreadsheet tidak dapat diakses" }, callback);
     }
-    
+
+    // 0. PING CEK KONEKSI
+    if (action === "ping") {
+      return jsonResponse({
+        status: "success",
+        message: "Google Apps Script Grammar Plus A2 Aktif!",
+        time: new Date().toISOString()
+      }, callback);
+    }
+
+    // 1. GET STUDENTS
     if (action === "getStudents") {
       const ws = ss.getSheetByName("Siswa");
-      if (!ws) return jsonResponse({ status: "error", message: "Sheet Siswa tidak ditemukan" });
+      if (!ws) return jsonResponse({ status: "error", message: "Sheet Siswa tidak ditemukan" }, callback);
       const data = ws.getDataRange().getValues();
-      if (data.length <= 1) return jsonResponse({ status: "success", students: [] });
-      
-      const headers = data[0];
+      if (data.length <= 1) return jsonResponse({ status: "success", students: [] }, callback);
+
       const students = [];
       for (let i = 1; i < data.length; i++) {
         const row = data[i];
-        if (row[1]) { // Ada username
+        if (row[1]) {
           students.push({
             timestamp: row[0],
-            username: row[1],
-            password: row[2],
-            nama: row[3],
-            tingkat: row[4],
-            fase: row[5],
-            rombel: row[6],
-            presensi: row[7],
-            tanggalLahir: row[8],
+            username: String(row[1]).trim(),
+            password: String(row[2]).trim(),
+            nama: String(row[3]).trim(),
+            tingkat: String(row[4]).trim(),
+            fase: String(row[5]).trim(),
+            rombel: String(row[6]).trim(),
+            presensi: String(row[7]).trim(),
+            tanggalLahir: String(row[8]).trim(),
             role: row[9] || "Siswa",
             status: row[10] || "Aktif"
           });
         }
       }
-      return jsonResponse({ status: "success", students: students });
+      return jsonResponse({ status: "success", students: students }, callback);
     }
-    
+
+    // 2. GET SCORES
+    // 2. GET SCORES (Mengambil nilai mutakhir per murid & latihan)
     if (action === "getScores") {
       const ws = ss.getSheetByName("Nilai");
-      if (!ws) return jsonResponse({ status: "error", message: "Sheet Nilai tidak ditemukan" });
+      if (!ws) return jsonResponse({ status: "error", message: "Sheet Nilai tidak ditemukan" }, callback);
       const data = ws.getDataRange().getValues();
-      const scores = [];
-      const filterUsername = (p.username || "").toUpperCase().trim();
-      
+      const filterUsername = String(body.username || "").toUpperCase().trim();
+      const scoresMap = {};
+
       for (let i = 1; i < data.length; i++) {
         const row = data[i];
         if (!row[1]) continue;
         const u = String(row[1]).toUpperCase().trim();
+        const exId = String(row[9] || "").trim();
         if (!filterUsername || u === filterUsername) {
-          scores.push({
+          const key = u + "___" + exId;
+          scoresMap[key] = {
             timestamp: row[0],
             username: row[1],
             nama: row[2],
@@ -88,127 +133,113 @@ function doGet(e) {
             presensi: row[6],
             unitId: row[7],
             unitName: row[8],
-            exerciseId: row[9],
+            exerciseId: exId,
             skor: row[10],
             totalSoal: row[11],
             persentase: row[12],
             status: row[13],
             detailJawaban: row[14]
-          });
+          };
         }
       }
-      return jsonResponse({ status: "success", scores: scores });
+      return jsonResponse({ status: "success", scores: Object.values(scoresMap) }, callback);
     }
 
-    return jsonResponse({ status: "error", message: "Action GET tidak dikenali: " + action });
-  } catch (err) {
-    return jsonResponse({ status: "error", message: err.toString() });
-  }
-}
-
-function doPost(e) {
-  let body = {};
-  try {
-    if (e.postData && e.postData.contents) {
-      body = JSON.parse(e.postData.contents);
-    }
-  } catch (ex) {
-    body = e.parameter || {};
-  }
-  
-  const action = body.action || "";
-  const ss = getSpreadsheet();
-  
-  try {
-    // 1. REGISTRASI SISWA
+    // 3. REGISTRASI / TAMBAH SISWA
     if (action === "register" || action === "addStudent") {
       const ws = ss.getSheetByName("Siswa") || ss.insertSheet("Siswa");
       const rows = ws.getDataRange().getValues();
-      
+
       // Ambil input
-      const tingkat = String(body.tingkat || "").trim().toUpperCase(); // X, XI, XII
-      const fase = String(body.fase || "").trim().toUpperCase();       // E, F
-      const rombel = String(body.rombel || "").trim();                 // 1 - 12
-      const presensi = String(body.presensi || "").trim();             // 1 - 37
-      const nama = String(body.nama || "").trim().toUpperCase();       // HURUF KAPITAL
-      const tanggalLahir = String(body.tanggalLahir || "").trim();     // YYYY-MM-DD atau MMDDYYYY
-      
+      const tingkat = String(body.tingkat || "").trim().toUpperCase();
+      const fase = String(body.fase || "").trim().toUpperCase();
+      const rombel = String(body.rombel || "").trim();
+      const presensi = String(body.presensi || "").trim();
+      const nama = String(body.nama || "").trim().toUpperCase();
+      const tanggalLahir = String(body.tanggalLahir || "").trim();
+
       if (!nama || !tingkat || !fase || !rombel || !presensi || !tanggalLahir) {
-        return jsonResponse({ status: "error", message: "Semua kolom pendaftaran wajib diisi!" });
+        return jsonResponse({ status: "error", message: "Semua kolom pendaftaran wajib diisi!" }, callback);
       }
-      
-      // Format tanggal lahir untuk username (ddmmyyyy)
-      // Contoh input date picker: '2008-05-14' -> dd='14', mm='05', yyyy='2008'
-      let mm = "", dd = "", yyyy = "";
-      if (tanggalLahir.includes("-")) {
-        const parts = tanggalLahir.split("-");
-        if (parts.length === 3) {
-          yyyy = parts[0];
-          mm = parts[1].padStart(2, "0");
-          dd = parts[2].padStart(2, "0");
+
+      // Gunakan username dari frontend jika ada
+      let finalUsername = String(body.username || "").trim().toUpperCase();
+
+      if (!finalUsername) {
+        // Fallback jika tidak dikirim dari frontend
+        let mm = "", dd = "", yyyy = "";
+        if (tanggalLahir.includes("-")) {
+          const parts = tanggalLahir.split("-");
+          if (parts.length === 3) {
+            yyyy = parts[0];
+            mm = parts[1].padStart(2, "0");
+            dd = parts[2].padStart(2, "0");
+          }
+        } else if (tanggalLahir.includes("/")) {
+          const parts = tanggalLahir.split("/");
+          if (parts.length === 3) {
+            dd = parts[0].padStart(2, "0");
+            mm = parts[1].padStart(2, "0");
+            yyyy = parts[2];
+          }
+        } else {
+          dd = tanggalLahir.slice(0, 2);
+          mm = tanggalLahir.slice(2, 4);
+          yyyy = tanggalLahir.slice(4);
         }
-      } else if (tanggalLahir.includes("/")) {
-        const parts = tanggalLahir.split("/");
-        if (parts.length === 3) {
-          dd = parts[0].padStart(2, "0");
-          mm = parts[1].padStart(2, "0");
-          yyyy = parts[2];
-        }
-      } else {
-        // Asumsi format ddmmyyyy mentah
-        dd = tanggalLahir.slice(0, 2);
-        mm = tanggalLahir.slice(2, 4);
-        yyyy = tanggalLahir.slice(4);
+        const ddmmyyyy = (dd + mm + yyyy).replace(/[^0-9]/g, "");
+        const cleanName = nama.replace(/[^A-Z]/g, "");
+        const prefix3 = (cleanName.length >= 3 ? cleanName.substring(0, 3) : cleanName.padEnd(3, "X")).toUpperCase();
+        finalUsername = prefix3 + ddmmyyyy;
       }
-      
-      const ddmmyyyy = (dd + mm + yyyy).replace(/[^0-9]/g, "");
-      
-      // Ambil 3 huruf depan nama (hilangkan spasi atau simbol)
-      const cleanName = nama.replace(/[^A-Z]/g, "");
-      const prefix3 = (cleanName.length >= 3 ? cleanName.substring(0, 3) : cleanName.padEnd(3, "X")).toUpperCase();
-      
-      const baseUsername = prefix3 + ddmmyyyy;
-      
-      // Kumpulkan semua username yang sudah ada untuk memeriksa duplikasi
-      const existingUsernames = [];
+
+      // Cek apakah siswa sudah terdaftar sebelumnya (update baris alih-alih duplikat)
+      let existingRowIndex = -1;
       for (let i = 1; i < rows.length; i++) {
-        if (rows[i][1]) {
-          existingUsernames.push(String(rows[i][1]).toUpperCase().trim());
+        if (rows[i][1] && String(rows[i][1]).toUpperCase().trim() === finalUsername) {
+          existingRowIndex = i + 1; // 1-indexed untuk SpreadsheetApp
+          break;
         }
       }
-      
-      // Cek duplikasi: jika baseUsername sudah ada, beri suffix A, B, C, dst.
-      let finalUsername = baseUsername;
-      if (existingUsernames.includes(finalUsername)) {
-        let suffixCode = 65; // ASCII 'A'
-        while (existingUsernames.includes(finalUsername)) {
-          finalUsername = baseUsername + String.fromCharCode(suffixCode);
-          suffixCode++;
-        }
-      }
-      
-      // Password adalah Tanggal Lahir (sesuai spesifikasi)
+
       const password = tanggalLahir;
       const nowStr = Utilities.formatDate(new Date(), "Asia/Jakarta", "yyyy-MM-dd HH:mm:ss");
-      
-      // Simpan ke worksheet Siswa
-      ws.appendRow([
-        nowStr,
-        finalUsername,
-        password,
-        nama,
-        tingkat,
-        fase,
-        rombel,
-        presensi,
-        tanggalLahir,
-        "Siswa",
-        "Aktif"
-      ]);
-      
+
+      if (existingRowIndex > 0) {
+        // Update baris siswa yang sudah ada
+        ws.getRange(existingRowIndex, 1, 1, 11).setValues([[
+          nowStr,
+          finalUsername,
+          password,
+          nama,
+          tingkat,
+          fase,
+          rombel,
+          presensi,
+          tanggalLahir,
+          "Siswa",
+          "Aktif"
+        ]]);
+      } else {
+        // Tambahkan baris baru
+        ws.appendRow([
+          nowStr,
+          finalUsername,
+          password,
+          nama,
+          tingkat,
+          fase,
+          rombel,
+          presensi,
+          tanggalLahir,
+          "Siswa",
+          "Aktif"
+        ]);
+      }
+
       return jsonResponse({
         status: "success",
-        message: "Pendaftaran berhasil!",
+        message: "Pendaftaran berhasil dicatat di Google Spreadsheet!",
         username: finalUsername,
         student: {
           username: finalUsername,
@@ -220,18 +251,18 @@ function doPost(e) {
           tanggalLahir: tanggalLahir,
           role: "Siswa"
         }
-      });
+      }, callback);
     }
-    
-    // 2. LOGIN SISWA / GURU
+
+    // 4. LOGIN
     if (action === "login") {
       const usernameInput = String(body.username || "").trim().toUpperCase();
       const passwordInput = String(body.password || "").trim();
-      
+
       if (!usernameInput || !passwordInput) {
-        return jsonResponse({ status: "error", message: "Username dan Password (Tanggal Lahir) wajib diisi!" });
+        return jsonResponse({ status: "error", message: "Username dan Password (Tanggal Lahir) wajib diisi!" }, callback);
       }
-      
+
       // Cek akun Guru Khusus
       if (usernameInput === "GURU" && (passwordInput === "GURU123" || passwordInput === "guru123")) {
         return jsonResponse({
@@ -242,20 +273,19 @@ function doPost(e) {
             nama: "GURU BAHASA INGGRIS",
             role: "Guru"
           }
-        });
+        }, callback);
       }
-      
+
       const ws = ss.getSheetByName("Siswa");
-      if (!ws) return jsonResponse({ status: "error", message: "Database Siswa belum siap." });
+      if (!ws) return jsonResponse({ status: "error", message: "Database Siswa belum siap." }, callback);
       const rows = ws.getDataRange().getValues();
-      
+
       for (let i = 1; i < rows.length; i++) {
         const row = rows[i];
         const u = String(row[1] || "").trim().toUpperCase();
         const p = String(row[2] || "").trim();
         const tgl = String(row[8] || "").trim();
-        
-        // Cek kecocokan username dan password (bisa format DDMMYYYY, YYYY-MM-DD, dsb.)
+
         if (u === usernameInput) {
           if (isDatePasswordMatching(passwordInput, p) || isDatePasswordMatching(passwordInput, tgl)) {
             return jsonResponse({
@@ -271,48 +301,87 @@ function doPost(e) {
                 tanggalLahir: row[8],
                 role: row[9] || "Siswa"
               }
-            });
+            }, callback);
           }
         }
       }
-      
-      return jsonResponse({ status: "error", message: "Username atau Tanggal Lahir (Password) tidak sesuai!" });
+
+      return jsonResponse({ status: "error", message: "Username atau Tanggal Lahir (Password) tidak sesuai!" }, callback);
     }
-    
-    // 3. SUBMIT SKOR LATIHAN
+
+    // 5. SUBMIT SKOR
+    // 5. SUBMIT SKOR (UPDATE JIKA SUDAH PERNAH MENGERJAKAN / REMIDI)
     if (action === "submitScore") {
       const ws = ss.getSheetByName("Nilai") || ss.insertSheet("Nilai");
       const nowStr = Utilities.formatDate(new Date(), "Asia/Jakarta", "yyyy-MM-dd HH:mm:ss");
-      
-      ws.appendRow([
-        nowStr,
-        body.username || "-",
-        body.nama || "-",
-        body.tingkat || "-",
-        body.fase || "-",
-        body.rombel || "-",
-        body.presensi || "-",
-        body.unitId || "-",
-        body.unitName || "-",
-        body.exerciseId || "-",
-        body.skor || 0,
-        body.totalSoal || 0,
-        body.persentase || "0%",
-        body.status || "Selesai",
-        JSON.stringify(body.detailJawaban || {})
-      ]);
-      
-      return jsonResponse({ status: "success", message: "Skor berhasil disimpan di Google Sheet!" });
+
+      const username = String(body.username || "-").trim();
+      const nama = String(body.nama || "-").trim();
+      const tingkat = String(body.tingkat || "-").trim();
+      const fase = String(body.fase || "-").trim();
+      const rombel = String(body.rombel || "-").trim();
+      const presensi = String(body.presensi || "-").trim();
+      const unitId = String(body.unitId || "-").trim();
+      const unitName = String(body.unitName || "-").trim();
+      const exerciseId = String(body.exerciseId || "-").trim();
+      const skor = body.skor !== undefined ? body.skor : 0;
+      const totalSoal = body.totalSoal !== undefined ? body.totalSoal : 0;
+      const persentase = String(body.persentase || "0%").trim();
+      const status = String(body.status || "Selesai").trim();
+
+      let detailStr = body.detailJawaban;
+      if (typeof detailStr === "object") {
+        try { detailStr = JSON.stringify(detailStr); } catch (e) { detailStr = "{}"; }
+      }
+
+      // Cari apakah baris murid untuk latihan ini sudah ada
+      const data = ws.getDataRange().getValues();
+      let existingRow = -1;
+      for (let i = 1; i < data.length; i++) {
+        const rowUser = String(data[i][1] || "").trim().toUpperCase();
+        const rowEx = String(data[i][9] || "").trim();
+        if (rowUser === username.toUpperCase() && rowEx === exerciseId) {
+          existingRow = i + 1; // 1-indexed untuk Spreadsheet
+          break;
+        }
+      }
+
+      if (existingRow > 0) {
+        // Perbarui baris yang ada (perbaikan nilai tanpa duplikasi)
+        ws.getRange(existingRow, 1, 1, 15).setValues([[
+          nowStr, username, nama, tingkat, fase, rombel, presensi,
+          unitId, unitName, exerciseId, skor, totalSoal, persentase, status, String(detailStr || "{}")
+        ]]);
+      } else {
+        // Tambahkan baris baru jika pertama kali mengerjakan
+        ws.appendRow([
+          nowStr, username, nama, tingkat, fase, rombel, presensi,
+          unitId, unitName, exerciseId, skor, totalSoal, persentase, status, String(detailStr || "{}")
+        ]);
+      }
+
+      return jsonResponse({
+        status: "success",
+        message: existingRow > 0 ? "Nilai berhasil diperbarui di Google Sheet!" : "Skor berhasil disimpan di Google Sheet!"
+      }, callback);
     }
-    
-    return jsonResponse({ status: "error", message: "Action POST tidak dikenal: " + action });
+
+    return jsonResponse({ status: "error", message: "Action tidak dikenal: " + action }, callback);
   } catch (err) {
-    return jsonResponse({ status: "error", message: err.toString() });
+    return jsonResponse({ status: "error", message: err.toString() }, callback);
   }
 }
 
-function jsonResponse(data) {
-  return ContentService.createTextOutput(JSON.stringify(data))
+/**
+ * Respon JSON / JSONP
+ */
+function jsonResponse(data, callback) {
+  const jsonStr = JSON.stringify(data);
+  if (callback && String(callback).trim().length > 0) {
+    return ContentService.createTextOutput(String(callback).trim() + "(" + jsonStr + ")")
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
+  return ContentService.createTextOutput(jsonStr)
     .setMimeType(ContentService.MimeType.JSON);
 }
 
@@ -365,6 +434,5 @@ function isDatePasswordMatching(inputPassword, storedDate) {
 
   const cleanPass = String(inputPassword).replace(/[^0-9]/g, "");
   const cleanSaved = String(storedDate).replace(/[^0-9]/g, "");
-  return cleanPass === cleanSaved;
+  return cleanPass.length > 0 && cleanPass === cleanSaved;
 }
-

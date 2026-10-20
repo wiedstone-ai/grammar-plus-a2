@@ -73,11 +73,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initStorage() {
   // Load GAS URL dari localStorage atau default
-  AppState.gasUrl = localStorage.getItem("grammar_a2_gas_url") || (
-    APP_CONFIG.defaultScriptUrl && !APP_CONFIG.defaultScriptUrl.includes("placeholder")
-      ? APP_CONFIG.defaultScriptUrl
-      : ""
-  );
+  const savedUrl = localStorage.getItem("grammar_a2_gas_url");
+  const knownOldBadUrls = [
+    "https://script.google.com/macros/s/AKfycbx0q6Vq4g0zR7z0v4t0u_grammar_placeholder/exec",
+    "https://script.google.com/macros/s/AKfycbyF0aeMBvjnKYHWY9bWYesGhMH_hSLT1Da04PbFLFIOzjXFF5pKvezNKTMMKPZpqHRj/exec",
+    "https://script.google.com/macros/s/AKfycbwZVZwuorMf9JZI97dnQqnBkpYxwAXBRsM9dcsoIja36O7EIFpV_9u448GqiQ30_jYM/exec"
+  ];
+
+  // Jika URL di localStorage kosong, placeholder, atau URL deployment lama yang error:
+  // otomatis gunakan defaultScriptUrl yang aktif!
+  if (!savedUrl || knownOldBadUrls.includes(savedUrl) || savedUrl.includes("placeholder")) {
+    AppState.gasUrl = APP_CONFIG.defaultScriptUrl || "";
+    localStorage.setItem("grammar_a2_gas_url", AppState.gasUrl);
+  } else {
+    AppState.gasUrl = savedUrl;
+  }
   
   // Load local students & scores cache
   const savedStudents = localStorage.getItem("grammar_a2_students");
@@ -97,7 +107,8 @@ function initStorage() {
         presensi: "-",
         tanggalLahir: "2000-01-01",
         role: "Guru",
-        status: "Aktif"
+        status: "Aktif",
+        synced: true
       }
     ];
     saveStudentsToStorage();
@@ -108,10 +119,9 @@ function initStorage() {
     try { AppState.scores = JSON.parse(savedScores); } catch (e) { AppState.scores = []; }
   }
 
-  // Jika URL Google Apps Script tersedia, sinkronkan data siswa terbaru
+  // Jika URL Google Apps Script tersedia, tes koneksi dan sinkronkan data
   if (AppState.gasUrl) {
-    fetchStudentsFromGAS();
-    fetchScoresFromGAS();
+    testGasConnection();
   }
 }
 
@@ -328,7 +338,8 @@ function handleStudentRegistration(e) {
     presensi: String(presensi),
     tanggalLahir: tanggalLahir,
     role: "Siswa",
-    status: "Aktif"
+    status: "Aktif",
+    synced: false
   };
 
   // Simpan ke Cache Lokal
@@ -891,6 +902,47 @@ function selectExerciseTab(exId, unitId) {
   renderSingleExercise(ex, unit);
 }
 
+// PETA ID GOOGLE DRIVE AUDIO CLOUD STREAMING (GRAMMAR PLUS A2)
+const A2_AUDIO_DRIVE_MAP = {
+  1: "1LqGvKwGxW3Re9SSTtskAAtsQ30xhRuXJ",
+  2: "1lTpmIO1vxizOujcdSLEHrHYyqJ37stg3",
+  3: "1vT-ZICs2qCdYejEa564v1WapX1dQYWhv",
+  4: "1igpCT6D7BN9_svC9mYqte2rk6a9ykY0p",
+  5: "1xP5LfRO0WLolAdjsamNAKERdoS_wK4fz",
+  6: "1h3xvZraXJxek34-QHSW55t8vs6-g2OtL",
+  7: "1X5XcnuvqJ_Ty3KjcNYuw4owAp26iuLA9",
+  8: "1w08ZQdYTXUOXSbr2s9Je9eZc8zdTOr0c",
+  9: "133JNBZNDvNqL5DjtoXdinAddhipp381I",
+  10: "1mjOD6CnmlMPYfHG73IinPwCgQ9g47JZJ",
+  11: "1ktf9fZyXL9RL-56haihOOKcWiXtM7f7U",
+  12: "1NEUaZwD_rcrqghh4w9VkrDLMT3CY8MoR",
+  13: "15-YSUUD9_6vA6HJTpclsDWkY0iRi44MP",
+  14: "1_u6F_eZag6FcITw-_t8DXkCTPT9bxLPd",
+  15: "1x08NQfsagyQ6CdhSGo6WMwMtVZUg6QCm",
+  16: "10jOo3PW4U5EHRgldHcfaJQhRa0ZkSsxv",
+  17: "1AewVAATnl7oPl1hiyzepFPjFquEYrx6I",
+  18: "1qpzDcaTM-f8nzMCqIEBr2EV3kKwBZOpI",
+  19: "16Iv5ZCGyGw2txkX_byG0o2sMEbXFLhE5",
+  20: "1XU3zZiDPLrwQCtl1EhSE3-PqoSGmy37q",
+  21: "1yZcxEFu7osSc7qqcIhlDhLVSgFY02gU0",
+  22: "1XnKnSxkcaQvURhuPV6DevKXHLypygJBd",
+  23: "1lawzP6dy97XmHiBc4a0B6cKDmuIwH7DB",
+  24: "1z7GosF0SDq_39j5Q4NnKfrY8zQ4Xb-pa",
+  25: "1suSq8Z9k2dyGt79myGfF9qlJBvdmWTkt",
+  26: "1bkqUph-fxEX1DT2AUnPV1gNhKXW6QSwE",
+  27: "1Fzb8ghfOguElnibML1coXrkdLJy2HCXE"
+};
+
+function getA2AudioStreamUrl(trackStr) {
+  if (!trackStr) return "";
+  const m = String(trackStr).match(/(\d+)/);
+  if (!m) return "";
+  const num = parseInt(m[1], 10);
+  const fid = A2_AUDIO_DRIVE_MAP[num];
+  if (!fid) return "";
+  return `https://docs.google.com/uc?export=download&id=${fid}`;
+}
+
 function renderSingleExercise(exercise, unit) {
   const container = document.getElementById("active-exercise-container");
   if (!container) return;
@@ -899,19 +951,31 @@ function renderSingleExercise(exercise, unit) {
   AppState.selectedUnit = unit;
 
   let audioHtml = "";
-  if (exercise.audioTrack) {
-    const transcript = (window.AUDIO_TRANSCRIPTS || []).find(t => t.track.toLowerCase().includes(exercise.audioTrack.toLowerCase()));
-    const safeTrackId = exercise.audioTrack.replace(/[^a-zA-Z0-9]/g, "");
+  if (exercise.audioTrack || exercise.audioUrl) {
+    const transcript = (window.AUDIO_TRANSCRIPTS || []).find(t => exercise.audioTrack && t.track.toLowerCase().includes(exercise.audioTrack.toLowerCase()));
+    const safeTrackId = (exercise.audioTrack || "audio").replace(/[^a-zA-Z0-9]/g, "");
+    const streamUrl = getA2AudioStreamUrl(exercise.audioTrack) || exercise.audioUrl || "";
     audioHtml = `
-      <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <span style="font-size: 1.25rem;">🎧</span>
-          <span style="font-weight: 700; color: #1E3A8A; font-size: 0.9rem;">Latihan Listening: ${exercise.audioTrack}</span>
+      <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 1rem 1.15rem; margin-bottom: 1.25rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.25rem;">🎧</span>
+            <span style="font-weight: 700; color: #166534; font-size: 0.925rem;">Latihan Listening: ${escapeHtml(exercise.audioTrack || "Audio Track")}</span>
+            <span style="font-size: 0.725rem; color: #15803D; background: #DCFCE7; padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 600;">☁️ Cloud Stream</span>
+          </div>
+          ${transcript ? `
+            <button type="button" class="btn btn-secondary btn-sm" onclick="toggleAudioTranscript('${safeTrackId}')" style="font-size: 0.8rem;">
+              📜 Lihat / Sembunyikan Naskah Audio
+            </button>
+          ` : ''}
         </div>
-        ${transcript ? `
-          <button type="button" class="btn btn-secondary btn-sm" onclick="toggleAudioTranscript('${safeTrackId}')">
-            📜 Lihat / Sembunyikan Naskah Audio
-          </button>
+        ${streamUrl ? `
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <audio controls preload="none" style="width: 100%; max-width: 480px; height: 38px; border-radius: 6px;" src="${streamUrl}">
+              Browser Anda tidak mendukung audio HTML5.
+            </audio>
+            <span style="font-size: 0.75rem; color: #15803D;">(Audio asli diputar langsung dari Cloud Google Drive tanpa unduh)</span>
+          </div>
         ` : ''}
       </div>
       ${transcript ? `
@@ -958,6 +1022,12 @@ function renderSingleExercise(exercise, unit) {
     </div>
     <p class="exercise-instruction">${exercise.instruction}</p>
     ${audioHtml}
+
+    ${exercise.image ? `
+      <div style="margin: 1.25rem 0; text-align: center;">
+        <img src="${escapeHtml(exercise.image)}" alt="${escapeHtml(exercise.title)}" style="max-width: 100%; max-height: 380px; border-radius: 8px; border: 1px solid #CBD5E1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+      </div>
+    ` : ''}
 
     <form id="exercise-form" onsubmit="submitExerciseGrade(event)">
       ${questionsHtml}
@@ -1121,10 +1191,19 @@ function submitExerciseGrade(e) {
     totalSoal: total,
     persentase: `${percentage}%`,
     status: isPassed ? "LULUS" : "REMIDI",
-    detailJawaban: details
+    detailJawaban: details,
+    synced: false
   };
 
-  AppState.scores.unshift(scoreRecord);
+  // Cek apakah murid sudah memiliki riwayat untuk latihan ini (agar saat perbaikan nilai / remidi, nilai diperbarui tanpa duplikasi)
+  const existingIdx = AppState.scores.findIndex(
+    s => s.username && s.username.toUpperCase() === scoreRecord.username.toUpperCase() && s.exerciseId === scoreRecord.exerciseId
+  );
+  if (existingIdx !== -1) {
+    AppState.scores[existingIdx] = scoreRecord;
+  } else {
+    AppState.scores.unshift(scoreRecord);
+  }
   saveScoresToStorage();
 
   // Sinkronkan ke Google Sheet
@@ -1560,12 +1639,27 @@ function renderAudioTranscripts() {
   const container = document.getElementById("audio-transcripts-container");
   if (!container || !window.AUDIO_TRANSCRIPTS) return;
 
-  container.innerHTML = window.AUDIO_TRANSCRIPTS.map(tr => `
-    <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.15rem; margin-bottom: 1rem;">
-      <h5 style="color: #2563EB; font-weight: 700; margin-bottom: 0.5rem;">${tr.track}</h5>
-      <pre style="white-space: pre-wrap; font-family: inherit; font-size: 0.85rem; color: #334155; line-height: 1.6;">${tr.content}</pre>
-    </div>
-  `).join("");
+  container.innerHTML = window.AUDIO_TRANSCRIPTS.map(tr => {
+    const streamUrl = getA2AudioStreamUrl(tr.track);
+    return `
+      <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.15rem; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem;">
+          <h5 style="color: #2563EB; font-weight: 700; margin: 0; font-size: 1rem;">${escapeHtml(tr.track)}</h5>
+          ${streamUrl ? `
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <audio controls preload="none" style="height: 34px; max-width: 320px;" src="${streamUrl}">
+                Browser tidak mendukung audio.
+              </audio>
+              <span style="font-size: 0.725rem; color: #047857; background: #ECFDF5; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #A7F3D0; font-weight: 600;">
+                ☁️ Cloud Play
+              </span>
+            </div>
+          ` : ''}
+        </div>
+        <pre style="white-space: pre-wrap; font-family: inherit; font-size: 0.85rem; color: #334155; line-height: 1.6; margin: 0; background: #FFFFFF; padding: 0.75rem; border-radius: 6px; border: 1px solid #F1F5F9;">${escapeHtml(tr.content)}</pre>
+      </div>
+    `;
+  }).join("");
 }
 
 // ==========================================
@@ -1588,6 +1682,53 @@ function saveGasUrl() {
   testGasConnection();
 }
 
+
+function fetchGAS(action) {
+  return new Promise((resolve, reject) => {
+    if (!AppState.gasUrl) {
+      return reject(new Error("URL Google Apps Script belum dikonfigurasi"));
+    }
+
+    const callbackName = "gas_cb_a2_" + Math.random().toString(36).substring(2, 10) + "_" + Date.now();
+    const timeout = setTimeout(() => {
+      cleanup();
+      const sep = AppState.gasUrl.includes("?") ? "&" : "?";
+      fetch(`${AppState.gasUrl}${sep}action=${encodeURIComponent(action)}`)
+        .then(r => r.json())
+        .then(resolve)
+        .catch(() => reject(new Error("Koneksi ke Google Apps Script timeout / gagal")));
+    }, 15000);
+
+    function cleanup() {
+      clearTimeout(timeout);
+      delete window[callbackName];
+      const script = document.getElementById(callbackName);
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    }
+
+    window[callbackName] = function(data) {
+      cleanup();
+      resolve(data);
+    };
+
+    // Gunakan JSONP via script tag untuk mengatasi limitasi CORS cross-device di browser
+    const script = document.createElement("script");
+    script.id = callbackName;
+    const sep = AppState.gasUrl.includes("?") ? "&" : "?";
+    script.src = `${AppState.gasUrl}${sep}action=${encodeURIComponent(action)}&callback=${callbackName}&_t=${Date.now()}`;
+    script.onerror = function() {
+      cleanup();
+      fetch(`${AppState.gasUrl}${sep}action=${encodeURIComponent(action)}`)
+        .then(res => res.json())
+        .then(resolve)
+        .catch(reject);
+    };
+    document.head.appendChild(script);
+  });
+}
+
 function testGasConnection() {
   const statusElem = document.getElementById("sync-status-text");
   const dot = document.getElementById("sync-status-dot");
@@ -1600,21 +1741,20 @@ function testGasConnection() {
   if (statusElem) statusElem.innerText = "Menghubungkan ke Google Sheet...";
   if (dot) dot.className = "dot-indicator syncing";
 
-  fetch(`${AppState.gasUrl}?action=ping`, { method: "GET" })
-    .then(res => res.json())
+  fetchGAS("ping")
     .then(data => {
-      if (data.status === "success") {
+      if (data && data.status === "success") {
         if (statusElem) statusElem.innerText = "Google Sheet Terhubung";
         if (dot) dot.className = "dot-indicator online";
-        showToast("Koneksi Google Spreadsheet Aktif! Menyinkronkan data lokal...", "success");
         syncAllLocalDataToGAS();
         fetchStudentsFromGAS();
         fetchScoresFromGAS();
       } else {
-        throw new Error(data.message);
+        throw new Error((data && data.message) || "Gagal menghubungkan");
       }
     })
     .catch(err => {
+      console.warn("GAS Ping failed:", err);
       if (statusElem) statusElem.innerText = "Koneksi Offline / Lokal";
       if (dot) dot.className = "dot-indicator";
     });
@@ -1622,28 +1762,34 @@ function testGasConnection() {
 
 function syncAllLocalDataToGAS() {
   if (!AppState.gasUrl) return;
-  const pendingStudents = AppState.students.filter(s => s.role !== "Guru");
+
+  // Sinkronkan murid yang belum tersinkron
+  const pendingStudents = (AppState.students || []).filter(s => s.role !== "Guru" && s.synced === false);
   if (pendingStudents.length > 0) {
+    console.log(`Menyinkronkan ${pendingStudents.length} siswa tertunda ke Google Sheet...`);
     pendingStudents.forEach(st => syncStudentToGAS(st));
   }
-  if (AppState.scores && AppState.scores.length > 0) {
-    AppState.scores.forEach(sc => syncScoreToGAS(sc));
+
+  // Sinkronkan skor latihan yang belum tersinkron
+  const pendingScores = (AppState.scores || []).filter(sc => sc.synced === false);
+  if (pendingScores.length > 0) {
+    console.log(`Menyinkronkan ${pendingScores.length} skor tertunda ke Google Sheet...`);
+    pendingScores.forEach(sc => syncScoreToGAS(sc));
   }
 }
 
 async function fetchStudentsFromGAS() {
   if (!AppState.gasUrl) return;
   try {
-    const res = await fetch(`${AppState.gasUrl}?action=getStudents`);
-    const data = await res.json();
+    const data = await fetchGAS("getStudents");
     if (data && data.status === "success" && Array.isArray(data.students)) {
       let updated = false;
       data.students.forEach(remoteStudent => {
         const idx = AppState.students.findIndex(s => (s.username || "").toUpperCase() === (remoteStudent.username || "").toUpperCase());
         if (idx >= 0) {
-          AppState.students[idx] = Object.assign({}, AppState.students[idx], remoteStudent);
+          AppState.students[idx] = Object.assign({}, AppState.students[idx], remoteStudent, { synced: true });
         } else {
-          AppState.students.push(remoteStudent);
+          AppState.students.push(Object.assign({}, remoteStudent, { synced: true }));
           updated = true;
         }
       });
@@ -1659,10 +1805,21 @@ async function fetchStudentsFromGAS() {
 async function fetchScoresFromGAS() {
   if (!AppState.gasUrl) return;
   try {
-    const res = await fetch(`${AppState.gasUrl}?action=getScores`);
-    const data = await res.json();
+    const data = await fetchGAS("getScores");
     if (data && data.status === "success" && Array.isArray(data.scores)) {
-      AppState.scores = data.scores;
+      const map = new Map();
+      AppState.scores.forEach(s => {
+        if (s && s.username && s.exerciseId) {
+          const key = `${s.username.toUpperCase()}___${s.exerciseId}`;
+          map.set(key, s);
+        }
+      });
+      data.scores.forEach(sc => {
+        if (!sc || !sc.username || !sc.exerciseId) return;
+        const key = `${sc.username.toUpperCase()}___${sc.exerciseId}`;
+        map.set(key, Object.assign({}, sc, { synced: true }));
+      });
+      AppState.scores = Array.from(map.values());
       saveScoresToStorage();
     }
   } catch (err) {
@@ -1670,49 +1827,133 @@ async function fetchScoresFromGAS() {
   }
 }
 
-function syncStudentToGAS(student) {
-  if (!AppState.gasUrl) return;
+async function syncStudentToGAS(student) {
+  if (!AppState.gasUrl) {
+    student.synced = false;
+    saveStudentsToStorage();
+    return;
+  }
 
-  fetch(AppState.gasUrl, {
-    method: "POST",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify({
-      action: "register",
-      tingkat: student.tingkat,
-      fase: student.fase,
-      rombel: student.rombel,
-      presensi: student.presensi,
-      nama: student.nama,
-      tanggalLahir: student.tanggalLahir
-    })
-  }).catch(e => console.log("Background sync error student:", e));
+  const payload = {
+    action: "register",
+    username: student.username,
+    tingkat: student.tingkat,
+    fase: student.fase,
+    rombel: student.rombel,
+    presensi: student.presensi,
+    nama: student.nama,
+    tanggalLahir: student.tanggalLahir
+  };
+
+  try {
+    // Jalur 1: POST dengan text/plain (menghindari CORS preflight)
+    await fetch(AppState.gasUrl, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+    student.synced = true;
+    saveStudentsToStorage();
+    showToast(`Data murid ${student.nama} berhasil dicatat di Google Sheet!`, "success");
+  } catch (err) {
+    console.warn("POST sync student failed, trying no-cors fallback...", err);
+    try {
+      // Jalur 2: Fallback POST mode no-cors (Google Script tetap menerima & memproses)
+      await fetch(AppState.gasUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+      student.synced = true;
+      saveStudentsToStorage();
+      showToast(`Data murid ${student.nama} terkirim ke Google Sheet!`, "success");
+    } catch (e2) {
+      console.warn("no-cors failed, trying GET fallback...", e2);
+      try {
+        // Jalur 3: Fallback GET query parameters
+        const queryParams = new URLSearchParams(payload).toString();
+        await fetch(`${AppState.gasUrl}?${queryParams}`, { method: "GET", mode: "no-cors" });
+        student.synced = true;
+        saveStudentsToStorage();
+        showToast(`Data murid ${student.nama} terkirim ke Google Sheet!`, "success");
+      } catch (e3) {
+        console.error("Gagal sinkronisasi siswa ke Google Sheet:", e3);
+        student.synced = false;
+        saveStudentsToStorage();
+        showToast("Koneksi Google Sheet lambat. Data tersimpan di lokal dan akan disinkronkan otomatis.", "warning");
+      }
+    }
+  }
 }
 
-function syncScoreToGAS(score) {
-  if (!AppState.gasUrl) return;
+async function syncScoreToGAS(score) {
+  if (!AppState.gasUrl) {
+    score.synced = false;
+    saveScoresToStorage();
+    return;
+  }
 
-  fetch(AppState.gasUrl, {
-    method: "POST",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify({
-      action: "submitScore",
-      username: score.username,
-      nama: score.nama,
-      tingkat: score.tingkat,
-      fase: score.fase,
-      rombel: score.rombel,
-      presensi: score.presensi,
-      unitId: score.unitId,
-      unitName: score.unitName,
-      exerciseId: score.exerciseId,
-      skor: score.skor,
-      totalSoal: score.totalSoal,
-      persentase: score.persentase,
-      status: score.status,
-      detailJawaban: score.detailJawaban
-    })
-  }).catch(e => console.log("Background sync error score:", e));
+  const payload = {
+    action: "submitScore",
+    username: score.username,
+    nama: score.nama,
+    tingkat: score.tingkat,
+    fase: score.fase,
+    rombel: score.rombel,
+    presensi: score.presensi,
+    unitId: score.unitId,
+    unitName: score.unitName,
+    exerciseId: score.exerciseId,
+    skor: score.skor,
+    totalSoal: score.totalSoal,
+    persentase: score.persentase,
+    status: score.status,
+    detailJawaban: typeof score.detailJawaban === "object" ? JSON.stringify(score.detailJawaban) : (score.detailJawaban || "{}")
+  };
+
+  try {
+    // Jalur 1: POST dengan text/plain
+    await fetch(AppState.gasUrl, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+    score.synced = true;
+    saveScoresToStorage();
+    showToast("Nilai berhasil dicatat di Google Spreadsheet!", "success");
+  } catch (err) {
+    console.warn("POST score sync failed, trying no-cors fallback...", err);
+    try {
+      // Jalur 2: Fallback POST mode no-cors
+      await fetch(AppState.gasUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+      score.synced = true;
+      saveScoresToStorage();
+      showToast("Nilai berhasil dikirim ke Google Spreadsheet!", "success");
+    } catch (e2) {
+      console.warn("no-cors failed, trying GET fallback...", e2);
+      try {
+        // Jalur 3: Fallback GET query parameters
+        const queryParams = new URLSearchParams(payload).toString();
+        await fetch(`${AppState.gasUrl}?${queryParams}`, { method: "GET", mode: "no-cors" });
+        score.synced = true;
+        saveScoresToStorage();
+        showToast("Nilai berhasil dikirim ke Google Spreadsheet!", "success");
+      } catch (e3) {
+        console.error("Gagal sinkronisasi skor ke Google Sheet:", e3);
+        score.synced = false;
+        saveScoresToStorage();
+        showToast("Nilai tersimpan di perangkat lokal. Akan otomatis dicatat saat terhubung.", "warning");
+      }
+    }
+  }
 }
+
 
 // ==========================================
 // 10. UTILITIES & MODAL HELPERS
