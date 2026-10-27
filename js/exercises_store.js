@@ -4,9 +4,24 @@
  */
 
 const ExercisesStore = {
-  STORAGE_KEY: "grammar_a2_exercises_v3.0",
+  STORAGE_KEY: "grammar_a2_exercises_v4.0",
   PROGRESS_KEY: "grammar_a2_progress_v3",
   db: null,
+
+  _cleanupOldStorage() {
+    try {
+      if (typeof window !== "undefined" && window.localStorage) {
+        window.localStorage.removeItem("grammar_a2_exercises_v1");
+        window.localStorage.removeItem("grammar_a2_exercises_v2");
+        window.localStorage.removeItem("grammar_a2_exercises_v3.0");
+      }
+      if (typeof localStorage !== "undefined") {
+        localStorage.removeItem("grammar_a2_exercises_v1");
+        localStorage.removeItem("grammar_a2_exercises_v2");
+        localStorage.removeItem("grammar_a2_exercises_v3.0");
+      }
+    } catch (e) {}
+  },
 
   _getStorage(key) {
     try {
@@ -41,16 +56,20 @@ const ExercisesStore = {
 
   init() {
     try {
+      this._cleanupOldStorage();
+
       const sourceUnits = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
         ? GRAMMAR_UNITS
         : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
+
+      const sourceTotalEx = sourceUnits.reduce((acc, u) => acc + (u.exercises ? u.exercises.length : 0), 0);
 
       const stored = this._getStorage(this.STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && Array.isArray(parsed.units) && parsed.units.length >= 24) {
-          const totalEx = parsed.units.reduce((acc, u) => acc + (u.exercises ? u.exercises.length : 0), 0);
-          if (totalEx >= 70) {
+          const storedTotalEx = parsed.units.reduce((acc, u) => acc + (u.exercises ? u.exercises.length : 0), 0);
+          if (storedTotalEx >= 100 && storedTotalEx >= sourceTotalEx) {
             this.db = parsed;
             if (typeof window !== "undefined") window.GRAMMAR_UNITS = this.db.units;
             return;
@@ -58,10 +77,10 @@ const ExercisesStore = {
         }
       }
 
-      // Initialize from sourceUnits
+      // Initialize from sourceUnits (contains authentic 107 exercises)
       if (sourceUnits && sourceUnits.length > 0) {
         this.db = {
-          version: "3.0.0",
+          version: "4.0.0",
           updatedAt: new Date().toISOString(),
           units: sourceUnits
         };
@@ -73,7 +92,7 @@ const ExercisesStore = {
       const fallback = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
         ? GRAMMAR_UNITS
         : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
-      this.db = { version: "2.2.0", units: fallback };
+      this.db = { version: "4.0.0", units: fallback };
       if (typeof window !== "undefined") window.GRAMMAR_UNITS = fallback;
     }
   },
@@ -162,7 +181,7 @@ const ExercisesStore = {
       ? GRAMMAR_UNITS
       : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
     this.db = {
-      version: "2.2.0",
+      version: "4.0.0",
       updatedAt: new Date().toISOString(),
       units: sourceUnits
     };
