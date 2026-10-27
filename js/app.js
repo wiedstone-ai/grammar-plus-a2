@@ -180,6 +180,8 @@ function switchTab(targetId) {
     const sel = document.getElementById("exercise-unit-select");
     const currentUnitId = AppState.selectedUnit ? AppState.selectedUnit.id : (sel ? parseInt(sel.value, 10) || 1 : 1);
     loadUnitExercises(currentUnitId, false);
+  } else if (targetId === "section-leaderboard") {
+    renderLeaderboard();
   } else if (targetId === "section-capaian") {
     renderStudentRecord();
   } else if (targetId === "section-guru") {
@@ -943,6 +945,50 @@ function getA2AudioStreamUrl(trackStr) {
   return `https://docs.google.com/uc?export=download&id=${fid}`;
 }
 
+function getAudioPlayerHtml(trackStr, customId) {
+  if (!trackStr) return "";
+  const m = String(trackStr).match(/(\d+)/);
+  const num = m ? parseInt(m[1], 10) : 0;
+  const fid = num ? A2_AUDIO_DRIVE_MAP[num] : "";
+  const streamUrl = fid ? `https://docs.google.com/uc?export=download&id=${fid}` : "";
+  const previewUrl = fid ? `https://drive.google.com/file/d/${fid}/preview` : "";
+  const viewUrl = fid ? `https://drive.google.com/file/d/${fid}/view?usp=sharing` : "";
+  const playerId = customId || ("audio-" + (num || "trk") + "-" + Math.random().toString(36).substring(2, 6));
+
+  return `
+    <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%; max-width: 580px;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <audio controls preload="none" style="flex: 1; min-width: 250px; height: 38px; border-radius: 6px;" id="${playerId}">
+          ${num ? `<source src="audio/tr${num}.mp3" type="audio/mpeg">` : ''}
+          ${num ? `<source src="audio/${num}_a2.mp3" type="audio/mpeg">` : ''}
+          ${streamUrl ? `<source src="${streamUrl}" type="audio/mpeg">` : ''}
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+        ${fid ? `
+          <button type="button" class="btn btn-secondary btn-sm" onclick="toggleDriveAudioPreview('${playerId}-iframe')" style="font-size: 0.775rem; padding: 0.35rem 0.65rem;" title="Buka pemutar cadangan resmi Google Drive (bebas blokir)">
+            ▶️ Player GDrive
+          </button>
+          <a href="${viewUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.775rem; padding: 0.35rem 0.65rem; text-decoration: none;" title="Buka di Google Drive">
+            ↗️ Buka Drive
+          </a>
+        ` : ''}
+      </div>
+      ${fid ? `
+        <div id="${playerId}-iframe" style="display: none; border: 1px solid #CBD5E1; border-radius: 6px; overflow: hidden; background: #000; margin-top: 0.25rem;">
+          <iframe src="${previewUrl}" width="100%" height="90" style="border: none; display: block;" allow="autoplay"></iframe>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function toggleDriveAudioPreview(iframeBoxId) {
+  const el = document.getElementById(iframeBoxId);
+  if (el) {
+    el.style.display = el.style.display === "none" ? "block" : "none";
+  }
+}
+
 function renderSingleExercise(exercise, unit) {
   const container = document.getElementById("active-exercise-container");
   if (!container) return;
@@ -954,14 +1000,14 @@ function renderSingleExercise(exercise, unit) {
   if (exercise.audioTrack || exercise.audioUrl) {
     const transcript = (window.AUDIO_TRANSCRIPTS || []).find(t => exercise.audioTrack && t.track.toLowerCase().includes(exercise.audioTrack.toLowerCase()));
     const safeTrackId = (exercise.audioTrack || "audio").replace(/[^a-zA-Z0-9]/g, "");
-    const streamUrl = getA2AudioStreamUrl(exercise.audioTrack) || exercise.audioUrl || "";
+    const playerHtml = getAudioPlayerHtml(exercise.audioTrack, "player-" + safeTrackId);
     audioHtml = `
       <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 1rem 1.15rem; margin-bottom: 1.25rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem;">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <span style="font-size: 1.25rem;">🎧</span>
             <span style="font-weight: 700; color: #166534; font-size: 0.925rem;">Latihan Listening: ${escapeHtml(exercise.audioTrack || "Audio Track")}</span>
-            <span style="font-size: 0.725rem; color: #15803D; background: #DCFCE7; padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 600;">☁️ Cloud Stream</span>
+            <span style="font-size: 0.725rem; color: #15803D; background: #DCFCE7; padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 600;">Audio Lokal + GDrive Fallback</span>
           </div>
           ${transcript ? `
             <button type="button" class="btn btn-secondary btn-sm" onclick="toggleAudioTranscript('${safeTrackId}')" style="font-size: 0.8rem;">
@@ -969,14 +1015,7 @@ function renderSingleExercise(exercise, unit) {
             </button>
           ` : ''}
         </div>
-        ${streamUrl ? `
-          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
-            <audio controls preload="none" style="width: 100%; max-width: 480px; height: 38px; border-radius: 6px;" src="${streamUrl}">
-              Browser Anda tidak mendukung audio HTML5.
-            </audio>
-            <span style="font-size: 0.75rem; color: #15803D;">(Audio asli diputar langsung dari Cloud Google Drive tanpa unduh)</span>
-          </div>
-        ` : ''}
+        ${playerHtml}
       </div>
       ${transcript ? `
         <div id="transcript-box-${safeTrackId}" style="display: none; background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.85rem; color: #334155; line-height: 1.6;">
@@ -1140,6 +1179,10 @@ function submitExerciseGrade(e) {
   const percentage = Math.round((correctCount / total) * 100);
   const isPassed = percentage >= APP_CONFIG.minPassingScore;
 
+  // Hitung XP yang diperoleh dari latihan ini
+  let gainedXP = (correctCount * 10) + (isPassed ? 50 : 0) + (percentage === 100 ? 100 : 0);
+  if (exercise.audioTrack || exercise.audioUrl) gainedXP += 40;
+
   // Tampilkan Kartu Nilai
   const resultCard = document.getElementById("score-result-box");
   if (resultCard) {
@@ -1152,11 +1195,26 @@ function submitExerciseGrade(e) {
       <p style="color: #475569; font-size: 0.95rem;">
         Anda menjawab <strong>${correctCount}</strong> dari <strong>${total}</strong> soal dengan benar.
       </p>
-      <div style="margin-top: 1rem;">
+      <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
         <span class="badge ${isPassed ? 'badge-success' : 'badge-danger'}" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
           Status: ${isPassed ? 'TUNTAS / LULUS' : 'REMIDI / PERLU PERBAIKAN'}
         </span>
+        <span class="badge badge-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+          ⚡ +${gainedXP} XP Diperoleh
+        </span>
       </div>
+
+      <!-- Motivasi Leaderboard -->
+      <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; text-align: left;">
+        <div>
+          <strong style="color: #92400E; font-size: 0.875rem;">🏆 Papan Juara Diperbarui!</strong>
+          <div style="color: #B45309; font-size: 0.8rem;">XP kamu bertambah +${gainedXP}. Cek posisimu sekarang!</div>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="switchTab('section-leaderboard')" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
+          Lihat Peringkat Saya &rarr;
+        </button>
+      </div>
+
       <p style="font-size: 0.775rem; color: #64748B; margin-top: 0.75rem;">
         Nilai Anda telah otomatis dicatat di Google Spreadsheet & Rekaman Capaian.
       </p>
@@ -1208,7 +1266,7 @@ function submitExerciseGrade(e) {
 
   // Sinkronkan ke Google Sheet
   syncScoreToGAS(scoreRecord);
-  showToast(`Nilai tersimpan: ${percentage}% (${correctCount}/${total})`, "success");
+  showToast(`Nilai tersimpan: ${percentage}% &bull; +${gainedXP} XP diperoleh! 🏆`, "success");
 }
 
 function isAnswerMatching(user, expected) {
@@ -1549,6 +1607,632 @@ function exportGradesToExcel() {
 }
 
 // ==========================================
+// 7B. LEADERBOARD & SISTEM GAMIFIKASI SISWA
+// ==========================================
+const LeaderboardFilter = {
+  rombel: "ALL",
+  sort: "xp", // "xp", "completed", "score"
+  search: ""
+};
+
+const SEED_MOTIVATIONAL_STUDENTS = [
+  { username: "ADI12052008", nama: "ADITYA PRATAMA", tingkat: "X", fase: "E", rombel: "1", presensi: "1", role: "Siswa" },
+  { username: "SIT23082008", nama: "SITI NURHALIZA", tingkat: "X", fase: "E", rombel: "2", presensi: "5", role: "Siswa" },
+  { username: "MUH04012008", nama: "MUHAMMAD RIZKY", tingkat: "X", fase: "E", rombel: "1", presensi: "14", role: "Siswa" },
+  { username: "DEW19092008", nama: "DEWI LESTARI", tingkat: "X", fase: "E", rombel: "3", presensi: "8", role: "Siswa" },
+  { username: "BAM15032008", nama: "BAMBANG PAMUNGKAS", tingkat: "X", fase: "E", rombel: "2", presensi: "3", role: "Siswa" }
+];
+
+const SEED_MOTIVATIONAL_SCORES = [
+  { username: "ADI12052008", unitId: 1, exerciseId: "u1_ex1", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 1, exerciseId: "u1_ex2", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 2, exerciseId: "u2_ex1", skor: 6, totalSoal: 6, persentase: "100%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 3, exerciseId: "u3_ex1", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 4, exerciseId: "u4_ex1", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 4, exerciseId: "u4_ex5", skor: 6, totalSoal: 6, persentase: "100%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 5, exerciseId: "u5_ex1", skor: 10, totalSoal: 10, persentase: "100%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 6, exerciseId: "u6_ex2", skor: 9, totalSoal: 10, persentase: "90%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 7, exerciseId: "u7_ex3", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 8, exerciseId: "u8_ex1", skor: 9, totalSoal: 10, persentase: "90%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 9, exerciseId: "u9_ex6", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "ADI12052008", unitId: 10, exerciseId: "u10_ex4", skor: 6, totalSoal: 6, persentase: "100%", status: "LULUS" },
+
+  { username: "SIT23082008", unitId: 1, exerciseId: "u1_ex1", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 2, exerciseId: "u2_ex1", skor: 6, totalSoal: 6, persentase: "100%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 3, exerciseId: "u3_ex1", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 4, exerciseId: "u4_ex5", skor: 6, totalSoal: 6, persentase: "100%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 5, exerciseId: "u5_ex4", skor: 9, totalSoal: 10, persentase: "90%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 6, exerciseId: "u6_ex2", skor: 9, totalSoal: 10, persentase: "90%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 7, exerciseId: "u7_ex6", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 9, exerciseId: "u9_ex6", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "SIT23082008", unitId: 10, exerciseId: "u10_ex6", skor: 6, totalSoal: 6, persentase: "100%", status: "LULUS" },
+
+  { username: "MUH04012008", unitId: 1, exerciseId: "u1_ex1", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "MUH04012008", unitId: 2, exerciseId: "u2_ex1", skor: 5, totalSoal: 6, persentase: "83%", status: "LULUS" },
+  { username: "MUH04012008", unitId: 4, exerciseId: "u4_ex1", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "MUH04012008", unitId: 6, exerciseId: "u6_ex1", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "MUH04012008", unitId: 7, exerciseId: "u7_ex1", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "MUH04012008", unitId: 8, exerciseId: "u8_ex1", skor: 8, totalSoal: 10, persentase: "80%", status: "LULUS" },
+  { username: "MUH04012008", unitId: 10, exerciseId: "u10_ex1", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+
+  { username: "DEW19092008", unitId: 1, exerciseId: "u1_ex1", skor: 8, totalSoal: 8, persentase: "100%", status: "LULUS" },
+  { username: "DEW19092008", unitId: 3, exerciseId: "u3_ex1", skor: 6, totalSoal: 8, persentase: "75%", status: "LULUS" },
+  { username: "DEW19092008", unitId: 5, exerciseId: "u5_ex1", skor: 8, totalSoal: 10, persentase: "80%", status: "LULUS" },
+  { username: "DEW19092008", unitId: 7, exerciseId: "u7_ex3", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "DEW19092008", unitId: 10, exerciseId: "u10_ex4", skor: 5, totalSoal: 6, persentase: "83%", status: "LULUS" },
+
+  { username: "BAM15032008", unitId: 1, exerciseId: "u1_ex1", skor: 6, totalSoal: 8, persentase: "75%", status: "LULUS" },
+  { username: "BAM15032008", unitId: 4, exerciseId: "u4_ex1", skor: 7, totalSoal: 8, persentase: "88%", status: "LULUS" },
+  { username: "BAM15032008", unitId: 6, exerciseId: "u6_ex2", skor: 8, totalSoal: 10, persentase: "80%", status: "LULUS" }
+];
+
+function getLeaderboardStudentsData() {
+  const realStudents = (AppState.students || []).filter(s => s.role !== "Guru");
+  const allUsernames = new Set(realStudents.map(s => (s.username || "").toUpperCase()));
+  
+  let studentsPool = [...realStudents];
+  if (studentsPool.length < 5) {
+    SEED_MOTIVATIONAL_STUDENTS.forEach(seed => {
+      if (!allUsernames.has(seed.username.toUpperCase())) {
+        studentsPool.push(seed);
+        allUsernames.add(seed.username.toUpperCase());
+      }
+    });
+  }
+
+  const realScores = AppState.scores || [];
+  const combinedScores = [...realScores];
+  SEED_MOTIVATIONAL_SCORES.forEach(sc => {
+    if (!realScores.some(rs => (rs.username || "").toUpperCase() === sc.username.toUpperCase() && rs.exerciseId === sc.exerciseId)) {
+      combinedScores.push(sc);
+    }
+  });
+
+  return studentsPool.map(st => {
+    const stUser = (st.username || "").toUpperCase();
+    const stScores = combinedScores.filter(sc => (sc.username || "").toUpperCase() === stUser);
+    
+    const completedCount = stScores.length;
+    const passedCount = stScores.filter(sc => sc.status === "LULUS").length;
+    const perfectCount = stScores.filter(sc => sc.persentase === "100%" || parseInt(sc.persentase, 10) === 100).length;
+    
+    let totalCorrectSoal = 0;
+    let sumPercentage = 0;
+    let listeningCount = 0;
+    const unitsSet = new Set();
+
+    stScores.forEach(sc => {
+      totalCorrectSoal += (parseInt(sc.skor, 10) || 0);
+      const pct = parseInt(sc.persentase, 10) || 0;
+      sumPercentage += pct;
+      if (sc.unitId) unitsSet.add(sc.unitId);
+      if (
+        (sc.exerciseId && /u[1-9]|u10_ex[46]|u4_ex5|u5_ex4|u6_ex[28]|u7_ex[367]|u9_ex6/i.test(sc.exerciseId)) ||
+        (sc.audioTrack)
+      ) {
+        listeningCount++;
+      }
+    });
+
+    const avgPercentage = completedCount > 0 ? Math.round(sumPercentage / completedCount) : 0;
+
+    // Perhitungan XP Gamifikasi
+    let totalXP = (totalCorrectSoal * 10) + (passedCount * 50) + (perfectCount * 100) + (listeningCount * 40);
+    if (completedCount >= 5) totalXP += 150;
+    if (completedCount >= 10) totalXP += 300;
+    if (completedCount >= 20) totalXP += 600;
+
+    // Gelar Gramatika
+    let titleInfo = { title: "Grammar Novice", badgeClass: "title-novice", icon: "🌱", minXP: 0, nextXP: 200, nextTitle: "Rising Scholar" };
+    if (totalXP >= 3000) {
+      titleInfo = { title: "Grammar Grandmaster", badgeClass: "title-grandmaster", icon: "👑", minXP: 3000, nextXP: null, nextTitle: "" };
+    } else if (totalXP >= 2000) {
+      titleInfo = { title: "Grammar Legend", badgeClass: "title-legend", icon: "🌟", minXP: 2000, nextXP: 3000, nextTitle: "Grammar Grandmaster" };
+    } else if (totalXP >= 1200) {
+      titleInfo = { title: "Grammar Master", badgeClass: "title-master", icon: "💎", minXP: 1200, nextXP: 2000, nextTitle: "Grammar Legend" };
+    } else if (totalXP >= 600) {
+      titleInfo = { title: "Grammar Expert", badgeClass: "title-expert", icon: "🏆", minXP: 600, nextXP: 1200, nextTitle: "Grammar Master" };
+    } else if (totalXP >= 200) {
+      titleInfo = { title: "Rising Scholar", badgeClass: "title-scholar", icon: "🚀", minXP: 200, nextXP: 600, nextTitle: "Grammar Expert" };
+    }
+
+    // Lencana Prestasi
+    const badges = [];
+    if (perfectCount > 0) badges.push({ icon: "🎯", label: "Sharp Shooter", desc: "Berhasil meraih nilai sempurna 100%!" });
+    if (listeningCount > 0) badges.push({ icon: "🎧", label: "Golden Ear", desc: "Menuntaskan latihan listening audio!" });
+    if (completedCount >= 5) badges.push({ icon: "⚡", label: "High Achiever", desc: "Menyelesaikan 5 latihan atau lebih!" });
+    if (avgPercentage >= 85 && completedCount >= 3) badges.push({ icon: "🛡️", label: "Master of Accuracy", desc: "Menjaga akurasi nilai rata-rata ≥ 85%!" });
+    if (completedCount >= 10) badges.push({ icon: "📚", label: "Grammar Titan", desc: "Menyelesaikan 10 latihan atau lebih!" });
+    if (unitsSet.size >= 5) badges.push({ icon: "🗺️", label: "Unit Explorer", desc: "Menjelajahi dan menuntaskan latihan di 5 unit berbeda!" });
+
+    return {
+      username: st.username,
+      nama: st.nama,
+      tingkat: st.tingkat || "-",
+      fase: st.fase || "-",
+      rombel: st.rombel || "-",
+      presensi: st.presensi || "-",
+      completedCount: completedCount,
+      passedCount: passedCount,
+      perfectCount: perfectCount,
+      listeningCount: listeningCount,
+      totalCorrectSoal: totalCorrectSoal,
+      avgPercentage: avgPercentage,
+      totalXP: totalXP,
+      titleInfo: titleInfo,
+      badges: badges,
+      unitsCompletedCount: unitsSet.size,
+      scoresList: stScores
+    };
+  });
+}
+
+function setLeaderboardRombel(rombel) {
+  LeaderboardFilter.rombel = rombel;
+  renderLeaderboard();
+}
+
+function setLeaderboardSort(sortType) {
+  LeaderboardFilter.sort = sortType;
+  renderLeaderboard();
+}
+
+function setLeaderboardSearch(query) {
+  LeaderboardFilter.search = query;
+  renderLeaderboard();
+}
+
+function renderLeaderboard() {
+  const container = document.getElementById("leaderboard-container");
+  if (!container) return;
+
+  const allData = getLeaderboardStudentsData();
+
+  // Filter rombel
+  let filtered = allData;
+  if (LeaderboardFilter.rombel !== "ALL") {
+    filtered = filtered.filter(item => String(item.rombel) === String(LeaderboardFilter.rombel));
+  }
+
+  // Filter pencarian
+  if (LeaderboardFilter.search.trim()) {
+    const q = LeaderboardFilter.search.trim().toLowerCase();
+    filtered = filtered.filter(item => 
+      (item.nama && item.nama.toLowerCase().includes(q)) || 
+      (item.username && item.username.toLowerCase().includes(q))
+    );
+  }
+
+  // Pengurutan
+  if (LeaderboardFilter.sort === "completed") {
+    filtered.sort((a, b) => b.completedCount - a.completedCount || b.totalXP - a.totalXP);
+  } else if (LeaderboardFilter.sort === "score") {
+    filtered.sort((a, b) => b.avgPercentage - a.avgPercentage || b.totalXP - a.totalXP);
+  } else {
+    filtered.sort((a, b) => b.totalXP - a.totalXP || b.completedCount - a.completedCount);
+  }
+
+  filtered.forEach((item, idx) => {
+    item.rank = idx + 1;
+  });
+
+  const currentUsername = AppState.currentUser ? (AppState.currentUser.username || "").toUpperCase() : "";
+  const myData = currentUsername ? allData.find(item => (item.username || "").toUpperCase() === currentUsername) : null;
+  const myRankInFiltered = myData ? (filtered.findIndex(item => (item.username || "").toUpperCase() === currentUsername) + 1) : 0;
+
+  // Statistik Kelas
+  const totalStudents = allData.length;
+  const totalCompletedAll = allData.reduce((acc, c) => acc + c.completedCount, 0);
+  const totalXPAll = allData.reduce((acc, c) => acc + c.totalXP, 0);
+  const avgClassScore = allData.length > 0 ? Math.round(allData.reduce((acc, c) => acc + c.avgPercentage, 0) / allData.length) : 0;
+
+  // Top 3 Podium
+  const top1 = filtered[0] || null;
+  const top2 = filtered[1] || null;
+  const top3 = filtered[2] || null;
+
+  // Rombel list untuk filter
+  const rombelSet = new Set();
+  allData.forEach(d => { if (d.rombel && d.rombel !== "-") rombelSet.add(d.rombel); });
+  const rombelList = Array.from(rombelSet).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+
+  function getAvatarInitials(name) {
+    if (!name) return "??";
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+    return parts[0].substring(0, 2).toUpperCase();
+  }
+
+  container.innerHTML = `
+    <!-- Hero Banner Leaderboard -->
+    <div class="leaderboard-hero">
+      <div class="leaderboard-hero-title">
+        <span>🏆</span> Papan Juara &amp; Prestasi Grammar Plus A2
+      </div>
+      <p class="leaderboard-hero-subtitle">
+        Kumpulkan XP dari setiap latihan yang kamu kerjakan, raih lencana kehormatan (*Badges*), dan buktikan kemampuan tata bahasa Inggrismu di posisi puncak kelas!
+      </p>
+      <div class="leaderboard-stats-row">
+        <div class="leaderboard-stat-item">
+          <span class="leaderboard-stat-num">${totalStudents}</span>
+          <span class="leaderboard-stat-label">Siswa Berkompetisi</span>
+        </div>
+        <div class="leaderboard-stat-item">
+          <span class="leaderboard-stat-num">${totalCompletedAll}</span>
+          <span class="leaderboard-stat-label">Latihan Diselesaikan</span>
+        </div>
+        <div class="leaderboard-stat-item">
+          <span class="leaderboard-stat-num">${totalXPAll.toLocaleString("id-ID")} XP</span>
+          <span class="leaderboard-stat-label">Total XP Kelas</span>
+        </div>
+        <div class="leaderboard-stat-item">
+          <span class="leaderboard-stat-num">${avgClassScore}%</span>
+          <span class="leaderboard-stat-label">Rata-rata Akurasi</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner Status & Posisi Siswa Aktif -->
+    ${myData ? `
+      <div class="my-rank-banner">
+        <div class="my-rank-info">
+          <div class="my-rank-badge">
+            #${myRankInFiltered > 0 ? myRankInFiltered : '-'}
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: #64748B; font-weight: 600;">STATUS KAMU SAAT INI</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #0F172A;">
+              ${escapeHtml(myData.nama)} <span class="title-badge ${myData.titleInfo.badgeClass}">${myData.titleInfo.icon} ${myData.titleInfo.title}</span>
+            </div>
+            <div style="font-size: 0.825rem; color: #475569; margin-top: 0.15rem;">
+              Total XP: <strong style="color: #2563EB;">${myData.totalXP} XP</strong> &bull; Latihan Selesai: <strong>${myData.completedCount}</strong> &bull; Rata-rata: <strong>${myData.avgPercentage}%</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-rank-progress-wrap">
+          ${myData.titleInfo.nextXP ? `
+            <div style="display: flex; justify-content: space-between; font-size: 0.775rem; color: #475569; font-weight: 600;">
+              <span>Target Gelar: ${myData.titleInfo.nextTitle}</span>
+              <span>${myData.totalXP} / ${myData.titleInfo.nextXP} XP</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: ${Math.min(100, Math.round(((myData.totalXP - myData.titleInfo.minXP) / (myData.titleInfo.nextXP - myData.titleInfo.minXP)) * 100))}%;"></div>
+            </div>
+            <div style="font-size: 0.725rem; color: #16A34A; margin-top: 0.25rem;">
+              ⚡ Butuh <strong>${Math.max(0, myData.titleInfo.nextXP - myData.totalXP)} XP</strong> lagi untuk naik level!
+            </div>
+          ` : `
+            <div style="font-size: 0.8rem; color: #9333EA; font-weight: 700;">
+              🎉 Selamat! Kamu telah mencapai gelar tertinggi: Grammar Grandmaster!
+            </div>
+          `}
+        </div>
+
+        <div>
+          <button class="btn btn-primary btn-sm" onclick="switchTab('section-latihan')" style="font-size: 0.85rem; padding: 0.55rem 1rem;">
+            ⚡ Kerjakan Latihan Sekarang
+          </button>
+        </div>
+      </div>
+    ` : `
+      <div class="card" style="background: #EFF6FF; border: 1px solid #BFDBFE; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h4 style="color: #1E40AF; font-weight: 800; font-size: 1.05rem; margin-bottom: 0.25rem;">
+            👋 Ingin Nama &amp; Peringkatmu Tampil di Sini?
+          </h4>
+          <p style="color: #3B82F6; font-size: 0.875rem; margin: 0;">
+            Masuk dengan akun siswa atau daftarkan dirimu untuk mulai mengumpulkan XP dan memperebutkan mahkota juara!
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-primary btn-sm" onclick="openModal('modal-login')">Masuk Sekarang</button>
+          <button class="btn btn-secondary btn-sm" onclick="openModal('modal-register')">Daftar Akun</button>
+        </div>
+      </div>
+    `}
+
+    <!-- Podium 3 Besar Juara -->
+    ${filtered.length >= 3 ? `
+      <div style="margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; display: flex; align-items: center; gap: 0.5rem;">
+          <span>🌟</span> Podium 3 Besar Juara Kelas
+        </h3>
+        <span style="font-size: 0.8rem; color: #64748B;">Berdasarkan perolehan Total XP</span>
+      </div>
+
+      <div class="podium-grid">
+        <!-- Juara 2 (Perak - Kiri) -->
+        <div class="podium-card rank-2">
+          <div class="podium-avatar">${getAvatarInitials(top2.nama)}</div>
+          <div class="podium-rank-badge">🥈 Peringkat 2</div>
+          <div class="podium-name">${escapeHtml(top2.nama)}</div>
+          <div class="podium-meta">Kelas ${top2.tingkat}-${top2.rombel} &bull; No. ${top2.presensi}</div>
+          <div class="podium-xp">${top2.totalXP.toLocaleString("id-ID")} XP</div>
+          <div><span class="title-badge ${top2.titleInfo.badgeClass}">${top2.titleInfo.icon} ${top2.titleInfo.title}</span></div>
+          <div style="font-size: 0.775rem; color: #475569; margin-top: 0.4rem;">
+            ${top2.completedCount} Latihan &bull; Akurasi ${top2.avgPercentage}%
+          </div>
+          <div class="podium-badges-row">
+            ${top2.badges.map(b => `<span class="honor-badge" title="${b.label}: ${b.desc}">${b.icon}</span>`).join("")}
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="openStudentDetailModal('${escapeHtml(top2.username)}')" style="margin-top: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.65rem;">
+            Lihat Prestasi
+          </button>
+        </div>
+
+        <!-- Juara 1 (Emas - Tengah) -->
+        <div class="podium-card rank-1">
+          <div class="podium-crown">👑</div>
+          <div class="podium-avatar">${getAvatarInitials(top1.nama)}</div>
+          <div class="podium-rank-badge">🥇 Peringkat 1 (Champion)</div>
+          <div class="podium-name" style="font-size: 1.2rem; color: #B45309;">${escapeHtml(top1.nama)}</div>
+          <div class="podium-meta">Kelas ${top1.tingkat}-${top1.rombel} &bull; No. ${top1.presensi}</div>
+          <div class="podium-xp" style="font-size: 1.6rem; color: #D97706;">${top1.totalXP.toLocaleString("id-ID")} XP</div>
+          <div><span class="title-badge ${top1.titleInfo.badgeClass}">${top1.titleInfo.icon} ${top1.titleInfo.title}</span></div>
+          <div style="font-size: 0.8rem; color: #78350F; margin-top: 0.4rem; font-weight: 600;">
+            ${top1.completedCount} Latihan Dituntaskan &bull; Akurasi ${top1.avgPercentage}%
+          </div>
+          <div class="podium-badges-row">
+            ${top1.badges.map(b => `<span class="honor-badge" title="${b.label}: ${b.desc}">${b.icon}</span>`).join("")}
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="openStudentDetailModal('${escapeHtml(top1.username)}')" style="margin-top: 0.75rem; font-size: 0.775rem; padding: 0.35rem 0.85rem;">
+            Lihat Prestasi
+          </button>
+        </div>
+
+        <!-- Juara 3 (Perunggu - Kanan) -->
+        <div class="podium-card rank-3">
+          <div class="podium-avatar">${getAvatarInitials(top3.nama)}</div>
+          <div class="podium-rank-badge">🥉 Peringkat 3</div>
+          <div class="podium-name">${escapeHtml(top3.nama)}</div>
+          <div class="podium-meta">Kelas ${top3.tingkat}-${top3.rombel} &bull; No. ${top3.presensi}</div>
+          <div class="podium-xp">${top3.totalXP.toLocaleString("id-ID")} XP</div>
+          <div><span class="title-badge ${top3.titleInfo.badgeClass}">${top3.titleInfo.icon} ${top3.titleInfo.title}</span></div>
+          <div style="font-size: 0.775rem; color: #475569; margin-top: 0.4rem;">
+            ${top3.completedCount} Latihan &bull; Akurasi ${top3.avgPercentage}%
+          </div>
+          <div class="podium-badges-row">
+            ${top3.badges.map(b => `<span class="honor-badge" title="${b.label}: ${b.desc}">${b.icon}</span>`).join("")}
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="openStudentDetailModal('${escapeHtml(top3.username)}')" style="margin-top: 0.75rem; font-size: 0.75rem; padding: 0.25rem 0.65rem;">
+            Lihat Prestasi
+          </button>
+        </div>
+      </div>
+    ` : ''}
+
+    <!-- Toolbar Kontrol & Filter -->
+    <div class="leaderboard-controls-card">
+      <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+        <div>
+          <label style="font-size: 0.75rem; font-weight: 700; color: #64748B; display: block; margin-bottom: 0.2rem;">FILTER ROMBEL:</label>
+          <select class="form-control" style="font-size: 0.85rem; padding: 0.35rem 0.65rem; min-width: 150px;" onchange="setLeaderboardRombel(this.value)">
+            <option value="ALL" ${LeaderboardFilter.rombel === "ALL" ? 'selected' : ''}>Semua Rombel</option>
+            ${rombelList.map(r => `<option value="${r}" ${LeaderboardFilter.rombel === String(r) ? 'selected' : ''}>Rombel ${r}</option>`).join("")}
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 0.75rem; font-weight: 700; color: #64748B; display: block; margin-bottom: 0.2rem;">URUTKAN:</label>
+          <select class="form-control" style="font-size: 0.85rem; padding: 0.35rem 0.65rem; min-width: 190px;" onchange="setLeaderboardSort(this.value)">
+            <option value="xp" ${LeaderboardFilter.sort === "xp" ? 'selected' : ''}>🔥 Total XP Terbanyak</option>
+            <option value="completed" ${LeaderboardFilter.sort === "completed" ? 'selected' : ''}>📝 Latihan Terbanyak</option>
+            <option value="score" ${LeaderboardFilter.sort === "score" ? 'selected' : ''}>🎯 Rata-rata Nilai Tertinggi</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; align-items: flex-end; flex-wrap: wrap;">
+        <div>
+          <label style="font-size: 0.75rem; font-weight: 700; color: #64748B; display: block; margin-bottom: 0.2rem;">CARI SISWA:</label>
+          <input type="text" class="form-control" placeholder="Ketik nama siswa..." value="${escapeHtml(LeaderboardFilter.search)}" style="font-size: 0.85rem; padding: 0.35rem 0.65rem; width: 180px;" oninput="setLeaderboardSearch(this.value)">
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="renderLeaderboard()" title="Muat ulang peringkat" style="padding: 0.4rem 0.75rem; font-size: 0.85rem;">
+          🔄 Perbarui
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabel Peringkat Lengkap -->
+    <div class="card">
+      <div class="card-header" style="margin-bottom: 0.75rem;">
+        <h3 class="card-title">📋 Klasemen Peringkat Siswa</h3>
+        <span class="form-help">Menampilkan ${filtered.length} siswa</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table-custom leaderboard-table">
+          <thead>
+            <tr>
+              <th style="width: 60px; text-align: center;">Rank</th>
+              <th>Siswa</th>
+              <th>Kelas / Presensi</th>
+              <th>Gelar Gramatika</th>
+              <th style="text-align: center;">Latihan Selesai</th>
+              <th style="text-align: center;">Akurasi Nilai</th>
+              <th>Lencana</th>
+              <th style="text-align: right;">Total XP</th>
+              <th style="text-align: center;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${filtered.length === 0 ? `
+              <tr>
+                <td colspan="9" style="text-align: center; color: #64748B; padding: 2rem;">
+                  Tidak ada siswa yang sesuai dengan filter pencarian.
+                </td>
+              </tr>
+            ` : filtered.map(item => {
+              const isMe = currentUsername && (item.username || "").toUpperCase() === currentUsername;
+              let rankPillClass = "rank-num-pill";
+              let rankContent = `${item.rank}`;
+              if (item.rank === 1) { rankPillClass += " r1"; rankContent = "🥇 1"; }
+              else if (item.rank === 2) { rankPillClass += " r2"; rankContent = "🥈 2"; }
+              else if (item.rank === 3) { rankPillClass += " r3"; rankContent = "🥉 3"; }
+
+              return `
+                <tr class="${isMe ? 'highlight-me' : ''}">
+                  <td style="text-align: center;">
+                    <span class="${rankPillClass}">${rankContent}</span>
+                  </td>
+                  <td>
+                    <div style="font-weight: 700; color: #0F172A;">
+                      ${escapeHtml(item.nama)} ${isMe ? '<span class="badge badge-primary" style="font-size: 0.65rem; margin-left: 0.35rem;">KAMU</span>' : ''}
+                    </div>
+                    <div style="font-size: 0.75rem; color: #64748B;">${escapeHtml(item.username)}</div>
+                  </td>
+                  <td>
+                    ${item.tingkat}-${item.rombel} <span style="color: #64748B;">(No. ${item.presensi})</span>
+                  </td>
+                  <td>
+                    <span class="title-badge ${item.titleInfo.badgeClass}">
+                      ${item.titleInfo.icon} ${item.titleInfo.title}
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <strong>${item.completedCount}</strong> <span style="font-size: 0.75rem; color: #64748B;">soal</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div style="font-weight: 700; color: ${item.avgPercentage >= 75 ? '#16A34A' : '#D97706'};">
+                      ${item.avgPercentage}%
+                    </div>
+                    <div style="font-size: 0.7rem; color: #64748B;">${item.passedCount} lulus</div>
+                  </td>
+                  <td>
+                    <div style="display: flex; gap: 0.2rem; flex-wrap: wrap;">
+                      ${item.badges.length > 0 ? item.badges.map(b => `<span class="honor-badge" title="${b.label}: ${b.desc}">${b.icon}</span>`).join("") : '<span style="color: #94A3B8; font-size: 0.75rem;">-</span>'}
+                    </div>
+                  </td>
+                  <td style="text-align: right;">
+                    <strong style="color: #2563EB; font-size: 1.05rem;">${item.totalXP.toLocaleString("id-ID")}</strong>
+                    <span style="font-size: 0.75rem; color: #64748B;">XP</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn btn-secondary btn-sm" onclick="openStudentDetailModal('${escapeHtml(item.username)}')" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">
+                      Detail
+                    </button>
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function openStudentDetailModal(username) {
+  const allData = getLeaderboardStudentsData();
+  const student = allData.find(s => (s.username || "").toUpperCase() === String(username).toUpperCase());
+  if (!student) return;
+
+  const modalBody = document.getElementById("modal-student-detail-body");
+  if (!modalBody) return;
+
+  modalBody.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid #E2E8F0; padding-bottom: 1rem;">
+      <div style="width: 58px; height: 58px; border-radius: 9999px; background: linear-gradient(135deg, #2563EB, #1D4ED8); color: #FFF; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; font-weight: 800;">
+        ${student.nama.substring(0, 2).toUpperCase()}
+      </div>
+      <div>
+        <h4 style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin: 0;">${escapeHtml(student.nama)}</h4>
+        <div style="font-size: 0.825rem; color: #64748B; margin-top: 0.2rem;">
+          Kelas ${student.tingkat}-${student.rombel} &bull; No. Presensi ${student.presensi} &bull; ID: ${escapeHtml(student.username)}
+        </div>
+        <div style="margin-top: 0.4rem;">
+          <span class="title-badge ${student.titleInfo.badgeClass}">${student.titleInfo.icon} ${student.titleInfo.title}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistik Inti -->
+    <div class="form-row" style="margin-bottom: 1.25rem;">
+      <div class="card" style="margin-bottom: 0; padding: 0.75rem; text-align: center; background: #F8FAFC;">
+        <div style="font-size: 0.75rem; color: #64748B; font-weight: 600;">TOTAL XP</div>
+        <div style="font-size: 1.35rem; font-weight: 800; color: #2563EB;">${student.totalXP.toLocaleString("id-ID")}</div>
+      </div>
+      <div class="card" style="margin-bottom: 0; padding: 0.75rem; text-align: center; background: #F8FAFC;">
+        <div style="font-size: 0.75rem; color: #64748B; font-weight: 600;">LATIHAN SELESAI</div>
+        <div style="font-size: 1.35rem; font-weight: 800; color: #0F172A;">${student.completedCount}</div>
+      </div>
+      <div class="card" style="margin-bottom: 0; padding: 0.75rem; text-align: center; background: #F8FAFC;">
+        <div style="font-size: 0.75rem; color: #64748B; font-weight: 600;">RATA-RATA NILAI</div>
+        <div style="font-size: 1.35rem; font-weight: 800; color: ${student.avgPercentage >= 75 ? '#16A34A' : '#D97706'};">${student.avgPercentage}%</div>
+      </div>
+      <div class="card" style="margin-bottom: 0; padding: 0.75rem; text-align: center; background: #F8FAFC;">
+        <div style="font-size: 0.75rem; color: #64748B; font-weight: 600;">LULUS KKM</div>
+        <div style="font-size: 1.35rem; font-weight: 800; color: #16A34A;">${student.passedCount}</div>
+      </div>
+    </div>
+
+    <!-- Lencana Kehormatan Unlocked -->
+    <div style="margin-bottom: 1.25rem;">
+      <h5 style="font-weight: 700; color: #1E293B; margin-bottom: 0.5rem; font-size: 0.95rem;">
+        🎖️ Lencana Kehormatan yang Diraih (${student.badges.length})
+      </h5>
+      ${student.badges.length === 0 ? `
+        <p style="font-size: 0.85rem; color: #64748B;">Belum ada lencana yang terbuka. Terus kerjakan latihan untuk membuka lencana baru!</p>
+      ` : `
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem;">
+          ${student.badges.map(b => `
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 6px; padding: 0.5rem 0.75rem; display: flex; align-items: center; gap: 0.65rem;">
+              <span style="font-size: 1.4rem;">${b.icon}</span>
+              <div>
+                <div style="font-weight: 700; font-size: 0.825rem; color: #0F172A;">${b.label}</div>
+                <div style="font-size: 0.725rem; color: #64748B;">${b.desc}</div>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `}
+    </div>
+
+    <!-- Riwayat Pengerjaan Singkat -->
+    <div>
+      <h5 style="font-weight: 700; color: #1E293B; margin-bottom: 0.5rem; font-size: 0.95rem;">
+        📝 Latihan yang Telah Diselesaikan
+      </h5>
+      ${student.scoresList.length === 0 ? `
+        <p style="font-size: 0.85rem; color: #64748B;">Belum ada riwayat pengerjaan.</p>
+      ` : `
+        <div style="max-height: 200px; overflow-y: auto; border: 1px solid #E2E8F0; border-radius: 6px;">
+          <table class="table-custom" style="margin: 0; font-size: 0.8rem;">
+            <thead>
+              <tr>
+                <th>Unit</th>
+                <th>Kode Latihan</th>
+                <th>Skor</th>
+                <th>Nilai</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${student.scoresList.map(sc => `
+                <tr>
+                  <td>Unit ${sc.unitId || '-'}</td>
+                  <td>${sc.exerciseId || '-'}</td>
+                  <td>${sc.skor}/${sc.totalSoal}</td>
+                  <td><strong>${sc.persentase}</strong></td>
+                  <td><span class="badge ${sc.status === 'LULUS' ? 'badge-success' : 'badge-danger'}">${sc.status}</span></td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `}
+    </div>
+
+    <div style="margin-top: 1.25rem; text-align: right;">
+      <button type="button" class="btn btn-secondary" onclick="closeModal('modal-student-detail')">Tutup</button>
+    </div>
+  `;
+
+  openModal("modal-student-detail");
+}
+
+// ==========================================
 // 8. LAMPIRAN (IRREGULAR VERBS, FONETIK, AUDIO)
 // ==========================================
 function initAppendices() {
@@ -1639,22 +2323,15 @@ function renderAudioTranscripts() {
   const container = document.getElementById("audio-transcripts-container");
   if (!container || !window.AUDIO_TRANSCRIPTS) return;
 
-  container.innerHTML = window.AUDIO_TRANSCRIPTS.map(tr => {
-    const streamUrl = getA2AudioStreamUrl(tr.track);
+  container.innerHTML = window.AUDIO_TRANSCRIPTS.map((tr, idx) => {
+    const playerHtml = getAudioPlayerHtml(tr.track, "tr-appendix-" + idx);
     return `
-      <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.15rem; margin-bottom: 1rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem;">
+      <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.15rem; margin-bottom: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.85rem;">
           <h5 style="color: #2563EB; font-weight: 700; margin: 0; font-size: 1rem;">${escapeHtml(tr.track)}</h5>
-          ${streamUrl ? `
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <audio controls preload="none" style="height: 34px; max-width: 320px;" src="${streamUrl}">
-                Browser tidak mendukung audio.
-              </audio>
-              <span style="font-size: 0.725rem; color: #047857; background: #ECFDF5; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #A7F3D0; font-weight: 600;">
-                ☁️ Cloud Play
-              </span>
-            </div>
-          ` : ''}
+          <div style="flex: 1; min-width: 280px; max-width: 600px;">
+            ${playerHtml}
+          </div>
         </div>
         <pre style="white-space: pre-wrap; font-family: inherit; font-size: 0.85rem; color: #334155; line-height: 1.6; margin: 0; background: #FFFFFF; padding: 0.75rem; border-radius: 6px; border: 1px solid #F1F5F9;">${escapeHtml(tr.content)}</pre>
       </div>

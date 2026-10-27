@@ -45,6 +45,9 @@
         <a class="nav-link" data-target="section-latihan">
           <span>📝</span> Latihan Interaktif
         </a>
+        <a class="nav-link" data-target="section-leaderboard">
+          <span>🏆</span> Papan Juara (Leaderboard)
+        </a>
         <a class="nav-link" data-target="section-capaian">
           <span>📊</span> Rekaman Capaian (Siswa)
         </a>
@@ -175,6 +178,15 @@
           <div id="exercise-render-area">
             <!-- Konten soal dimuat dinamis -->
           </div>
+        </div>
+      </section>
+
+      <!-- ========================================================== -->
+      <!-- TAB LEADERBOARD: PAPAN JUARA & PRESTASI SISWA             -->
+      <!-- ========================================================== -->
+      <section id="section-leaderboard" class="tab-section">
+        <div id="leaderboard-container">
+          <!-- Diisi otomatis oleh JavaScript -->
         </div>
       </section>
 
@@ -474,6 +486,19 @@
           <button type="button" class="btn btn-secondary" onclick="closeModal('modal-add-student-guru')">Batal</button>
         </div>
       </form>
+    </div>
+  <!-- ============================================================== -->
+  <!-- MODAL: DETAIL PRESTASI SISWA DI LEADERBOARD                     -->
+  <!-- ============================================================== -->
+  <div class="modal-overlay" id="modal-student-detail">
+    <div class="modal-box" style="max-width: 620px;">
+      <div class="modal-header">
+        <h3 class="card-title">🏅 Profil Prestasi Siswa</h3>
+        <button class="modal-close" onclick="closeModal('modal-student-detail')">&times;</button>
+      </div>
+      <div id="modal-student-detail-body">
+        <!-- Konten otomatis diisi oleh renderStudentDetailModal -->
+      </div>
     </div>
   </div>
 
