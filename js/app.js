@@ -840,7 +840,7 @@ function renderUnitGrid(filterKeyword = "") {
         </div>
         <div class="unit-card-footer">
           <span>📖 ${u.exercises ? u.exercises.length : 0} Latihan</span>
-          <span class="unit-footer-action">Pelajari &amp; Kerjakan &rarr;</span>
+          <a href="units/unit_${u.id}.html" class="btn-fast-unit" onclick="event.stopPropagation();" title="Buka unit secara terpisah (Sangat Ringan & Cepat)">⚡ Halaman Ringan</a>
         </div>
       </div>
     `;
@@ -914,9 +914,12 @@ function openUnitDetail(unitId) {
     </div>
 
     <!-- Tombol Mulai Latihan -->
-    <div style="margin-top: 1.5rem; text-align: center;">
-      <button class="btn btn-primary btn-lg" onclick="loadUnitExercises(${unit.id})">
-        📝 Buka dan Kerjakan Latihan Unit ${unit.id}
+    <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+      <a href="units/unit_${unit.id}.html" class="btn btn-primary btn-lg" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ⚡ Buka Halaman Unit ${unit.id} (Super Ringan &amp; Cepat)
+      </a>
+      <button class="btn btn-secondary btn-lg" onclick="loadUnitExercises(${unit.id})">
+        📝 Kerjakan di Halaman Ini
       </button>
     </div>
   `;
@@ -1179,7 +1182,7 @@ function renderSingleExercise(exercise, unit) {
             </div>
           ` : ''}
           <div style="flex: 1; min-width: 220px;">
-            <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off">`)}</div>
+            <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`)}</div>
             ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.35rem; display: flex; align-items: center; gap: 0.3rem;"><span>💡</span> Petunjuk: ${q.hint}</div>` : ''}
             <div class="feedback-box" id="feedback-q-${idx}"></div>
           </div>
@@ -1187,7 +1190,7 @@ function renderSingleExercise(exercise, unit) {
       </div>
     `).join("");
   } else {
-    // Choice / Pilihan Ganda
+    // Choice / Pilihan Ganda (Gunakan indeks opsi agar bebas bug karakter petik / contractions)
     questionsHtml = exercise.questions.map((q, idx) => `
       <div class="question-item" id="q-box-${idx}">
         <div style="display: flex; gap: 0.85rem; align-items: flex-start; flex-wrap: wrap;">
@@ -1201,9 +1204,9 @@ function renderSingleExercise(exercise, unit) {
           <div style="flex: 1; min-width: 220px;">
             <div class="question-text">${idx + 1}. ${q.q.replace('[BLANK]', '_______')}</div>
             <div class="options-group">
-              ${q.options.map(opt => `
-                <button type="button" class="btn-option" onclick="selectOption(${idx}, '${escapeHtml(opt)}')">
-                  <span>${opt}</span>
+              ${q.options.map((opt, optIdx) => `
+                <button type="button" class="btn-option" id="btn-opt-${idx}-${optIdx}" onclick="selectOptionByIndex(${idx}, ${optIdx})">
+                  <span>${escapeHtml(opt)}</span>
                 </button>
               `).join("")}
             </div>
@@ -1243,12 +1246,12 @@ function renderSingleExercise(exercise, unit) {
     <form id="exercise-form" onsubmit="submitExerciseGrade(event)">
       ${questionsHtml}
 
-      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem;">
-        <button type="submit" class="btn btn-success btn-lg" style="flex: 1;">
-          ✅ Periksa Jawaban & Simpan Nilai
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button type="submit" class="btn btn-success btn-lg" style="flex: 1; min-width: 220px;" id="btn-submit-exercise">
+          ✅ Periksa Jawaban &amp; Simpan Nilai
         </button>
         <button type="button" class="btn btn-secondary" onclick="resetCurrentExercise()">
-          🔄 Ulangi Latihan
+          🔄 Ulangi dari Awal
         </button>
       </div>
     </form>
@@ -1266,6 +1269,33 @@ function toggleAudioTranscript(safeTrackId) {
   }
 }
 
+// Pemilihan Opsi Pilihan Ganda Berbasis Indeks (Aman dari kutip, koma, slash)
+function selectOptionByIndex(qIdx, optIdx) {
+  const ex = AppState.selectedExercise;
+  if (!ex || !ex.questions || !ex.questions[qIdx]) return;
+  const optionValue = ex.questions[qIdx].options[optIdx];
+  const hiddenInput = document.getElementById(`answer-q-${qIdx}`);
+  if (hiddenInput) hiddenInput.value = optionValue;
+
+  const box = document.getElementById(`q-box-${qIdx}`);
+  if (box) {
+    box.querySelectorAll(".btn-option").forEach((btn, bIdx) => {
+      if (bIdx === optIdx) {
+        btn.classList.add("selected");
+      } else {
+        btn.classList.remove("selected");
+      }
+    });
+    // Hapus feedback lama agar siswa siap memeriksa perbaikan jawaban
+    const feedbackBox = document.getElementById(`feedback-q-${qIdx}`);
+    if (feedbackBox) {
+      feedbackBox.classList.remove("show", "correct", "wrong");
+      feedbackBox.innerHTML = "";
+    }
+  }
+}
+
+// Pemilihan Opsi Berbasis Nilai Teks (Fallback)
 function selectOption(qIdx, optionValue) {
   const hiddenInput = document.getElementById(`answer-q-${qIdx}`);
   if (hiddenInput) hiddenInput.value = optionValue;
@@ -1274,10 +1304,48 @@ function selectOption(qIdx, optionValue) {
   if (box) {
     box.querySelectorAll(".btn-option").forEach(btn => {
       btn.classList.remove("selected");
-      if (btn.innerText.trim() === optionValue.trim()) {
+      if (btn.innerText.trim() === String(optionValue).trim()) {
         btn.classList.add("selected");
       }
     });
+    const feedbackBox = document.getElementById(`feedback-q-${qIdx}`);
+    if (feedbackBox) {
+      feedbackBox.classList.remove("show", "correct", "wrong");
+      feedbackBox.innerHTML = "";
+    }
+  }
+}
+
+// Handler Saat Siswa Mengetik Jawaban Baru (Membersihkan error lama)
+function onInputAnswerChange(qIdx) {
+  const feedbackBox = document.getElementById(`feedback-q-${qIdx}`);
+  if (feedbackBox) {
+    feedbackBox.classList.remove("show", "correct", "wrong");
+    feedbackBox.innerHTML = "";
+  }
+  const inp = document.getElementById(`input-q-${qIdx}`);
+  if (inp) inp.classList.remove("correct", "wrong");
+}
+
+// Scroll otomatis ke nomor soal pertama yang masih salah
+function focusFirstWrongQuestion() {
+  const firstWrong = document.querySelector(".feedback-box.wrong");
+  if (firstWrong) {
+    const parent = firstWrong.closest(".question-item");
+    if (parent) {
+      parent.scrollIntoView({ behavior: "smooth", block: "center" });
+      parent.style.transition = "background-color 0.4s ease";
+      parent.style.backgroundColor = "#FEF3C7";
+      setTimeout(() => { parent.style.backgroundColor = ""; }, 1500);
+
+      const inp = parent.querySelector("input.fill-input");
+      if (inp) {
+        inp.focus();
+        inp.select();
+      }
+    }
+  } else {
+    showToast("Semua butir soal sudah benar!", "success");
   }
 }
 
@@ -1287,10 +1355,7 @@ function submitExerciseGrade(e) {
   const unit = AppState.selectedUnit;
   if (!exercise || !unit) return;
 
-  if (!AppState.currentUser) {
-    showToast("Anda harus login untuk menyimpan nilai latihan!", "danger");
-    return;
-  }
+  const isUserLoggedIn = Boolean(AppState.currentUser);
 
   let correctCount = 0;
   const total = exercise.questions.length;
@@ -1308,6 +1373,19 @@ function submitExerciseGrade(e) {
         userAnswer = `${inp ? inp.value.trim() : ''}, ${inpB.value.trim()}`;
       } else {
         userAnswer = inp ? inp.value.trim() : "";
+      }
+
+      // Beri tanda visual pada input
+      const expectedCheck = (q.answer || "").trim();
+      let matchNow = isAnswerMatching(userAnswer, expectedCheck);
+      if (!matchNow && q.alternateAnswers && Array.isArray(q.alternateAnswers)) {
+        for (const alt of q.alternateAnswers) {
+          if (isAnswerMatching(userAnswer, alt)) { matchNow = true; break; }
+        }
+      }
+      if (inp) {
+        inp.classList.remove("correct", "wrong");
+        inp.classList.add(matchNow ? "correct" : "wrong");
       }
     } else {
       const hidden = document.getElementById(`answer-q-${idx}`);
@@ -1335,7 +1413,7 @@ function submitExerciseGrade(e) {
       isCorrect: isCorrect
     });
 
-    // Beri Feedback UI
+    // Beri Feedback UI per butir soal
     const feedbackBox = document.getElementById(`feedback-q-${idx}`);
     if (feedbackBox) {
       feedbackBox.classList.remove("correct", "wrong");
@@ -1349,13 +1427,13 @@ function submitExerciseGrade(e) {
   });
 
   const percentage = Math.round((correctCount / total) * 100);
-  const isPassed = percentage >= APP_CONFIG.minPassingScore;
+  const isPassed = percentage >= (APP_CONFIG.minPassingScore || 75);
 
   // Hitung XP yang diperoleh dari latihan ini
   let gainedXP = (correctCount * 10) + (isPassed ? 50 : 0) + (percentage === 100 ? 100 : 0);
   if (exercise.audioTrack || exercise.audioUrl) gainedXP += 40;
 
-  // Tampilkan Kartu Nilai
+  // Tampilkan Kartu Nilai & Opsi Perbaikan Jawaban
   const resultCard = document.getElementById("score-result-box");
   if (resultCard) {
     resultCard.classList.add("show");
@@ -1367,6 +1445,7 @@ function submitExerciseGrade(e) {
       <p style="color: #475569; font-size: 0.95rem;">
         Anda menjawab <strong>${correctCount}</strong> dari <strong>${total}</strong> soal dengan benar.
       </p>
+
       <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
         <span class="badge ${isPassed ? 'badge-success' : 'badge-danger'}" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
           Status: ${isPassed ? 'TUNTAS / LULUS' : 'REMIDI / PERLU PERBAIKAN'}
@@ -1376,69 +1455,97 @@ function submitExerciseGrade(e) {
         </span>
       </div>
 
-      <!-- Motivasi Leaderboard -->
-      <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; text-align: left;">
-        <div>
-          <strong style="color: #92400E; font-size: 0.875rem;">🏆 Papan Juara Diperbarui!</strong>
-          <div style="color: #B45309; font-size: 0.8rem;">XP kamu bertambah +${gainedXP}. Cek posisimu sekarang!</div>
-        </div>
-        <button type="button" class="btn btn-secondary btn-sm" onclick="switchTab('section-leaderboard')" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
-          Lihat Peringkat Saya &rarr;
+      <!-- Tombol Perbaikan Jawaban Langsung -->
+      <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+        ${percentage < 100 ? `
+          <button type="button" class="btn btn-primary" onclick="focusFirstWrongQuestion()" style="font-weight: 700;">
+            ✏️ Perbaiki Jawaban yang Masih Salah
+          </button>
+        ` : ''}
+        <button type="button" class="btn btn-secondary" onclick="resetCurrentExercise()">
+          🔄 Kerjakan Ulang Seluruh Soal
         </button>
       </div>
 
-      <p style="font-size: 0.775rem; color: #64748B; margin-top: 0.75rem;">
-        Nilai Anda telah otomatis dicatat di Google Spreadsheet & Rekaman Capaian.
-      </p>
+      ${!isUserLoggedIn ? `
+        <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; text-align: center;">
+          <p style="font-size: 0.825rem; color: #1E40AF; margin-bottom: 0.5rem;">
+            💡 Anda belum login. Silakan masuk agar nilai &amp; XP otomatis tercatat di Papan Juara dan Rapor Capaian Siswa.
+          </p>
+          <button type="button" class="btn btn-primary btn-sm" onclick="openModal('modal-login')">Masuk dengan Akun</button>
+        </div>
+      ` : `
+        <!-- Motivasi Leaderboard -->
+        <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; text-align: left;">
+          <div>
+            <strong style="color: #92400E; font-size: 0.875rem;">🏆 Papan Juara Diperbarui!</strong>
+            <div style="color: #B45309; font-size: 0.8rem;">Nilai telah diperbarui &amp; XP kamu bertambah. Cek posisimu sekarang!</div>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="switchTab('section-leaderboard')" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
+            Lihat Peringkat Saya &rarr;
+          </button>
+        </div>
+      `}
     `;
+    resultCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
-  // Simpan progress persistent di ExercisesStore
-  if (window.ExercisesStore && AppState.currentUser) {
-    ExercisesStore.saveProgress(
-      AppState.currentUser.username,
-      exercise.id,
-      correctCount,
-      total,
-      `${percentage}%`,
-      isPassed ? "LULUS" : "REMIDI"
+  // Jika siswa login, simpan progress persistent dan perbarui riwayat nilai
+  if (isUserLoggedIn && AppState.currentUser) {
+    if (window.ExercisesStore) {
+      ExercisesStore.saveProgress(
+        AppState.currentUser.username,
+        exercise.id,
+        correctCount,
+        total,
+        `${percentage}%`,
+        isPassed ? "LULUS" : "REMIDI"
+      );
+    }
+
+    const scoreRecord = normalizeScoreRecord({
+      timestamp: new Date().toLocaleString("id-ID"),
+      username: AppState.currentUser.username,
+      nama: AppState.currentUser.nama,
+      tingkat: AppState.currentUser.tingkat || "-",
+      fase: AppState.currentUser.fase || "-",
+      rombel: AppState.currentUser.rombel || "-",
+      presensi: AppState.currentUser.presensi || "-",
+      unitId: unit.id,
+      unitName: unit.title,
+      exerciseId: exercise.id,
+      skor: correctCount,
+      totalSoal: total,
+      persentase: `${percentage}%`,
+      status: isPassed ? "LULUS" : "REMIDI",
+      detailJawaban: details,
+      synced: false
+    });
+
+    // Cek apakah murid sudah memiliki riwayat untuk latihan ini (perbarui nilai yang lebih tinggi / terbaru)
+    const existingIdx = AppState.scores.findIndex(
+      s => s.username && s.username.toUpperCase() === scoreRecord.username.toUpperCase() && s.exerciseId === scoreRecord.exerciseId
     );
-  }
+    if (existingIdx !== -1) {
+      AppState.scores[existingIdx] = scoreRecord;
+    } else {
+      AppState.scores.unshift(scoreRecord);
+    }
+    saveScoresToStorage();
 
-  // Simpan ke Rekaman Nilai
-  const scoreRecord = normalizeScoreRecord({
-    timestamp: new Date().toLocaleString("id-ID"),
-    username: AppState.currentUser.username,
-    nama: AppState.currentUser.nama,
-    tingkat: AppState.currentUser.tingkat || "-",
-    fase: AppState.currentUser.fase || "-",
-    rombel: AppState.currentUser.rombel || "-",
-    presensi: AppState.currentUser.presensi || "-",
-    unitId: unit.id,
-    unitName: unit.title,
-    exerciseId: exercise.id,
-    skor: correctCount,
-    totalSoal: total,
-    persentase: `${percentage}%`,
-    status: isPassed ? "LULUS" : "REMIDI",
-    detailJawaban: details,
-    synced: false
-  });
+    // Perbarui tab button indikator selesai
+    const tabBtn = document.getElementById(`tab-btn-${exercise.id}`);
+    if (tabBtn && isPassed) {
+      const currentText = tabBtn.innerText.replace(/^✓\s*/, "");
+      tabBtn.innerText = `✓ ${currentText}`;
+    }
 
-  // Cek apakah murid sudah memiliki riwayat untuk latihan ini (agar saat perbaikan nilai / remidi, nilai diperbarui tanpa duplikasi)
-  const existingIdx = AppState.scores.findIndex(
-    s => s.username && s.username.toUpperCase() === scoreRecord.username.toUpperCase() && s.exerciseId === scoreRecord.exerciseId
-  );
-  if (existingIdx !== -1) {
-    AppState.scores[existingIdx] = scoreRecord;
+    // Sinkronkan ke Google Sheet
+    syncScoreToGAS(scoreRecord);
+    showToast(`Nilai berhasil disimpan/diperbarui: ${percentage}%! 🏆`, "success");
   } else {
-    AppState.scores.unshift(scoreRecord);
+    showToast(`Latihan selesai! Nilai Anda: ${percentage}%.`, "info");
   }
-  saveScoresToStorage();
-
-  // Sinkronkan ke Google Sheet
-  syncScoreToGAS(scoreRecord);
-  showToast(`Nilai tersimpan: ${percentage}% &bull; +${gainedXP} XP diperoleh! 🏆`, "success");
 }
 
 function isAnswerMatching(user, expected) {

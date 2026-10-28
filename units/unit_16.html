@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 16: will - Future simple - Grammar Plus A2</title>
+  <meta name="description" content="Latihan mandiri super cepat dan ringan untuk Unit 16: will: Future Simple.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body style="background-color: #F8FAFC;">
+
+  <div class="unit-page-container">
+    <!-- Top Navigation Bar -->
+    <header class="unit-top-navbar">
+      <div class="unit-brand-left">
+        <a href="../index.html" class="btn-back-home" title="Kembali ke portal utama semua unit">
+          <span>←</span> Beranda Utama
+        </a>
+      </div>
+      <div class="unit-pager-nav">
+        <a href="unit_15.html" class="btn-pager">◀ Unit 15</a>
+        <span style="font-weight: 700; font-size: 0.85rem; color: #1E3A8A; padding: 0 0.35rem;">Unit 16 / 24</span>
+        <a href="unit_17.html" class="btn-pager">Unit 17 ▶</a>
+      </div>
+      <div id="student-identity-badge"></div>
+    </header>
+
+    <!-- Unit Hero Header -->
+    <section class="unit-hero-card">
+      <div class="unit-hero-meta">
+        <span class="unit-tag-pill">UNIT 16</span>
+        <span class="badge badge-primary" style="font-size: 0.72rem; text-transform: uppercase;">Tenses &amp; Future</span>
+        <span class="badge badge-secondary" style="font-size: 0.72rem;">📖 5 Latihan</span>
+      </div>
+      <h1 class="unit-hero-title">will - Future simple</h1>
+      <div class="unit-hero-subtitle">will: Future Simple</div>
+
+      <!-- Collapsible Grammar Summary -->
+      <div class="grammar-collapsible">
+        <div class="grammar-toggle-header" onclick="toggleUnitGrammar(this)">
+          <span>📖 Ringkasan Rumus &amp; Materi Tata Bahasa</span>
+          <span class="grammar-toggle-arrow">▼</span>
+        </div>
+        <div class="grammar-body-content" id="unit-grammar-body" style="display: none;">
+          <p style="margin-bottom: 0.75rem;">&#x27;will&#x27; digunakan untuk keputusan spontan saat berbicara, prediksi masa depan menurut opini, janji, tawaran, dan penolakan (won&#x27;t).</p>
+          
+              <div style="margin: 0.85rem 0;">
+                <div style="font-weight: 700; color: #1E3A8A; margin-bottom: 0.35rem;">Pola Kalimat will</div>
+                <table class="table-grammar">
+                  <thead><tr><th>Bentuk</th><th>Pola</th><th>Contoh</th></tr></thead>
+                  <tbody><tr><td>Positif</td><td>Subject + will (&#x27;ll) + V1</td><td>I&#x27;ll have a glass of water, please.</td></tr><tr><td>Negatif</td><td>Subject + will not (won&#x27;t) + V1</td><td>Don&#x27;t worry, I won&#x27;t tell anyone.</td></tr><tr><td>Tanya</td><td>Will + Subject + V1?</td><td>Will robots replace teachers in the future?</td></tr></tbody>
+                </table>
+              </div>
+            
+          <div style='margin-top: 0.85rem;'><strong>Aturan &amp; Catatan Penting:</strong><ul style='padding-left: 1.25rem; margin-top: 0.35rem;'><li style='margin-bottom: 0.35rem;'>will = keputusan saat itu juga (spontan). be going to = rencana yang sudah dibuat sebelumnya.</li><li style='margin-bottom: 0.35rem;'>Sering dipadukan dengan &#x27;I think...&#x27;, &#x27;I hope...&#x27;, &#x27;Maybe...&#x27;.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Tabs Bar -->
+    <div class="exercise-tabs-bar" id="exercise-tabs-container"></div>
+
+    <!-- Active Exercise Card Area -->
+    <main class="exercise-card" id="exercise-card">
+      <div id="exercise-content-area"></div>
+    </main>
+  </div>
+
+  <script>
+    function toggleUnitGrammar(headerEl) {
+      const body = document.getElementById("unit-grammar-body");
+      const arrow = headerEl.querySelector(".grammar-toggle-arrow");
+      if (body) {
+        const isHidden = body.style.display === "none";
+        body.style.display = isHidden ? "block" : "none";
+        if (arrow) arrow.textContent = isHidden ? "▲" : "▼";
+      }
+    }
+  </script>
+  <script src="../js/unit_runner.js"></script>
+  <script>
+    const UNIT_DATA = {"id": 16, "title": "will - Future simple", "english_title": "will: Future Simple", "category": "Tenses & Future", "grammar": {"summary": "'will' digunakan untuk keputusan spontan saat berbicara, prediksi masa depan menurut opini, janji, tawaran, dan penolakan (won't).", "tables": [{"title": "Pola Kalimat will", "headers": ["Bentuk", "Pola", "Contoh"], "rows": [["Positif", "Subject + will ('ll) + V1", "I'll have a glass of water, please."], ["Negatif", "Subject + will not (won't) + V1", "Don't worry, I won't tell anyone."], ["Tanya", "Will + Subject + V1?", "Will robots replace teachers in the future?"]]}], "rules": ["will = keputusan saat itu juga (spontan). be going to = rencana yang sudah dibuat sebelumnya.", "Sering dipadukan dengan 'I think...', 'I hope...', 'Maybe...'."]}, "exercises": [{"id": "u16_ex1", "unitId": 16, "page": 51, "title": "Latihan 1: Zero Conditional (Kebenaran Ilmiah & Fakta Umum)", "instruction": "Pasangkan klausa kondisi (If-clause) dengan fakta umum/ilmiah yang dihasilkan (Zero Conditional: If + Present Simple, Present Simple).", "type": "choice", "questions": [{"q": "1. If you heat water to 100 degrees Celsius, &rarr; [BLANK]", "options": ["it boils.", "it freezes.", "it will evaporate yesterday.", "it became ice."], "answer": "it boils.", "hint": "Air pada suhu 100°C mendidih.", "explanation": "Fakta ilmiah: If you heat water to 100°C, it boils."}, {"q": "2. If you freeze water, &rarr; [BLANK]", "options": ["it turns into ice.", "it gets very hot.", "it boils.", "it disappears."], "answer": "it turns into ice.", "hint": "Air membeku menjadi es.", "explanation": "If you freeze water, it turns into ice."}, {"q": "3. If people don't eat or drink, &rarr; [BLANK]", "options": ["they die.", "they get stronger.", "they feel energetic.", "they sleep forever."], "answer": "they die.", "hint": "Kebutuhan dasar manusia.", "explanation": "If people don't eat or drink, they die."}, {"q": "4. If you mix yellow and blue, &rarr; [BLANK]", "options": ["you get green.", "you get red.", "you get purple.", "you get black."], "answer": "you get green.", "hint": "Pencampuran warna kuning dan biru.", "explanation": "Kuning + biru = hijau: you get green."}]}, {"id": "u16_ex2", "unitId": 16, "page": 52, "title": "Latihan 2: First Conditional (Kemungkinan di Masa Depan)", "instruction": "Lengkapi kalimat First Conditional menggunakan pola: If + Present Simple, will + Infinitive.", "type": "fill", "questions": [{"q": "1. If it [BLANK] (rain) tomorrow, we will cancel the picnic.", "answer": "rains", "alternateAnswers": ["Rains"], "hint": "Subjek it memakai kata kerja bentuk -s.", "explanation": "If-clause menggunakan Present Simple: 'rains'."}, {"q": "2. If you study hard, you [BLANK] (pass) the examination.", "answer": "will pass", "alternateAnswers": ["'ll pass", "Will pass"], "hint": "Main clause menggunakan will + V1.", "explanation": "Main clause: 'will pass'."}, {"q": "3. She will be late if she [BLANK] (not hurry) up.", "answer": "doesn't hurry", "alternateAnswers": ["does not hurry", "Doesn't hurry"], "hint": "Subjek she dalam bentuk Present Simple negatif.", "explanation": "If-clause: 'doesn't hurry'."}, {"q": "4. If we [BLANK] (miss) the 8:00 train, we will take the next one.", "answer": "miss", "alternateAnswers": ["Miss"], "hint": "Subjek we memakai bentuk dasar kata kerja.", "explanation": "If-clause: 'miss'."}, {"q": "5. What [BLANK] (you / do) if you don't find your keys?", "answer": "will you do", "alternateAnswers": ["Will you do"], "hint": "Kalimat tanya: will + subjek + do.", "explanation": "Bentuk tanya: 'will you do'."}]}, {"id": "u16_ex3", "unitId": 16, "page": 52, "title": "Latihan 3: Memilih if atau unless", "instruction": "Pilihlah antara 'if' (jika) atau 'unless' (jika tidak / kecuali jika).", "type": "choice", "questions": [{"q": "1. You won't pass the exam [BLANK] you study hard.", "options": ["unless", "if"], "answer": "unless", "hint": "Unless you study = If you don't study.", "explanation": "'unless' berarti 'kecuali jika' / 'jika tidak'."}, {"q": "2. We will go swimming tomorrow [BLANK] the weather is warm.", "options": ["if", "unless"], "answer": "if", "hint": "Syarat positif: jika cuacanya hangat.", "explanation": "Kondisi positif menggunakan 'if'."}, {"q": "3. He will be angry [BLANK] you don't tell him the truth.", "options": ["if", "unless"], "answer": "if", "hint": "Sudah ada kata don't di dalam klausa.", "explanation": "Karena sudah ada 'don't tell', gunakan 'if'."}, {"q": "4. We will be late [BLANK] we leave right now.", "options": ["unless", "if"], "answer": "unless", "hint": "Kecuali jika kita berangkat sekarang.", "explanation": "'unless we leave right now' = jika kita tidak segera berangkat."}]}, {"id": "u16_ex4", "unitId": 16, "page": 53, "title": "Latihan 4: Menyusun Kata Acak Menjadi Kalimat Pengandaian", "instruction": "Susun kata-kata yang diacak menjadi kalimat First Conditional yang tepat.", "type": "fill", "questions": [{"q": "1. rains / stay / it / we / if / will / home", "answer": "If it rains we will stay home.", "alternateAnswers": ["if it rains we will stay home.", "If it rains, we will stay home.", "We will stay home if it rains."], "hint": "Mulai dengan 'If it rains...'", "explanation": "If it rains, we will stay home."}, {"q": "2. call / will / arrive / I / you / I / when", "answer": "I will call you when I arrive.", "alternateAnswers": ["i will call you when i arrive.", "When I arrive I will call you.", "When I arrive, I will call you."], "hint": "Mulai dengan 'I will call you...'", "explanation": "I will call you when I arrive."}, {"q": "3. you / feel / better / take / will / medicine / you / if / this", "answer": "If you take this medicine you will feel better.", "alternateAnswers": ["if you take this medicine you will feel better.", "If you take this medicine, you will feel better.", "You will feel better if you take this medicine."], "hint": "Mulai dengan 'If you take this medicine...'", "explanation": "If you take this medicine, you will feel better."}]}, {"id": "u16_ex5", "unitId": 16, "page": 53, "title": "Latihan 5: Melengkapi Dialog First Conditional", "instruction": "Lengkapi kalimat dialog tentang rencana liburan dengan bentuk First Conditional yang tepat.", "type": "fill", "questions": [{"q": "1. Amy: What will happen if the flight [BLANK] (be) delayed?", "answer": "is", "alternateAnswers": ["Is"], "hint": "Present Simple dari be untuk the flight.", "explanation": "If the flight is delayed."}, {"q": "2. Ben: If it's delayed, we [BLANK] (wait) in the departure lounge.", "answer": "will wait", "alternateAnswers": ["'ll wait", "Will wait"], "hint": "will + wait.", "explanation": "We will wait in the lounge."}, {"q": "3. Amy: And if we arrive late, [BLANK] (the hotel / keep) our room?", "answer": "will the hotel keep", "alternateAnswers": ["Will the hotel keep"], "hint": "will + subjek + keep.", "explanation": "Will the hotel keep our room?"}, {"q": "4. Ben: Yes, don't worry. I [BLANK] (call) them if there are any changes.", "answer": "will call", "alternateAnswers": ["'ll call", "Will call"], "hint": "will + call.", "explanation": "I will call them."}]}]};
+    const UNIT_TRANSCRIPTS = [];
+    document.addEventListener("DOMContentLoaded", function() {
+      initUnitRunner(UNIT_DATA, UNIT_TRANSCRIPTS);
+    });
+  </script>
+</body>
+</html>

@@ -1263,6 +1263,77 @@
           ]
         },
         {
+          "id": "u2_ex4",
+          "unitId": 2,
+          "page": 7,
+          "title": "Latihan 4: Buat Kalimat Tanya dan Jawaban dengan have",
+          "instruction": "Lengkapi pertanyaan dengan have sesuai kata petunjuk (gunakan Do you have... / What time do you have... / dll).",
+          "type": "fill",
+          "questions": [
+            {
+              "q": "1. When / you / have breakfast &rarr; [BLANK] at seven.",
+              "answer": "When do you have breakfast? I usually have breakfast",
+              "alternateAnswers": [
+                "When do you have breakfast? I have breakfast",
+                "When do you have breakfast?",
+                "When do you have breakfast? / I usually have breakfast"
+              ],
+              "hint": "Gunakan kata tanya When do you have...",
+              "explanation": "Pertanyaan kebiasaan memakai 'When do you have breakfast?'"
+            },
+            {
+              "q": "2. How often / your family / a holiday &rarr; [BLANK] a holiday once a year.",
+              "answer": "How often does your family have a holiday? We usually have",
+              "alternateAnswers": [
+                "How often does your family have a holiday?",
+                "How often does your family have a holiday? We have"
+              ],
+              "hint": "How often does your family have...",
+              "explanation": "Family sebagai entitas tunggal memakai 'does your family have'."
+            },
+            {
+              "q": "3. What / you / for a snack &rarr; [BLANK] fruit or biscuits.",
+              "answer": "What do you have for a snack? I usually have",
+              "alternateAnswers": [
+                "What do you have for a snack?",
+                "What do you have for a snack? I have"
+              ],
+              "hint": "What do you have for a snack?",
+              "explanation": "Gunakan 'What do you have for a snack?'."
+            },
+            {
+              "q": "4. What time / you / lunch &rarr; [BLANK] lunch at one o'clock.",
+              "answer": "What time do you have lunch? I usually have",
+              "alternateAnswers": [
+                "What time do you have lunch?",
+                "What time do you have lunch? I have"
+              ],
+              "hint": "What time do you have lunch?",
+              "explanation": "Gunakan 'What time do you have lunch?'."
+            },
+            {
+              "q": "5. Where / you / lunch &rarr; [BLANK] lunch in the school canteen.",
+              "answer": "Where do you have lunch? I usually have",
+              "alternateAnswers": [
+                "Where do you have lunch?",
+                "Where do you have lunch? I have"
+              ],
+              "hint": "Where do you have lunch?",
+              "explanation": "Gunakan 'Where do you have lunch?'."
+            },
+            {
+              "q": "6. How often / you / a shower &rarr; [BLANK] a shower every morning.",
+              "answer": "How often do you have a shower? I have",
+              "alternateAnswers": [
+                "How often do you have a shower?",
+                "How often do you have a shower? I usually have"
+              ],
+              "hint": "How often do you have a shower?",
+              "explanation": "Gunakan 'How often do you have a shower?'."
+            }
+          ]
+        },
+        {
           "id": "u2_ex5",
           "unitId": 2,
           "page": 8,
@@ -1518,6 +1589,158 @@
               ],
               "hint": "Masa kini (don't have)",
               "explanation": "Kondisi masa kini (don't have) memakai 'can't'."
+            }
+          ]
+        },
+        {
+          "id": "u2_ex9",
+          "unitId": 2,
+          "page": 8,
+          "title": "Latihan 9: Ungkapkan Kemampuan dengan can atau can't (Hal 8)",
+          "instruction": "Pilihlah bentuk can atau can't yang paling tepat sesuai konteks kemampuan.",
+          "type": "choice",
+          "questions": [
+            {
+              "q": "I'm not good at languages. I [BLANK] speak Chinese.",
+              "options": [
+                "can",
+                "can't"
+              ],
+              "answer": "can't",
+              "hint": "Lihat kalimat pertama: 'not good at'",
+              "explanation": "Karena tidak pandai bahasa, gunakan 'can't'."
+            },
+            {
+              "q": "She is a music teacher, so she [BLANK] play the guitar and piano very well.",
+              "options": [
+                "can",
+                "can't"
+              ],
+              "answer": "can",
+              "hint": "Guru musik pasti bisa memainkan alat musik",
+              "explanation": "Guru musik memiliki kemampuan ('can')."
+            },
+            {
+              "q": "He is afraid of deep water because he [BLANK] swim.",
+              "options": [
+                "can",
+                "can't"
+              ],
+              "answer": "can't",
+              "hint": "Takut air karena tidak bisa berenang",
+              "explanation": "Gunakan 'can't swim'."
+            },
+            {
+              "q": "Lili has been riding since she was five. She [BLANK] ride a horse skillfully.",
+              "options": [
+                "can",
+                "can't"
+              ],
+              "answer": "can",
+              "hint": "Sudah berkuda sejak umur 5 tahun",
+              "explanation": "Menyatakan kemampuan tinggi ('can')."
+            },
+            {
+              "q": "I [BLANK] cook Italian pasta, it's my favourite dish to prepare!",
+              "options": [
+                "can",
+                "can't"
+              ],
+              "answer": "can",
+              "hint": "Makanan favorit untuk disiapkan",
+              "explanation": "Menyatakan kemampuan memasak ('can')."
+            },
+            {
+              "q": "Tom doesn't have a driving licence, so he [BLANK] drive a car.",
+              "options": [
+                "can",
+                "can't"
+              ],
+              "answer": "can't",
+              "hint": "Tidak punya SIM",
+              "explanation": "Tidak punya SIM berarti tidak boleh/tidak bisa mengemudi ('can't')."
+            }
+          ]
+        },
+        {
+          "id": "u2_ex10",
+          "unitId": 2,
+          "page": 9,
+          "title": "Latihan 10: Respons Pertanyaan Kemampuan (Hal 9)",
+          "instruction": "Pilihlah jawaban singkat (short answer) yang tepat untuk merespons pertanyaan can.",
+          "type": "choice",
+          "questions": [
+            {
+              "q": "Can you speak two languages? &rarr; [BLANK], English and Indonesian.",
+              "options": [
+                "Yes, I can",
+                "No, I can't",
+                "Yes, I do",
+                "No, I don't"
+              ],
+              "answer": "Yes, I can",
+              "hint": "Bisa bahasa Inggris dan Indonesia",
+              "explanation": "Jawaban positif untuk pertanyaan Can you adalah 'Yes, I can'."
+            },
+            {
+              "q": "Can your brother fix this computer? &rarr; [BLANK], he knows nothing about IT.",
+              "options": [
+                "Yes, he can",
+                "No, he can't",
+                "Yes, he does",
+                "No, he doesn't"
+              ],
+              "answer": "No, he can't",
+              "hint": "Dia tidak mengerti IT sama sekali",
+              "explanation": "Jawaban negatif untuk brother (he) adalah 'No, he can't'."
+            },
+            {
+              "q": "Can they come to our dinner tonight? &rarr; [BLANK], they have a flight to catch.",
+              "options": [
+                "Yes, they can",
+                "No, they can't",
+                "No, they don't",
+                "Yes, they do"
+              ],
+              "answer": "No, they can't",
+              "hint": "Ada jadwal penerbangan sehingga tidak bisa hadir",
+              "explanation": "Gunakan 'No, they can't'."
+            },
+            {
+              "q": "Can Sarah play chess? &rarr; [BLANK], she won the school tournament last month!",
+              "options": [
+                "Yes, she can",
+                "No, she can't",
+                "Yes, she does",
+                "No, she doesn't"
+              ],
+              "answer": "Yes, she can",
+              "hint": "Memenangkan turnamen sekolah",
+              "explanation": "Gunakan 'Yes, she can'."
+            },
+            {
+              "q": "Can you whistle loudly? &rarr; [BLANK], I never learned how to do it.",
+              "options": [
+                "Yes, I can",
+                "No, I can't",
+                "No, I don't",
+                "Yes, I do"
+              ],
+              "answer": "No, I can't",
+              "hint": "Tidak pernah belajar bersiul",
+              "explanation": "Gunakan 'No, I can't'."
+            },
+            {
+              "q": "Can we park our car here? &rarr; [BLANK], it is a private parking area.",
+              "options": [
+                "Yes, we can",
+                "No, we can't",
+                "No, we don't",
+                "Yes, we do"
+              ],
+              "answer": "No, we can't",
+              "hint": "Area parkir pribadi (dilarang)",
+              "explanation": "Gunakan 'No, we can't'."
             }
           ]
         },
@@ -1838,6 +2061,194 @@
               "answer": "Shall we order a pizza for dinner this evening?",
               "hint": "Shall we + verb...",
               "explanation": "Rumus usulan sopan: Shall we order a pizza for dinner this evening?"
+            }
+          ]
+        },
+        {
+          "id": "u3_ex2",
+          "unitId": 3,
+          "page": 11,
+          "title": "Latihan 2: Buat Ajakan Menggunakan Let's (Hal 11)",
+          "instruction": "Pilihlah kalimat ajakan 'Let's...' yang paling sesuai dengan aktivitas kegiatan.",
+          "type": "choice",
+          "questions": [
+            {
+              "q": "Aktivitas menonton film di bioskop &rarr; [BLANK]",
+              "options": [
+                "Let's go to the cinema.",
+                "Let's have a snack.",
+                "Let's play football.",
+                "Let's go camping."
+              ],
+              "answer": "Let's go to the cinema.",
+              "hint": "Menonton film di bioskop",
+              "explanation": "Ajakan menonton film adalah 'Let's go to the cinema.'"
+            },
+            {
+              "q": "Aktivitas bersantai di pantai dan laut &rarr; [BLANK]",
+              "options": [
+                "Let's go to the beach.",
+                "Let's do our homework.",
+                "Let's go to the library.",
+                "Let's wash the car."
+              ],
+              "answer": "Let's go to the beach.",
+              "hint": "Bersantai di pantai",
+              "explanation": "Ajakan ke pantai adalah 'Let's go to the beach.'"
+            },
+            {
+              "q": "Aktivitas berbelanja di pusat perbelanjaan &rarr; [BLANK]",
+              "options": [
+                "Let's go shopping.",
+                "Let's go swimming.",
+                "Let's clean the room.",
+                "Let's have a sleep."
+              ],
+              "answer": "Let's go shopping.",
+              "hint": "Belanja",
+              "explanation": "Ajakan berbelanja adalah 'Let's go shopping.'"
+            },
+            {
+              "q": "Aktivitas mengobrol sambil minum kopi di kafe &rarr; [BLANK]",
+              "options": [
+                "Let's have a coffee.",
+                "Let's run 5 km.",
+                "Let's go to church.",
+                "Let's take an exam."
+              ],
+              "answer": "Let's have a coffee.",
+              "hint": "Minum kopi di kafe",
+              "explanation": "Ajakan minum kopi adalah 'Let's have a coffee.'"
+            },
+            {
+              "q": "Aktivitas berenang di kolam renang saat cuaca panas &rarr; [BLANK]",
+              "options": [
+                "Let's go swimming.",
+                "Let's play tennis.",
+                "Let's paint the fence.",
+                "Let's buy a car."
+              ],
+              "answer": "Let's go swimming.",
+              "hint": "Berenang di kolam",
+              "explanation": "Ajakan berenang adalah 'Let's go swimming.'"
+            },
+            {
+              "q": "Aktivitas menonton konser musik di lapangan &rarr; [BLANK]",
+              "options": [
+                "Let's go to a concert.",
+                "Let's go to the dentist.",
+                "Let's wash dishes.",
+                "Let's go to bed."
+              ],
+              "answer": "Let's go to a concert.",
+              "hint": "Konser musik",
+              "explanation": "Ajakan ke konser adalah 'Let's go to a concert.'"
+            },
+            {
+              "q": "Aktivitas berkemah dan mendirikan tenda di alam &rarr; [BLANK]",
+              "options": [
+                "Let's go camping.",
+                "Let's stay at a hotel.",
+                "Let's study history.",
+                "Let's watch TV."
+              ],
+              "answer": "Let's go camping.",
+              "hint": "Berkemah mendirikan tenda",
+              "explanation": "Ajakan berkemah adalah 'Let's go camping.'"
+            },
+            {
+              "q": "Aktivitas menonton pertandingan sepak bola di stadion &rarr; [BLANK]",
+              "options": [
+                "Let's watch a football match.",
+                "Let's go to the airport.",
+                "Let's buy bread.",
+                "Let's wash the clothes."
+              ],
+              "answer": "Let's watch a football match.",
+              "hint": "Pertandingan sepak bola",
+              "explanation": "Ajakan menonton sepak bola adalah 'Let's watch a football match.'"
+            }
+          ]
+        },
+        {
+          "id": "u3_ex3",
+          "unitId": 3,
+          "page": 11,
+          "title": "Latihan 3: Menerima dan Menolak Ajakan dengan Sopan (Hal 11)",
+          "instruction": "Pilihlah respons yang tepat dan sopan untuk menerima atau menolak ajakan berikut.",
+          "type": "choice",
+          "questions": [
+            {
+              "q": "A: Let's go to the cinema tonight. &rarr; B (Menerima): [BLANK]",
+              "options": [
+                "That's a great idea! What's on?",
+                "No, I hate you.",
+                "I don't like movies at all.",
+                "Go by yourself."
+              ],
+              "answer": "That's a great idea! What's on?",
+              "hint": "Menerima dengan antusias",
+              "explanation": "Menerima ajakan ke bioskop: 'That's a great idea! What's on?'"
+            },
+            {
+              "q": "A: Why don't we have a pizza for lunch? &rarr; B (Menolak dengan alasan): [BLANK]",
+              "options": [
+                "I'd love to, but I'm on a diet.",
+                "Yes, let's order now.",
+                "Pizza is Italian.",
+                "I ate yesterday."
+              ],
+              "answer": "I'd love to, but I'm on a diet.",
+              "hint": "Menolak dengan alasan sopan (diet)",
+              "explanation": "'I'd love to, but...' adalah cara menolak yang sopan."
+            },
+            {
+              "q": "A: Shall we go swimming this afternoon? &rarr; B (Menerima): [BLANK]",
+              "options": [
+                "Yes, let's! It's so hot today.",
+                "I can't swim.",
+                "Water is wet.",
+                "No, never."
+              ],
+              "answer": "Yes, let's! It's so hot today.",
+              "hint": "Menerima ajakan berenang",
+              "explanation": "Menerima: 'Yes, let's! It's so hot today.'"
+            },
+            {
+              "q": "A: Would you like to come to my birthday party on Saturday? &rarr; B (Menolak dengan alasan): [BLANK]",
+              "options": [
+                "I'd love to, but I have to study for exams.",
+                "Happy birthday to you.",
+                "Parties are boring.",
+                "Who else is coming?"
+              ],
+              "answer": "I'd love to, but I have to study for exams.",
+              "hint": "Menolak dengan alasan harus belajar",
+              "explanation": "Menolak sopan: 'I'd love to, but I have to study for exams.'"
+            },
+            {
+              "q": "A: How about going camping this weekend? &rarr; B (Menolak dengan alasan): [BLANK]",
+              "options": [
+                "I'm sorry, I can't. I'm visiting my grandparents.",
+                "Yes, take a tent.",
+                "Camping is outdoor.",
+                "Where is the forest?"
+              ],
+              "answer": "I'm sorry, I can't. I'm visiting my grandparents.",
+              "hint": "Menolak karena menjenguk kakek-nenek",
+              "explanation": "Gunakan 'I'm sorry, I can't. I'm visiting my grandparents.'"
+            },
+            {
+              "q": "A: Let's play tennis after school. &rarr; B (Menerima): [BLANK]",
+              "options": [
+                "Good idea! I'll bring my racket.",
+                "Tennis has balls.",
+                "I don't have shoes.",
+                "School is finished."
+              ],
+              "answer": "Good idea! I'll bring my racket.",
+              "hint": "Menerima dan membawa raket",
+              "explanation": "Menerima: 'Good idea! I'll bring my racket.'"
             }
           ]
         },

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 20: used to (Kebiasaan Masa Lalu) - Grammar Plus A2</title>
+  <meta name="description" content="Latihan mandiri super cepat dan ringan untuk Unit 20: used to: Past Habits &amp; States.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body style="background-color: #F8FAFC;">
+
+  <div class="unit-page-container">
+    <!-- Top Navigation Bar -->
+    <header class="unit-top-navbar">
+      <div class="unit-brand-left">
+        <a href="../index.html" class="btn-back-home" title="Kembali ke portal utama semua unit">
+          <span>←</span> Beranda Utama
+        </a>
+      </div>
+      <div class="unit-pager-nav">
+        <a href="unit_19.html" class="btn-pager">◀ Unit 19</a>
+        <span style="font-weight: 700; font-size: 0.85rem; color: #1E3A8A; padding: 0 0.35rem;">Unit 20 / 24</span>
+        <a href="unit_21.html" class="btn-pager">Unit 21 ▶</a>
+      </div>
+      <div id="student-identity-badge"></div>
+    </header>
+
+    <!-- Unit Hero Header -->
+    <section class="unit-hero-card">
+      <div class="unit-hero-meta">
+        <span class="unit-tag-pill">UNIT 20</span>
+        <span class="badge badge-primary" style="font-size: 0.72rem; text-transform: uppercase;">Verbs &amp; Modals</span>
+        <span class="badge badge-secondary" style="font-size: 0.72rem;">📖 9 Latihan</span>
+      </div>
+      <h1 class="unit-hero-title">used to (Kebiasaan Masa Lalu)</h1>
+      <div class="unit-hero-subtitle">used to: Past Habits &amp; States</div>
+
+      <!-- Collapsible Grammar Summary -->
+      <div class="grammar-collapsible">
+        <div class="grammar-toggle-header" onclick="toggleUnitGrammar(this)">
+          <span>📖 Ringkasan Rumus &amp; Materi Tata Bahasa</span>
+          <span class="grammar-toggle-arrow">▼</span>
+        </div>
+        <div class="grammar-body-content" id="unit-grammar-body" style="display: none;">
+          <p style="margin-bottom: 0.75rem;">&#x27;used to&#x27; digunakan untuk menyatakan kebiasaan atau keadaan di masa lalu yang sekarang sudah tidak dilakukan atau tidak benar lagi.</p>
+          
+              <div style="margin: 0.85rem 0;">
+                <div style="font-weight: 700; color: #1E3A8A; margin-bottom: 0.35rem;">Rumus used to</div>
+                <table class="table-grammar">
+                  <thead><tr><th>Bentuk</th><th>Pola Kalimat</th><th>Contoh</th></tr></thead>
+                  <tbody><tr><td>Positif (+)</td><td>Subject + used to + V1</td><td>I used to live in a small village.</td></tr><tr><td>Negatif (-)</td><td>Subject + didn&#x27;t use to + V1</td><td>He didn&#x27;t use to like vegetables.</td></tr><tr><td>Tanya (?)</td><td>Did + Subject + use to + V1?</td><td>Did you use to play basketball?</td></tr></tbody>
+                </table>
+              </div>
+            
+          <div style='margin-top: 0.85rem;'><strong>Aturan &amp; Catatan Penting:</strong><ul style='padding-left: 1.25rem; margin-top: 0.35rem;'><li style='margin-bottom: 0.35rem;'>Pada kalimat negatif dan tanya, gunakan &#x27;use to&#x27; (tanpa akhiran -d) karena sudah ada kata bantu &#x27;did/didn&#x27;t&#x27;.</li><li style='margin-bottom: 0.35rem;'>&#x27;used to&#x27; HANYA ada dalam bentuk lampau. Untuk kebiasaan masa sekarang, gunakan Simple Present tense biasa dengan adverb of frequency (usually, always).</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Tabs Bar -->
+    <div class="exercise-tabs-bar" id="exercise-tabs-container"></div>
+
+    <!-- Active Exercise Card Area -->
+    <main class="exercise-card" id="exercise-card">
+      <div id="exercise-content-area"></div>
+    </main>
+  </div>
+
+  <script>
+    function toggleUnitGrammar(headerEl) {
+      const body = document.getElementById("unit-grammar-body");
+      const arrow = headerEl.querySelector(".grammar-toggle-arrow");
+      if (body) {
+        const isHidden = body.style.display === "none";
+        body.style.display = isHidden ? "block" : "none";
+        if (arrow) arrow.textContent = isHidden ? "▲" : "▼";
+      }
+    }
+  </script>
+  <script src="../js/unit_runner.js"></script>
+  <script>
+    const UNIT_DATA = {"id": 20, "title": "used to (Kebiasaan Masa Lalu)", "english_title": "used to: Past Habits & States", "category": "Verbs & Modals", "grammar": {"summary": "'used to' digunakan untuk menyatakan kebiasaan atau keadaan di masa lalu yang sekarang sudah tidak dilakukan atau tidak benar lagi.", "tables": [{"title": "Rumus used to", "headers": ["Bentuk", "Pola Kalimat", "Contoh"], "rows": [["Positif (+)", "Subject + used to + V1", "I used to live in a small village."], ["Negatif (-)", "Subject + didn't use to + V1", "He didn't use to like vegetables."], ["Tanya (?)", "Did + Subject + use to + V1?", "Did you use to play basketball?"]]}], "rules": ["Pada kalimat negatif dan tanya, gunakan 'use to' (tanpa akhiran -d) karena sudah ada kata bantu 'did/didn't'.", "'used to' HANYA ada dalam bentuk lampau. Untuk kebiasaan masa sekarang, gunakan Simple Present tense biasa dengan adverb of frequency (usually, always)."]}, "exercises": [{"id": "u20_ex1", "unitId": 20, "page": 65, "title": "Latihan 1: Bentuk Dasar used to (Kebiasaan Masa Lalu)", "instruction": "Pahami rumus 'used to' untuk kebiasaan masa lalu yang sudah tidak dilakukan lagi: Positif: used to + V1; Negatif: didn't use to + V1; Tanya: Did + S + use to + V1?", "type": "choice", "questions": [{"q": "1. Kalimat positif: 'I [BLANK] play tennis every Saturday when I was younger.'", "options": ["used to", "use to", "am used to", "was used to"], "answer": "used to", "hint": "Bentuk lampau positif berakhiran -d.", "explanation": "Kalimat positif masa lalu: 'used to play'."}, {"q": "2. Kalimat negatif: 'He [BLANK] like vegetables, but now he loves them.'", "options": ["didn't use to", "didn't used to", "used not", "wasn't use to"], "answer": "didn't use to", "hint": "Setelah kata bantu 'didn't', kata 'use' kembali ke bentuk dasar tanpa -d.", "explanation": "Bentuk negatif: 'didn't use to like'."}, {"q": "3. Kalimat tanya: '[BLANK] you use to walk to school?'", "options": ["Did", "Do", "Have", "Were"], "answer": "Did", "hint": "Kata bantu lampau untuk kalimat tanya adalah 'Did'.", "explanation": "Kalimat tanya kebiasaan lampau: 'Did you use to...?'"}]}, {"id": "u20_ex2", "unitId": 20, "page": 65, "title": "Latihan 2: Melengkapi dengan used to + Kata Kerja dalam Kotak", "instruction": "Lengkapi kalimat dengan used to dan salah satu kata kerja: live, have, wear, travel, ride, play.", "type": "fill", "questions": [{"q": "1. My grandfather [BLANK] (live) in a small village before moving to the city.", "answer": "used to live", "alternateAnswers": ["Used to live"], "hint": "Kata kerja: live.", "explanation": "Used to live."}, {"q": "2. She [BLANK] (have) long curly hair when she was a teenager.", "answer": "used to have", "alternateAnswers": ["Used to have"], "hint": "Kata kerja: have.", "explanation": "Used to have."}, {"q": "3. We [BLANK] (ride) our bikes to school every sunny morning.", "answer": "used to ride", "alternateAnswers": ["Used to ride"], "hint": "Kata kerja: ride.", "explanation": "Used to ride."}, {"q": "4. He [BLANK] (wear) glasses, but now he wears contact lenses.", "answer": "used to wear", "alternateAnswers": ["Used to wear"], "hint": "Kata kerja: wear.", "explanation": "Used to wear."}, {"q": "5. They [BLANK] (travel) abroad by train before flights became cheap.", "answer": "used to travel", "alternateAnswers": ["Used to travel"], "hint": "Kata kerja: travel.", "explanation": "Used to travel."}]}, {"id": "u20_ex3", "unitId": 20, "page": 66, "title": "Latihan 3: Membuat Kalimat Negatif dengan didn't use to", "instruction": "Ubah kalimat berikut menjadi bentuk negatif menggunakan 'didn't use to + V1'.", "type": "fill", "questions": [{"q": "1. He liked spicy food as a kid. &rarr; He [BLANK] (not like) spicy food as a kid.", "answer": "didn't use to like", "alternateAnswers": ["did not use to like", "Didn't use to like"], "hint": "didn't use to + like.", "explanation": "He didn't use to like spicy food."}, {"q": "2. We watched a lot of television. &rarr; We [BLANK] (not watch) so much television.", "answer": "didn't use to watch", "alternateAnswers": ["did not use to watch", "Didn't use to watch"], "hint": "didn't use to + watch.", "explanation": "We didn't use to watch television."}, {"q": "3. She had a pet dog. &rarr; She [BLANK] (not have) a pet dog.", "answer": "didn't use to have", "alternateAnswers": ["did not use to have", "Didn't use to have"], "hint": "didn't use to + have.", "explanation": "She didn't use to have a dog."}]}, {"id": "u20_ex4", "unitId": 20, "page": 66, "title": "Latihan 4: Membuat Kalimat Tanya dengan Did ... use to ...?", "instruction": "Susun kata-kata petunjuk berikut menjadi kalimat tanya menggunakan 'Did + subjek + use to + V1...?'.", "type": "fill", "questions": [{"q": "1. you / live / in the countryside &rarr; [BLANK]?", "answer": "Did you use to live in the countryside", "alternateAnswers": ["did you use to live in the countryside", "Did you use to live in the countryside?"], "hint": "Did you use to live in the countryside?", "explanation": "Did you use to live in the countryside?"}, {"q": "2. she / play / the piano &rarr; [BLANK]?", "answer": "Did she use to play the piano", "alternateAnswers": ["did she use to play the piano", "Did she use to play the piano?"], "hint": "Did she use to play the piano?", "explanation": "Did she use to play the piano?"}, {"q": "3. they / go / camping every summer &rarr; [BLANK]?", "answer": "Did they use to go camping every summer", "alternateAnswers": ["did they use to go camping every summer", "Did they use to go camping every summer?"], "hint": "Did they use to go camping every summer?", "explanation": "Did they use to go camping every summer?"}]}, {"id": "u20_ex5", "unitId": 20, "page": 66, "title": "Latihan 5: Membandingkan Masa Lalu dan Sekarang (used to vs Present Simple)", "instruction": "Lengkapi kalimat perbandingan dengan used to (kebiasaan masa lalu) dan Present Simple (kebiasaan sekarang).", "type": "fill", "questions": [{"q": "1. In the past, people [BLANK] (write) letters, but now they send emails.", "answer": "used to write", "alternateAnswers": ["Used to write"], "hint": "used to + write.", "explanation": "Used to write letters."}, {"q": "2. I [BLANK] (drink) milk every day, but now I prefer tea.", "answer": "used to drink", "alternateAnswers": ["Used to drink"], "hint": "used to + drink.", "explanation": "Used to drink milk."}, {"q": "3. There [BLANK] (be) a cinema here, but now there is a supermarket.", "answer": "used to be", "alternateAnswers": ["Used to be"], "hint": "used to + be.", "explanation": "There used to be a cinema."}]}, {"id": "u20_ex6", "unitId": 20, "page": 66, "title": "Latihan 6: Perubahan Kota Masa Lalu dan Sekarang (Audio TR 25)", "instruction": "Dengarkan audio TR 25 tentang narator yang menceritakan kotanya di masa lalu dan jawablah pertanyaan pemahaman berikut. (Perhatikan ilustrasi suasana kota di atas).", "type": "choice", "audioTrack": "TR 25", "questions": [{"q": "1. How was the narrator's town in the past?", "options": ["It used to be a quiet town where everyone knew each other.", "It used to be an overcrowded industrial city.", "It used to be noisy and dirty.", "It was completely empty."], "answer": "It used to be a quiet town where everyone knew each other.", "hint": "Narator menyebutkan suasana kotanya dulu sangat tenang dan orang-orangnya ramah.", "explanation": "Audio TR 25: 'It used to be a quiet town; everyone used to know each other and the people used to be very friendly.'"}, {"q": "2. What did the air quality use to be like?", "options": ["There didn't use to be any air pollution.", "There used to be heavy smoke everywhere.", "It was always polluted by factories.", "There was constant fog."], "answer": "There didn't use to be any air pollution.", "hint": "Dulu tidak ada polusi udara.", "explanation": "Audio TR 25: 'There didn't use to be any air pollution either; now there is.'"}, {"q": "3. What was there in place of the big supermarket nowadays?", "options": ["There used to be small market stalls selling food.", "There used to be a train station.", "There used to be a football stadium.", "There used to be a huge parking lot."], "answer": "There used to be small market stalls selling food.", "hint": "Dulu ada kios-kios pasar kecil.", "explanation": "Audio TR 25: 'There used to be small market stalls selling food. Now there is a big supermarket.'"}, {"q": "4. What does the speaker miss the most about the past?", "options": ["People stopping to chat when meeting each other.", "The cheaper bus tickets.", "The cold winters.", "Going to the cinema alone."], "answer": "People stopping to chat when meeting each other.", "hint": "Narator rindu keramahan orang yang saling mengobrol saat bertemu.", "explanation": "Audio TR 25: 'I miss that; we used to always chat when we met each other.'"}], "image": "images/u20_ex6_town.png"}, {"id": "u20_ex7", "unitId": 20, "page": 67, "title": "Latihan 7: used to vs Past Simple", "instruction": "Pilihlah bentuk yang tepat: 'used to' untuk kebiasaan berulang masa lalu yang sudah tidak ada, atau 'Past Simple' untuk peristiwa satu kali di masa lalu.", "type": "choice", "questions": [{"q": "1. Last night, I [BLANK] dinner with my grandparents.", "options": ["had", "used to have", "use to have"], "answer": "had", "hint": "Peristiwa satu kali spesifik semalam ('Last night').", "explanation": "Kejadian satu kali di waktu tertentu menggunakan Past Simple: 'had'."}, {"q": "2. When I was seven, I [BLANK] believe in fairies.", "options": ["used to", "use to", "am used to"], "answer": "used to", "hint": "Keyakinan masa kecil dalam rentang waktu lama.", "explanation": "Kebiasaan/keadaan masa lalu berulang memakai 'used to'."}, {"q": "3. In 2015, they [BLANK] to Rome for a two-week holiday.", "options": ["went", "used to go", "use to go"], "answer": "went", "hint": "Liburan satu kali pada tahun 2015.", "explanation": "Kejadian satu kali masa lalu memakai Past Simple: 'went'."}]}, {"id": "u20_ex8", "unitId": 20, "page": 67, "title": "Latihan 8: Menulis Ulang Kalimat Menggunakan used to", "instruction": "Tulis ulang kalimat berikut dengan used to atau didn't use to.", "type": "fill", "questions": [{"q": "1. I had a cat when I was little (I don't have one now). &rarr; I [BLANK] a cat when I was little.", "answer": "used to have", "alternateAnswers": ["Used to have"], "hint": "used to + have.", "explanation": "I used to have a cat."}, {"q": "2. She didn't enjoy reading books before, but now she loves it. &rarr; She [BLANK] reading books.", "answer": "didn't use to enjoy", "alternateAnswers": ["did not use to enjoy", "Didn't use to enjoy"], "hint": "didn't use to + enjoy.", "explanation": "She didn't use to enjoy reading books."}]}, {"id": "u20_ex9", "unitId": 20, "page": 67, "title": "Latihan 9: Mengoreksi Kesalahan used to", "instruction": "Pilihlah kalimat yang sudah diperbaiki secara benar dari kesalahan tata bahasa berikut.", "type": "choice", "questions": [{"q": "1. Salah: 'Did you used to play football?' &rarr; Benar: [BLANK]", "options": ["Did you use to play football?", "Did you used to played football?", "Do you used to play football?"], "answer": "Did you use to play football?", "hint": "Setelah Did, use tidak memakai akhiran -d.", "explanation": "Did you use to play football?"}, {"q": "2. Salah: 'I didn't used to like coffee.' &rarr; Benar: [BLANK]", "options": ["I didn't use to like coffee.", "I didn't use to liked coffee.", "I don't used to like coffee."], "answer": "I didn't use to like coffee.", "hint": "Setelah didn't, gunakan use to tanpa huruf d.", "explanation": "I didn't use to like coffee."}]}]};
+    const UNIT_TRANSCRIPTS = [{"track": "TR 25", "title": "Unit 20 Ex 6: Past Habits with used to", "content": "My town has grown quite a bit since I've been living here. It used to be a quiet town; everyone used to know each other and the people used to be very friendly. Now the town has changed. It's much bigger and noisier. There didn't use to be any air pollution either; now there is. There used to be small market stalls selling food. Now there is a big supermarket. The people are always in a hurry nowadays and they never have time to stop and chat. I miss that; we used to always chat when we met each other. I'm not very happy here anymore. I prefer the way things used to be."}];
+    document.addEventListener("DOMContentLoaded", function() {
+      initUnitRunner(UNIT_DATA, UNIT_TRANSCRIPTS);
+    });
+  </script>
+</body>
+</html>

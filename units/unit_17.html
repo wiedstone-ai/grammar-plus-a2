@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 17: Bentuk kondisional pertama (First Conditional) - Grammar Plus A2</title>
+  <meta name="description" content="Latihan mandiri super cepat dan ringan untuk Unit 17: First Conditional: Real Possibilities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body style="background-color: #F8FAFC;">
+
+  <div class="unit-page-container">
+    <!-- Top Navigation Bar -->
+    <header class="unit-top-navbar">
+      <div class="unit-brand-left">
+        <a href="../index.html" class="btn-back-home" title="Kembali ke portal utama semua unit">
+          <span>←</span> Beranda Utama
+        </a>
+      </div>
+      <div class="unit-pager-nav">
+        <a href="unit_16.html" class="btn-pager">◀ Unit 16</a>
+        <span style="font-weight: 700; font-size: 0.85rem; color: #1E3A8A; padding: 0 0.35rem;">Unit 17 / 24</span>
+        <a href="unit_18.html" class="btn-pager">Unit 18 ▶</a>
+      </div>
+      <div id="student-identity-badge"></div>
+    </header>
+
+    <!-- Unit Hero Header -->
+    <section class="unit-hero-card">
+      <div class="unit-hero-meta">
+        <span class="unit-tag-pill">UNIT 17</span>
+        <span class="badge badge-primary" style="font-size: 0.72rem; text-transform: uppercase;">Conditionals</span>
+        <span class="badge badge-secondary" style="font-size: 0.72rem;">📖 8 Latihan</span>
+      </div>
+      <h1 class="unit-hero-title">Bentuk kondisional pertama (First Conditional)</h1>
+      <div class="unit-hero-subtitle">First Conditional: Real Possibilities</div>
+
+      <!-- Collapsible Grammar Summary -->
+      <div class="grammar-collapsible">
+        <div class="grammar-toggle-header" onclick="toggleUnitGrammar(this)">
+          <span>📖 Ringkasan Rumus &amp; Materi Tata Bahasa</span>
+          <span class="grammar-toggle-arrow">▼</span>
+        </div>
+        <div class="grammar-body-content" id="unit-grammar-body" style="display: none;">
+          <p style="margin-bottom: 0.75rem;">First Conditional digunakan untuk situasi nyata yang mungkin terjadi di masa depan jika suatu syarat terpenuhi.</p>
+          
+              <div style="margin: 0.85rem 0;">
+                <div style="font-weight: 700; color: #1E3A8A; margin-bottom: 0.35rem;">Rumus First Conditional</div>
+                <table class="table-grammar">
+                  <thead><tr><th>Klausa Syarat (If-Clause)</th><th>Klausa Hasil (Main Clause)</th><th>Contoh</th></tr></thead>
+                  <tbody><tr><td>If + Simple Present (V1)</td><td>will / won&#x27;t + V1</td><td>If it rains tomorrow, we will stay at home.</td></tr><tr><td>will / won&#x27;t + V1</td><td>if + Simple Present (V1)</td><td>We will stay at home if it rains tomorrow.</td></tr></tbody>
+                </table>
+              </div>
+            
+          <div style='margin-top: 0.85rem;'><strong>Aturan &amp; Catatan Penting:</strong><ul style='padding-left: 1.25rem; margin-top: 0.35rem;'><li style='margin-bottom: 0.35rem;'>JANGAN gunakan &#x27;will&#x27; di dalam klausa &#x27;If&#x27;: BUKAN &#x27;If it will rain&#x27;, melainkan &#x27;If it rains&#x27;.</li><li style='margin-bottom: 0.35rem;'>Bila If-clause di depan, gunakan tanda koma (,). Bila di belakang, tidak perlu koma.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Tabs Bar -->
+    <div class="exercise-tabs-bar" id="exercise-tabs-container"></div>
+
+    <!-- Active Exercise Card Area -->
+    <main class="exercise-card" id="exercise-card">
+      <div id="exercise-content-area"></div>
+    </main>
+  </div>
+
+  <script>
+    function toggleUnitGrammar(headerEl) {
+      const body = document.getElementById("unit-grammar-body");
+      const arrow = headerEl.querySelector(".grammar-toggle-arrow");
+      if (body) {
+        const isHidden = body.style.display === "none";
+        body.style.display = isHidden ? "block" : "none";
+        if (arrow) arrow.textContent = isHidden ? "▲" : "▼";
+      }
+    }
+  </script>
+  <script src="../js/unit_runner.js"></script>
+  <script>
+    const UNIT_DATA = {"id": 17, "title": "Bentuk kondisional pertama (First Conditional)", "english_title": "First Conditional: Real Possibilities", "category": "Conditionals", "grammar": {"summary": "First Conditional digunakan untuk situasi nyata yang mungkin terjadi di masa depan jika suatu syarat terpenuhi.", "tables": [{"title": "Rumus First Conditional", "headers": ["Klausa Syarat (If-Clause)", "Klausa Hasil (Main Clause)", "Contoh"], "rows": [["If + Simple Present (V1)", "will / won't + V1", "If it rains tomorrow, we will stay at home."], ["will / won't + V1", "if + Simple Present (V1)", "We will stay at home if it rains tomorrow."]]}], "rules": ["JANGAN gunakan 'will' di dalam klausa 'If': BUKAN 'If it will rain', melainkan 'If it rains'.", "Bila If-clause di depan, gunakan tanda koma (,). Bila di belakang, tidak perlu koma."]}, "exercises": [{"id": "u17_ex1", "unitId": 17, "page": 54, "title": "Latihan 1: Klausa Waktu (Time Clauses with when, as soon as, before, after)", "instruction": "Ingat aturan penting: Klausa waktu (setelah when, as soon as, before, after) SELALU menggunakan Present Simple, sedangkan klausa utama menggunakan will + V1.", "type": "choice", "questions": [{"q": "1. I will call you as soon as I [BLANK] at the airport.", "options": ["arrive", "will arrive", "arrived", "am arriving"], "answer": "arrive", "hint": "Setelah 'as soon as' gunakan Present Simple.", "explanation": "Klausa waktu menggunakan Present Simple: 'arrive'."}, {"q": "2. Before she goes to bed, she [BLANK] the doors.", "options": ["will lock", "locks", "locked", "is locking"], "answer": "will lock", "hint": "Klausa utama menggunakan will + V1.", "explanation": "Klausa utama aksi masa depan menggunakan 'will lock'."}, {"q": "3. We will have dinner after dad [BLANK] home from work.", "options": ["comes", "will come", "came", "is coming"], "answer": "comes", "hint": "Setelah kata sambung waktu 'after', gunakan Present Simple.", "explanation": "After dad comes home (Present Simple)."}, {"q": "4. When I [BLANK] time, I will help you with your project.", "options": ["have", "will have", "had", "am having"], "answer": "have", "hint": "Klausa 'when' menggunakan Present Simple.", "explanation": "When I have time (Present Simple)."}]}, {"id": "u17_ex2", "unitId": 17, "page": 54, "title": "Latihan 2: Melengkapi dengan will atau Present Simple", "instruction": "Lengkapi kalimat dengan bentuk kata kerja yang tepat (will + V1 pada klausa utama atau Present Simple pada time clause).", "type": "fill", "questions": [{"q": "1. As soon as the rain stops, we [BLANK] (go) for a walk.", "answer": "will go", "alternateAnswers": ["'ll go", "Will go"], "hint": "Klausa utama: will + go.", "explanation": "Main clause: we will go for a walk."}, {"q": "2. I will send you an email when I [BLANK] (receive) the results.", "answer": "receive", "alternateAnswers": ["Receive"], "hint": "Time clause (when I): Present Simple.", "explanation": "Time clause: when I receive."}, {"q": "3. Wash your hands before you [BLANK] (eat) your lunch.", "answer": "eat", "alternateAnswers": ["Eat"], "hint": "Before you: Present Simple.", "explanation": "Before you eat."}, {"q": "4. He [BLANK] (buy) a new computer when he gets his salary.", "answer": "will buy", "alternateAnswers": ["'ll buy", "Will buy"], "hint": "Klausa utama: will + buy.", "explanation": "Main clause: he will buy."}]}, {"id": "u17_ex3", "unitId": 17, "page": 55, "title": "Latihan 3: Menjodohkan Klausa Pengandaian dan Waktu", "instruction": "Pasangkan klausa awal (1-4) dengan klausa kelanjutan yang logis (a-d).", "type": "choice", "questions": [{"q": "1. If you don't wear a warm coat, &rarr; [BLANK]", "options": ["you will catch a cold.", "I will wash the dishes.", "as soon as the movie ends.", "before the train leaves."], "answer": "you will catch a cold.", "hint": "Tidak pakai mantel hangat &rarr; masuk angin.", "explanation": "If you don't wear a warm coat, you will catch a cold."}, {"q": "2. After we finish dinner, &rarr; [BLANK]", "options": ["I will wash the dishes.", "you will catch a cold.", "it boils.", "if it rains tomorrow."], "answer": "I will wash the dishes.", "hint": "Selesai makan malam &rarr; mencuci piring.", "explanation": "After we finish dinner, I will wash the dishes."}, {"q": "3. We must hurry to the platform &rarr; [BLANK]", "options": ["before the train leaves.", "unless you study hard.", "after he will arrive.", "when it boiled."], "answer": "before the train leaves.", "hint": "Cepat-cepat ke peron sebelum kereta berangkat.", "explanation": "Before the train leaves."}, {"q": "4. I will turn off the television &rarr; [BLANK]", "options": ["as soon as this programme finishes.", "unless you are happy.", "if he bought new shoes.", "when I was tired."], "answer": "as soon as this programme finishes.", "hint": "Matikan TV setelah acara selesai.", "explanation": "As soon as this programme finishes."}]}, {"id": "u17_ex4", "unitId": 17, "page": 55, "title": "Latihan 4: First Conditional Clauses (Audio TR 23)", "instruction": "Dengarkan audio TR 23 yang memuat awal klausa pengandaian (1-6) dan pilihlah kelanjutan klausa yang paling tepat dan logis.", "type": "choice", "audioTrack": "TR 23", "questions": [{"q": "1. Audio: 'If he has to work late...' &rarr; [BLANK]", "options": ["he won't be able to join us for dinner.", "he bought a new car yesterday.", "he would fly to Paris.", "he goes to sleep immediately."], "answer": "he won't be able to join us for dinner.", "hint": "Jika harus kerja lembur, dia tidak bisa ikut makan malam.", "explanation": "Audio TR 23 nomor 1: 'If he has to work late... he won't be able to join us for dinner.'"}, {"q": "2. Audio: 'If it's a nice day tomorrow...' &rarr; [BLANK]", "options": ["we'll go to the beach for a swim.", "we stayed at home all day.", "it would be very cold.", "we don't like it."], "answer": "we'll go to the beach for a swim.", "hint": "Jika besok hari cerah, kita pergi ke pantai.", "explanation": "Audio TR 23 nomor 2: 'If it's a nice day tomorrow... we'll go to the beach.'"}, {"q": "3. Audio: 'If you don't eat properly...' &rarr; [BLANK]", "options": ["you'll feel tired and get sick.", "you ate all the food.", "you would be strong.", "you are a chef."], "answer": "you'll feel tired and get sick.", "hint": "Jika tidak makan dengan baik, badan akan lemas/sakit.", "explanation": "Audio TR 23 nomor 3: 'If you don't eat properly... you'll feel tired and get sick.'"}, {"q": "4. Audio: 'I'll wear a sweater...' &rarr; [BLANK]", "options": ["if the weather gets chilly tonight.", "when I bought it last week.", "unless it was hot.", "if I had more money."], "answer": "if the weather gets chilly tonight.", "hint": "Pakai sweater jika cuaca dingin nanti malam.", "explanation": "Audio TR 23 nomor 4: 'I'll wear a sweater... if the weather gets chilly.'"}, {"q": "5. Audio: 'We'll have a picnic...' &rarr; [BLANK]", "options": ["if it doesn't rain on Saturday.", "because we ate yesterday.", "if we would like it.", "unless it is sunny."], "answer": "if it doesn't rain on Saturday.", "hint": "Piknik jika tidak turun hujan.", "explanation": "Audio TR 23 nomor 5: 'We'll have a picnic... if it doesn't rain.'"}, {"q": "6. Audio: 'If you're finished with that book...' &rarr; [BLANK]", "options": ["can I please borrow it?", "I bought it yesterday.", "you would read it again.", "it was very boring."], "answer": "can I please borrow it?", "hint": "Jika sudah selesai membaca buku, bolehkah dipinjam?", "explanation": "Audio TR 23 nomor 6: 'If you're finished with that book... can I please borrow it?'"}]}, {"id": "u17_ex5", "unitId": 17, "page": 55, "title": "Latihan 5: Menulis Ulang Kalimat Menggunakan unless", "instruction": "Tulis ulang kalimat pengandaian negatif berikut menggunakan 'unless' (Ingat: unless = if not).", "type": "fill", "questions": [{"q": "1. If you don't leave now, you will miss the train. &rarr; [BLANK], you will miss the train.", "answer": "Unless you leave now", "alternateAnswers": ["unless you leave now"], "hint": "Ganti 'If you don't leave now' menjadi 'Unless you leave now'.", "explanation": "Unless you leave now, you will miss the train."}, {"q": "2. If he doesn't apologise, I won't speak to him. &rarr; [BLANK], I won't speak to him.", "answer": "Unless he apologises", "alternateAnswers": ["Unless he apologizes", "unless he apologises", "unless he apologizes"], "hint": "Gunakan kata kerja 'apologises' setelah he.", "explanation": "Unless he apologises, I won't speak to him."}, {"q": "3. We won't go on a picnic if it isn't sunny. &rarr; We won't go on a picnic [BLANK].", "answer": "unless it is sunny", "alternateAnswers": ["unless it's sunny"], "hint": "Ganti 'if it isn't sunny' menjadi 'unless it is sunny'.", "explanation": "We won't go on a picnic unless it is sunny."}]}, {"id": "u17_ex6", "unitId": 17, "page": 56, "title": "Latihan 6: Melengkapi dengan as soon as, until, unless, atau when", "instruction": "Pilih kata sambung waktu atau pengandaian yang tepat: as soon as (segera setelah), until (sampai), unless (kecuali jika), when (ketika).", "type": "choice", "questions": [{"q": "1. Please wait here [BLANK] the doctor is ready to see you.", "options": ["until", "unless", "as soon as", "when"], "answer": "until", "hint": "Menunggu sampai dokter siap.", "explanation": "'until' = sampai titik waktu tertentu tercapai."}, {"q": "2. I will send you a text message [BLANK] the plane lands.", "options": ["as soon as", "until", "unless", "before"], "answer": "as soon as", "hint": "Segera setelah pesawat mendarat.", "explanation": "'as soon as' = sesegera mungkin setelah kejadian."}, {"q": "3. You cannot drive a car [BLANK] you have a valid driving licence.", "options": ["unless", "until", "as soon as", "when"], "answer": "unless", "hint": "Kecuali jika Anda memiliki SIM.", "explanation": "'unless' = jika tidak memiliki SIM."}, {"q": "4. What will you do [BLANK] you finish high school?", "options": ["when", "unless", "until", "as soon"], "answer": "when", "hint": "Ketika Anda lulus nanti.", "explanation": "'when' = pada saat waktunya tiba."}]}, {"id": "u17_ex7", "unitId": 17, "page": 56, "title": "Latihan 7: Bentuk Kata Kerja yang Benar dalam Time Clauses", "instruction": "Pilihlah bentuk kata kerja yang benar pada time clause.", "type": "choice", "questions": [{"q": "1. We will leave as soon as Jack [BLANK] his keys.", "options": ["finds", "will find", "found", "is finding"], "answer": "finds", "hint": "Klausa 'as soon as' membutuhkan Present Simple.", "explanation": "Jack tunggal &rarr; 'finds'."}, {"q": "2. I'll pay you back when I [BLANK] paid on Friday.", "options": ["get", "will get", "got", "am getting"], "answer": "get", "hint": "Klausa 'when' membutuhkan Present Simple.", "explanation": "When I get paid."}, {"q": "3. She will stay at home until she [BLANK] completely better.", "options": ["feels", "will feel", "felt", "is feeling"], "answer": "feels", "hint": "Klausa 'until' menggunakan Present Simple.", "explanation": "Until she feels better."}]}, {"id": "u17_ex8", "unitId": 17, "page": 56, "title": "Latihan 8: Melengkapi Dialog Rencana Liburan", "instruction": "Lengkapi dialog rencana bepergian berikut dengan bentuk kata kerja yang tepat.", "type": "fill", "questions": [{"q": "1. Lisa: What time will we leave for the airport? Sam: We will leave as soon as the taxi [BLANK] (arrive).", "answer": "arrives", "alternateAnswers": ["Arrives"], "hint": "Present Simple untuk the taxi.", "explanation": "As soon as the taxi arrives."}, {"q": "2. Lisa: And what if there [BLANK] (be) heavy traffic on the road?", "answer": "is", "alternateAnswers": ["Is"], "hint": "Present Simple dari be untuk traffic (uncountable).", "explanation": "What if there is heavy traffic?"}, {"q": "3. Sam: If there is heavy traffic, the driver [BLANK] (take) the ring road instead.", "answer": "will take", "alternateAnswers": ["'ll take", "Will take"], "hint": "Main clause: will + take.", "explanation": "The driver will take the ring road."}, {"q": "4. Lisa: Great! I [BLANK] (call) mum as soon as we check into the hotel.", "answer": "will call", "alternateAnswers": ["'ll call", "Will call"], "hint": "Main clause: will + call.", "explanation": "I will call mum as soon as we check into the hotel."}]}]};
+    const UNIT_TRANSCRIPTS = [{"track": "TR 23", "title": "Unit 17 Ex 4: First Conditional Clauses", "content": "1 If he has to work late...\n2 If it's a nice day tomorrow...\n3 If you don't eat properly...\n4 I'll wear a sweater...\n5 We'll have a picnic...\n6 If you're finished with that book...\n7 If I make too many mistakes...\n8 What will you do if...\n9 I'll buy her a present...\n10 He'll call her tomorrow..."}];
+    document.addEventListener("DOMContentLoaded", function() {
+      initUnitRunner(UNIT_DATA, UNIT_TRANSCRIPTS);
+    });
+  </script>
+</body>
+</html>

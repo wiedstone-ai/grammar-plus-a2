@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 23: Bentuk pasif (Passive Voice) - Grammar Plus A2</title>
+  <meta name="description" content="Latihan mandiri super cepat dan ringan untuk Unit 23: Passive Voice: Present and Past Passive.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body style="background-color: #F8FAFC;">
+
+  <div class="unit-page-container">
+    <!-- Top Navigation Bar -->
+    <header class="unit-top-navbar">
+      <div class="unit-brand-left">
+        <a href="../index.html" class="btn-back-home" title="Kembali ke portal utama semua unit">
+          <span>←</span> Beranda Utama
+        </a>
+      </div>
+      <div class="unit-pager-nav">
+        <a href="unit_22.html" class="btn-pager">◀ Unit 22</a>
+        <span style="font-weight: 700; font-size: 0.85rem; color: #1E3A8A; padding: 0 0.35rem;">Unit 23 / 24</span>
+        <a href="unit_24.html" class="btn-pager">Unit 24 ▶</a>
+      </div>
+      <div id="student-identity-badge"></div>
+    </header>
+
+    <!-- Unit Hero Header -->
+    <section class="unit-hero-card">
+      <div class="unit-hero-meta">
+        <span class="unit-tag-pill">UNIT 23</span>
+        <span class="badge badge-primary" style="font-size: 0.72rem; text-transform: uppercase;">Voice &amp; Passive</span>
+        <span class="badge badge-secondary" style="font-size: 0.72rem;">📖 8 Latihan</span>
+      </div>
+      <h1 class="unit-hero-title">Bentuk pasif (Passive Voice)</h1>
+      <div class="unit-hero-subtitle">Passive Voice: Present and Past Passive</div>
+
+      <!-- Collapsible Grammar Summary -->
+      <div class="grammar-collapsible">
+        <div class="grammar-toggle-header" onclick="toggleUnitGrammar(this)">
+          <span>📖 Ringkasan Rumus &amp; Materi Tata Bahasa</span>
+          <span class="grammar-toggle-arrow">▼</span>
+        </div>
+        <div class="grammar-body-content" id="unit-grammar-body" style="display: none;">
+          <p style="margin-bottom: 0.75rem;">Kalimat pasif digunakan ketika fokus perhatian tertuju pada objek/tindakan, bukan pada siapa yang melakukan tindakan tersebut.</p>
+          
+              <div style="margin: 0.85rem 0;">
+                <div style="font-weight: 700; color: #1E3A8A; margin-bottom: 0.35rem;">Rumus Kalimat Pasif</div>
+                <table class="table-grammar">
+                  <thead><tr><th>Tense</th><th>Pola Pasif</th><th>Contoh Kalimat</th></tr></thead>
+                  <tbody><tr><td>Present Simple</td><td>am / is / are + V3 (Past Participle)</td><td>Millions of emails are sent every day.</td></tr><tr><td>Past Simple</td><td>was / were + V3 (Past Participle)</td><td>The Mona Lisa was painted by Leonardo da Vinci.</td></tr></tbody>
+                </table>
+              </div>
+            
+          <div style='margin-top: 0.85rem;'><strong>Aturan &amp; Catatan Penting:</strong><ul style='padding-left: 1.25rem; margin-top: 0.35rem;'><li style='margin-bottom: 0.35rem;'>Pelaku tindakan (agent) diperkenalkan dengan kata depan &#x27;by&#x27;: &#x27;written by Sarah Jane Lewis&#x27;.</li><li style='margin-bottom: 0.35rem;'>Jika pelaku tidak diketahui, tidak penting, atau sudah jelas, &#x27;by ...&#x27; tidak perlu disebutkan.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Tabs Bar -->
+    <div class="exercise-tabs-bar" id="exercise-tabs-container"></div>
+
+    <!-- Active Exercise Card Area -->
+    <main class="exercise-card" id="exercise-card">
+      <div id="exercise-content-area"></div>
+    </main>
+  </div>
+
+  <script>
+    function toggleUnitGrammar(headerEl) {
+      const body = document.getElementById("unit-grammar-body");
+      const arrow = headerEl.querySelector(".grammar-toggle-arrow");
+      if (body) {
+        const isHidden = body.style.display === "none";
+        body.style.display = isHidden ? "block" : "none";
+        if (arrow) arrow.textContent = isHidden ? "▲" : "▼";
+      }
+    }
+  </script>
+  <script src="../js/unit_runner.js"></script>
+  <script>
+    const UNIT_DATA = {"id": 23, "title": "Bentuk pasif (Passive Voice)", "english_title": "Passive Voice: Present and Past Passive", "category": "Voice & Passive", "grammar": {"summary": "Kalimat pasif digunakan ketika fokus perhatian tertuju pada objek/tindakan, bukan pada siapa yang melakukan tindakan tersebut.", "tables": [{"title": "Rumus Kalimat Pasif", "headers": ["Tense", "Pola Pasif", "Contoh Kalimat"], "rows": [["Present Simple", "am / is / are + V3 (Past Participle)", "Millions of emails are sent every day."], ["Past Simple", "was / were + V3 (Past Participle)", "The Mona Lisa was painted by Leonardo da Vinci."]]}], "rules": ["Pelaku tindakan (agent) diperkenalkan dengan kata depan 'by': 'written by Sarah Jane Lewis'.", "Jika pelaku tidak diketahui, tidak penting, atau sudah jelas, 'by ...' tidak perlu disebutkan."]}, "exercises": [{"id": "u23_ex1", "unitId": 23, "page": 73, "title": "Latihan 1: Bentuk Past Passive (was/were + V3)", "instruction": "Lengkapi kalimat dengan bentuk Past Passive (was / were + Past Participle) dari kata kerja di dalam kurung.", "type": "fill", "questions": [{"q": "1. Kim [BLANK] (give) an application form to fill out for the job.", "answer": "was given", "alternateAnswers": ["Was given"], "hint": "was + given.", "explanation": "Kim was given an application form."}, {"q": "2. Why [BLANK] this package [BLANK2] (leave) by the front door?", "answer": "was / left", "alternateAnswers": ["was / left"], "hint": "was + left.", "explanation": "Why was this package left by the front door?"}, {"q": "3. The hotel [BLANK] (not book) on the Internet.", "answer": "wasn't booked", "alternateAnswers": ["was not booked", "Wasn't booked"], "hint": "wasn't + booked.", "explanation": "The hotel wasn't booked on the Internet."}, {"q": "4. [BLANK] these clothes [BLANK2] (make) in the UK?", "answer": "Were / made", "alternateAnswers": ["were / made", "Were / made"], "hint": "were + made (these clothes jamak).", "explanation": "Were these clothes made in the UK?"}, {"q": "5. The printer [BLANK] (fix) by the technician yesterday.", "answer": "was fixed", "alternateAnswers": ["Was fixed"], "hint": "was + fixed.", "explanation": "The printer was fixed."}, {"q": "6. The motorbike [BLANK] (sell) for £1500!", "answer": "was sold", "alternateAnswers": ["Was sold"], "hint": "was + sold.", "explanation": "The motorbike was sold for £1500."}]}, {"id": "u23_ex2", "unitId": 23, "page": 73, "title": "Latihan 2: Mengubah Kalimat Aktif Menjadi Present Passive", "instruction": "Ubahlah kalimat aktif berikut menjadi kalimat pasif Present Simple (is / are + V3).", "type": "fill", "questions": [{"q": "1. My mum cleans the house every morning. &rarr; The house [BLANK] by my mum.", "answer": "is cleaned", "alternateAnswers": ["Is cleaned"], "hint": "is + cleaned.", "explanation": "The house is cleaned by my mum."}, {"q": "2. We use this room only on special occasions. &rarr; This room [BLANK] only on special occasions.", "answer": "is used", "alternateAnswers": ["Is used"], "hint": "is + used.", "explanation": "This room is used only on special occasions."}, {"q": "3. People leave bicycles in the hall. &rarr; Bicycles [BLANK] in the hall.", "answer": "are left", "alternateAnswers": ["Are left"], "hint": "are + left (bicycles jamak).", "explanation": "Bicycles are left in the hall."}, {"q": "4. They ring the church bells after the wedding. &rarr; The church bells [BLANK] after the wedding.", "answer": "are rung", "alternateAnswers": ["Are rung"], "hint": "are + rung (ring &rarr; rang &rarr; rung).", "explanation": "The church bells are rung after the wedding."}, {"q": "5. Visitors always admire this painting. &rarr; This painting [BLANK] by visitors.", "answer": "is always admired", "alternateAnswers": ["is admired"], "hint": "is + admired.", "explanation": "This painting is always admired by visitors."}]}, {"id": "u23_ex3", "unitId": 23, "page": 74, "title": "Latihan 3: Menyusun Kalimat Pasif dari Petunjuk Kata", "instruction": "Susun petunjuk kata berikut menjadi kalimat pasif (Present atau Past) yang benar.", "type": "fill", "questions": [{"q": "1. people / speak English / all over the world &rarr; [BLANK]", "answer": "English is spoken all over the world.", "alternateAnswers": ["english is spoken all over the world.", "English is spoken all over the world"], "hint": "English + is + spoken...", "explanation": "English is spoken all over the world."}, {"q": "2. someone / invite me / to lunch yesterday &rarr; [BLANK]", "answer": "I was invited to lunch yesterday.", "alternateAnswers": ["i was invited to lunch yesterday.", "I was invited to lunch yesterday"], "hint": "I + was + invited...", "explanation": "I was invited to lunch yesterday."}, {"q": "3. someone / feed the dog / this morning &rarr; [BLANK]", "answer": "The dog was fed this morning.", "alternateAnswers": ["the dog was fed this morning.", "The dog was fed this morning"], "hint": "The dog + was + fed...", "explanation": "The dog was fed this morning."}, {"q": "4. somebody / build this sandcastle / this morning &rarr; [BLANK]", "answer": "This sandcastle was built this morning.", "alternateAnswers": ["this sandcastle was built this morning.", "This sandcastle was built this morning"], "hint": "This sandcastle + was + built...", "explanation": "This sandcastle was built this morning."}]}, {"id": "u23_ex4", "unitId": 23, "page": 74, "title": "Latihan 4: Melengkapi dengan Kata Kerja Pasif dalam Kotak", "instruction": "Lengkapi kalimat dengan bentuk pasif dari kata kerja: invent, win, draw, build, upload, send.", "type": "fill", "questions": [{"q": "1. The photos [BLANK] to my website a few days ago.", "answer": "were uploaded", "alternateAnswers": ["Were uploaded"], "hint": "Kata kerja: upload (the photos jamak).", "explanation": "The photos were uploaded."}, {"q": "2. Traffic lights [BLANK] a hundred years ago.", "answer": "were invented", "alternateAnswers": ["Were invented"], "hint": "Kata kerja: invent.", "explanation": "Traffic lights were invented."}, {"q": "3. The laptop I bought online [BLANK] to me by courier.", "answer": "was sent", "alternateAnswers": ["Was sent"], "hint": "Kata kerja: send (sent).", "explanation": "The laptop was sent to me."}, {"q": "4. This masterpiece [BLANK] by a famous Renaissance artist.", "answer": "was drawn", "alternateAnswers": ["was painted", "Was drawn"], "hint": "Kata kerja: draw (drawn).", "explanation": "This masterpiece was drawn."}, {"q": "5. The championship [BLANK] by two players from Scotland.", "answer": "was won", "alternateAnswers": ["Was won"], "hint": "Kata kerja: win (won).", "explanation": "The championship was won."}, {"q": "6. The ancient Egyptian pyramids [BLANK] over 4,500 years ago.", "answer": "were built", "alternateAnswers": ["Were built"], "hint": "Kata kerja: build (built).", "explanation": "The pyramids were built."}]}, {"id": "u23_ex5", "unitId": 23, "page": 74, "title": "Latihan 5: Passive or Active?", "instruction": "Tentukan apakah kata kerja dalam tanda kurung berupa kalimat Aktif (Active) atau Pasif (Passive), lalu pilih bentuk yang tepat.", "type": "choice", "questions": [{"q": "1. Millions of people [BLANK] (play) football all around the world.", "options": ["play (Active)", "is played (Passive)", "are played (Passive)"], "answer": "play (Active)", "hint": "Millions of people adalah pelaku aksi aktif.", "explanation": "Bentuk aktif: play."}, {"q": "2. Football [BLANK] (play) in almost every country.", "options": ["is played (Passive)", "plays (Active)", "played (Active)"], "answer": "is played (Passive)", "hint": "Football adalah objek yang dimainkan orang (Pasif).", "explanation": "Bentuk pasif: is played."}, {"q": "3. The thief [BLANK] (catch) by the police last night.", "options": ["was caught (Passive)", "caught (Active)", "catches (Active)"], "answer": "was caught (Passive)", "hint": "Pencuri ditangkap oleh polisi (Pasif).", "explanation": "Past Passive: was caught."}, {"q": "4. The police officer [BLANK] (catch) the criminal quickly.", "options": ["caught (Active)", "was caught (Passive)", "is caught (Passive)"], "answer": "caught (Active)", "hint": "Polisi yang menangkap pencuri (Aktif).", "explanation": "Past Active: caught."}]}, {"id": "u23_ex6", "unitId": 23, "page": 75, "title": "Latihan 6: Tanya-Jawab dalam Bentuk Past Passive", "instruction": "Lengkapi pertanyaan dan jawaban kalimat pasif lampau berikut.", "type": "fill", "questions": [{"q": "1. Q: Where [BLANK] these jeans [BLANK2]? &rarr; A: They were made in America.", "answer": "were / made", "alternateAnswers": ["were / made"], "hint": "were + made.", "explanation": "Where were these jeans made?"}, {"q": "2. Q: When [BLANK] the package [BLANK2]? &rarr; A: It was delivered just after midday.", "answer": "was / delivered", "alternateAnswers": ["was / delivered"], "hint": "was + delivered.", "explanation": "When was the package delivered?"}, {"q": "3. Q: Who [BLANK] this portrait [BLANK2] by? &rarr; A: It was painted by Luke Stratton.", "answer": "was / painted", "alternateAnswers": ["was / drawn", "was / painted"], "hint": "was + painted / drawn.", "explanation": "Who was this portrait drawn / painted by?"}]}, {"id": "u23_ex7", "unitId": 23, "page": 75, "title": "Latihan 7: Mengubah Kalimat Menjadi Bentuk Pasif", "instruction": "Ubahlah kalimat aktif berikut menjadi kalimat pasif yang setara.", "type": "fill", "questions": [{"q": "1. The fire destroyed that house. &rarr; That house [BLANK] by the fire.", "answer": "was destroyed", "alternateAnswers": ["Was destroyed"], "hint": "was + destroyed.", "explanation": "That house was destroyed by the fire."}, {"q": "2. The audience enjoyed the concert very much. &rarr; The concert [BLANK] very much by the audience.", "answer": "was enjoyed", "alternateAnswers": ["Was enjoyed"], "hint": "was + enjoyed.", "explanation": "The concert was enjoyed by the audience."}, {"q": "3. Paul will eat the cake. &rarr; The cake [BLANK] by Paul.", "answer": "will be eaten", "alternateAnswers": ["Will be eaten"], "hint": "Future passive: will be + eaten.", "explanation": "The cake will be eaten by Paul."}, {"q": "4. Beth has finished the report. &rarr; The report [BLANK] by Beth.", "answer": "has been finished", "alternateAnswers": ["Has been finished"], "hint": "Present Perfect passive: has been + finished.", "explanation": "The report has been finished by Beth."}]}, {"id": "u23_ex8", "unitId": 23, "page": 75, "title": "Latihan 8: Melengkapi Teks Perjalanan Mesir dengan Bentuk Pasif", "instruction": "Lengkapi teks petunjuk keselamatan berlibur di Mesir dengan bentuk pasif dari kata kerja dalam kurung.", "type": "fill", "questions": [{"q": "1. Marc: Certain precautions [BLANK] (take) by my friends to enjoy the trip fully.", "answer": "were taken", "alternateAnswers": ["Were taken"], "hint": "Past passive: were taken.", "explanation": "Precautions were taken."}, {"q": "2. Water [BLANK] (always / boil) before it is drunk.", "answer": "is always boiled", "alternateAnswers": ["is boiled", "Is always boiled"], "hint": "is always + boiled.", "explanation": "Water is always boiled."}, {"q": "3. Long-sleeved garments [BLANK] (wear) by tourists to protect their skin from the sun.", "answer": "are worn", "alternateAnswers": ["Are worn"], "hint": "are + worn (wear &rarr; wore &rarr; worn).", "explanation": "Long-sleeved garments are worn by tourists."}, {"q": "4. Sunscreen [BLANK] (sell) in lots of local shops.", "answer": "is sold", "alternateAnswers": ["Is sold"], "hint": "is + sold.", "explanation": "Sunscreen is sold in lots of shops."}]}]};
+    const UNIT_TRANSCRIPTS = [];
+    document.addEventListener("DOMContentLoaded", function() {
+      initUnitRunner(UNIT_DATA, UNIT_TRANSCRIPTS);
+    });
+  </script>
+</body>
+</html>

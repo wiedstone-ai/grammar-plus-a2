@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
 
   <style>
 /* ==========================================================================
@@ -1607,6 +1607,523 @@ body {
   display: none;
 }
 
+/* ==========================================================================
+   STANDALONE UNIT RUNNER STYLES (Ultra Lightweight Mode)
+   ========================================================================== */
+.btn-fast-unit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #EFF6FF;
+  border: 1.5px solid #93C5FD;
+  color: #1D4ED8;
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+
+.btn-fast-unit:hover {
+  background-color: #2563EB;
+  border-color: #2563EB;
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+.unit-page-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem 1rem;
+}
+
+.unit-top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.15rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.unit-brand-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #2563EB;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background-color: #EFF6FF;
+  transition: var(--transition);
+}
+
+.btn-back-home:hover {
+  background-color: #DBEAFE;
+  color: #1D4ED8;
+}
+
+.unit-pager-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background-color: #FFFFFF;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-pager:hover:not(.disabled) {
+  background-color: #F1F5F9;
+  border-color: #94A3B8;
+}
+
+.btn-pager.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #F8FAFC;
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.825rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-user-pill:hover {
+  border-color: var(--primary);
+  background-color: #EFF6FF;
+}
+
+.unit-hero-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.unit-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.unit-tag-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background-color: #2563EB;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+}
+
+.unit-hero-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.3;
+}
+
+.unit-hero-subtitle {
+  font-size: 0.95rem;
+  color: #64748B;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.grammar-collapsible {
+  margin-top: 1rem;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.grammar-toggle-header {
+  padding: 0.75rem 1rem;
+  background-color: #F8FAFC;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1E293B;
+  user-select: none;
+}
+
+.grammar-toggle-header:hover {
+  background-color: #F1F5F9;
+}
+
+.grammar-body-content {
+  padding: 1.15rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #334155;
+  border-top: 1px solid #E2E8F0;
+}
+
+.grammar-body-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.85rem 0;
+  font-size: 0.85rem;
+}
+
+.grammar-body-content th {
+  background-color: #EFF6FF;
+  color: #1E3A8A;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #BFDBFE;
+  text-align: left;
+}
+
+.grammar-body-content td {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #E2E8F0;
+}
+
+/* Tabs Latihan */
+.exercise-tabs-bar {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.tab-ex-btn {
+  white-space: nowrap;
+  border: 1.5px solid var(--border-medium);
+  background-color: #FFFFFF;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tab-ex-btn:hover {
+  background-color: #F1F5F9;
+  border-color: #94A3B8;
+  color: var(--text-main);
+}
+
+.tab-ex-btn.active {
+  background-color: #2563EB;
+  border-color: #2563EB;
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+/* Exercise Box */
+.exercise-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.exercise-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.exercise-meta-top {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.exercise-instruction {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Question Items */
+.question-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.question-thumb-box {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.question-thumb-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #CBD5E1;
+  background-color: #FFFFFF;
+  padding: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: zoom-in;
+}
+
+.question-thumb-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.question-body {
+  flex: 1;
+  min-width: 240px;
+}
+
+.question-hint {
+  font-size: 0.775rem;
+  color: #64748B;
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.question-wrong-highlight {
+  border-left: 4px solid #DC2626 !important;
+  background-color: #FFF5F5 !important;
+}
+
+/* Choice Buttons */
+.choice-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.choice-btn:hover {
+  border-color: var(--primary);
+  background-color: #F8FAFC;
+}
+
+.choice-btn.selected {
+  border-color: #2563EB;
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15);
+}
+
+.choice-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border-dark);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.choice-btn.selected .choice-radio {
+  border-color: #2563EB;
+  background-color: #2563EB;
+  box-shadow: inset 0 0 0 3px #FFFFFF;
+}
+
+/* Audio Player */
+.audio-player-card {
+  background-color: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.audio-player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.audio-extra-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.main-audio-element {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-sm);
+}
+
+.drive-iframe-wrapper {
+  margin-top: 0.75rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid #CBD5E1;
+}
+
+.transcript-box {
+  margin-top: 0.75rem;
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.transcript-box pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+  margin-top: 0.4rem;
+  color: #1E293B;
+}
+
+/* Exercise Actions */
+.exercise-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.btn-submit-action {
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+}
+
+/* Score Result Box */
+.score-result-box {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  animation: fadeInResult 0.3s ease;
+}
+
+@keyframes fadeInResult {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-passed {
+  background-color: #F0FDF4;
+  border: 2px solid #86EFAC;
+  color: #166534;
+}
+
+.result-failed {
+  background-color: #FEF2F2;
+  border: 2px solid #FCA5A5;
+  color: #991B1B;
+}
+
+.result-score-number {
+  font-size: 2.75rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.result-score-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.result-score-sub {
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.result-actions-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+
 </style>
 </head>
 <body>
@@ -1708,6 +2225,25 @@ body {
                 <span>🇬🇧</span> <strong>Union Jack &amp; Menara London</strong>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Banner Mode Ringan (Solusi Web Cepat & Bebas Lag) -->
+        <div class="lightweight-mode-banner" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border: 1.5px solid #93C5FD; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.85rem; box-shadow: 0 2px 5px rgba(37,99,235,0.06);">
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div style="font-size: 2rem; background: #FFFFFF; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #BFDBFE;">⚡</div>
+            <div>
+              <div style="font-weight: 800; color: #1E3A8A; font-size: 0.95rem;">Mode Akses Cepat &amp; Super Ringan Tersedia!</div>
+              <div style="font-size: 0.825rem; color: #1E40AF; line-height: 1.4;">Tiap unit kini tersedia dalam berkas HTML mandiri (&lt;30 KB) agar latihan dibuka instan, hemat memori/kuota, dan bebas lag.</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span style="font-size: 0.775rem; font-weight: 700; color: #1E40AF; align-self: center; margin-right: 0.25rem;">Akses Langsung:</span>
+            <a href="units/unit_1.html" class="btn btn-sm btn-primary" style="text-decoration: none; padding: 0.35rem 0.65rem; font-size: 0.8rem;">Unit 1</a>
+            <a href="units/unit_2.html" class="btn btn-sm btn-primary" style="text-decoration: none; padding: 0.35rem 0.65rem; font-size: 0.8rem;">Unit 2</a>
+            <a href="units/unit_3.html" class="btn btn-sm btn-primary" style="text-decoration: none; padding: 0.35rem 0.65rem; font-size: 0.8rem;">Unit 3</a>
+            <a href="units/unit_4.html" class="btn btn-sm btn-primary" style="text-decoration: none; padding: 0.35rem 0.65rem; font-size: 0.8rem;">Unit 4</a>
+            <a href="#unit-grid-container" class="btn btn-sm btn-secondary" style="text-decoration: none; padding: 0.35rem 0.65rem; font-size: 0.8rem;">Unit 5-24 ↓</a>
           </div>
         </div>
 
@@ -3391,6 +3927,77 @@ const GRAMMAR_UNITS = [
         ]
       },
       {
+        "id": "u2_ex4",
+        "unitId": 2,
+        "page": 7,
+        "title": "Latihan 4: Buat Kalimat Tanya dan Jawaban dengan have",
+        "instruction": "Lengkapi pertanyaan dengan have sesuai kata petunjuk (gunakan Do you have... / What time do you have... / dll).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. When / you / have breakfast &rarr; [BLANK] at seven.",
+            "answer": "When do you have breakfast? I usually have breakfast",
+            "alternateAnswers": [
+              "When do you have breakfast? I have breakfast",
+              "When do you have breakfast?",
+              "When do you have breakfast? / I usually have breakfast"
+            ],
+            "hint": "Gunakan kata tanya When do you have...",
+            "explanation": "Pertanyaan kebiasaan memakai 'When do you have breakfast?'"
+          },
+          {
+            "q": "2. How often / your family / a holiday &rarr; [BLANK] a holiday once a year.",
+            "answer": "How often does your family have a holiday? We usually have",
+            "alternateAnswers": [
+              "How often does your family have a holiday?",
+              "How often does your family have a holiday? We have"
+            ],
+            "hint": "How often does your family have...",
+            "explanation": "Family sebagai entitas tunggal memakai 'does your family have'."
+          },
+          {
+            "q": "3. What / you / for a snack &rarr; [BLANK] fruit or biscuits.",
+            "answer": "What do you have for a snack? I usually have",
+            "alternateAnswers": [
+              "What do you have for a snack?",
+              "What do you have for a snack? I have"
+            ],
+            "hint": "What do you have for a snack?",
+            "explanation": "Gunakan 'What do you have for a snack?'."
+          },
+          {
+            "q": "4. What time / you / lunch &rarr; [BLANK] lunch at one o'clock.",
+            "answer": "What time do you have lunch? I usually have",
+            "alternateAnswers": [
+              "What time do you have lunch?",
+              "What time do you have lunch? I have"
+            ],
+            "hint": "What time do you have lunch?",
+            "explanation": "Gunakan 'What time do you have lunch?'."
+          },
+          {
+            "q": "5. Where / you / lunch &rarr; [BLANK] lunch in the school canteen.",
+            "answer": "Where do you have lunch? I usually have",
+            "alternateAnswers": [
+              "Where do you have lunch?",
+              "Where do you have lunch? I have"
+            ],
+            "hint": "Where do you have lunch?",
+            "explanation": "Gunakan 'Where do you have lunch?'."
+          },
+          {
+            "q": "6. How often / you / a shower &rarr; [BLANK] a shower every morning.",
+            "answer": "How often do you have a shower? I have",
+            "alternateAnswers": [
+              "How often do you have a shower?",
+              "How often do you have a shower? I usually have"
+            ],
+            "hint": "How often do you have a shower?",
+            "explanation": "Gunakan 'How often do you have a shower?'."
+          }
+        ]
+      },
+      {
         "id": "u2_ex5",
         "unitId": 2,
         "page": 8,
@@ -3646,6 +4253,158 @@ const GRAMMAR_UNITS = [
             ],
             "hint": "Masa kini (don't have)",
             "explanation": "Kondisi masa kini (don't have) memakai 'can't'."
+          }
+        ]
+      },
+      {
+        "id": "u2_ex9",
+        "unitId": 2,
+        "page": 8,
+        "title": "Latihan 9: Ungkapkan Kemampuan dengan can atau can't (Hal 8)",
+        "instruction": "Pilihlah bentuk can atau can't yang paling tepat sesuai konteks kemampuan.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "I'm not good at languages. I [BLANK] speak Chinese.",
+            "options": [
+              "can",
+              "can't"
+            ],
+            "answer": "can't",
+            "hint": "Lihat kalimat pertama: 'not good at'",
+            "explanation": "Karena tidak pandai bahasa, gunakan 'can't'."
+          },
+          {
+            "q": "She is a music teacher, so she [BLANK] play the guitar and piano very well.",
+            "options": [
+              "can",
+              "can't"
+            ],
+            "answer": "can",
+            "hint": "Guru musik pasti bisa memainkan alat musik",
+            "explanation": "Guru musik memiliki kemampuan ('can')."
+          },
+          {
+            "q": "He is afraid of deep water because he [BLANK] swim.",
+            "options": [
+              "can",
+              "can't"
+            ],
+            "answer": "can't",
+            "hint": "Takut air karena tidak bisa berenang",
+            "explanation": "Gunakan 'can't swim'."
+          },
+          {
+            "q": "Lili has been riding since she was five. She [BLANK] ride a horse skillfully.",
+            "options": [
+              "can",
+              "can't"
+            ],
+            "answer": "can",
+            "hint": "Sudah berkuda sejak umur 5 tahun",
+            "explanation": "Menyatakan kemampuan tinggi ('can')."
+          },
+          {
+            "q": "I [BLANK] cook Italian pasta, it's my favourite dish to prepare!",
+            "options": [
+              "can",
+              "can't"
+            ],
+            "answer": "can",
+            "hint": "Makanan favorit untuk disiapkan",
+            "explanation": "Menyatakan kemampuan memasak ('can')."
+          },
+          {
+            "q": "Tom doesn't have a driving licence, so he [BLANK] drive a car.",
+            "options": [
+              "can",
+              "can't"
+            ],
+            "answer": "can't",
+            "hint": "Tidak punya SIM",
+            "explanation": "Tidak punya SIM berarti tidak boleh/tidak bisa mengemudi ('can't')."
+          }
+        ]
+      },
+      {
+        "id": "u2_ex10",
+        "unitId": 2,
+        "page": 9,
+        "title": "Latihan 10: Respons Pertanyaan Kemampuan (Hal 9)",
+        "instruction": "Pilihlah jawaban singkat (short answer) yang tepat untuk merespons pertanyaan can.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "Can you speak two languages? &rarr; [BLANK], English and Indonesian.",
+            "options": [
+              "Yes, I can",
+              "No, I can't",
+              "Yes, I do",
+              "No, I don't"
+            ],
+            "answer": "Yes, I can",
+            "hint": "Bisa bahasa Inggris dan Indonesia",
+            "explanation": "Jawaban positif untuk pertanyaan Can you adalah 'Yes, I can'."
+          },
+          {
+            "q": "Can your brother fix this computer? &rarr; [BLANK], he knows nothing about IT.",
+            "options": [
+              "Yes, he can",
+              "No, he can't",
+              "Yes, he does",
+              "No, he doesn't"
+            ],
+            "answer": "No, he can't",
+            "hint": "Dia tidak mengerti IT sama sekali",
+            "explanation": "Jawaban negatif untuk brother (he) adalah 'No, he can't'."
+          },
+          {
+            "q": "Can they come to our dinner tonight? &rarr; [BLANK], they have a flight to catch.",
+            "options": [
+              "Yes, they can",
+              "No, they can't",
+              "No, they don't",
+              "Yes, they do"
+            ],
+            "answer": "No, they can't",
+            "hint": "Ada jadwal penerbangan sehingga tidak bisa hadir",
+            "explanation": "Gunakan 'No, they can't'."
+          },
+          {
+            "q": "Can Sarah play chess? &rarr; [BLANK], she won the school tournament last month!",
+            "options": [
+              "Yes, she can",
+              "No, she can't",
+              "Yes, she does",
+              "No, she doesn't"
+            ],
+            "answer": "Yes, she can",
+            "hint": "Memenangkan turnamen sekolah",
+            "explanation": "Gunakan 'Yes, she can'."
+          },
+          {
+            "q": "Can you whistle loudly? &rarr; [BLANK], I never learned how to do it.",
+            "options": [
+              "Yes, I can",
+              "No, I can't",
+              "No, I don't",
+              "Yes, I do"
+            ],
+            "answer": "No, I can't",
+            "hint": "Tidak pernah belajar bersiul",
+            "explanation": "Gunakan 'No, I can't'."
+          },
+          {
+            "q": "Can we park our car here? &rarr; [BLANK], it is a private parking area.",
+            "options": [
+              "Yes, we can",
+              "No, we can't",
+              "No, we don't",
+              "Yes, we do"
+            ],
+            "answer": "No, we can't",
+            "hint": "Area parkir pribadi (dilarang)",
+            "explanation": "Gunakan 'No, we can't'."
           }
         ]
       },
@@ -3966,6 +4725,194 @@ const GRAMMAR_UNITS = [
             "answer": "Shall we order a pizza for dinner this evening?",
             "hint": "Shall we + verb...",
             "explanation": "Rumus usulan sopan: Shall we order a pizza for dinner this evening?"
+          }
+        ]
+      },
+      {
+        "id": "u3_ex2",
+        "unitId": 3,
+        "page": 11,
+        "title": "Latihan 2: Buat Ajakan Menggunakan Let's (Hal 11)",
+        "instruction": "Pilihlah kalimat ajakan 'Let's...' yang paling sesuai dengan aktivitas kegiatan.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "Aktivitas menonton film di bioskop &rarr; [BLANK]",
+            "options": [
+              "Let's go to the cinema.",
+              "Let's have a snack.",
+              "Let's play football.",
+              "Let's go camping."
+            ],
+            "answer": "Let's go to the cinema.",
+            "hint": "Menonton film di bioskop",
+            "explanation": "Ajakan menonton film adalah 'Let's go to the cinema.'"
+          },
+          {
+            "q": "Aktivitas bersantai di pantai dan laut &rarr; [BLANK]",
+            "options": [
+              "Let's go to the beach.",
+              "Let's do our homework.",
+              "Let's go to the library.",
+              "Let's wash the car."
+            ],
+            "answer": "Let's go to the beach.",
+            "hint": "Bersantai di pantai",
+            "explanation": "Ajakan ke pantai adalah 'Let's go to the beach.'"
+          },
+          {
+            "q": "Aktivitas berbelanja di pusat perbelanjaan &rarr; [BLANK]",
+            "options": [
+              "Let's go shopping.",
+              "Let's go swimming.",
+              "Let's clean the room.",
+              "Let's have a sleep."
+            ],
+            "answer": "Let's go shopping.",
+            "hint": "Belanja",
+            "explanation": "Ajakan berbelanja adalah 'Let's go shopping.'"
+          },
+          {
+            "q": "Aktivitas mengobrol sambil minum kopi di kafe &rarr; [BLANK]",
+            "options": [
+              "Let's have a coffee.",
+              "Let's run 5 km.",
+              "Let's go to church.",
+              "Let's take an exam."
+            ],
+            "answer": "Let's have a coffee.",
+            "hint": "Minum kopi di kafe",
+            "explanation": "Ajakan minum kopi adalah 'Let's have a coffee.'"
+          },
+          {
+            "q": "Aktivitas berenang di kolam renang saat cuaca panas &rarr; [BLANK]",
+            "options": [
+              "Let's go swimming.",
+              "Let's play tennis.",
+              "Let's paint the fence.",
+              "Let's buy a car."
+            ],
+            "answer": "Let's go swimming.",
+            "hint": "Berenang di kolam",
+            "explanation": "Ajakan berenang adalah 'Let's go swimming.'"
+          },
+          {
+            "q": "Aktivitas menonton konser musik di lapangan &rarr; [BLANK]",
+            "options": [
+              "Let's go to a concert.",
+              "Let's go to the dentist.",
+              "Let's wash dishes.",
+              "Let's go to bed."
+            ],
+            "answer": "Let's go to a concert.",
+            "hint": "Konser musik",
+            "explanation": "Ajakan ke konser adalah 'Let's go to a concert.'"
+          },
+          {
+            "q": "Aktivitas berkemah dan mendirikan tenda di alam &rarr; [BLANK]",
+            "options": [
+              "Let's go camping.",
+              "Let's stay at a hotel.",
+              "Let's study history.",
+              "Let's watch TV."
+            ],
+            "answer": "Let's go camping.",
+            "hint": "Berkemah mendirikan tenda",
+            "explanation": "Ajakan berkemah adalah 'Let's go camping.'"
+          },
+          {
+            "q": "Aktivitas menonton pertandingan sepak bola di stadion &rarr; [BLANK]",
+            "options": [
+              "Let's watch a football match.",
+              "Let's go to the airport.",
+              "Let's buy bread.",
+              "Let's wash the clothes."
+            ],
+            "answer": "Let's watch a football match.",
+            "hint": "Pertandingan sepak bola",
+            "explanation": "Ajakan menonton sepak bola adalah 'Let's watch a football match.'"
+          }
+        ]
+      },
+      {
+        "id": "u3_ex3",
+        "unitId": 3,
+        "page": 11,
+        "title": "Latihan 3: Menerima dan Menolak Ajakan dengan Sopan (Hal 11)",
+        "instruction": "Pilihlah respons yang tepat dan sopan untuk menerima atau menolak ajakan berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "A: Let's go to the cinema tonight. &rarr; B (Menerima): [BLANK]",
+            "options": [
+              "That's a great idea! What's on?",
+              "No, I hate you.",
+              "I don't like movies at all.",
+              "Go by yourself."
+            ],
+            "answer": "That's a great idea! What's on?",
+            "hint": "Menerima dengan antusias",
+            "explanation": "Menerima ajakan ke bioskop: 'That's a great idea! What's on?'"
+          },
+          {
+            "q": "A: Why don't we have a pizza for lunch? &rarr; B (Menolak dengan alasan): [BLANK]",
+            "options": [
+              "I'd love to, but I'm on a diet.",
+              "Yes, let's order now.",
+              "Pizza is Italian.",
+              "I ate yesterday."
+            ],
+            "answer": "I'd love to, but I'm on a diet.",
+            "hint": "Menolak dengan alasan sopan (diet)",
+            "explanation": "'I'd love to, but...' adalah cara menolak yang sopan."
+          },
+          {
+            "q": "A: Shall we go swimming this afternoon? &rarr; B (Menerima): [BLANK]",
+            "options": [
+              "Yes, let's! It's so hot today.",
+              "I can't swim.",
+              "Water is wet.",
+              "No, never."
+            ],
+            "answer": "Yes, let's! It's so hot today.",
+            "hint": "Menerima ajakan berenang",
+            "explanation": "Menerima: 'Yes, let's! It's so hot today.'"
+          },
+          {
+            "q": "A: Would you like to come to my birthday party on Saturday? &rarr; B (Menolak dengan alasan): [BLANK]",
+            "options": [
+              "I'd love to, but I have to study for exams.",
+              "Happy birthday to you.",
+              "Parties are boring.",
+              "Who else is coming?"
+            ],
+            "answer": "I'd love to, but I have to study for exams.",
+            "hint": "Menolak dengan alasan harus belajar",
+            "explanation": "Menolak sopan: 'I'd love to, but I have to study for exams.'"
+          },
+          {
+            "q": "A: How about going camping this weekend? &rarr; B (Menolak dengan alasan): [BLANK]",
+            "options": [
+              "I'm sorry, I can't. I'm visiting my grandparents.",
+              "Yes, take a tent.",
+              "Camping is outdoor.",
+              "Where is the forest?"
+            ],
+            "answer": "I'm sorry, I can't. I'm visiting my grandparents.",
+            "hint": "Menolak karena menjenguk kakek-nenek",
+            "explanation": "Gunakan 'I'm sorry, I can't. I'm visiting my grandparents.'"
+          },
+          {
+            "q": "A: Let's play tennis after school. &rarr; B (Menerima): [BLANK]",
+            "options": [
+              "Good idea! I'll bring my racket.",
+              "Tennis has balls.",
+              "I don't have shoes.",
+              "School is finished."
+            ],
+            "answer": "Good idea! I'll bring my racket.",
+            "hint": "Menerima dan membawa raket",
+            "explanation": "Menerima: 'Good idea! I'll bring my racket.'"
           }
         ]
       },
@@ -17199,596 +18146,8 @@ const GRAMMAR_UNITS = [
   }
 ];
 
-const LATIHAN_MATERI = {
-  "title": "Latihan Materi (Review Exam A2)",
-  "description": "Ujian evaluasi komprehensif menguji pemahaman seluruh tata bahasa dari Unit 1 hingga Unit 24.",
-  "questions": [
-    {
-      "id": "rev_1",
-      "q": "This isn't my jacket. It must be [BLANK].",
-      "options": [
-        "yours",
-        "your",
-        "you",
-        "yourself"
-      ],
-      "answer": "yours",
-      "unit_ref": 1
-    },
-    {
-      "id": "rev_2",
-      "q": "I'm going to the grocery store because we don't have [BLANK] eggs.",
-      "options": [
-        "any",
-        "some",
-        "no",
-        "every"
-      ],
-      "answer": "any",
-      "unit_ref": 8
-    },
-    {
-      "id": "rev_3",
-      "q": "Have you [BLANK] seen an elephant in real life?",
-      "options": [
-        "ever",
-        "never",
-        "yet",
-        "already"
-      ],
-      "answer": "ever",
-      "unit_ref": 12
-    },
-    {
-      "id": "rev_4",
-      "q": "If it rains tomorrow, we [BLANK] the match.",
-      "options": [
-        "will cancel",
-        "canceled",
-        "would cancel",
-        "cancel"
-      ],
-      "answer": "will cancel",
-      "unit_ref": 17
-    },
-    {
-      "id": "rev_5",
-      "q": "If I were rich, I [BLANK] around the world.",
-      "options": [
-        "would travel",
-        "will travel",
-        "traveled",
-        "travel"
-      ],
-      "answer": "would travel",
-      "unit_ref": 18
-    },
-    {
-      "id": "rev_6",
-      "q": "This car [BLANK] by my uncle last year.",
-      "options": [
-        "was repaired",
-        "is repaired",
-        "were repaired",
-        "repaired"
-      ],
-      "answer": "was repaired",
-      "unit_ref": 23
-    },
-    {
-      "id": "rev_7",
-      "q": "She [BLANK] live in Paris, but now she lives in London.",
-      "options": [
-        "used to",
-        "use to",
-        "is used to",
-        "uses to"
-      ],
-      "answer": "used to",
-      "unit_ref": 20
-    },
-    {
-      "id": "rev_8",
-      "q": "He's very friendly, [BLANK]?",
-      "options": [
-        "isn't he",
-        "is he",
-        "doesn't he",
-        "does he"
-      ],
-      "answer": "isn't he",
-      "unit_ref": 22
-    }
-  ]
-};
-
-const LAMPIRAN_A = [
-  {
-    "base": "be",
-    "past_simple": "was / were",
-    "past_participle": "been",
-    "meaning": "menjadi / ada"
-  },
-  {
-    "base": "become",
-    "past_simple": "became",
-    "past_participle": "become",
-    "meaning": "menjadi"
-  },
-  {
-    "base": "begin",
-    "past_simple": "began",
-    "past_participle": "begun",
-    "meaning": "mulai"
-  },
-  {
-    "base": "break",
-    "past_simple": "broke",
-    "past_participle": "broken",
-    "meaning": "mematahkan / memecahkan"
-  },
-  {
-    "base": "bring",
-    "past_simple": "brought",
-    "past_participle": "brought",
-    "meaning": "membawa"
-  },
-  {
-    "base": "build",
-    "past_simple": "built",
-    "past_participle": "built",
-    "meaning": "membangun"
-  },
-  {
-    "base": "buy",
-    "past_simple": "bought",
-    "past_participle": "bought",
-    "meaning": "membeli"
-  },
-  {
-    "base": "catch",
-    "past_simple": "caught",
-    "past_participle": "caught",
-    "meaning": "menangkap"
-  },
-  {
-    "base": "choose",
-    "past_simple": "chose",
-    "past_participle": "chosen",
-    "meaning": "memilih"
-  },
-  {
-    "base": "come",
-    "past_simple": "came",
-    "past_participle": "come",
-    "meaning": "datang"
-  },
-  {
-    "base": "do",
-    "past_simple": "did",
-    "past_participle": "done",
-    "meaning": "melakukan"
-  },
-  {
-    "base": "drink",
-    "past_simple": "drank",
-    "past_participle": "drunk",
-    "meaning": "minum"
-  },
-  {
-    "base": "drive",
-    "past_simple": "drove",
-    "past_participle": "driven",
-    "meaning": "mengemudi"
-  },
-  {
-    "base": "eat",
-    "past_simple": "ate",
-    "past_participle": "eaten",
-    "meaning": "makan"
-  },
-  {
-    "base": "fall",
-    "past_simple": "fell",
-    "past_participle": "fallen",
-    "meaning": "jatuh"
-  },
-  {
-    "base": "feel",
-    "past_simple": "felt",
-    "past_participle": "felt",
-    "meaning": "merasakan"
-  },
-  {
-    "base": "find",
-    "past_simple": "found",
-    "past_participle": "found",
-    "meaning": "menemukan"
-  },
-  {
-    "base": "fly",
-    "past_simple": "flew",
-    "past_participle": "flown",
-    "meaning": "terbang"
-  },
-  {
-    "base": "forget",
-    "past_simple": "forgot",
-    "past_participle": "forgotten",
-    "meaning": "lupa"
-  },
-  {
-    "base": "get",
-    "past_simple": "got",
-    "past_participle": "got / gotten",
-    "meaning": "mendapatkan / menjadi"
-  },
-  {
-    "base": "give",
-    "past_simple": "gave",
-    "past_participle": "given",
-    "meaning": "memberi"
-  },
-  {
-    "base": "go",
-    "past_simple": "went",
-    "past_participle": "been / gone",
-    "meaning": "pergi"
-  },
-  {
-    "base": "have",
-    "past_simple": "had",
-    "past_participle": "had",
-    "meaning": "memiliki / melakukan"
-  },
-  {
-    "base": "know",
-    "past_simple": "knew",
-    "past_participle": "known",
-    "meaning": "mengetahui"
-  },
-  {
-    "base": "leave",
-    "past_simple": "left",
-    "past_participle": "left",
-    "meaning": "meninggalkan / berangkat"
-  },
-  {
-    "base": "make",
-    "past_simple": "made",
-    "past_participle": "made",
-    "meaning": "membuat"
-  },
-  {
-    "base": "read",
-    "past_simple": "read (/red/)",
-    "past_participle": "read (/red/)",
-    "meaning": "membaca"
-  },
-  {
-    "base": "run",
-    "past_simple": "ran",
-    "past_participle": "run",
-    "meaning": "berlari"
-  },
-  {
-    "base": "see",
-    "past_simple": "saw",
-    "past_participle": "seen",
-    "meaning": "melihat"
-  },
-  {
-    "base": "speak",
-    "past_simple": "spoke",
-    "past_participle": "spoken",
-    "meaning": "berbicara"
-  },
-  {
-    "base": "take",
-    "past_simple": "took",
-    "past_participle": "taken",
-    "meaning": "mengambil"
-  },
-  {
-    "base": "teach",
-    "past_simple": "taught",
-    "past_participle": "taught",
-    "meaning": "mengajar"
-  },
-  {
-    "base": "tell",
-    "past_simple": "told",
-    "past_participle": "told",
-    "meaning": "menceritakan / memberi tahu"
-  },
-  {
-    "base": "think",
-    "past_simple": "thought",
-    "past_participle": "thought",
-    "meaning": "berpikir"
-  },
-  {
-    "base": "write",
-    "past_simple": "wrote",
-    "past_participle": "written",
-    "meaning": "menulis"
-  }
-];
-
-const LAMPIRAN_B = {
-  "phonetics": [
-    {
-      "type": "Konsonan",
-      "symbol": "/p/",
-      "example": "pen"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/b/",
-      "example": "board"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/t/",
-      "example": "table"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/d/",
-      "example": "day"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/k/",
-      "example": "cap"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/g/",
-      "example": "go"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/θ/",
-      "example": "think"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/ð/",
-      "example": "mother"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/ʃ/",
-      "example": "she"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/tʃ/",
-      "example": "cheese"
-    },
-    {
-      "type": "Konsonan",
-      "symbol": "/dʒ/",
-      "example": "joy"
-    },
-    {
-      "type": "Vokal",
-      "symbol": "/i:/",
-      "example": "eat"
-    },
-    {
-      "type": "Vokal",
-      "symbol": "/ɪ/",
-      "example": "it"
-    },
-    {
-      "type": "Vokal",
-      "symbol": "/e/",
-      "example": "bed"
-    },
-    {
-      "type": "Vokal",
-      "symbol": "/æ/",
-      "example": "has"
-    },
-    {
-      "type": "Vokal",
-      "symbol": "/ɑ:/",
-      "example": "start"
-    },
-    {
-      "type": "Diftong",
-      "symbol": "/eɪ/",
-      "example": "day"
-    },
-    {
-      "type": "Diftong",
-      "symbol": "/aɪ/",
-      "example": "five"
-    },
-    {
-      "type": "Diftong",
-      "symbol": "/aʊ/",
-      "example": "sound"
-    }
-  ],
-  "punctuation": [
-    {
-      "mark": "Capital Letter (A)",
-      "indo": "HURUF KAPITAL",
-      "use": "Awal kalimat, nama orang, hari, bulan, bahasa"
-    },
-    {
-      "mark": "Full stop (.)",
-      "indo": "Titik",
-      "use": "Akhir kalimat berita"
-    },
-    {
-      "mark": "Comma (,)",
-      "indo": "Koma",
-      "use": "Jeda klausa, pemisah daftar rincian"
-    },
-    {
-      "mark": "Apostrophe (')",
-      "indo": "Tanda petik atas",
-      "use": "Kepemilikan ('s) atau singkatan (don't)"
-    },
-    {
-      "mark": "Question mark (?)",
-      "indo": "Tanda tanya",
-      "use": "Akhir kalimat tanya"
-    },
-    {
-      "mark": "Exclamation mark (!)",
-      "indo": "Tanda seru",
-      "use": "Perintah, keheranan, seruan emosi"
-    }
-  ]
-};
-
-const AUDIO_TRANSCRIPTS = [
-  {
-    "track": "TR 2",
-    "title": "Unit 1 Ex 4: Possessions & Jobs",
-    "content": "Marsha's fifteen and lives in a big city. She's got a bright red moped and uses it everyday to go to school. She also uses it at weekends when she goes out with her friends. Her favourite sports are tennis and volleyball.\n\nNick's a farmer and lives in the country. He gets up at five o'clock in the morning to feed the animals, and then works in the fields. He works hard seven days a week but likes to go out with his wife to the cinema and go dancing at weekends.\n\nCaroline's a history teacher at Hathaway High School. She loves her job and enjoys teaching children. In her free time, she gives students drama lessons. At the moment they're rehearsing for a play called 'Hamlet' by William Shakespeare. It's a difficult play but very interesting.\n\nSam's twenty-five years old and is a policeman. He lives and works in a small town in the UK. The people there are very friendly and his job isn't very stressful. He loves to go to football matches on Sundays and sometimes after work he rides his bike. He loves to travel and always visits places where he can relax. In his spare time he reads lots of books. His favourite are fantasy and adventure stories."
-  },
-  {
-    "track": "TR 3",
-    "title": "Unit 3 Ex 5: Invitations & Suggestions",
-    "content": "1 Would you like to go to the cinema?\n2 Let's have a picnic. It's a beautiful day.\n3 What would you like to do at the weekend?\n4 How about we go for coffee?\n5 Why don't we go to the beach?\n6 How would you like your steak cooked?"
-  },
-  {
-    "track": "TR 4",
-    "title": "Unit 3 Ex 9: Janet & Laura Phone Call",
-    "content": "Janet: Hello.\nLaura: Hi, Janet. It's Laura. How are you?\nJanet: Fine, thanks.\nLaura: Are you busy on Tuesday afternoon?\nJanet: Mmm. Well, I usually do my homework. Why?\nLaura: Would you like to come shopping with me?\nJanet: What do you want to buy?\nLaura: I'd like a new winter coat.\nJanet: Where do you want to go?\nLaura: I was thinking of going to the town centre.\nJanet: OK. I'd love to come.\nLaura: Great!\nJanet: What time do you think we'll be back?\nLaura: I'm not sure. Maybe around six.\nJanet: OK. I'll study when I get home then.\nLaura: See you at school tomorrow.\nJanet: Bye."
-  },
-  {
-    "track": "TR 5",
-    "title": "Unit 3 Ex 10: Alice & Jason West End Show",
-    "content": "Alice: Hello.\nJason: Hi, Alice. It's Jason.\nAlice: Hi, Jason. How are you?\nJason: Fine, thanks. Have you got any plans for Friday?\nAlice: No, I haven't. Why?\nJason: I've got two tickets for that new West End show, Bright Lights. Would you like to come with me?\nAlice: Wow! How did you get the tickets?\nJason: I waited in line for four hours!\nAlice: Where shall we meet?\nJason: Let's meet in front of the art gallery at 3 o'clock.\nAlice: OK. After the show we can get something to eat. Do you like pizza?\nAlice: Yes, I love it. It's my favourite food. I'll see you on Friday.\nJason: Bye!\nAlice: See you!"
-  },
-  {
-    "track": "TR 6",
-    "title": "Unit 4 Ex 5: Future Plans with Pictures",
-    "content": "1 She's going to cut her hair.\n2 He's going to take the dog for a walk.\n3 They're going to have a lesson.\n4 It's going to rain.\n5 They're going to ride their bikes.\n6 He's going to travel by plane."
-  },
-  {
-    "track": "TR 7",
-    "title": "Unit 5 Ex 4: Reflexive Pronouns",
-    "content": "1 Tony cut himself with the scissors.\n2 Don't worry about them. They can take care of themselves.\n3 The girl was lucky when she fell off her bike that she didn't badly hurt herself.\n4 Be careful! The oven is on. Don't burn yourself.\n5 William and Jeff climbed to the top of the mountain by themselves.\n6 They accidently left their keys in the car so they couldn't open it. They locked themselves out by mistake.\n7 It's not our fault. We shouldn't blame ourselves.\n8 I'm such a fool! I could kick myself!\n9 The exhibition was great. We really enjoyed ourselves.\n10 I don't want you to pay for me. I'll pay for myself."
-  },
-  {
-    "track": "TR 8",
-    "title": "Unit 6 Ex 2: Uses of to get",
-    "content": "1 A: We're getting old. B: Oh, don't say that!\n2 A: It's getting busy in this café. B: Let's go outside.\n3 A: I'm getting bored of doing my homework. B: Why don't you take a break?\n4 A: The baby's getting tired. B: Why don't you put him to bed?\n5 A: I'm ready to go out. B: Where are you going?\n6 A: This exercise is getting difficult. B: Why don't you ask for help?\n7 A: It's getting late. B: Let's hurry up.\n8 A: I'm getting his jacket for him. B: Why doesn't he get it himself?\n9 A: We got an email. B: Who is it from?\n10 A: She got a dog for Christmas. B: Who gave it to her?"
-  },
-  {
-    "track": "TR 9",
-    "title": "Unit 6 Ex 8: Phrasal Verbs with get",
-    "content": "1 I was late for work because I didn't get up in time.\n2 Can we finish this tomorrow? I have to go to the station and get on my train at 8 o'clock.\n3 Maria was really upset. She just got in her car and drove away.\n4 Kim didn't get out of class until 5 o'clock.\n5 How do you get on with your work colleagues?\n6 We won't get to the party on time if you don't hurry up.\n7 This is the last stop. Everyone must get off the bus.\n8 The thieves got off with thousands of pounds and some jewellery.\n9 The teacher asked them to get on with their work.\n10 Sorry. I didn't mean to get you in trouble."
-  },
-  {
-    "track": "TR 10",
-    "title": "Unit 7 Ex 3: Polite Requests with could",
-    "content": "Conversation 1:\nTerry: Hi, Diane. Why weren't you at school today?\nDiane: I'm sick. I have the flu. Could you tell me if we have any homework for next week?\nTerry: Yes, there's going to be a Maths test on Tuesday and an English test on Thursday.\nDiane: Oh, thanks. Anything else?\nTerry: No. But I hope you get better soon.\nDiane: Thanks!\n\nConversation 2:\nAnne: Hello Jack! You're back early.\nJack: Oh hi, Anne. Yes, I didn't have any lectures this afternoon at university.\nAnne: That's good. Actually, I'm glad I caught you.\nJack: Oh yes, Why's that?\nAnne: Could you do me a favour, please? I have an English class this evening but my car is being fixed in the garage. Could you drive me to class?\nJack: Yes, of course! What time's your class?\nAnne: It's from 7:30 p.m. to 9:30 p.m.\nJack: OK, no problem. What time do you want to leave?\nAnne: Well, I have some coursework to finish this afternoon, so could we leave here at around 7 p.m.?\nJack: Yes, okay. Would you like me to come and pick you up as well?\nAnne: No, that's fine. A few classmates and I are going to get something to eat after the class.\nJack: OK, cool. Well, knock on my room door when you're ready to leave.\nAnne: Great! Thanks, Jack. See you later.\nJack: Bye!"
-  },
-  {
-    "track": "TR 11",
-    "title": "Unit 7 Ex 6: Directions in Chicago with could",
-    "content": "Ursula: Excuse me, officer, could you help me?\nPoliceman: Yes, Madam. What's the problem?\nUrsula: I think I'm lost. I'm looking for the Central Train Station but I've been walking for thirty minutes and I still haven't found it.\nPoliceman: Well, you're in the right direction. Continue down this street past the traffic light. Turn right on Churchill Road. Go past the post office and Jefferson's Groceries. Turn left on South Street and walk for about 150 yards. You will see the station on your right.\nUrsula: Is it far?\nPoliceman: Oh, not too far. It's about fifteen minutes from here on foot.\nUrsula: Fifteen minutes? Ah, my suitcase is so heavy. Is there a bus that stops there?\nPoliceman: Yes, there is. Bus H stops in front of the train station. The bus stop is on the corner of Park Avenue and 7th Street. You can buy a ticket at the newsstand across the street.\nUrsula: How long will it take by bus?\nPoliceman: Well, there's no traffic at this hour. It'll take about six minutes.\nUrsula: How will I know when to get off?\nPoliceman: You can ask the bus driver but don't worry; the Central Station is very big. You can't miss it!"
-  },
-  {
-    "track": "TR 12",
-    "title": "Unit 7 Ex 7: Situational Requests with could",
-    "content": "1 You're hot and all the windows on the train are closed.\n2 You're a tourist and you need information on how to get to the train station. How do you ask the policeman for directions?\n3 You see a pair of jeans you like but you don't know if they fit you. What do you ask the shop assistant?\n4 You see an old lady trying to cross the street. What do you ask her?\n5 You forgot your watch and the bus isn't arriving. What do you ask the person next to you at the bus stop?"
-  },
-  {
-    "track": "TR 13",
-    "title": "Unit 9 Ex 6: Indefinite Pronouns Story",
-    "content": "It was a rainy, grey Saturday afternoon when someone knocked at my door. 'Who's there?' I asked. But no one answered. So I slowly opened the door to see if somebody was waiting. But there wasn't anybody in sight. Suddenly, I heard something make a noise. I looked down and saw a small, fluffy kitten stretching itself while it was looking up at me. 'It must be hungry, poor thing,' I thought. 'Let me get it something to eat.' And I went to the kitchen. When I came back five minutes later, the kitten wasn't there. 'It must be somewhere,' I thought, so I started looking for it. But I couldn't find it anywhere. It ran away."
-  },
-  {
-    "track": "TR 14",
-    "title": "Unit 10 Ex 4: Obligations with have to",
-    "content": "1 I don't want to miss my plane so I have to catch the 7:10 train.\n2 I didn't do well on my last English test so I have to study more this time.\n3 My mother is away this week so I have to do the housework.\n4 I've used up all the coffee so I have to buy some more at the supermarket.\n5 I'm not very good at Maths so I usually have to ask for help.\n6 I've got a cold so I have to stay in bed for a few days."
-  },
-  {
-    "track": "TR 15",
-    "title": "Unit 10 Ex 6: Conversation about Work Obligations",
-    "content": "Sam: Hi, Tony. How are you?\nTony: I'm great! I've got a new job.\nSam: That's fantastic! What are you going to be doing?\nTony: I'm a product manager for a company that sells food.\nSam: What do you have to do?\nTony: Well, I have to contact the people who sell us their products and we have to agree on a price. Then these people have to send me their products and I have to send them to the supermarkets.\nSam: That sounds interesting. Is it a difficult job?\nTony: Well, sort of. I have to work long hours. I have to start work at five in the morning!\nSam: Wow! And what does your boss do?\nTony: He has to contact our international clients so he has to travel a lot. He has to travel to Ireland, Scotland and Wales next week.\nSam: Do you have to go with him?\nTony: No, I don't have to but I have to fill in for him in the office. I'm enjoying myself so far and I'm happy I don't have to work in that shop anymore!"
-  },
-  {
-    "track": "TR 16",
-    "title": "Unit 11 Ex 1: Advice with should",
-    "content": "1 A: I've got the flu. B: You should stay in bed.\n2 A: My feet hurt. B: You should buy new shoes.\n3 A: This jacket is too tight. B: You should buy a new one.\n4 A: I'm always tired in the morning. B: You should go to bed earlier.\n5 A: I'm too fat. B: You should try exercising more.\n6 A: I don't feel like walking. B: You should take a taxi.\n7 A: I don't remember what the teacher said. B: You should pay more attention.\n8 A: I'm hungry. B: You should eat something for breakfast.\n9 A: I'm hot. B: You should open the window.\n10 A: Tomorrow is my mother's birthday. B: You should buy her some flowers."
-  },
-  {
-    "track": "TR 17",
-    "title": "Unit 11 Ex 7: Doctor Consultations",
-    "content": "Dialogue 1:\nDoctor: Good morning, Miss Smith. How are you?\nMiss Smith: I have a terrible headache that doesn't seem to go away.\nDoctor: When did it start?\nMiss Smith: It started two days ago. Yes, on Tuesday evening.\nDoctor: Are you under a lot of stress lately?\nMiss Smith: Yes. I have a lot of problems with my job.\nDoctor: I think you should take some time off work.\n\nDialogue 2:\nDoctor: Good afternoon, Mr Kane. What's the matter?\nMr Kane: I have really bad pains in my back and legs.\nDoctor: Do you exercise regularly?\nMr Kane: Oh, no! I don't remember the last time I exercised!\nDoctor: It looks like you're a little overweight, too. Am I right?\nMr Kane: Well... Yes, I've put on some extra pounds.\nDoctor: You should go on a diet.\nMr Kane: A diet?\nDoctor: Yes. What do you usually eat?\nMr Kane: I love burgers and pizza. I also like take-away food.\nDoctor: You shouldn't eat that kind of food. You should eat lots of fruit and vegetables.\nMr Kane: Anything else?\nDoctor: You should start exercising twice a week. Come see me again next month.\nMr Kane: OK. Thanks for your advice.\n\nDialogue 3:\nDoctor: Hi, Janet. What's the problem?\nJanet: I can't sleep at night.\nDoctor: Since when?\nJanet: Since about ten days now.\nDoctor: What are you doing differently in your life recently?\nJanet: Well, I moved house about a month ago. And I'm busy trying to organise everything.\nDoctor: By yourself?\nJanet: Yes.\nDoctor: You should get somebody to help you.\nJanet: I guess you're right.\nDoctor: And you shouldn't work until late. You should stop and have dinner and then you should relax.\nJanet: But there are so many things to do.\nDoctor: You shouldn't be anxious. Take your time and you'll get everything done.\nJanet: Thanks Dr Jefferson."
-  },
-  {
-    "track": "TR 18",
-    "title": "Unit 12 Ex 2: Present Perfect Travel Experiences",
-    "content": "Emily: Have you ever been to the United States, Jessica?\nJessica: Well, I've been to New York and Washington. I spent ten days there, but I've never been to San Francisco or Los Angeles.\nEmily: San Francisco is beautiful! I've stayed in San Diego, too.\nJessica: I've heard it's a very nice city, too.\nEmily: Yes. California is a beautiful place. Have you ever visited Ireland?\nJessica: No, I haven't. Have you?\nEmily: Yes, I have. I went a couple of years ago. It's quite different from California but it's just as beautiful.\nJessica: I guess I'll have to go there too!"
-  },
-  {
-    "track": "TR 19",
-    "title": "Unit 12 Ex 6: Present Perfect Sentences",
-    "content": "1 Have you heard the news?\n2 Has your father left for work yet?\n3 Have you had dinner yet?\n4 How long have you known him?\n5 How many times have you visited your grandparents this month?\n6 Have you ever seen this programme?\n7 I haven't seen Lucy lately. Has she been sick?\n8 Have they asked their parents yet?\n9 How many times has she seen that film?\n10 What's that nice smell? Have you changed perfumes?"
-  },
-  {
-    "track": "TR 20",
-    "title": "Unit 14 Ex 8: Relative Clauses Pronunciation",
-    "content": "1 The eggs which I bought yesterday are bad.\n2 The boy who broke the window will be punished.\n3 The hairdresser who cut your hair did a good job.\n4 Is the book which is on the table mine?\n5 This is the shop where I go to buy my clothes.\n6 The boy who is sitting at the desk is my brother."
-  },
-  {
-    "track": "TR 21",
-    "title": "Unit 15 Ex 5: Verb + -ing or Infinitive",
-    "content": "1 I liked going swimming.\n2 I learnt to speak English when I was a child.\n3 They didn't want to go.\n4 They were allowed to stay late.\n5 When I was fifty I moved to Paris.\n6 I love buying new clothes."
-  },
-  {
-    "track": "TR 22",
-    "title": "Unit 15 Ex 6: Weekend Plans & Activities",
-    "content": "Andy: Hi, Angela. Would you like to have dinner with me tonight?\nAngela: I'd love to but I have a Russian class.\nAndy: I didn't know you were studying Russian. Is it difficult?\nAngela: Yes, but it's interesting, too.\nAndy: And what are you doing Saturday evening?\nAngela: I don't have any plans. What were you thinking to do?\nAndy: I want to go to the cinema. You know, I love watching films.\nAngela: Me too. What time do you want to meet?\nAndy: I was thinking of going to the eight o'clock show.\nAngela: That's fine with me. Where shall we meet?\nAndy: We can meet at the cinema if you want.\nAngela: Actually, I wanted you to pick me up at home! Can you?\nAndy: I promised to lend my car to my brother Saturday.\nAngela: OK. What time shall we meet?\nAndy: I expect to be ready by half past seven. Is that OK?\nAngela: Seven-thirty is fine. I'll see you then.\nAndy: OK. And have a good time at your Russian lesson!"
-  },
-  {
-    "track": "TR 23",
-    "title": "Unit 17 Ex 4: First Conditional Clauses",
-    "content": "1 If he has to work late...\n2 If it's a nice day tomorrow...\n3 If you don't eat properly...\n4 I'll wear a sweater...\n5 We'll have a picnic...\n6 If you're finished with that book...\n7 If I make too many mistakes...\n8 What will you do if...\n9 I'll buy her a present...\n10 He'll call her tomorrow..."
-  },
-  {
-    "track": "TR 24",
-    "title": "Unit 18 Ex 4: Second Conditional Lottery Plans",
-    "content": "Monica: Terry, what would you do if you won the lottery?\nTerry: Well, if I won the lottery I'd like to buy a lot of things.\nMonica: What would you buy?\nTerry: First of all I'd buy a new car. Mine is old and it's always breaking down. Then I'd really love to buy a house in the country.\nMonica: Where would you buy it?\nTerry: I'd really like a house close to where my parents live.\nMonica: Anything else?\nTerry: Of course! I would also donate a lot of money to organisations that help the needy.\nMonica: That's a good idea. If I won a lot of money I would do the same.\nTerry: And there's one more thing I just thought of.\nMonica: What's that?\nTerry: I'd like to go to an exotic place on my next holiday. And I'd invite you too!"
-  },
-  {
-    "track": "TR 25",
-    "title": "Unit 20 Ex 6: Past Habits with used to",
-    "content": "My town has grown quite a bit since I've been living here. It used to be a quiet town; everyone used to know each other and the people used to be very friendly. Now the town has changed. It's much bigger and noisier. There didn't use to be any air pollution either; now there is. There used to be small market stalls selling food. Now there is a big supermarket. The people are always in a hurry nowadays and they never have time to stop and chat. I miss that; we used to always chat when we met each other. I'm not very happy here anymore. I prefer the way things used to be."
-  },
-  {
-    "track": "TR 26",
-    "title": "Unit 21 Ex 4: Expressing Agreement & Disagreement",
-    "content": "1 Megan must work harder.\n2 We always ask that question.\n3 They never do any homework in class.\n4 He feels ill.\n5 He's going to the mountains this weekend.\n6 I've been to Japan.\n7 She wasn't here yesterday.\n8 We shouldn't talk so loudly."
-  },
-  {
-    "track": "TR 27",
-    "title": "Unit 22 Ex 4: Question Tags",
-    "content": "1 A: Louise needs a new mobile phone, doesn't she? B: Yes, she does.\n2 A: Mark can't drive yet, can he? B: No, he can't.\n3 A: Joanne and Michael are going to the music festival on Saturday, aren't they? B: Yes, they are.\n4 A: The post office is next to the bank in town, isn't it? B: Yes, it is.\n5 A: Simon hasn't got any pets, has he? B: No, he hasn't.\n6 A: Your sister couldn't get tickets for the show, could she? B: No, she couldn't."
-  }
-];
-
-if (typeof window !== "undefined") {
-  window.GRAMMAR_UNITS = GRAMMAR_UNITS;
-  window.APPENDICES_DATA = typeof APPENDICES_DATA !== "undefined" ? APPENDICES_DATA : null;
-  window.AUDIO_TRANSCRIPTS = AUDIO_TRANSCRIPTS;
-}
-if (typeof global !== "undefined") {
-  global.GRAMMAR_UNITS = GRAMMAR_UNITS;
-  global.APPENDICES_DATA = typeof APPENDICES_DATA !== "undefined" ? APPENDICES_DATA : null;
-  global.AUDIO_TRANSCRIPTS = AUDIO_TRANSCRIPTS;
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { GRAMMAR_UNITS };
 }
 
   </script>
@@ -17805,22 +18164,15 @@ const ExercisesStore = {
 
   _cleanupOldStorage() {
     try {
-      if (typeof window !== "undefined" && window.localStorage) {
-        window.localStorage.removeItem("grammar_a2_exercises_v1");
-        window.localStorage.removeItem("grammar_a2_exercises_v2");
-        window.localStorage.removeItem("grammar_a2_exercises_v3.0");
-        window.localStorage.removeItem("grammar_a2_exercises_v4.0");
-        window.localStorage.removeItem("grammar_a2_exercises_v5.0");
-        window.localStorage.removeItem("grammar_a2_exercises_v5.1");
-      }
-      if (typeof localStorage !== "undefined") {
-        localStorage.removeItem("grammar_a2_exercises_v1");
-        localStorage.removeItem("grammar_a2_exercises_v2");
-        localStorage.removeItem("grammar_a2_exercises_v3.0");
-        localStorage.removeItem("grammar_a2_exercises_v4.0");
-        localStorage.removeItem("grammar_a2_exercises_v5.0");
-        localStorage.removeItem("grammar_a2_exercises_v5.1");
-      }
+      const oldKeys = [
+        "grammar_a2_exercises_v1", "grammar_a2_exercises_v2", "grammar_a2_exercises_v3.0",
+        "grammar_a2_exercises_v4.0", "grammar_a2_exercises_v5.0", "grammar_a2_exercises_v5.1",
+        "grammar_a2_exercises_v5.2", "grammar_a2_exercises_v5.3"
+      ];
+      oldKeys.forEach(k => {
+        try { localStorage.removeItem(k); } catch (e) {}
+        try { if (window && window.localStorage) window.localStorage.removeItem(k); } catch (e) {}
+      });
     } catch (e) {}
   },
 
@@ -17863,37 +18215,20 @@ const ExercisesStore = {
         ? GRAMMAR_UNITS
         : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
 
-      const sourceTotalEx = sourceUnits.reduce((acc, u) => acc + (u.exercises ? u.exercises.length : 0), 0);
-
-      const stored = this._getStorage(this.STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (parsed && Array.isArray(parsed.units) && parsed.units.length >= 24) {
-          const storedTotalEx = parsed.units.reduce((acc, u) => acc + (u.exercises ? u.exercises.length : 0), 0);
-          if (storedTotalEx >= 100 && storedTotalEx >= sourceTotalEx) {
-            this.db = parsed;
-            if (typeof window !== "undefined") window.GRAMMAR_UNITS = this.db.units;
-            return;
-          }
-        }
-      }
-
-      // Initialize from sourceUnits (contains authentic 190 exercises)
-      if (sourceUnits && sourceUnits.length > 0) {
-        this.db = {
-          version: "5.0.0",
-          updatedAt: new Date().toISOString(),
-          units: sourceUnits
-        };
-        if (typeof window !== "undefined") window.GRAMMAR_UNITS = sourceUnits;
-        this._setStorage(this.STORAGE_KEY, JSON.stringify(this.db));
+      this.db = {
+        version: "5.3.0",
+        updatedAt: new Date().toISOString(),
+        units: sourceUnits
+      };
+      if (typeof window !== "undefined") {
+        window.GRAMMAR_UNITS = sourceUnits;
       }
     } catch (e) {
       console.warn("ExercisesStore init warning:", e);
       const fallback = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
         ? GRAMMAR_UNITS
         : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
-      this.db = { version: "5.0.0", units: fallback };
+      this.db = { version: "5.3.0", units: fallback };
       if (typeof window !== "undefined") window.GRAMMAR_UNITS = fallback;
     }
   },
@@ -18854,7 +19189,7 @@ function renderUnitGrid(filterKeyword = "") {
         </div>
         <div class="unit-card-footer">
           <span>📖 ${u.exercises ? u.exercises.length : 0} Latihan</span>
-          <span class="unit-footer-action">Pelajari &amp; Kerjakan &rarr;</span>
+          <a href="units/unit_${u.id}.html" class="btn-fast-unit" onclick="event.stopPropagation();" title="Buka unit secara terpisah (Sangat Ringan & Cepat)">⚡ Halaman Ringan</a>
         </div>
       </div>
     `;
@@ -18928,9 +19263,12 @@ function openUnitDetail(unitId) {
     </div>
 
     <!-- Tombol Mulai Latihan -->
-    <div style="margin-top: 1.5rem; text-align: center;">
-      <button class="btn btn-primary btn-lg" onclick="loadUnitExercises(${unit.id})">
-        📝 Buka dan Kerjakan Latihan Unit ${unit.id}
+    <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+      <a href="units/unit_${unit.id}.html" class="btn btn-primary btn-lg" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ⚡ Buka Halaman Unit ${unit.id} (Super Ringan &amp; Cepat)
+      </a>
+      <button class="btn btn-secondary btn-lg" onclick="loadUnitExercises(${unit.id})">
+        📝 Kerjakan di Halaman Ini
       </button>
     </div>
   `;
@@ -19193,7 +19531,7 @@ function renderSingleExercise(exercise, unit) {
             </div>
           ` : ''}
           <div style="flex: 1; min-width: 220px;">
-            <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off">`)}</div>
+            <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`)}</div>
             ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.35rem; display: flex; align-items: center; gap: 0.3rem;"><span>💡</span> Petunjuk: ${q.hint}</div>` : ''}
             <div class="feedback-box" id="feedback-q-${idx}"></div>
           </div>
@@ -19201,7 +19539,7 @@ function renderSingleExercise(exercise, unit) {
       </div>
     `).join("");
   } else {
-    // Choice / Pilihan Ganda
+    // Choice / Pilihan Ganda (Gunakan indeks opsi agar bebas bug karakter petik / contractions)
     questionsHtml = exercise.questions.map((q, idx) => `
       <div class="question-item" id="q-box-${idx}">
         <div style="display: flex; gap: 0.85rem; align-items: flex-start; flex-wrap: wrap;">
@@ -19215,9 +19553,9 @@ function renderSingleExercise(exercise, unit) {
           <div style="flex: 1; min-width: 220px;">
             <div class="question-text">${idx + 1}. ${q.q.replace('[BLANK]', '_______')}</div>
             <div class="options-group">
-              ${q.options.map(opt => `
-                <button type="button" class="btn-option" onclick="selectOption(${idx}, '${escapeHtml(opt)}')">
-                  <span>${opt}</span>
+              ${q.options.map((opt, optIdx) => `
+                <button type="button" class="btn-option" id="btn-opt-${idx}-${optIdx}" onclick="selectOptionByIndex(${idx}, ${optIdx})">
+                  <span>${escapeHtml(opt)}</span>
                 </button>
               `).join("")}
             </div>
@@ -19257,12 +19595,12 @@ function renderSingleExercise(exercise, unit) {
     <form id="exercise-form" onsubmit="submitExerciseGrade(event)">
       ${questionsHtml}
 
-      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem;">
-        <button type="submit" class="btn btn-success btn-lg" style="flex: 1;">
-          ✅ Periksa Jawaban & Simpan Nilai
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button type="submit" class="btn btn-success btn-lg" style="flex: 1; min-width: 220px;" id="btn-submit-exercise">
+          ✅ Periksa Jawaban &amp; Simpan Nilai
         </button>
         <button type="button" class="btn btn-secondary" onclick="resetCurrentExercise()">
-          🔄 Ulangi Latihan
+          🔄 Ulangi dari Awal
         </button>
       </div>
     </form>
@@ -19280,6 +19618,33 @@ function toggleAudioTranscript(safeTrackId) {
   }
 }
 
+// Pemilihan Opsi Pilihan Ganda Berbasis Indeks (Aman dari kutip, koma, slash)
+function selectOptionByIndex(qIdx, optIdx) {
+  const ex = AppState.selectedExercise;
+  if (!ex || !ex.questions || !ex.questions[qIdx]) return;
+  const optionValue = ex.questions[qIdx].options[optIdx];
+  const hiddenInput = document.getElementById(`answer-q-${qIdx}`);
+  if (hiddenInput) hiddenInput.value = optionValue;
+
+  const box = document.getElementById(`q-box-${qIdx}`);
+  if (box) {
+    box.querySelectorAll(".btn-option").forEach((btn, bIdx) => {
+      if (bIdx === optIdx) {
+        btn.classList.add("selected");
+      } else {
+        btn.classList.remove("selected");
+      }
+    });
+    // Hapus feedback lama agar siswa siap memeriksa perbaikan jawaban
+    const feedbackBox = document.getElementById(`feedback-q-${qIdx}`);
+    if (feedbackBox) {
+      feedbackBox.classList.remove("show", "correct", "wrong");
+      feedbackBox.innerHTML = "";
+    }
+  }
+}
+
+// Pemilihan Opsi Berbasis Nilai Teks (Fallback)
 function selectOption(qIdx, optionValue) {
   const hiddenInput = document.getElementById(`answer-q-${qIdx}`);
   if (hiddenInput) hiddenInput.value = optionValue;
@@ -19288,10 +19653,48 @@ function selectOption(qIdx, optionValue) {
   if (box) {
     box.querySelectorAll(".btn-option").forEach(btn => {
       btn.classList.remove("selected");
-      if (btn.innerText.trim() === optionValue.trim()) {
+      if (btn.innerText.trim() === String(optionValue).trim()) {
         btn.classList.add("selected");
       }
     });
+    const feedbackBox = document.getElementById(`feedback-q-${qIdx}`);
+    if (feedbackBox) {
+      feedbackBox.classList.remove("show", "correct", "wrong");
+      feedbackBox.innerHTML = "";
+    }
+  }
+}
+
+// Handler Saat Siswa Mengetik Jawaban Baru (Membersihkan error lama)
+function onInputAnswerChange(qIdx) {
+  const feedbackBox = document.getElementById(`feedback-q-${qIdx}`);
+  if (feedbackBox) {
+    feedbackBox.classList.remove("show", "correct", "wrong");
+    feedbackBox.innerHTML = "";
+  }
+  const inp = document.getElementById(`input-q-${qIdx}`);
+  if (inp) inp.classList.remove("correct", "wrong");
+}
+
+// Scroll otomatis ke nomor soal pertama yang masih salah
+function focusFirstWrongQuestion() {
+  const firstWrong = document.querySelector(".feedback-box.wrong");
+  if (firstWrong) {
+    const parent = firstWrong.closest(".question-item");
+    if (parent) {
+      parent.scrollIntoView({ behavior: "smooth", block: "center" });
+      parent.style.transition = "background-color 0.4s ease";
+      parent.style.backgroundColor = "#FEF3C7";
+      setTimeout(() => { parent.style.backgroundColor = ""; }, 1500);
+
+      const inp = parent.querySelector("input.fill-input");
+      if (inp) {
+        inp.focus();
+        inp.select();
+      }
+    }
+  } else {
+    showToast("Semua butir soal sudah benar!", "success");
   }
 }
 
@@ -19301,10 +19704,7 @@ function submitExerciseGrade(e) {
   const unit = AppState.selectedUnit;
   if (!exercise || !unit) return;
 
-  if (!AppState.currentUser) {
-    showToast("Anda harus login untuk menyimpan nilai latihan!", "danger");
-    return;
-  }
+  const isUserLoggedIn = Boolean(AppState.currentUser);
 
   let correctCount = 0;
   const total = exercise.questions.length;
@@ -19322,6 +19722,19 @@ function submitExerciseGrade(e) {
         userAnswer = `${inp ? inp.value.trim() : ''}, ${inpB.value.trim()}`;
       } else {
         userAnswer = inp ? inp.value.trim() : "";
+      }
+
+      // Beri tanda visual pada input
+      const expectedCheck = (q.answer || "").trim();
+      let matchNow = isAnswerMatching(userAnswer, expectedCheck);
+      if (!matchNow && q.alternateAnswers && Array.isArray(q.alternateAnswers)) {
+        for (const alt of q.alternateAnswers) {
+          if (isAnswerMatching(userAnswer, alt)) { matchNow = true; break; }
+        }
+      }
+      if (inp) {
+        inp.classList.remove("correct", "wrong");
+        inp.classList.add(matchNow ? "correct" : "wrong");
       }
     } else {
       const hidden = document.getElementById(`answer-q-${idx}`);
@@ -19349,7 +19762,7 @@ function submitExerciseGrade(e) {
       isCorrect: isCorrect
     });
 
-    // Beri Feedback UI
+    // Beri Feedback UI per butir soal
     const feedbackBox = document.getElementById(`feedback-q-${idx}`);
     if (feedbackBox) {
       feedbackBox.classList.remove("correct", "wrong");
@@ -19363,13 +19776,13 @@ function submitExerciseGrade(e) {
   });
 
   const percentage = Math.round((correctCount / total) * 100);
-  const isPassed = percentage >= APP_CONFIG.minPassingScore;
+  const isPassed = percentage >= (APP_CONFIG.minPassingScore || 75);
 
   // Hitung XP yang diperoleh dari latihan ini
   let gainedXP = (correctCount * 10) + (isPassed ? 50 : 0) + (percentage === 100 ? 100 : 0);
   if (exercise.audioTrack || exercise.audioUrl) gainedXP += 40;
 
-  // Tampilkan Kartu Nilai
+  // Tampilkan Kartu Nilai & Opsi Perbaikan Jawaban
   const resultCard = document.getElementById("score-result-box");
   if (resultCard) {
     resultCard.classList.add("show");
@@ -19381,6 +19794,7 @@ function submitExerciseGrade(e) {
       <p style="color: #475569; font-size: 0.95rem;">
         Anda menjawab <strong>${correctCount}</strong> dari <strong>${total}</strong> soal dengan benar.
       </p>
+
       <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
         <span class="badge ${isPassed ? 'badge-success' : 'badge-danger'}" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
           Status: ${isPassed ? 'TUNTAS / LULUS' : 'REMIDI / PERLU PERBAIKAN'}
@@ -19390,69 +19804,97 @@ function submitExerciseGrade(e) {
         </span>
       </div>
 
-      <!-- Motivasi Leaderboard -->
-      <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; text-align: left;">
-        <div>
-          <strong style="color: #92400E; font-size: 0.875rem;">🏆 Papan Juara Diperbarui!</strong>
-          <div style="color: #B45309; font-size: 0.8rem;">XP kamu bertambah +${gainedXP}. Cek posisimu sekarang!</div>
-        </div>
-        <button type="button" class="btn btn-secondary btn-sm" onclick="switchTab('section-leaderboard')" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
-          Lihat Peringkat Saya &rarr;
+      <!-- Tombol Perbaikan Jawaban Langsung -->
+      <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+        ${percentage < 100 ? `
+          <button type="button" class="btn btn-primary" onclick="focusFirstWrongQuestion()" style="font-weight: 700;">
+            ✏️ Perbaiki Jawaban yang Masih Salah
+          </button>
+        ` : ''}
+        <button type="button" class="btn btn-secondary" onclick="resetCurrentExercise()">
+          🔄 Kerjakan Ulang Seluruh Soal
         </button>
       </div>
 
-      <p style="font-size: 0.775rem; color: #64748B; margin-top: 0.75rem;">
-        Nilai Anda telah otomatis dicatat di Google Spreadsheet & Rekaman Capaian.
-      </p>
+      ${!isUserLoggedIn ? `
+        <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; text-align: center;">
+          <p style="font-size: 0.825rem; color: #1E40AF; margin-bottom: 0.5rem;">
+            💡 Anda belum login. Silakan masuk agar nilai &amp; XP otomatis tercatat di Papan Juara dan Rapor Capaian Siswa.
+          </p>
+          <button type="button" class="btn btn-primary btn-sm" onclick="openModal('modal-login')">Masuk dengan Akun</button>
+        </div>
+      ` : `
+        <!-- Motivasi Leaderboard -->
+        <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; text-align: left;">
+          <div>
+            <strong style="color: #92400E; font-size: 0.875rem;">🏆 Papan Juara Diperbarui!</strong>
+            <div style="color: #B45309; font-size: 0.8rem;">Nilai telah diperbarui &amp; XP kamu bertambah. Cek posisimu sekarang!</div>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="switchTab('section-leaderboard')" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
+            Lihat Peringkat Saya &rarr;
+          </button>
+        </div>
+      `}
     `;
+    resultCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
-  // Simpan progress persistent di ExercisesStore
-  if (window.ExercisesStore && AppState.currentUser) {
-    ExercisesStore.saveProgress(
-      AppState.currentUser.username,
-      exercise.id,
-      correctCount,
-      total,
-      `${percentage}%`,
-      isPassed ? "LULUS" : "REMIDI"
+  // Jika siswa login, simpan progress persistent dan perbarui riwayat nilai
+  if (isUserLoggedIn && AppState.currentUser) {
+    if (window.ExercisesStore) {
+      ExercisesStore.saveProgress(
+        AppState.currentUser.username,
+        exercise.id,
+        correctCount,
+        total,
+        `${percentage}%`,
+        isPassed ? "LULUS" : "REMIDI"
+      );
+    }
+
+    const scoreRecord = normalizeScoreRecord({
+      timestamp: new Date().toLocaleString("id-ID"),
+      username: AppState.currentUser.username,
+      nama: AppState.currentUser.nama,
+      tingkat: AppState.currentUser.tingkat || "-",
+      fase: AppState.currentUser.fase || "-",
+      rombel: AppState.currentUser.rombel || "-",
+      presensi: AppState.currentUser.presensi || "-",
+      unitId: unit.id,
+      unitName: unit.title,
+      exerciseId: exercise.id,
+      skor: correctCount,
+      totalSoal: total,
+      persentase: `${percentage}%`,
+      status: isPassed ? "LULUS" : "REMIDI",
+      detailJawaban: details,
+      synced: false
+    });
+
+    // Cek apakah murid sudah memiliki riwayat untuk latihan ini (perbarui nilai yang lebih tinggi / terbaru)
+    const existingIdx = AppState.scores.findIndex(
+      s => s.username && s.username.toUpperCase() === scoreRecord.username.toUpperCase() && s.exerciseId === scoreRecord.exerciseId
     );
-  }
+    if (existingIdx !== -1) {
+      AppState.scores[existingIdx] = scoreRecord;
+    } else {
+      AppState.scores.unshift(scoreRecord);
+    }
+    saveScoresToStorage();
 
-  // Simpan ke Rekaman Nilai
-  const scoreRecord = normalizeScoreRecord({
-    timestamp: new Date().toLocaleString("id-ID"),
-    username: AppState.currentUser.username,
-    nama: AppState.currentUser.nama,
-    tingkat: AppState.currentUser.tingkat || "-",
-    fase: AppState.currentUser.fase || "-",
-    rombel: AppState.currentUser.rombel || "-",
-    presensi: AppState.currentUser.presensi || "-",
-    unitId: unit.id,
-    unitName: unit.title,
-    exerciseId: exercise.id,
-    skor: correctCount,
-    totalSoal: total,
-    persentase: `${percentage}%`,
-    status: isPassed ? "LULUS" : "REMIDI",
-    detailJawaban: details,
-    synced: false
-  });
+    // Perbarui tab button indikator selesai
+    const tabBtn = document.getElementById(`tab-btn-${exercise.id}`);
+    if (tabBtn && isPassed) {
+      const currentText = tabBtn.innerText.replace(/^✓\s*/, "");
+      tabBtn.innerText = `✓ ${currentText}`;
+    }
 
-  // Cek apakah murid sudah memiliki riwayat untuk latihan ini (agar saat perbaikan nilai / remidi, nilai diperbarui tanpa duplikasi)
-  const existingIdx = AppState.scores.findIndex(
-    s => s.username && s.username.toUpperCase() === scoreRecord.username.toUpperCase() && s.exerciseId === scoreRecord.exerciseId
-  );
-  if (existingIdx !== -1) {
-    AppState.scores[existingIdx] = scoreRecord;
+    // Sinkronkan ke Google Sheet
+    syncScoreToGAS(scoreRecord);
+    showToast(`Nilai berhasil disimpan/diperbarui: ${percentage}%! 🏆`, "success");
   } else {
-    AppState.scores.unshift(scoreRecord);
+    showToast(`Latihan selesai! Nilai Anda: ${percentage}%.`, "info");
   }
-  saveScoresToStorage();
-
-  // Sinkronkan ke Google Sheet
-  syncScoreToGAS(scoreRecord);
-  showToast(`Nilai tersimpan: ${percentage}% &bull; +${gainedXP} XP diperoleh! 🏆`, "success");
 }
 
 function isAnswerMatching(user, expected) {

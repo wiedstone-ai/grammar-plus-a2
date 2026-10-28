@@ -10,22 +10,15 @@ const ExercisesStore = {
 
   _cleanupOldStorage() {
     try {
-      if (typeof window !== "undefined" && window.localStorage) {
-        window.localStorage.removeItem("grammar_a2_exercises_v1");
-        window.localStorage.removeItem("grammar_a2_exercises_v2");
-        window.localStorage.removeItem("grammar_a2_exercises_v3.0");
-        window.localStorage.removeItem("grammar_a2_exercises_v4.0");
-        window.localStorage.removeItem("grammar_a2_exercises_v5.0");
-        window.localStorage.removeItem("grammar_a2_exercises_v5.1");
-      }
-      if (typeof localStorage !== "undefined") {
-        localStorage.removeItem("grammar_a2_exercises_v1");
-        localStorage.removeItem("grammar_a2_exercises_v2");
-        localStorage.removeItem("grammar_a2_exercises_v3.0");
-        localStorage.removeItem("grammar_a2_exercises_v4.0");
-        localStorage.removeItem("grammar_a2_exercises_v5.0");
-        localStorage.removeItem("grammar_a2_exercises_v5.1");
-      }
+      const oldKeys = [
+        "grammar_a2_exercises_v1", "grammar_a2_exercises_v2", "grammar_a2_exercises_v3.0",
+        "grammar_a2_exercises_v4.0", "grammar_a2_exercises_v5.0", "grammar_a2_exercises_v5.1",
+        "grammar_a2_exercises_v5.2", "grammar_a2_exercises_v5.3"
+      ];
+      oldKeys.forEach(k => {
+        try { localStorage.removeItem(k); } catch (e) {}
+        try { if (window && window.localStorage) window.localStorage.removeItem(k); } catch (e) {}
+      });
     } catch (e) {}
   },
 
@@ -68,37 +61,20 @@ const ExercisesStore = {
         ? GRAMMAR_UNITS
         : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
 
-      const sourceTotalEx = sourceUnits.reduce((acc, u) => acc + (u.exercises ? u.exercises.length : 0), 0);
-
-      const stored = this._getStorage(this.STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (parsed && Array.isArray(parsed.units) && parsed.units.length >= 24) {
-          const storedTotalEx = parsed.units.reduce((acc, u) => acc + (u.exercises ? u.exercises.length : 0), 0);
-          if (storedTotalEx >= 100 && storedTotalEx >= sourceTotalEx) {
-            this.db = parsed;
-            if (typeof window !== "undefined") window.GRAMMAR_UNITS = this.db.units;
-            return;
-          }
-        }
-      }
-
-      // Initialize from sourceUnits (contains authentic 190 exercises)
-      if (sourceUnits && sourceUnits.length > 0) {
-        this.db = {
-          version: "5.0.0",
-          updatedAt: new Date().toISOString(),
-          units: sourceUnits
-        };
-        if (typeof window !== "undefined") window.GRAMMAR_UNITS = sourceUnits;
-        this._setStorage(this.STORAGE_KEY, JSON.stringify(this.db));
+      this.db = {
+        version: "5.3.0",
+        updatedAt: new Date().toISOString(),
+        units: sourceUnits
+      };
+      if (typeof window !== "undefined") {
+        window.GRAMMAR_UNITS = sourceUnits;
       }
     } catch (e) {
       console.warn("ExercisesStore init warning:", e);
       const fallback = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
         ? GRAMMAR_UNITS
         : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
-      this.db = { version: "5.0.0", units: fallback };
+      this.db = { version: "5.3.0", units: fallback };
       if (typeof window !== "undefined") window.GRAMMAR_UNITS = fallback;
     }
   },
