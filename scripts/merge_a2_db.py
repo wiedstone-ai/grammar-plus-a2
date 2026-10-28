@@ -45,7 +45,7 @@ total_exercises = sum(len(u.get('exercises', [])) for u in db['units'])
 print(f"New total exercises in A2: {total_exercises}")
 
 # Write to data/exercises_db.json
-db['version'] = '3.0.0'
+db['version'] = '5.0.0'
 with open('data/exercises_db.json', 'w', encoding='utf-8') as f:
     json.dump(db, f, indent=2, ensure_ascii=False)
 print("Saved data/exercises_db.json successfully!")

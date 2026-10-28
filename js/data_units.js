@@ -7510,76 +7510,564 @@ const GRAMMAR_UNITS = [
         "id": "u11_ex1",
         "unitId": 11,
         "page": 35,
-        "title": "Latihan 1: Memberi Nasihat dengan should (Audio TR 16)",
-        "instruction": "Dengarkan keluhan masalah sehari-hari pada audio TR 16, lalu pilih saran yang tepat menggunakan should.",
+        "title": "Latihan 1: Memberi Saran dengan should (Audio TR 16)",
+        "instruction": "Dengarkan rekaman TR 16 yang memuat masalah sehari-hari (1-10) dan pasangkan dengan saran (should) yang paling tepat.",
         "type": "choice",
         "audioTrack": "TR 16",
         "questions": [
           {
-            "q": "1. A: I've got the flu. &rarr; B: [BLANK]",
+            "q": "1. I've got the flu. &rarr; [BLANK]",
             "options": [
               "You should stay in bed.",
-              "You should go running.",
-              "You should buy new shoes."
+              "You should buy new shoes.",
+              "You should take a taxi.",
+              "You should open the window."
             ],
             "answer": "You should stay in bed.",
-            "hint": "Istirahat saat flu",
-            "explanation": "Audio TR 16 nomor 1: 'You should stay in bed.'"
+            "hint": "Saat terkena flu, istirahat di ranjang adalah yang terbaik.",
+            "explanation": "Audio TR 16: 'I've got the flu. You should stay in bed.'"
           },
           {
-            "q": "2. A: My feet hurt. &rarr; B: [BLANK]",
+            "q": "2. My feet hurt. &rarr; [BLANK]",
             "options": [
               "You should buy new shoes.",
-              "You should open the window.",
-              "You should take a taxi."
+              "You should eat something for breakfast.",
+              "You should pay more attention.",
+              "You should open the window."
             ],
             "answer": "You should buy new shoes.",
-            "hint": "Kaki sakit karena sepatu",
-            "explanation": "Audio TR 16 nomor 2: 'You should buy new shoes.'"
+            "hint": "Kaki sakit sering disebabkan oleh sepatu yang tidak pas.",
+            "explanation": "Audio TR 16: 'My feet hurt. You should buy new shoes.'"
           },
           {
-            "q": "3. A: This jacket is too tight. &rarr; B: [BLANK]",
+            "q": "3. This jacket is too tight. &rarr; [BLANK]",
             "options": [
               "You should buy a new one.",
               "You should go to bed earlier.",
-              "You should eat something."
-            ],
-            "answer": "You should buy a new one.",
-            "hint": "Jaket kesempitan",
-            "explanation": "Audio TR 16 nomor 3: 'You should buy a new one.'"
-          },
-          {
-            "q": "4. A: I'm always tired in the morning. &rarr; B: [BLANK]",
-            "options": [
-              "You should go to bed earlier.",
               "You should stay in bed.",
               "You should take a taxi."
             ],
-            "answer": "You should go to bed earlier.",
-            "hint": "Selalu lelah di pagi hari",
-            "explanation": "Audio TR 16 nomor 4: 'You should go to bed earlier.'"
+            "answer": "You should buy a new one.",
+            "hint": "Jaket yang terlalu sempit perlu diganti dengan yang baru.",
+            "explanation": "Audio TR 16: 'This jacket is too tight. You should buy a new one.'"
           },
           {
-            "q": "5. A: I don't feel like walking. &rarr; B: [BLANK]",
+            "q": "4. I'm always tired in the morning. &rarr; [BLANK]",
+            "options": [
+              "You should go to bed earlier.",
+              "You should buy her some flowers.",
+              "You should try exercising more.",
+              "You should take a taxi."
+            ],
+            "answer": "You should go to bed earlier.",
+            "hint": "Lelah di pagi hari diatasi dengan tidur lebih awal di malam hari.",
+            "explanation": "Audio TR 16: 'I'm always tired in the morning. You should go to bed earlier.'"
+          },
+          {
+            "q": "5. I'm too fat. &rarr; [BLANK]",
+            "options": [
+              "You should try exercising more.",
+              "You should open the window.",
+              "You should buy a new one.",
+              "You should stay in bed."
+            ],
+            "answer": "You should try exercising more.",
+            "hint": "Olahraga membantu menurunkan berat badan.",
+            "explanation": "Audio TR 16: 'I'm too fat. You should try exercising more.'"
+          },
+          {
+            "q": "6. I don't feel like walking. &rarr; [BLANK]",
             "options": [
               "You should take a taxi.",
-              "You should open the window.",
-              "You should buy her some flowers."
+              "You should pay more attention.",
+              "You should eat something.",
+              "You should stay in bed."
             ],
             "answer": "You should take a taxi.",
-            "hint": "Malas jalan kaki",
-            "explanation": "Audio TR 16 nomor 6: 'You should take a taxi.'"
+            "hint": "Jika malas berjalan kaki, gunakan taksi.",
+            "explanation": "Audio TR 16: 'I don't feel like walking. You should take a taxi.'"
           },
           {
-            "q": "6. A: Tomorrow is my mother's birthday. &rarr; B: [BLANK]",
+            "q": "7. I don't remember what the teacher said. &rarr; [BLANK]",
+            "options": [
+              "You should pay more attention.",
+              "You should buy new shoes.",
+              "You should open the window.",
+              "You should go to bed earlier."
+            ],
+            "answer": "You should pay more attention.",
+            "hint": "Perhatikan guru saat menjelaskan di kelas.",
+            "explanation": "Audio TR 16: 'I don't remember what the teacher said. You should pay more attention.'"
+          },
+          {
+            "q": "8. I'm hungry. &rarr; [BLANK]",
+            "options": [
+              "You should eat something for breakfast.",
+              "You should try exercising more.",
+              "You should buy her some flowers.",
+              "You should take a taxi."
+            ],
+            "answer": "You should eat something for breakfast.",
+            "hint": "Lapar diatasi dengan makan sarapan.",
+            "explanation": "Audio TR 16: 'I'm hungry. You should eat something for breakfast.'"
+          },
+          {
+            "q": "9. I'm hot. &rarr; [BLANK]",
+            "options": [
+              "You should open the window.",
+              "You should stay in bed.",
+              "You should buy a new one.",
+              "You should pay more attention."
+            ],
+            "answer": "You should open the window.",
+            "hint": "Buka jendela agar ruangan menjadi sejuk.",
+            "explanation": "Audio TR 16: 'I'm hot. You should open the window.'"
+          },
+          {
+            "q": "10. Tomorrow is my mother's birthday. &rarr; [BLANK]",
             "options": [
               "You should buy her some flowers.",
-              "You should stay in bed.",
-              "You should eat something."
+              "You should go to bed earlier.",
+              "You should eat something.",
+              "You should take a taxi."
             ],
             "answer": "You should buy her some flowers.",
-            "hint": "Ulang tahun ibu",
-            "explanation": "Audio TR 16 nomor 10: 'You should buy her some flowers.'"
+            "hint": "Hadiah bunga untuk ulang tahun ibu.",
+            "explanation": "Audio TR 16: 'Tomorrow is my mother's birthday. You should buy her some flowers.'"
+          }
+        ]
+      },
+      {
+        "id": "u11_ex2",
+        "unitId": 11,
+        "page": 35,
+        "title": "Latihan 2: Melengkapi Kalimat dengan should atau shouldn't",
+        "instruction": "Lengkapi kalimat berikut dengan should (seharusnya) atau shouldn't (seharusnya tidak) sesuai konteks nasehat yang baik.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. We [BLANK] help the environment by recycling.",
+            "answer": "should",
+            "alternateAnswers": [
+              "Should"
+            ],
+            "hint": "Mendaur ulang adalah perbuatan positif untuk lingkungan.",
+            "explanation": "Recycling adalah tindakan baik, sehingga menggunakan modal 'should'."
+          },
+          {
+            "q": "2. You [BLANK] sit in the sun all day. It's bad for your skin.",
+            "answer": "shouldn't",
+            "alternateAnswers": [
+              "should not",
+              "Shouldn't"
+            ],
+            "hint": "Duduk di terik matahari seharian buruk untuk kulit.",
+            "explanation": "Karena berbahaya bagi kulit, gunakan bentuk negatif 'shouldn't'."
+          },
+          {
+            "q": "3. You [BLANK] take warm clothes with you on holiday. The weather is unpredictable.",
+            "answer": "should",
+            "alternateAnswers": [
+              "Should"
+            ],
+            "hint": "Cuaca tidak menentu, maka sebaiknya bawa baju hangat.",
+            "explanation": "Saran yang dianjurkan: 'You should take warm clothes...'"
+          },
+          {
+            "q": "4. He [BLANK] eat so many sweets. They're bad for his teeth.",
+            "answer": "shouldn't",
+            "alternateAnswers": [
+              "should not",
+              "Shouldn't"
+            ],
+            "hint": "Makan terlalu banyak permen merusak gigi.",
+            "explanation": "Larangan/nasihat pencegahan menggunakan 'shouldn't'."
+          },
+          {
+            "q": "5. You [BLANK] stay up so late when you have school tomorrow.",
+            "answer": "shouldn't",
+            "alternateAnswers": [
+              "should not",
+              "Shouldn't"
+            ],
+            "hint": "Begadang sebelum hari sekolah tidak baik.",
+            "explanation": "Nasihat negatif: 'shouldn't stay up so late'."
+          },
+          {
+            "q": "6. You [BLANK] brush your teeth three times a day.",
+            "answer": "should",
+            "alternateAnswers": [
+              "Should"
+            ],
+            "hint": "Menyikat gigi secara teratur adalah anjuran kesehatan.",
+            "explanation": "Saran kebersihan gigi yang baik menggunakan 'should'."
+          },
+          {
+            "q": "7. You [BLANK] walk home alone in the dark.",
+            "answer": "shouldn't",
+            "alternateAnswers": [
+              "should not",
+              "Shouldn't"
+            ],
+            "hint": "Berjalan sendirian di tempat gelap berbahaya.",
+            "explanation": "Nasihat keselamatan: 'You shouldn't walk home alone in the dark.'"
+          },
+          {
+            "q": "8. Drivers [BLANK] drive carefully when it's raining.",
+            "answer": "should",
+            "alternateAnswers": [
+              "Should"
+            ],
+            "hint": "Saat hujan jalanan licin, pengemudi harus hati-hati.",
+            "explanation": "Saran keselamatan mengemudi: 'Drivers should drive carefully...'"
+          }
+        ]
+      },
+      {
+        "id": "u11_ex3",
+        "unitId": 11,
+        "page": 36,
+        "title": "Latihan 3: should / shouldn't + Kata Kerja dalam Kotak",
+        "instruction": "Lengkapi kalimat dengan should atau shouldn't dan kata kerja yang sesuai: watch, arrive, touch, wash, drink, study, walk, take, eat, drive.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. You [BLANK] so much television. It's bad for your eyes.",
+            "answer": "shouldn't watch",
+            "alternateAnswers": [
+              "should not watch",
+              "Shouldn't watch"
+            ],
+            "hint": "Kata kerja: watch.",
+            "explanation": "Nasihat agar tidak terlalu banyak menonton TV: 'shouldn't watch'."
+          },
+          {
+            "q": "2. We [BLANK] on time for the meeting.",
+            "answer": "should arrive",
+            "alternateAnswers": [
+              "Should arrive"
+            ],
+            "hint": "Kata kerja: arrive.",
+            "explanation": "Datang tepat waktu ke pertemuan adalah kewajiban/anjuran: 'should arrive'."
+          },
+          {
+            "q": "3. You [BLANK] that wire. It's dangerous.",
+            "answer": "shouldn't touch",
+            "alternateAnswers": [
+              "should not touch",
+              "Shouldn't touch"
+            ],
+            "hint": "Kata kerja: touch.",
+            "explanation": "Kawat berbahaya tidak boleh disentuh: 'shouldn't touch'."
+          },
+          {
+            "q": "4. He [BLANK] his hands before eating.",
+            "answer": "should wash",
+            "alternateAnswers": [
+              "Should wash"
+            ],
+            "hint": "Kata kerja: wash.",
+            "explanation": "Mencuci tangan sebelum makan: 'should wash'."
+          },
+          {
+            "q": "5. You [BLANK] that water. It isn't clean.",
+            "answer": "shouldn't drink",
+            "alternateAnswers": [
+              "should not drink",
+              "Shouldn't drink"
+            ],
+            "hint": "Kata kerja: drink.",
+            "explanation": "Air kotor tidak boleh diminum: 'shouldn't drink'."
+          },
+          {
+            "q": "6. They [BLANK] harder for their exams.",
+            "answer": "should study",
+            "alternateAnswers": [
+              "Should study"
+            ],
+            "hint": "Kata kerja: study.",
+            "explanation": "Belajar lebih giat untuk ujian: 'should study'."
+          },
+          {
+            "q": "7. She [BLANK] on the grass. Look at the sign!",
+            "answer": "shouldn't walk",
+            "alternateAnswers": [
+              "should not walk",
+              "Shouldn't walk"
+            ],
+            "hint": "Kata kerja: walk.",
+            "explanation": "Ada tanda larangan menginjak rumput: 'shouldn't walk'."
+          },
+          {
+            "q": "8. You [BLANK] an umbrella with you. It might rain.",
+            "answer": "should take",
+            "alternateAnswers": [
+              "Should take"
+            ],
+            "hint": "Kata kerja: take.",
+            "explanation": "Membawa payung sebagai antisipasi hujan: 'should take'."
+          },
+          {
+            "q": "9. You [BLANK] more fruit and vegetables.",
+            "answer": "should eat",
+            "alternateAnswers": [
+              "Should eat"
+            ],
+            "hint": "Kata kerja: eat.",
+            "explanation": "Makan banyak buah dan sayur untuk kesehatan: 'should eat'."
+          },
+          {
+            "q": "10. He [BLANK] so fast on this narrow road.",
+            "answer": "shouldn't drive",
+            "alternateAnswers": [
+              "should not drive",
+              "Shouldn't drive"
+            ],
+            "hint": "Kata kerja: drive.",
+            "explanation": "Mengemudi terlalu cepat di jalan sempit berbahaya: 'shouldn't drive'."
+          }
+        ]
+      },
+      {
+        "id": "u11_ex4",
+        "unitId": 11,
+        "page": 36,
+        "title": "Latihan 4: Melengkapi dengan should atau shouldn't dan Kata Kerja dalam Kurung",
+        "instruction": "Gunakan should atau shouldn't bersama bentuk dasar kata kerja di dalam tanda kurung.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. You [BLANK] (apologise) to your sister for breaking her toy.",
+            "answer": "should apologise",
+            "alternateAnswers": [
+              "should apologize",
+              "Should apologise",
+              "Should apologize"
+            ],
+            "hint": "Minta maaf kepada saudara perempuanmu.",
+            "explanation": "Saran sopan: 'should apologise'."
+          },
+          {
+            "q": "2. We [BLANK] (not be) late for the English lesson.",
+            "answer": "shouldn't be",
+            "alternateAnswers": [
+              "should not be",
+              "Shouldn't be"
+            ],
+            "hint": "Jangan terlambat.",
+            "explanation": "Bentuk negatif: 'shouldn't be'."
+          },
+          {
+            "q": "3. He [BLANK] (listen) to what the teacher says.",
+            "answer": "should listen",
+            "alternateAnswers": [
+              "Should listen"
+            ],
+            "hint": "Dengarkan perkataan guru.",
+            "explanation": "Saran positif: 'should listen'."
+          },
+          {
+            "q": "4. You [BLANK] (not spend) all your pocket money on video games.",
+            "answer": "shouldn't spend",
+            "alternateAnswers": [
+              "should not spend",
+              "Shouldn't spend"
+            ],
+            "hint": "Jangan habiskan seluruh uang saku.",
+            "explanation": "Bentuk negatif: 'shouldn't spend'."
+          },
+          {
+            "q": "5. They [BLANK] (wear) helmets when they ride their bicycles.",
+            "answer": "should wear",
+            "alternateAnswers": [
+              "Should wear"
+            ],
+            "hint": "Pakai helm demi keselamatan.",
+            "explanation": "Saran wajib keselamatan: 'should wear'."
+          },
+          {
+            "q": "6. You [BLANK] (not swim) in this river. The current is very strong.",
+            "answer": "shouldn't swim",
+            "alternateAnswers": [
+              "should not swim",
+              "Shouldn't swim"
+            ],
+            "hint": "Arus sungai sangat deras.",
+            "explanation": "Nasihat bahaya: 'shouldn't swim'."
+          },
+          {
+            "q": "7. I [BLANK] (go) to the dentist about my toothache.",
+            "answer": "should go",
+            "alternateAnswers": [
+              "Should go"
+            ],
+            "hint": "Pergi ke dokter gigi karena sakit gigi.",
+            "explanation": "Saran medis pribadi: 'should go'."
+          },
+          {
+            "q": "8. Visitors [BLANK] (not eat) or drink inside the library.",
+            "answer": "shouldn't eat",
+            "alternateAnswers": [
+              "should not eat",
+              "Shouldn't eat"
+            ],
+            "hint": "Peraturan perpustakaan melarang makan.",
+            "explanation": "Nasihat kepatuhan aturan: 'shouldn't eat'."
+          }
+        ]
+      },
+      {
+        "id": "u11_ex5",
+        "unitId": 11,
+        "page": 36,
+        "title": "Latihan 5: Memberikan Saran pada Situasi Tertentu",
+        "instruction": "Pilihlah saran terbaik (should / shouldn't) untuk merespons setiap situasi keluhan berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. 'I want to get fit, but I don't know where to start.' &rarr; [BLANK]",
+            "options": [
+              "You should join a local gym or go jogging regularly.",
+              "You shouldn't eat any vegetables.",
+              "You should sleep all afternoon.",
+              "You shouldn't drink any water."
+            ],
+            "answer": "You should join a local gym or go jogging regularly.",
+            "hint": "Ingin bugar butuh olahraga teratur.",
+            "explanation": "Saran tepat untuk kebugaran adalah bergabung dengan gym atau lari pagi secara teratur."
+          },
+          {
+            "q": "2. 'I'm always late for school in the mornings.' &rarr; [BLANK]",
+            "options": [
+              "You should set an earlier alarm and go to bed on time.",
+              "You should stay up watching movies till 3 a.m.",
+              "You shouldn't wear your school uniform.",
+              "You should walk more slowly."
+            ],
+            "answer": "You should set an earlier alarm and go to bed on time.",
+            "hint": "Bangun pagi dimulai dari pasang alarm lebih awal.",
+            "explanation": "Saran mengatasi keterlambatan adalah pasang alarm lebih awal dan tidur tepat waktu."
+          },
+          {
+            "q": "3. 'I have a terrible sore throat and I can hardly talk.' &rarr; [BLANK]",
+            "options": [
+              "You should drink warm tea with honey and rest your voice.",
+              "You should shout as loudly as possible.",
+              "You should drink ice-cold soda.",
+              "You shouldn't see a doctor."
+            ],
+            "answer": "You should drink warm tea with honey and rest your voice.",
+            "hint": "Sakit tenggorokan butuh minuman hangat.",
+            "explanation": "Teh hangat madu dan mengistirahatkan suara adalah nasehat yang paling tepat."
+          },
+          {
+            "q": "4. 'I don't understand our Maths homework at all.' &rarr; [BLANK]",
+            "options": [
+              "You should ask the teacher or a classmate to explain it.",
+              "You should throw your Maths book away.",
+              "You shouldn't do any homework ever.",
+              "You should copy random numbers."
+            ],
+            "answer": "You should ask the teacher or a classmate to explain it.",
+            "hint": "Jika tidak paham pelajaran, bertanyalah.",
+            "explanation": "Bertanya kepada guru atau teman adalah cara terbaik memahami PR."
+          },
+          {
+            "q": "5. 'My phone battery drains in just two hours.' &rarr; [BLANK]",
+            "options": [
+              "You should have the battery checked or replaced at a service centre.",
+              "You should drop it in water to cool it down.",
+              "You shouldn't charge it ever again.",
+              "You should buy ten more chargers."
+            ],
+            "answer": "You should have the battery checked or replaced at a service centre.",
+            "hint": "Baterai bocor perlu diperiksa ke pusat servis.",
+            "explanation": "Pilihan logis untuk baterai rusak adalah memeriksakannya atau mengganti baterai."
+          },
+          {
+            "q": "6. 'I have an important exam tomorrow and I feel very stressed.' &rarr; [BLANK]",
+            "options": [
+              "You should review your main notes, relax, and get a good night's sleep.",
+              "You should panic and drink five cups of coffee.",
+              "You shouldn't go to the exam tomorrow.",
+              "You should stay awake all night."
+            ],
+            "answer": "You should review your main notes, relax, and get a good night's sleep.",
+            "hint": "Menghadapi ujian butuh ketenangan dan istirahat cukup.",
+            "explanation": "Mengulang materi sekilas, rileks, dan tidur nyenyak merupakan kunci performa ujian yang baik."
+          }
+        ]
+      },
+      {
+        "id": "u11_ex6",
+        "unitId": 11,
+        "page": 37,
+        "title": "Latihan 6: Menyusun Kata Acak Menjadi Kalimat Saran",
+        "instruction": "Susun kata-kata yang diacak berikut menjadi kalimat saran yang benar menggunakan should atau shouldn't.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. to / bed / should / earlier / you / go",
+            "answer": "You should go to bed earlier.",
+            "alternateAnswers": [
+              "you should go to bed earlier.",
+              "You should go to bed earlier"
+            ],
+            "hint": "Subjek: You.",
+            "explanation": "Pola: You + should + verb (go) + to bed earlier."
+          },
+          {
+            "q": "2. shouldn't / talk / you / loudly / so",
+            "answer": "You shouldn't talk so loudly.",
+            "alternateAnswers": [
+              "you shouldn't talk so loudly.",
+              "You shouldn't talk so loudly",
+              "You should not talk so loudly."
+            ],
+            "hint": "Subjek: You.",
+            "explanation": "Pola: You + shouldn't + verb (talk) + so loudly."
+          },
+          {
+            "q": "3. take / some / we / should / photos",
+            "answer": "We should take some photos.",
+            "alternateAnswers": [
+              "we should take some photos.",
+              "We should take some photos"
+            ],
+            "hint": "Subjek: We.",
+            "explanation": "Pola: We + should + verb (take) + some photos."
+          },
+          {
+            "q": "4. eat / so / they / sweets / shouldn't / many",
+            "answer": "They shouldn't eat so many sweets.",
+            "alternateAnswers": [
+              "they shouldn't eat so many sweets.",
+              "They shouldn't eat so many sweets",
+              "They should not eat so many sweets."
+            ],
+            "hint": "Subjek: They.",
+            "explanation": "Pola: They + shouldn't + verb (eat) + so many sweets."
+          },
+          {
+            "q": "5. medicine / take / this / should / you",
+            "answer": "You should take this medicine.",
+            "alternateAnswers": [
+              "you should take this medicine.",
+              "You should take this medicine"
+            ],
+            "hint": "Subjek: You.",
+            "explanation": "Pola: You + should + verb (take) + this medicine."
+          },
+          {
+            "q": "6. worry / you / shouldn't / too / much",
+            "answer": "You shouldn't worry too much.",
+            "alternateAnswers": [
+              "you shouldn't worry too much.",
+              "You shouldn't worry too much",
+              "You should not worry too much."
+            ],
+            "hint": "Subjek: You.",
+            "explanation": "Pola: You + shouldn't + verb (worry) + too much."
           }
         ]
       },
@@ -7588,53 +8076,150 @@ const GRAMMAR_UNITS = [
         "unitId": 11,
         "page": 37,
         "title": "Latihan 7: Konsultasi Dokter (Audio TR 17)",
-        "instruction": "Dengarkan saran dokter pada ketiga dialog rekaman TR 17 dan jawab pertanyaan pemahaman berikut.",
+        "instruction": "Dengarkan 3 rekaman percakapan pasien dengan dokter pada audio TR 17, lalu jawablah pertanyaan pemahaman berikut.",
         "type": "choice",
         "audioTrack": "TR 17",
         "questions": [
           {
-            "q": "1. Dialog 1: Apa saran dokter kepada Miss Smith yang sakit kepala parah karena stres kerja?",
+            "q": "1. Dialogue 1: What is Miss Smith's problem?",
             "options": [
-              "You should take some time off work.",
-              "You should change your diet immediately.",
-              "You should exercise twice a week."
+              "She has a terrible headache that started two days ago.",
+              "She hurt her foot while running.",
+              "She has a stomach ache.",
+              "She has lost her glasses."
             ],
-            "answer": "You should take some time off work.",
-            "hint": "take some time off work",
-            "explanation": "Dokter menyarankan: 'I think you should take some time off work.'"
+            "answer": "She has a terrible headache that started two days ago.",
+            "hint": "Dengarkan awal dialog dokter dengan Miss Smith.",
+            "explanation": "Miss Smith: 'I have a terrible headache that doesn't seem to go away. It started two days ago.'"
           },
           {
-            "q": "2. Dialog 2: Apa nasihat dokter mengenai pola makan Mr. Kane yang menyukai burger dan pizza?",
+            "q": "2. Dialogue 1: What advice does the doctor give Miss Smith?",
             "options": [
-              "You shouldn't eat that kind of food. You should eat lots of fruit and vegetables.",
-              "You should eat more pizza for energy.",
-              "You should only drink warm water."
+              "She should take some time off work.",
+              "She should buy new shoes.",
+              "She should eat more fast food.",
+              "She should move house."
             ],
-            "answer": "You shouldn't eat that kind of food. You should eat lots of fruit and vegetables.",
-            "hint": "fruit and vegetables",
-            "explanation": "Dokter menegur: 'You shouldn't eat that kind of food. You should eat lots of fruit and vegetables.'"
+            "answer": "She should take some time off work.",
+            "hint": "Miss Smith mengalami stres kerja.",
+            "explanation": "Doctor: 'I think you should take some time off work.'"
           },
           {
-            "q": "3. Dialog 3: Mengapa Janet tidak bisa tidur nyenyak di malam hari?",
+            "q": "3. Dialogue 2: What health issues does Mr Kane have?",
             "options": [
-              "Dia baru pindah rumah dan lelah merapikan semuanya sendirian sampai larut malam.",
-              "Dia minum kopi terlalu banyak sebelum tidur.",
-              "Dia sakit flu."
+              "Bad pains in his back and legs, and he is overweight.",
+              "A sore throat and fever.",
+              "An ear infection.",
+              "A broken arm."
             ],
-            "answer": "Dia baru pindah rumah dan lelah merapikan semuanya sendirian sampai larut malam.",
-            "hint": "moved house about a month ago",
-            "explanation": "Janet sibuk menata rumah barunya sendirian hingga larut malam."
+            "answer": "Bad pains in his back and legs, and he is overweight.",
+            "hint": "Perhatikan keluhan punggung dan berat badan Mr Kane.",
+            "explanation": "Mr Kane mengeluhkan: 'really bad pains in my back and legs' dan dokter memperhatikan dia overweight."
           },
           {
-            "q": "4. Dialog 3: Apa saran Dr. Jefferson kepada Janet?",
+            "q": "4. Dialogue 2: What diet advice does the doctor give Mr Kane?",
             "options": [
-              "You should get somebody to help you, and you shouldn't work until late.",
-              "You should move to another house.",
-              "You should stop eating dinner."
+              "He shouldn't eat burgers and pizza; he should eat lots of fruit and vegetables.",
+              "He should eat pizza every evening.",
+              "He should only drink fruit juice.",
+              "He should stop drinking water."
             ],
-            "answer": "You should get somebody to help you, and you shouldn't work until late.",
-            "hint": "get somebody to help you",
-            "explanation": "Dokter menyarankan mencari bantuan dan tidak bekerja hingga larut."
+            "answer": "He shouldn't eat burgers and pizza; he should eat lots of fruit and vegetables.",
+            "hint": "Dokter melarang makanan cepat saji.",
+            "explanation": "Doctor: 'You shouldn't eat that kind of food. You should eat lots of fruit and vegetables.'"
+          },
+          {
+            "q": "5. Dialogue 2: How often should Mr Kane exercise?",
+            "options": [
+              "Twice a week.",
+              "Every day for three hours.",
+              "Once a month.",
+              "Never."
+            ],
+            "answer": "Twice a week.",
+            "hint": "Dengarkan anjuran frekuensi olahraga di akhir dialog 2.",
+            "explanation": "Doctor: 'You should start exercising twice a week.'"
+          },
+          {
+            "q": "6. Dialogue 3: Why can't Janet sleep at night?",
+            "options": [
+              "She moved house recently and is anxious trying to organise everything alone.",
+              "Her neighbours are playing loud music.",
+              "She drinks too much coffee.",
+              "She is watching TV all night."
+            ],
+            "answer": "She moved house recently and is anxious trying to organise everything alone.",
+            "hint": "Janet pindah rumah sebulan lalu.",
+            "explanation": "Janet: 'I moved house about a month ago. And I'm busy trying to organise everything.'"
+          },
+          {
+            "q": "7. Dialogue 3: What should Janet do according to the doctor?",
+            "options": [
+              "She should get somebody to help her and shouldn't work until late.",
+              "She should stay up all night painting.",
+              "She should buy a new house.",
+              "She should sleep during the day."
+            ],
+            "answer": "She should get somebody to help her and shouldn't work until late.",
+            "hint": "Dokter menyarankan bantuan orang lain dan istirahat.",
+            "explanation": "Doctor: 'You should get somebody to help you. And you shouldn't work until late.'"
+          }
+        ]
+      },
+      {
+        "id": "u11_ex8",
+        "unitId": 11,
+        "page": 37,
+        "title": "Latihan 8: Melengkapi Percakapan dengan should / shouldn't",
+        "instruction": "Lengkapi teks percakapan berikut dengan memilih should atau shouldn't secara tepat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Maya: I want to get better grades in English. What [BLANK] I do?",
+            "answer": "should",
+            "alternateAnswers": [
+              "Should"
+            ],
+            "hint": "Pertanyaan meminta saran: 'What should I do?'",
+            "explanation": "Kalimat tanya meminta nasihat diawali kata modal 'should'."
+          },
+          {
+            "q": "2. Leo: First, you [BLANK] read English short stories every week.",
+            "answer": "should",
+            "alternateAnswers": [
+              "Should"
+            ],
+            "hint": "Membaca cerita bahasa Inggris adalah saran yang bagus.",
+            "explanation": "Saran positif menggunakan 'should'."
+          },
+          {
+            "q": "3. Maya: And what about speaking? Leo: You [BLANK] be afraid of making mistakes.",
+            "answer": "shouldn't",
+            "alternateAnswers": [
+              "should not",
+              "Shouldn't"
+            ],
+            "hint": "Jangan takut salah saat berbicara.",
+            "explanation": "Nasihat agar tidak takut: 'shouldn't be afraid'."
+          },
+          {
+            "q": "4. Leo: You [BLANK] practice speaking with a friend as often as you can.",
+            "answer": "should",
+            "alternateAnswers": [
+              "Should"
+            ],
+            "hint": "Berlatih berbicara dengan teman sesering mungkin.",
+            "explanation": "Saran yang dianjurkan: 'should practice'."
+          },
+          {
+            "q": "5. Maya: That's great advice. I definitely [BLANK] leave my revision until the night before the test!",
+            "answer": "shouldn't",
+            "alternateAnswers": [
+              "should not",
+              "Shouldn't"
+            ],
+            "hint": "Jangan menunda belajar hingga malam sebelum ujian.",
+            "explanation": "Bentuk larangan/penolakan kebiasaan buruk: 'shouldn't leave'."
           }
         ]
       }
@@ -7705,139 +8290,852 @@ const GRAMMAR_UNITS = [
         "id": "u12_ex1",
         "unitId": 12,
         "page": 38,
-        "title": "Latihan 1: Bentuk Past Participle (V3) untuk Present Perfect",
-        "instruction": "Ketik bentuk kata kerja ketiga (Past Participle / V3) dari kata kerja dasar berikut.",
+        "title": "Latihan 1: Bentuk Past Participle (V3) Kata Kerja",
+        "instruction": "Tuliskan bentuk past participle (V3) dari kata kerja tidak beraturan (irregular verbs) berikut.",
         "type": "fill",
         "questions": [
           {
             "q": "1. be &rarr; [BLANK]",
             "answer": "been",
-            "hint": "be - was/were - been",
-            "explanation": "Past participle dari 'be' adalah 'been'."
+            "alternateAnswers": [
+              "Been"
+            ],
+            "hint": "Bentuk ketiga dari be (was/were).",
+            "explanation": "be &rarr; was/were &rarr; been."
           },
           {
             "q": "2. see &rarr; [BLANK]",
             "answer": "seen",
-            "hint": "see - saw - seen",
-            "explanation": "Past participle dari 'see' adalah 'seen'."
+            "alternateAnswers": [
+              "Seen"
+            ],
+            "hint": "Bentuk ketiga dari see (saw).",
+            "explanation": "see &rarr; saw &rarr; seen."
           },
           {
-            "q": "3. eat &rarr; [BLANK]",
-            "answer": "eaten",
-            "hint": "eat - ate - eaten",
-            "explanation": "Past participle dari 'eat' adalah 'eaten'."
-          },
-          {
-            "q": "4. write &rarr; [BLANK]",
-            "answer": "written",
-            "hint": "write - wrote - written",
-            "explanation": "Past participle dari 'write' adalah 'written' (dengan double t)."
-          },
-          {
-            "q": "5. do &rarr; [BLANK]",
+            "q": "3. do &rarr; [BLANK]",
             "answer": "done",
-            "hint": "do - did - done",
-            "explanation": "Past participle dari 'do' adalah 'done'."
+            "alternateAnswers": [
+              "Done"
+            ],
+            "hint": "Bentuk ketiga dari do (did).",
+            "explanation": "do &rarr; did &rarr; done."
           },
           {
-            "q": "6. go &rarr; [BLANK]",
+            "q": "4. go &rarr; [BLANK]",
             "answer": "gone",
             "alternateAnswers": [
+              "Gone",
               "been"
             ],
-            "hint": "go - went - gone",
-            "explanation": "Past participle dari 'go' adalah 'gone' atau 'been'."
+            "hint": "Bentuk ketiga dari go (went).",
+            "explanation": "go &rarr; went &rarr; gone (atau been jika sudah kembali)."
+          },
+          {
+            "q": "5. have &rarr; [BLANK]",
+            "answer": "had",
+            "alternateAnswers": [
+              "Had"
+            ],
+            "hint": "Bentuk ketiga dari have (had).",
+            "explanation": "have &rarr; had &rarr; had."
+          },
+          {
+            "q": "6. eat &rarr; [BLANK]",
+            "answer": "eaten",
+            "alternateAnswers": [
+              "Eaten"
+            ],
+            "hint": "Bentuk ketiga dari eat (ate).",
+            "explanation": "eat &rarr; ate &rarr; eaten."
+          },
+          {
+            "q": "7. make &rarr; [BLANK]",
+            "answer": "made",
+            "alternateAnswers": [
+              "Made"
+            ],
+            "hint": "Bentuk ketiga dari make (made).",
+            "explanation": "make &rarr; made &rarr; made."
+          },
+          {
+            "q": "8. write &rarr; [BLANK]",
+            "answer": "written",
+            "alternateAnswers": [
+              "Written"
+            ],
+            "hint": "Bentuk ketiga dari write (wrote).",
+            "explanation": "write &rarr; wrote &rarr; written."
+          },
+          {
+            "q": "9. give &rarr; [BLANK]",
+            "answer": "given",
+            "alternateAnswers": [
+              "Given"
+            ],
+            "hint": "Bentuk ketiga dari give (gave).",
+            "explanation": "give &rarr; gave &rarr; given."
+          },
+          {
+            "q": "10. take &rarr; [BLANK]",
+            "answer": "taken",
+            "alternateAnswers": [
+              "Taken"
+            ],
+            "hint": "Bentuk ketiga dari take (took).",
+            "explanation": "take &rarr; took &rarr; taken."
           }
         ]
       },
       {
         "id": "u12_ex2",
         "unitId": 12,
-        "page": 39,
-        "title": "Latihan 2: Pengalaman Wisata Emily & Jessica (Audio TR 18)",
-        "instruction": "Dengarkan percakapan pengalaman perjalanan pada audio TR 18, lalu tentukan pernyataan yang benar.",
+        "page": 38,
+        "title": "Latihan 2: Pengalaman Perjalanan Jessica & Emily (Audio TR 18)",
+        "instruction": "Dengarkan percakapan Jessica dan Emily di audio TR 18 mengenai tempat-tempat yang pernah mereka kunjungi, lalu jawablah pertanyaan berikut.",
         "type": "choice",
         "audioTrack": "TR 18",
         "questions": [
           {
-            "q": "1. Kota manakah di Amerika Serikat yang pernah dikunjungi oleh Jessica?",
+            "q": "1. Which cities has Jessica visited in the United States?",
             "options": [
-              "New York dan Washington",
-              "San Francisco dan Los Angeles",
-              "San Diego dan Las Vegas"
+              "New York and Washington.",
+              "San Francisco and Los Angeles.",
+              "San Diego and Chicago.",
+              "Miami and Boston."
             ],
-            "answer": "New York dan Washington",
-            "hint": "I've been to New York and Washington.",
-            "explanation": "Jessica menyatakan: 'I've been to New York and Washington.'"
+            "answer": "New York and Washington.",
+            "hint": "Dengarkan jawaban awal Jessica saat ditanya apakah pernah ke US.",
+            "explanation": "Jessica: 'Well, I've been to New York and Washington. I spent ten days there...'"
           },
           {
-            "q": "2. Apakah Jessica pernah pergi ke San Francisco atau Los Angeles?",
+            "q": "2. Has Jessica ever visited San Francisco or Los Angeles?",
             "options": [
-              "Belum pernah sama sekali (never been there).",
-              "Pernah satu kali dua tahun lalu.",
-              "Sering pergi setiap liburan."
+              "No, she has never been there.",
+              "Yes, she spent a month there.",
+              "Yes, she went there last winter.",
+              "Yes, she lives there."
             ],
-            "answer": "Belum pernah sama sekali (never been there).",
-            "hint": "never been to San Francisco or Los Angeles",
-            "explanation": "Jessica mengatakan: 'I've never been to San Francisco or Los Angeles.'"
+            "answer": "No, she has never been there.",
+            "hint": "Jessica menyebutkan 'I've never been to...'",
+            "explanation": "Jessica: '...but I've never been to San Francisco or Los Angeles.'"
           },
           {
-            "q": "3. Siapakah yang pernah mengunjungi Irlandia (Ireland)?",
+            "q": "3. Which place in California has Emily stayed in?",
             "options": [
-              "Emily pernah ke sana beberapa tahun yang lalu.",
-              "Jessica pernah tinggal di sana.",
-              "Keduanya belum pernah ke Irlandia."
+              "San Diego and San Francisco.",
+              "Sacramento and Hollywood.",
+              "Beverly Hills.",
+              "San Jose."
             ],
-            "answer": "Emily pernah ke sana beberapa tahun yang lalu.",
-            "hint": "Yes, I have. I went a couple of years ago.",
-            "explanation": "Emily menjawab: 'Yes, I have. I went a couple of years ago.'"
+            "answer": "San Diego and San Francisco.",
+            "hint": "Emily mengatakan San Francisco itu indah dan dia juga pernah tinggal di San Diego.",
+            "explanation": "Emily: 'San Francisco is beautiful! I've stayed in San Diego, too.'"
+          },
+          {
+            "q": "4. Has Jessica ever visited Ireland?",
+            "options": [
+              "No, she hasn't, but Emily has.",
+              "Yes, she went there with Emily.",
+              "Yes, two years ago.",
+              "She was born there."
+            ],
+            "answer": "No, she hasn't, but Emily has.",
+            "hint": "Jessica menjawab pertanyaan Emily tentang Irlandia.",
+            "explanation": "Jessica: 'No, I haven't. Have you?' Emily: 'Yes, I have. I went a couple of years ago.'"
+          },
+          {
+            "q": "5. What does Emily think of Ireland compared to California?",
+            "options": [
+              "It's quite different from California, but just as beautiful.",
+              "It's much hotter than California.",
+              "She didn't like it.",
+              "It's very boring."
+            ],
+            "answer": "It's quite different from California, but just as beautiful.",
+            "hint": "Dengarkan pendapat Emily tentang keindahan Irlandia.",
+            "explanation": "Emily: 'It's quite different from California but it's just as beautiful.'"
+          }
+        ]
+      },
+      {
+        "id": "u12_ex3",
+        "unitId": 12,
+        "page": 39,
+        "title": "Latihan 3: Melengkapi Kalimat dengan have / has + Past Participle",
+        "instruction": "Lengkapi kalimat dengan bentuk Present Perfect yang tepat menggunakan have atau has dan kata kerja di dalam kurung.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. She [BLANK] (finish) all her homework before dinner.",
+            "answer": "has finished",
+            "alternateAnswers": [
+              "Has finished"
+            ],
+            "hint": "Subjek she menggunakan has + V3 (-ed).",
+            "explanation": "She adalah orang ketiga tunggal: 'has finished'."
+          },
+          {
+            "q": "2. They [BLANK] (live) in this town for ten years.",
+            "answer": "have lived",
+            "alternateAnswers": [
+              "Have lived"
+            ],
+            "hint": "Subjek they menggunakan have + V3.",
+            "explanation": "They adalah jamak: 'have lived'."
+          },
+          {
+            "q": "3. I [BLANK] (lose) my passport! What should I do?",
+            "answer": "have lost",
+            "alternateAnswers": [
+              "Have lost",
+              "I've lost"
+            ],
+            "hint": "Subjek I, kata kerja lose &rarr; lost.",
+            "explanation": "I have lost my passport."
+          },
+          {
+            "q": "4. Oliver [BLANK] (buy) a new bicycle for his birthday.",
+            "answer": "has bought",
+            "alternateAnswers": [
+              "Has bought"
+            ],
+            "hint": "Subjek Oliver (he), kata kerja buy &rarr; bought.",
+            "explanation": "Oliver has bought a new bicycle."
+          },
+          {
+            "q": "5. We [BLANK] (clean) the kitchen and the living room.",
+            "answer": "have cleaned",
+            "alternateAnswers": [
+              "Have cleaned"
+            ],
+            "hint": "Subjek we, clean adalah regular verb.",
+            "explanation": "We have cleaned the kitchen."
+          },
+          {
+            "q": "6. The rain [BLANK] (stop), so we can go outside now.",
+            "answer": "has stopped",
+            "alternateAnswers": [
+              "Has stopped"
+            ],
+            "hint": "The rain (it) menggunakan has, stop &rarr; stopped.",
+            "explanation": "The rain has stopped."
+          }
+        ]
+      },
+      {
+        "id": "u12_ex4",
+        "unitId": 12,
+        "page": 39,
+        "title": "Latihan 4: Penggunaan ever dan never",
+        "instruction": "Lengkapi kalimat berikut dengan kata 'ever' (pernah - dalam kalimat tanya) atau 'never' (belum pernah - kalimat positif bernilai negatif).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Have you [BLANK] seen a lion in the wild?",
+            "answer": "ever",
+            "alternateAnswers": [
+              "Ever"
+            ],
+            "hint": "Digunakan dalam kalimat tanya tentang pengalaman.",
+            "explanation": "Kalimat tanya pengalaman: 'Have you ever...?'"
+          },
+          {
+            "q": "2. I have [BLANK] eaten sushi in my whole life.",
+            "answer": "never",
+            "alternateAnswers": [
+              "Never"
+            ],
+            "hint": "Menyatakan belum pernah sama sekali.",
+            "explanation": "Bentuk pengalaman belum pernah: 'I have never eaten...'"
+          },
+          {
+            "q": "3. Has she [BLANK] been to Paris on holiday?",
+            "answer": "ever",
+            "alternateAnswers": [
+              "Ever"
+            ],
+            "hint": "Kalimat tanya untuk subjek she.",
+            "explanation": "Pertanyaan pengalaman menggunakan 'ever'."
+          },
+          {
+            "q": "4. They have [BLANK] flown in an aeroplane before.",
+            "answer": "never",
+            "alternateAnswers": [
+              "Never"
+            ],
+            "hint": "Menyatakan pertama kali / belum pernah.",
+            "explanation": "They have never flown before."
+          },
+          {
+            "q": "5. Have you [BLANK] met a famous actor or musician?",
+            "answer": "ever",
+            "alternateAnswers": [
+              "Ever"
+            ],
+            "hint": "Pertanyaan pengalaman hidup.",
+            "explanation": "Have you ever met a famous person?"
+          },
+          {
+            "q": "6. We have [BLANK] tried rock climbing because we are afraid of heights.",
+            "answer": "never",
+            "alternateAnswers": [
+              "Never"
+            ],
+            "hint": "Alasannya takut ketinggian, berarti belum pernah mencoba.",
+            "explanation": "We have never tried rock climbing."
+          }
+        ]
+      },
+      {
+        "id": "u12_ex5",
+        "unitId": 12,
+        "page": 39,
+        "title": "Latihan 5: Membuat Pertanyaan 'Have you ever...?'",
+        "instruction": "Susun kata-kata petunjuk berikut menjadi pertanyaan pengalaman dengan struktur 'Have you ever + V3...?'",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. you / be / to London &rarr; [BLANK]",
+            "answer": "Have you ever been to London?",
+            "alternateAnswers": [
+              "have you ever been to london?",
+              "Have you ever been to London"
+            ],
+            "hint": "Kata kerja be menjadi been.",
+            "explanation": "Have you ever been to London?"
+          },
+          {
+            "q": "2. you / ride / a horse &rarr; [BLANK]",
+            "answer": "Have you ever ridden a horse?",
+            "alternateAnswers": [
+              "have you ever ridden a horse?",
+              "Have you ever ridden a horse"
+            ],
+            "hint": "Kata kerja ride menjadi ridden.",
+            "explanation": "Have you ever ridden a horse?"
+          },
+          {
+            "q": "3. you / win / a competition &rarr; [BLANK]",
+            "answer": "Have you ever won a competition?",
+            "alternateAnswers": [
+              "have you ever won a competition?",
+              "Have you ever won a competition"
+            ],
+            "hint": "Kata kerja win menjadi won.",
+            "explanation": "Have you ever won a competition?"
+          },
+          {
+            "q": "4. you / break / a bone &rarr; [BLANK]",
+            "answer": "Have you ever broken a bone?",
+            "alternateAnswers": [
+              "have you ever broken a bone?",
+              "Have you ever broken a bone"
+            ],
+            "hint": "Kata kerja break menjadi broken.",
+            "explanation": "Have you ever broken a bone?"
+          },
+          {
+            "q": "5. you / sleep / in a tent &rarr; [BLANK]",
+            "answer": "Have you ever slept in a tent?",
+            "alternateAnswers": [
+              "have you ever slept in a tent?",
+              "Have you ever slept in a tent"
+            ],
+            "hint": "Kata kerja sleep menjadi slept.",
+            "explanation": "Have you ever slept in a tent?"
+          },
+          {
+            "q": "6. you / eat / snails &rarr; [BLANK]",
+            "answer": "Have you ever eaten snails?",
+            "alternateAnswers": [
+              "have you ever eaten snails?",
+              "Have you ever eaten snails"
+            ],
+            "hint": "Kata kerja eat menjadi eaten.",
+            "explanation": "Have you ever eaten snails?"
           }
         ]
       },
       {
         "id": "u12_ex6",
         "unitId": 12,
-        "page": 41,
-        "title": "Latihan 6: Kalimat Tanya Present Perfect (Audio TR 19)",
-        "instruction": "Lengkapi kalimat tanya Present Perfect berikut sesuai rekaman TR 19.",
+        "page": 40,
+        "title": "Latihan 6: Present Perfect Sentences (Audio TR 19)",
+        "instruction": "Dengarkan audio TR 19 dan lengkapi kata kerja bentuk past participle (V3) yang hilang pada setiap kalimat yang diucapkan.",
         "type": "fill",
         "audioTrack": "TR 19",
         "questions": [
           {
-            "q": "1. [BLANK] you heard the news?",
-            "answer": "Have",
+            "q": "1. Have you [BLANK] the news?",
+            "answer": "heard",
             "alternateAnswers": [
-              "have"
+              "Heard"
             ],
-            "hint": "Have you + V3",
-            "explanation": "Pertanyaan untuk subjek 'you': 'Have you heard the news?'"
+            "hint": "Kata kerja: hear.",
+            "explanation": "Audio TR 19: 'Have you heard the news?'"
           },
           {
-            "q": "2. [BLANK] your father left for work yet?",
-            "answer": "Has",
+            "q": "2. Has your father [BLANK] for work yet?",
+            "answer": "left",
             "alternateAnswers": [
-              "has"
+              "Left"
             ],
-            "hint": "Your father adalah orang ketiga tunggal (he)",
-            "explanation": "Subjek tunggal 'your father' memakai kata bantu 'Has'."
+            "hint": "Kata kerja: leave.",
+            "explanation": "Audio TR 19: 'Has your father left for work yet?'"
           },
           {
-            "q": "3. Have you had dinner [BLANK]?",
-            "answer": "yet",
-            "hint": "yet di akhir pertanyaan",
-            "explanation": "Kata 'yet' digunakan di akhir kalimat tanya atau negatif untuk menanyakan keterlaksanaan."
+            "q": "3. Have you [BLANK] dinner yet?",
+            "answer": "had",
+            "alternateAnswers": [
+              "Had"
+            ],
+            "hint": "Kata kerja: have.",
+            "explanation": "Audio TR 19: 'Have you had dinner yet?'"
           },
           {
-            "q": "4. How long have you [BLANK] (know) him?",
+            "q": "4. How long have you [BLANK] him?",
             "answer": "known",
-            "hint": "V3 dari know",
-            "explanation": "Past participle dari 'know' adalah 'known'."
+            "alternateAnswers": [
+              "Known"
+            ],
+            "hint": "Kata kerja: know.",
+            "explanation": "Audio TR 19: 'How long have you known him?'"
           },
           {
-            "q": "5. Have you [BLANK] seen this programme before?",
-            "answer": "ever",
-            "hint": "pernahkah (pertanyaan pengalaman)",
-            "explanation": "'ever' bermakna pernah dalam kalimat tanya Present Perfect."
+            "q": "5. How many times have you [BLANK] your grandparents this month?",
+            "answer": "visited",
+            "alternateAnswers": [
+              "Visited"
+            ],
+            "hint": "Kata kerja: visit.",
+            "explanation": "Audio TR 19: 'How many times have you visited your grandparents this month?'"
+          },
+          {
+            "q": "6. Have you ever [BLANK] this programme?",
+            "answer": "seen",
+            "alternateAnswers": [
+              "Seen"
+            ],
+            "hint": "Kata kerja: see.",
+            "explanation": "Audio TR 19: 'Have you ever seen this programme?'"
+          },
+          {
+            "q": "7. I haven't seen Lucy lately. Has she [BLANK] sick?",
+            "answer": "been",
+            "alternateAnswers": [
+              "Been"
+            ],
+            "hint": "Kata kerja: be.",
+            "explanation": "Audio TR 19: 'I haven't seen Lucy lately. Has she been sick?'"
+          },
+          {
+            "q": "8. Have they [BLANK] their parents yet?",
+            "answer": "asked",
+            "alternateAnswers": [
+              "Asked"
+            ],
+            "hint": "Kata kerja: ask.",
+            "explanation": "Audio TR 19: 'Have they asked their parents yet?'"
+          },
+          {
+            "q": "9. How many times has she [BLANK] that film?",
+            "answer": "seen",
+            "alternateAnswers": [
+              "Seen"
+            ],
+            "hint": "Kata kerja: see.",
+            "explanation": "Audio TR 19: 'How many times has she seen that film?'"
+          },
+          {
+            "q": "10. What's that nice smell? Have you [BLANK] perfumes?",
+            "answer": "changed",
+            "alternateAnswers": [
+              "Changed"
+            ],
+            "hint": "Kata kerja: change.",
+            "explanation": "Audio TR 19: 'What's that nice smell? Have you changed perfumes?'"
+          }
+        ]
+      },
+      {
+        "id": "u12_ex7",
+        "unitId": 12,
+        "page": 40,
+        "title": "Latihan 7: already, yet, dan just",
+        "instruction": "Lengkapi kalimat dengan already (sudah), yet (belum / sudah pada tanya), atau just (baru saja).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. I have [BLANK] finished my essay, so I can relax now.",
+            "options": [
+              "already",
+              "yet",
+              "ever",
+              "since"
+            ],
+            "answer": "already",
+            "hint": "Sudah selesai lebih cepat dari perkiraan.",
+            "explanation": "'already' diletakkan di antara have dan past participle dalam kalimat positif."
+          },
+          {
+            "q": "2. Have you called the doctor [BLANK]?",
+            "options": [
+              "yet",
+              "just",
+              "since",
+              "already"
+            ],
+            "answer": "yet",
+            "hint": "Digunakan di akhir kalimat tanya.",
+            "explanation": "'yet' biasanya diletakkan di akhir kalimat tanya atau negatif."
+          },
+          {
+            "q": "3. Be careful! I have [BLANK] washed the floor, and it's still wet.",
+            "options": [
+              "just",
+              "yet",
+              "for",
+              "ever"
+            ],
+            "answer": "just",
+            "hint": "Baru saja dilakukan sesaat yang lalu.",
+            "explanation": "'just' berarti baru saja terjadi beberapa saat lalu."
+          },
+          {
+            "q": "4. We haven't eaten lunch [BLANK]. We are still hungry.",
+            "options": [
+              "yet",
+              "already",
+              "just",
+              "never"
+            ],
+            "answer": "yet",
+            "hint": "Di akhir kalimat negatif bermakna 'belum'.",
+            "explanation": "'yet' di akhir kalimat negatif berarti 'belum'."
+          },
+          {
+            "q": "5. Don't tell me what happens in the movie; I haven't seen it [BLANK]!",
+            "options": [
+              "yet",
+              "already",
+              "just",
+              "for"
+            ],
+            "answer": "yet",
+            "hint": "Belum menontonnya.",
+            "explanation": "Kalimat negatif berakhiran 'yet'."
+          },
+          {
+            "q": "6. Look! The postman has [BLANK] delivered a parcel for you.",
+            "options": [
+              "just",
+              "yet",
+              "since",
+              "never"
+            ],
+            "answer": "just",
+            "hint": "Baru saja mengantarkan paket.",
+            "explanation": "'has just delivered' = baru saja mengantar."
+          }
+        ]
+      },
+      {
+        "id": "u12_ex8",
+        "unitId": 12,
+        "page": 40,
+        "title": "Latihan 8: Membedakan for dan since",
+        "instruction": "Pilih for (untuk durasi / lama waktu) atau since (sejak titik awal waktu) untuk setiap penanda waktu berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. I have lived here [BLANK] three years.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": "for",
+            "hint": "Three years adalah durasi (periode waktu).",
+            "explanation": "Durasi waktu memakai 'for'."
+          },
+          {
+            "q": "2. She has worked at the bank [BLANK] 2018.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": "since",
+            "hint": "2018 adalah titik awal waktu (tahun).",
+            "explanation": "Titik waktu tertentu memakai 'since'."
+          },
+          {
+            "q": "3. They haven't seen each other [BLANK] last Monday.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": "since",
+            "hint": "Last Monday adalah hari tertentu di masa lalu.",
+            "explanation": "Hari/tanggal tertentu memakai 'since'."
+          },
+          {
+            "q": "4. We have been waiting for the bus [BLANK] two hours.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": "for",
+            "hint": "Two hours adalah periode panjang waktu.",
+            "explanation": "Lama waktu (jam) memakai 'for'."
+          },
+          {
+            "q": "5. He hasn't eaten anything [BLANK] breakfast.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": "since",
+            "hint": "Breakfast adalah titik waktu di pagi hari.",
+            "explanation": "Titik mula kejadian memakai 'since'."
+          },
+          {
+            "q": "6. My brother has had that car [BLANK] six months.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": "for",
+            "hint": "Six months adalah kurun waktu.",
+            "explanation": "Kurun waktu (bulan) memakai 'for'."
+          },
+          {
+            "q": "7. It has been raining [BLANK] yesterday afternoon.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": "since",
+            "hint": "Yesterday afternoon adalah titik waktu kemarin siang.",
+            "explanation": "Titik waktu lampau memakai 'since'."
+          },
+          {
+            "q": "8. We haven't spoken to them [BLANK] a long time.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": "for",
+            "hint": "'a long time' adalah rentang waktu yang lama.",
+            "explanation": "Ungkapan rentang waktu: 'for a long time'."
+          }
+        ]
+      },
+      {
+        "id": "u12_ex9",
+        "unitId": 12,
+        "page": 41,
+        "title": "Latihan 9: Present Perfect vs Past Simple",
+        "instruction": "Pilihlah bentuk kata kerja yang benar: Past Simple (waktu spesifik di masa lampau) atau Present Perfect (pengalaman/keterkaitan dengan masa kini).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. I [BLANK] Italy last summer with my family.",
+            "options": [
+              "visited",
+              "have visited",
+              "visit",
+              "was visiting"
+            ],
+            "answer": "visited",
+            "hint": "Ada keterangan waktu spesifik 'last summer'.",
+            "explanation": "'last summer' adalah penanda waktu lampau yang pasti &rarr; gunakan Past Simple: 'visited'."
+          },
+          {
+            "q": "2. She [BLANK] in Madrid for five years, and she still loves living there.",
+            "options": [
+              "has lived",
+              "lived",
+              "lives",
+              "was living"
+            ],
+            "answer": "has lived",
+            "hint": "Kegiatan masih berlangsung sampai sekarang.",
+            "explanation": "Tindakan yang berlanjut hingga kini memakai Present Perfect: 'has lived'."
+          },
+          {
+            "q": "3. We [BLANK] a brand new car yesterday afternoon.",
+            "options": [
+              "bought",
+              "have bought",
+              "buy",
+              "were buying"
+            ],
+            "answer": "bought",
+            "hint": "'yesterday afternoon' adalah waktu yang sudah selesai.",
+            "explanation": "Ada kata 'yesterday' &rarr; Past Simple: 'bought'."
+          },
+          {
+            "q": "4. [BLANK] your homework yet?",
+            "options": [
+              "Have you finished",
+              "Did you finish",
+              "Do you finish",
+              "Were you finishing"
+            ],
+            "answer": "Have you finished",
+            "hint": "Ada kata 'yet' di akhir pertanyaan.",
+            "explanation": "'yet' berpasangan dengan Present Perfect: 'Have you finished'."
+          },
+          {
+            "q": "5. They [BLANK] to the cinema on Friday evening.",
+            "options": [
+              "went",
+              "have gone",
+              "go",
+              "are going"
+            ],
+            "answer": "went",
+            "hint": "'on Friday evening' menunjukkan waktu spesifik di masa lalu.",
+            "explanation": "Waktu lampau tertentu &rarr; Past Simple: 'went'."
+          },
+          {
+            "q": "6. I [BLANK] sushi, but I'd like to try it one day.",
+            "options": [
+              "have never tasted",
+              "never tasted",
+              "did never taste",
+              "was never tasting"
+            ],
+            "answer": "have never tasted",
+            "hint": "Membicarakan pengalaman hidup hingga saat ini.",
+            "explanation": "Pengalaman hidup seumur hidup memakai Present Perfect: 'have never tasted'."
+          }
+        ]
+      },
+      {
+        "id": "u12_ex10",
+        "unitId": 12,
+        "page": 41,
+        "title": "Latihan 10: Mengoreksi Kesalahan Kalimat (Error Correction)",
+        "instruction": "Pilihlah kalimat perbaikan yang benar untuk membetulkan kesalahan tata bahasa pada setiap kalimat berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Salah: 'I have seen him yesterday at the supermarket.' &rarr; Benar: [BLANK]",
+            "options": [
+              "I saw him yesterday at the supermarket.",
+              "I have saw him yesterday at the supermarket.",
+              "I see him yesterday at the supermarket.",
+              "I was seen him yesterday at the supermarket."
+            ],
+            "answer": "I saw him yesterday at the supermarket.",
+            "hint": "Yesterday tidak boleh memakai have seen.",
+            "explanation": "Waktu lampau 'yesterday' harus menggunakan Past Simple 'saw'."
+          },
+          {
+            "q": "2. Salah: 'She didn't finish her project yet.' &rarr; Benar: [BLANK]",
+            "options": [
+              "She hasn't finished her project yet.",
+              "She haven't finished her project yet.",
+              "She doesn't finish her project yet.",
+              "She isn't finished her project yet."
+            ],
+            "answer": "She hasn't finished her project yet.",
+            "hint": "Yet berpasangan dengan hasn't finished.",
+            "explanation": "'yet' dipadukan dengan Present Perfect negatif: 'hasn't finished'."
+          },
+          {
+            "q": "3. Salah: 'We have lived here since three years.' &rarr; Benar: [BLANK]",
+            "options": [
+              "We have lived here for three years.",
+              "We lived here since three years ago.",
+              "We are living here since three years.",
+              "We have live here for three years."
+            ],
+            "answer": "We have lived here for three years.",
+            "hint": "Durasi 'three years' memakai for, bukan since.",
+            "explanation": "Periode waktu tiga tahun harus menggunakan 'for'."
+          },
+          {
+            "q": "4. Salah: 'Did you ever fly in a helicopter?' &rarr; Benar: [BLANK]",
+            "options": [
+              "Have you ever flown in a helicopter?",
+              "Did you ever flown in a helicopter?",
+              "Have you ever flew in a helicopter?",
+              "Do you ever flown in a helicopter?"
+            ],
+            "answer": "Have you ever flown in a helicopter?",
+            "hint": "Pertanyaan pengalaman hidup menggunakan Have you ever + V3.",
+            "explanation": "Pengalaman seumur hidup: 'Have you ever flown...?'"
+          },
+          {
+            "q": "5. Salah: 'He has already went home.' &rarr; Benar: [BLANK]",
+            "options": [
+              "He has already gone home.",
+              "He already went home yet.",
+              "He is already gone home.",
+              "He has already go home."
+            ],
+            "answer": "He has already gone home.",
+            "hint": "Bentuk V3 dari go adalah gone.",
+            "explanation": "Setelah 'has' harus menggunakan past participle: 'gone', bukan 'went'."
+          }
+        ]
+      },
+      {
+        "id": "u12_ex11",
+        "unitId": 12,
+        "page": 41,
+        "title": "Latihan 11: Melengkapi Percakapan dengan Tenses yang Tepat",
+        "instruction": "Lengkapi dialog antara Tom dan Anna dengan memilih bentuk yang tepat antara Present Perfect atau Past Simple.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Tom: [BLANK] (you / ever / be) to Spain?",
+            "answer": "Have you ever been",
+            "alternateAnswers": [
+              "have you ever been"
+            ],
+            "hint": "Pertanyaan pengalaman hidup.",
+            "explanation": "Pengalaman: 'Have you ever been to Spain?'"
+          },
+          {
+            "q": "2. Anna: Yes, I [BLANK] (go) to Barcelona two years ago.",
+            "answer": "went",
+            "alternateAnswers": [
+              "Went"
+            ],
+            "hint": "Keterangan waktu: 'two years ago'.",
+            "explanation": "'two years ago' adalah waktu lampau spesifik &rarr; Past Simple: 'went'."
+          },
+          {
+            "q": "3. Tom: Did you like it? Anna: Yes, I [BLANK] (love) the architecture there.",
+            "answer": "loved",
+            "alternateAnswers": [
+              "Loved"
+            ],
+            "hint": "Bercerita tentang liburan masa lalu tersebut.",
+            "explanation": "Past Simple: 'loved'."
+          },
+          {
+            "q": "4. Tom: I [BLANK] (never / visit) Spain, but I really want to go next summer.",
+            "answer": "have never visited",
+            "alternateAnswers": [
+              "have never visited",
+              "I have never visited"
+            ],
+            "hint": "Pengalaman seumur hidup Tom belum pernah berkunjung.",
+            "explanation": "Present Perfect: 'have never visited'."
+          },
+          {
+            "q": "5. Anna: You should! I [BLANK] (already / book) another trip there for July.",
+            "answer": "have already booked",
+            "alternateAnswers": [
+              "have already booked",
+              "I've already booked"
+            ],
+            "hint": "Sudah memesan tiket untuk liburan mendatang.",
+            "explanation": "Present Perfect: 'have already booked'."
           }
         ]
       }
@@ -7907,95 +9205,500 @@ const GRAMMAR_UNITS = [
         "id": "u13_ex1",
         "unitId": 13,
         "page": 42,
-        "title": "Latihan 1: Bentuk Present Perfect Continuous (have/has been + V-ing)",
-        "instruction": "Ketik bentuk Present Perfect Continuous yang benar (have been / has been + kata kerja berakhiran -ing).",
-        "type": "fill",
+        "title": "Latihan 1: Countable vs Uncountable Nouns",
+        "instruction": "Tentukan apakah kata benda berikut tergolong Countable (dapat dihitung) atau Uncountable (tidak dapat dihitung).",
+        "type": "choice",
         "questions": [
           {
-            "q": "1. It [BLANK] (rain) heavily for three hours.",
-            "answer": "has been raining",
-            "alternateAnswers": [
-              "'s been raining"
+            "q": "1. water &rarr; [BLANK]",
+            "options": [
+              "Uncountable (tidak dapat dihitung)",
+              "Countable (dapat dihitung)"
             ],
-            "hint": "It + has been + raining",
-            "explanation": "Subjek 'It' menggunakan 'has been raining' untuk aktivitas yang berlangsung terus-menerus."
+            "answer": "Uncountable (tidak dapat dihitung)",
+            "hint": "Zat cair tidak dapat dihitung satu per satu.",
+            "explanation": "Air (water) adalah uncountable noun."
           },
           {
-            "q": "2. They [BLANK] (wait) for the delayed bus since 8 o'clock.",
-            "answer": "have been waiting",
-            "alternateAnswers": [
-              "'ve been waiting"
+            "q": "2. apple &rarr; [BLANK]",
+            "options": [
+              "Countable (dapat dihitung)",
+              "Uncountable (tidak dapat dihitung)"
             ],
-            "hint": "They + have been + waiting",
-            "explanation": "Subjek 'They' menggunakan 'have been waiting'."
+            "answer": "Countable (dapat dihitung)",
+            "hint": "Buah apel bisa dihitung satu, dua, tiga...",
+            "explanation": "Apel (apple) dapat dihitung: one apple, two apples."
           },
           {
-            "q": "3. She [BLANK] (study) English at this academy for two years.",
-            "answer": "has been studying",
-            "alternateAnswers": [
-              "'s been studying"
+            "q": "3. money &rarr; [BLANK]",
+            "options": [
+              "Uncountable (tidak dapat dihitung)",
+              "Countable (dapat dihitung)"
             ],
-            "hint": "She + has been + studying",
-            "explanation": "Subjek 'She' menggunakan 'has been studying'."
+            "answer": "Uncountable (tidak dapat dihitung)",
+            "hint": "Kata 'money' secara gramatikal tidak bisa dihitung (yang dihitung adalah mata uangnya seperti dollars/rupiah).",
+            "explanation": "Money adalah kata benda tak terhitung (uncountable noun)."
           },
           {
-            "q": "4. I [BLANK] (learn) how to code software recently.",
-            "answer": "have been learning",
-            "alternateAnswers": [
-              "'ve been learning"
+            "q": "4. chair &rarr; [BLANK]",
+            "options": [
+              "Countable (dapat dihitung)",
+              "Uncountable (tidak dapat dihitung)"
             ],
-            "hint": "I + have been + learning",
-            "explanation": "Subjek 'I' menggunakan 'have been learning'."
+            "answer": "Countable (dapat dihitung)",
+            "hint": "Kursi dapat dihitung.",
+            "explanation": "Chair adalah countable noun: one chair, two chairs."
+          },
+          {
+            "q": "5. information &rarr; [BLANK]",
+            "options": [
+              "Uncountable (tidak dapat dihitung)",
+              "Countable (dapat dihitung)"
+            ],
+            "answer": "Uncountable (tidak dapat dihitung)",
+            "hint": "Information tidak memiliki bentuk jamak -s dalam bahasa Inggris.",
+            "explanation": "Information selalu uncountable noun."
+          },
+          {
+            "q": "6. bread &rarr; [BLANK]",
+            "options": [
+              "Uncountable (tidak dapat dihitung)",
+              "Countable (dapat dihitung)"
+            ],
+            "answer": "Uncountable (tidak dapat dihitung)",
+            "hint": "Roti (bread) dianggap sebagai materi/massa tak terhitung, dihitung per slice atau loaf.",
+            "explanation": "Bread dalam bahasa Inggris adalah uncountable noun."
           }
         ]
       },
       {
         "id": "u13_ex2",
         "unitId": 13,
+        "page": 42,
+        "title": "Latihan 2: Penggunaan a, an, dan some",
+        "instruction": "Lengkapi dengan artikel 'a', 'an' (untuk countable tunggal) atau 'some' (untuk uncountable atau jamak).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Would you like [BLANK] apple?",
+            "answer": "an",
+            "alternateAnswers": [
+              "An"
+            ],
+            "hint": "Apple diawali huruf vokal (vowel sound).",
+            "explanation": "Gunakan 'an' di depan kata yang berbunyi vokal: an apple."
+          },
+          {
+            "q": "2. Can I have [BLANK] milk with my cereal?",
+            "answer": "some",
+            "alternateAnswers": [
+              "Some"
+            ],
+            "hint": "Milk adalah kata benda tak terhitung (uncountable).",
+            "explanation": "Gunakan 'some' untuk uncountable noun: some milk."
+          },
+          {
+            "q": "3. I made [BLANK] sandwich for lunch.",
+            "answer": "a",
+            "alternateAnswers": [
+              "A"
+            ],
+            "hint": "Sandwich diawali huruf konsonan.",
+            "explanation": "Gunakan 'a' di depan kata benda tunggal berbunyi konsonan: a sandwich."
+          },
+          {
+            "q": "4. She bought [BLANK] fresh bread at the bakery.",
+            "answer": "some",
+            "alternateAnswers": [
+              "Some"
+            ],
+            "hint": "Bread adalah uncountable noun.",
+            "explanation": "Gunakan 'some' untuk bread: some bread."
+          },
+          {
+            "q": "5. There is [BLANK] orange on the table.",
+            "answer": "an",
+            "alternateAnswers": [
+              "An"
+            ],
+            "hint": "Orange diawali vokal 'o'.",
+            "explanation": "Gunakan 'an' untuk an orange."
+          },
+          {
+            "q": "6. We need [BLANK] cheese to make the pizza.",
+            "answer": "some",
+            "alternateAnswers": [
+              "Some"
+            ],
+            "hint": "Cheese adalah uncountable noun.",
+            "explanation": "Gunakan 'some' untuk cheese."
+          }
+        ]
+      },
+      {
+        "id": "u13_ex3",
+        "unitId": 13,
         "page": 43,
-        "title": "Latihan 2: Penggunaan for vs since",
-        "instruction": "Pilihlah 'for' (periode durasi waktu) atau 'since' (titik awal waktu) yang tepat.",
+        "title": "Latihan 3: Penggunaan some dan any",
+        "instruction": "Pilihlah some atau any: 'some' untuk kalimat positif, tawaran, atau permohonan sopan; 'any' untuk kalimat negatif dan pertanyaan umum.",
         "type": "choice",
         "questions": [
           {
-            "q": "1. We have been living in this city [BLANK] 2018.",
+            "q": "1. There is [BLANK] butter in the fridge.",
             "options": [
-              "since",
-              "for"
+              "some",
+              "any"
             ],
-            "answer": "since",
-            "hint": "Tahun 2018 adalah titik awal waktu.",
-            "explanation": "Gunakan 'since' sebelum tahun atau titik awal waktu."
+            "answer": "some",
+            "hint": "Kalimat berita positif.",
+            "explanation": "Kalimat positif menggunakan 'some'."
           },
           {
-            "q": "2. He has been playing football [BLANK] two hours.",
+            "q": "2. Are there [BLANK] eggs left in the carton?",
             "options": [
-              "for",
-              "since"
+              "any",
+              "some"
             ],
-            "answer": "for",
-            "hint": "Two hours adalah durasi waktu.",
-            "explanation": "Gunakan 'for' sebelum durasi atau rentang waktu."
+            "answer": "any",
+            "hint": "Pertanyaan umum.",
+            "explanation": "Kalimat tanya umum menggunakan 'any'."
           },
           {
-            "q": "3. I haven't seen Sarah [BLANK] last Monday.",
+            "q": "3. We don't have [BLANK] sugar to bake the cake.",
             "options": [
-              "since",
-              "for"
+              "any",
+              "some"
             ],
-            "answer": "since",
-            "hint": "Last Monday adalah hari tertentu.",
-            "explanation": "Titik waktu tertentu memakai 'since'."
+            "answer": "any",
+            "hint": "Kalimat negatif (don't have).",
+            "explanation": "Kalimat negatif menggunakan 'any'."
           },
           {
-            "q": "4. They have been working on the project [BLANK] six months.",
+            "q": "4. Would you like [BLANK] hot chocolate?",
             "options": [
-              "for",
-              "since"
+              "some",
+              "any"
             ],
-            "answer": "for",
-            "hint": "Six months adalah durasi.",
-            "explanation": "Rentang durasi memakai 'for'."
+            "answer": "some",
+            "hint": "Tawaran ramah (offer).",
+            "explanation": "Tawaran (offers) sopan menggunakan 'some'."
+          },
+          {
+            "q": "5. Can I have [BLANK] water, please?",
+            "options": [
+              "some",
+              "any"
+            ],
+            "answer": "some",
+            "hint": "Permohonan sopan (request).",
+            "explanation": "Permintaan sopan (requests) menggunakan 'some'."
+          },
+          {
+            "q": "6. He didn't take [BLANK] photos during the concert.",
+            "options": [
+              "any",
+              "some"
+            ],
+            "answer": "any",
+            "hint": "Kalimat negatif (didn't take).",
+            "explanation": "Kalimat negatif menggunakan 'any'."
+          }
+        ]
+      },
+      {
+        "id": "u13_ex4",
+        "unitId": 13,
+        "page": 43,
+        "title": "Latihan 4: How much vs How many",
+        "instruction": "Lengkapi pertanyaan dengan 'How much' (untuk uncountable) atau 'How many' (untuk countable jamak).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. [BLANK] students are in your class?",
+            "answer": "How many",
+            "alternateAnswers": [
+              "how many"
+            ],
+            "hint": "Students adalah countable jamak.",
+            "explanation": "Kata benda jamak dapat dihitung menggunakan 'How many'."
+          },
+          {
+            "q": "2. [BLANK] money do you need for the bus?",
+            "answer": "How much",
+            "alternateAnswers": [
+              "how much"
+            ],
+            "hint": "Money adalah uncountable.",
+            "explanation": "Kata benda tidak dapat dihitung menggunakan 'How much'."
+          },
+          {
+            "q": "3. [BLANK] time do we have before the train arrives?",
+            "answer": "How much",
+            "alternateAnswers": [
+              "how much"
+            ],
+            "hint": "Time (waktu) adalah uncountable.",
+            "explanation": "Waktu (time) menggunakan 'How much'."
+          },
+          {
+            "q": "4. [BLANK] apples did you buy at the market?",
+            "answer": "How many",
+            "alternateAnswers": [
+              "how many"
+            ],
+            "hint": "Apples adalah countable jamak.",
+            "explanation": "Kata benda apel menggunakan 'How many'."
+          },
+          {
+            "q": "5. [BLANK] water do you drink every day?",
+            "answer": "How much",
+            "alternateAnswers": [
+              "how much"
+            ],
+            "hint": "Water adalah zat cair tak terhitung.",
+            "explanation": "Water menggunakan 'How much'."
+          },
+          {
+            "q": "6. [BLANK] books have you read this year?",
+            "answer": "How many",
+            "alternateAnswers": [
+              "how many"
+            ],
+            "hint": "Books adalah countable jamak.",
+            "explanation": "Books menggunakan 'How many'."
+          }
+        ]
+      },
+      {
+        "id": "u13_ex5",
+        "unitId": 13,
+        "page": 43,
+        "title": "Latihan 5: much, many, atau a lot of",
+        "instruction": "Pilih kata penentu kuantitas yang paling tepat sesuai kaidah gramatikal.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. There are [BLANK] tourists in the museum today.",
+            "options": [
+              "a lot of",
+              "much",
+              "any"
+            ],
+            "answer": "a lot of",
+            "hint": "Kalimat positif untuk jumlah banyak.",
+            "explanation": "Dalam kalimat positif, lebih alami menggunakan 'a lot of'."
+          },
+          {
+            "q": "2. We don't have [BLANK] petrol left in the car.",
+            "options": [
+              "much",
+              "many",
+              "a few"
+            ],
+            "answer": "much",
+            "hint": "Petrol adalah uncountable dalam kalimat negatif.",
+            "explanation": "Uncountable dalam kalimat negatif menggunakan 'much'."
+          },
+          {
+            "q": "3. She didn't invite [BLANK] people to her birthday party.",
+            "options": [
+              "many",
+              "much",
+              "little"
+            ],
+            "answer": "many",
+            "hint": "People adalah countable jamak dalam kalimat negatif.",
+            "explanation": "Countable jamak dalam kalimat negatif menggunakan 'many'."
+          },
+          {
+            "q": "4. He drinks [BLANK] coffee every morning.",
+            "options": [
+              "a lot of",
+              "many",
+              "any"
+            ],
+            "answer": "a lot of",
+            "hint": "Kalimat afirmatif/positif untuk uncountable.",
+            "explanation": "Kalimat positif menggunakan 'a lot of'."
+          }
+        ]
+      },
+      {
+        "id": "u13_ex6",
+        "unitId": 13,
+        "page": 44,
+        "title": "Latihan 6: a few vs a little",
+        "instruction": "Lengkapi kalimat dengan 'a few' (beberapa - untuk countable jamak) atau 'a little' (sedikit - untuk uncountable).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. I have [BLANK] friends living in London.",
+            "answer": "a few",
+            "alternateAnswers": [
+              "A few"
+            ],
+            "hint": "Friends adalah countable jamak.",
+            "explanation": "Gunakan 'a few' untuk kata benda dapat dihitung jamak."
+          },
+          {
+            "q": "2. Could you add [BLANK] salt to the soup?",
+            "answer": "a little",
+            "alternateAnswers": [
+              "A little"
+            ],
+            "hint": "Salt adalah uncountable.",
+            "explanation": "Gunakan 'a little' untuk kata benda tak terhitung."
+          },
+          {
+            "q": "3. We still have [BLANK] time before the movie starts.",
+            "answer": "a little",
+            "alternateAnswers": [
+              "A little"
+            ],
+            "hint": "Time adalah uncountable.",
+            "explanation": "Gunakan 'a little' untuk time."
+          },
+          {
+            "q": "4. There are only [BLANK] biscuits left in the tin.",
+            "answer": "a few",
+            "alternateAnswers": [
+              "A few"
+            ],
+            "hint": "Biscuits adalah countable jamak.",
+            "explanation": "Gunakan 'a few' untuk biscuits."
+          },
+          {
+            "q": "5. She speaks [BLANK] Spanish when she travels.",
+            "answer": "a little",
+            "alternateAnswers": [
+              "A little"
+            ],
+            "hint": "Spanish (kemampuan bahasa) adalah uncountable.",
+            "explanation": "Gunakan 'a little' untuk bahasa."
+          },
+          {
+            "q": "6. He bought [BLANK] magazines to read on the train.",
+            "answer": "a few",
+            "alternateAnswers": [
+              "A few"
+            ],
+            "hint": "Magazines adalah countable jamak.",
+            "explanation": "Gunakan 'a few' untuk magazines."
+          }
+        ]
+      },
+      {
+        "id": "u13_ex7",
+        "unitId": 13,
+        "page": 44,
+        "title": "Latihan 7: Dialog Berbelanja di Toko Kelontong",
+        "instruction": "Lengkapi percakapan berbelanja berikut dengan kuantifier yang tepat: some, any, much, many, a few, a little.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Shopkeeper: Good morning! How [BLANK] apples would you like?",
+            "answer": "many",
+            "alternateAnswers": [
+              "Many"
+            ],
+            "hint": "Menanyakan jumlah apel (countable).",
+            "explanation": "How many apples."
+          },
+          {
+            "q": "2. Customer: I'd like [BLANK] red apples, please. About four.",
+            "answer": "a few",
+            "alternateAnswers": [
+              "some",
+              "A few",
+              "Some"
+            ],
+            "hint": "Jumlah sedikit (sekitar empat).",
+            "explanation": "'a few' atau 'some' red apples."
+          },
+          {
+            "q": "3. Customer: Do you have [BLANK] fresh orange juice?",
+            "answer": "any",
+            "alternateAnswers": [
+              "Any"
+            ],
+            "hint": "Pertanyaan apakah tersedia.",
+            "explanation": "Pertanyaan umum menggunakan 'any'."
+          },
+          {
+            "q": "4. Shopkeeper: Yes, we do. How [BLANK] bottles do you want?",
+            "answer": "many",
+            "alternateAnswers": [
+              "Many"
+            ],
+            "hint": "Bottles adalah countable jamak.",
+            "explanation": "How many bottles."
+          },
+          {
+            "q": "5. Customer: Just one bottle. And how [BLANK] is that in total?",
+            "answer": "much",
+            "alternateAnswers": [
+              "Much"
+            ],
+            "hint": "Menanyakan harga total uang.",
+            "explanation": "How much is that in total?"
+          }
+        ]
+      },
+      {
+        "id": "u13_ex8",
+        "unitId": 13,
+        "page": 44,
+        "title": "Latihan 8: Mengoreksi Kesalahan Penggunaan Kuantifier",
+        "instruction": "Pilihlah kalimat yang benar untuk mengoreksi kesalahan pada kalimat-kalimat berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Salah: 'I don't have many money.' &rarr; Benar: [BLANK]",
+            "options": [
+              "I don't have much money.",
+              "I don't have a few money.",
+              "I have many money.",
+              "I don't have some money."
+            ],
+            "answer": "I don't have much money.",
+            "hint": "Money adalah uncountable, gunakan much.",
+            "explanation": "Money tak terhitung, sehingga bentuk negatifnya menggunakan 'much money'."
+          },
+          {
+            "q": "2. Salah: 'Can I have any water, please?' &rarr; Benar: [BLANK]",
+            "options": [
+              "Can I have some water, please?",
+              "Can I have many water, please?",
+              "Can I have a few water, please?",
+              "Can I have an water, please?"
+            ],
+            "answer": "Can I have some water, please?",
+            "hint": "Permintaan sopan (request) menggunakan some.",
+            "explanation": "Dalam permohonan sopan, gunakan 'some water'."
+          },
+          {
+            "q": "3. Salah: 'There are much chairs in the room.' &rarr; Benar: [BLANK]",
+            "options": [
+              "There are many chairs in the room.",
+              "There are a little chairs in the room.",
+              "There is much chairs in the room.",
+              "There are any chairs in the room."
+            ],
+            "answer": "There are many chairs in the room.",
+            "hint": "Chairs adalah countable jamak.",
+            "explanation": "Kata benda jamak yang dapat dihitung memakai 'many chairs' atau 'a lot of chairs'."
+          },
+          {
+            "q": "4. Salah: 'She put a few sugar in her tea.' &rarr; Benar: [BLANK]",
+            "options": [
+              "She put a little sugar in her tea.",
+              "She put many sugar in her tea.",
+              "She put a sugar in her tea.",
+              "She put few sugar in her tea."
+            ],
+            "answer": "She put a little sugar in her tea.",
+            "hint": "Sugar adalah uncountable.",
+            "explanation": "Gula tak terhitung memakai 'a little sugar'."
           }
         ]
       }
@@ -8056,12 +9759,374 @@ const GRAMMAR_UNITS = [
         "id": "u14_ex1",
         "unitId": 14,
         "page": 45,
-        "title": "Latihan 1: Kata Ganti Penghubung (who, which, where, whose)",
-        "instruction": "Pilihlah relative pronoun yang tepat untuk melengkapi klausa penjelas.",
+        "title": "Latihan 1: Fungsi Kata Ganti Penghubung (Relative Pronouns)",
+        "instruction": "Pasangkan kata ganti penghubung (relative pronouns) dengan fungsinya yang tepat.",
         "type": "choice",
         "questions": [
           {
-            "q": "1. That is the architect [BLANK] designed our school library.",
+            "q": "1. 'who' digunakan untuk merujuk pada: [BLANK]",
+            "options": [
+              "Orang (people)",
+              "Benda atau binatang (things or animals)",
+              "Tempat (places)",
+              "Kepemilikan (possession)"
+            ],
+            "answer": "Orang (people)",
+            "hint": "'who' selalu merujuk pada manusia/orang.",
+            "explanation": "'who' digunakan untuk people (orang)."
+          },
+          {
+            "q": "2. 'which' digunakan untuk merujuk pada: [BLANK]",
+            "options": [
+              "Benda atau binatang (things or animals)",
+              "Orang (people)",
+              "Tempat (places)",
+              "Waktu (time)"
+            ],
+            "answer": "Benda atau binatang (things or animals)",
+            "hint": "'which' merujuk pada benda mati atau hewan.",
+            "explanation": "'which' digunakan untuk things and animals."
+          },
+          {
+            "q": "3. 'where' digunakan untuk merujuk pada: [BLANK]",
+            "options": [
+              "Tempat (places)",
+              "Orang (people)",
+              "Kepemilikan (possession)",
+              "Alasan (reasons)"
+            ],
+            "answer": "Tempat (places)",
+            "hint": "'where' berkaitan dengan lokasi atau tempat.",
+            "explanation": "'where' digunakan untuk places."
+          },
+          {
+            "q": "4. 'whose' digunakan untuk merujuk pada: [BLANK]",
+            "options": [
+              "Kepemilikan (possession)",
+              "Orang (people)",
+              "Benda (things)",
+              "Tempat (places)"
+            ],
+            "answer": "Kepemilikan (possession)",
+            "hint": "'whose' menunjukkan milik siapa.",
+            "explanation": "'whose' digunakan untuk kepunyaan / possession."
+          }
+        ]
+      },
+      {
+        "id": "u14_ex2",
+        "unitId": 14,
+        "page": 45,
+        "title": "Latihan 2: Melengkapi dengan who atau which",
+        "instruction": "Lengkapi kalimat dengan 'who' (untuk manusia) atau 'which' (untuk benda/hewan).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. A teacher is a person [BLANK] helps students learn.",
+            "answer": "who",
+            "alternateAnswers": [
+              "that",
+              "Who"
+            ],
+            "hint": "A person adalah manusia.",
+            "explanation": "Person adalah orang &rarr; gunakan 'who'."
+          },
+          {
+            "q": "2. A telescope is an instrument [BLANK] looks at distant stars.",
+            "answer": "which",
+            "alternateAnswers": [
+              "that",
+              "Which"
+            ],
+            "hint": "An instrument adalah benda alat.",
+            "explanation": "Instrument adalah benda &rarr; gunakan 'which'."
+          },
+          {
+            "q": "3. The woman [BLANK] lives next door is very kind.",
+            "answer": "who",
+            "alternateAnswers": [
+              "that",
+              "Who"
+            ],
+            "hint": "The woman adalah orang.",
+            "explanation": "Woman adalah manusia &rarr; gunakan 'who'."
+          },
+          {
+            "q": "4. The novel [BLANK] I bought yesterday is thrilling.",
+            "answer": "which",
+            "alternateAnswers": [
+              "that",
+              "Which"
+            ],
+            "hint": "The novel adalah buku/benda.",
+            "explanation": "Novel adalah benda &rarr; gunakan 'which'."
+          },
+          {
+            "q": "5. The doctor [BLANK] treated me was very experienced.",
+            "answer": "who",
+            "alternateAnswers": [
+              "that",
+              "Who"
+            ],
+            "hint": "Doctor adalah orang.",
+            "explanation": "Doctor adalah orang &rarr; gunakan 'who'."
+          },
+          {
+            "q": "6. A dolphin is an animal [BLANK] is very intelligent.",
+            "answer": "which",
+            "alternateAnswers": [
+              "that",
+              "Which"
+            ],
+            "hint": "Animal adalah binatang.",
+            "explanation": "Animal merujuk ke hewan &rarr; gunakan 'which'."
+          }
+        ]
+      },
+      {
+        "id": "u14_ex3",
+        "unitId": 14,
+        "page": 46,
+        "title": "Latihan 3: who, which, atau where",
+        "instruction": "Pilihlah who (orang), which (benda), atau where (tempat) untuk melengkapi kalimat.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. The restaurant [BLANK] we had dinner last night was fantastic.",
+            "options": [
+              "where",
+              "which",
+              "who"
+            ],
+            "answer": "where",
+            "hint": "Restaurant adalah lokasi tempat kita makan.",
+            "explanation": "Menunjukkan lokasi terjadinya kegiatan &rarr; 'where'."
+          },
+          {
+            "q": "2. The boy [BLANK] won the swimming competition is my cousin.",
+            "options": [
+              "who",
+              "which",
+              "where"
+            ],
+            "answer": "who",
+            "hint": "The boy adalah orang.",
+            "explanation": "Merujuk ke manusia &rarr; 'who'."
+          },
+          {
+            "q": "3. The laptop [BLANK] is on the table belongs to Mark.",
+            "options": [
+              "which",
+              "who",
+              "where"
+            ],
+            "answer": "which",
+            "hint": "The laptop adalah benda.",
+            "explanation": "Merujuk ke benda &rarr; 'which'."
+          },
+          {
+            "q": "4. This is the park [BLANK] we used to play football every Sunday.",
+            "options": [
+              "where",
+              "which",
+              "who"
+            ],
+            "answer": "where",
+            "hint": "The park adalah lokasi tempat bermain.",
+            "explanation": "Merujuk ke lokasi kegiatan &rarr; 'where'."
+          },
+          {
+            "q": "5. The shoes [BLANK] I bought online are too small.",
+            "options": [
+              "which",
+              "who",
+              "where"
+            ],
+            "answer": "which",
+            "hint": "The shoes adalah benda.",
+            "explanation": "Merujuk ke benda &rarr; 'which'."
+          },
+          {
+            "q": "6. I spoke to the manager [BLANK] was very helpful.",
+            "options": [
+              "who",
+              "which",
+              "where"
+            ],
+            "answer": "who",
+            "hint": "The manager adalah orang.",
+            "explanation": "Merujuk ke orang &rarr; 'who'."
+          }
+        ]
+      },
+      {
+        "id": "u14_ex4",
+        "unitId": 14,
+        "page": 46,
+        "title": "Latihan 4: Membedakan whose dan who's",
+        "instruction": "Lengkapi kalimat dengan 'whose' (kata ganti kepemilikan) atau 'who's' (singkatan dari who is / who has).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. That's the girl [BLANK] dog was lost in the woods.",
+            "answer": "whose",
+            "alternateAnswers": [
+              "Whose"
+            ],
+            "hint": "Menunjukkan pemilik anjing tersebut.",
+            "explanation": "Kepemilikan anjing milik anak perempuan: 'whose dog'."
+          },
+          {
+            "q": "2. Do you know [BLANK] knocking at the door?",
+            "answer": "who's",
+            "alternateAnswers": [
+              "who is",
+              "Who's"
+            ],
+            "hint": "Singkatan dari 'who is'.",
+            "explanation": "'who's' = who is knocking."
+          },
+          {
+            "q": "3. The architect [BLANK] design won the award is very proud.",
+            "answer": "whose",
+            "alternateAnswers": [
+              "Whose"
+            ],
+            "hint": "Desain milik sang arsitek.",
+            "explanation": "Kepemilikan karya desain: 'whose design'."
+          },
+          {
+            "q": "4. [BLANK] that boy standing next to Sarah?",
+            "answer": "Who's",
+            "alternateAnswers": [
+              "who's",
+              "Who is"
+            ],
+            "hint": "Singkatan dari 'Who is that boy'.",
+            "explanation": "'Who's' = Who is that boy?"
+          },
+          {
+            "q": "5. We met a woman [BLANK] car had broken down on the highway.",
+            "answer": "whose",
+            "alternateAnswers": [
+              "Whose"
+            ],
+            "hint": "Mobil milik wanita tersebut.",
+            "explanation": "Kepemilikan mobil: 'whose car'."
+          }
+        ]
+      },
+      {
+        "id": "u14_ex5",
+        "unitId": 14,
+        "page": 46,
+        "title": "Latihan 5: Menggabungkan Dua Kalimat dengan Relative Pronoun",
+        "instruction": "Gabungkan dua kalimat berikut menjadi satu kalimat kompleks menggunakan kata ganti penghubung (who, which, whose, where).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. I met a girl. She speaks four languages. &rarr; [BLANK]",
+            "answer": "I met a girl who speaks four languages.",
+            "alternateAnswers": [
+              "i met a girl who speaks four languages.",
+              "I met a girl that speaks four languages."
+            ],
+            "hint": "Gunakan 'who' menggantikan 'She'.",
+            "explanation": "I met a girl who speaks four languages."
+          },
+          {
+            "q": "2. Here is the book. You lent it to me. &rarr; [BLANK]",
+            "answer": "Here is the book which you lent to me.",
+            "alternateAnswers": [
+              "here is the book which you lent to me.",
+              "Here is the book that you lent to me.",
+              "Here is the book you lent to me."
+            ],
+            "hint": "Gunakan 'which' atau 'that' menggantikan 'it'.",
+            "explanation": "Here is the book which you lent to me."
+          },
+          {
+            "q": "3. That is the hospital. My mother works there. &rarr; [BLANK]",
+            "answer": "That is the hospital where my mother works.",
+            "alternateAnswers": [
+              "that is the hospital where my mother works.",
+              "That is the hospital where my mother works"
+            ],
+            "hint": "Gunakan 'where' menggantikan 'there'.",
+            "explanation": "That is the hospital where my mother works."
+          },
+          {
+            "q": "4. That's the boy. His brother won the gold medal. &rarr; [BLANK]",
+            "answer": "That's the boy whose brother won the gold medal.",
+            "alternateAnswers": [
+              "that's the boy whose brother won the gold medal.",
+              "That is the boy whose brother won the gold medal."
+            ],
+            "hint": "Gunakan 'whose' menggantikan 'His'.",
+            "explanation": "That's the boy whose brother won the gold medal."
+          }
+        ]
+      },
+      {
+        "id": "u14_ex6",
+        "unitId": 14,
+        "page": 46,
+        "title": "Latihan 6: Menghilangkan Kata Ganti Penghubung (Omitting Relative Pronouns)",
+        "instruction": "Tentukan apakah kata ganti penghubung (who / which / that) pada kalimat berikut DAPAT dihilangkan (can be omitted - sebagai objek) atau TIDAK dapat dihilangkan (cannot be omitted - sebagai subjek).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. The movie which we watched last night was thrilling.",
+            "options": [
+              "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa",
+              "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa"
+            ],
+            "answer": "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa",
+            "hint": "Subjek klausa berikutnya adalah 'we', jadi 'which' adalah objek.",
+            "explanation": "Bisa dikatakan 'The movie we watched last night was thrilling.' sehingga dapat dihilangkan."
+          },
+          {
+            "q": "2. The man who repaired our roof was very polite.",
+            "options": [
+              "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa",
+              "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa"
+            ],
+            "answer": "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa",
+            "hint": "'who' langsung diikuti kata kerja 'repaired', artinya 'who' adalah subjek.",
+            "explanation": "'who' bertindak sebagai subjek klausa relatif sehingga TIDAK boleh dihilangkan."
+          },
+          {
+            "q": "3. The email that you sent me didn't arrive.",
+            "options": [
+              "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa",
+              "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa"
+            ],
+            "answer": "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa",
+            "hint": "'you' adalah subjek dari klausa 'you sent me'.",
+            "explanation": "Bisa disederhanakan: 'The email you sent me didn't arrive.'"
+          },
+          {
+            "q": "4. The students who study hard will pass the exam.",
+            "options": [
+              "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa",
+              "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa"
+            ],
+            "answer": "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa",
+            "hint": "'who' adalah pelaku kata kerja 'study'.",
+            "explanation": "'who' sebagai subjek klausa relatif tidak boleh dihilangkan."
+          }
+        ]
+      },
+      {
+        "id": "u14_ex7",
+        "unitId": 14,
+        "page": 47,
+        "title": "Latihan 7: Pilihan Ganda Relative Pronouns",
+        "instruction": "Pilihlah kata ganti penghubung yang paling tepat untuk melengkapi setiap kalimat berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. An author is someone [BLANK] writes books.",
             "options": [
               "who",
               "which",
@@ -8069,23 +10134,11 @@ const GRAMMAR_UNITS = [
               "whose"
             ],
             "answer": "who",
-            "hint": "Merujuk pada orang (the architect)",
-            "explanation": "Gunakan 'who' untuk merujuk pada orang."
+            "hint": "Author adalah manusia pembuat buku.",
+            "explanation": "'who' digunakan untuk subjek orang."
           },
           {
-            "q": "2. Here is the laptop [BLANK] I bought last week.",
-            "options": [
-              "which",
-              "who",
-              "where",
-              "whose"
-            ],
-            "answer": "which",
-            "hint": "Merujuk pada benda (the laptop)",
-            "explanation": "Gunakan 'which' atau 'that' untuk benda."
-          },
-          {
-            "q": "3. This is the town [BLANK] William Shakespeare was born.",
+            "q": "2. The cafe [BLANK] they serve the best hot chocolate is just around the corner.",
             "options": [
               "where",
               "which",
@@ -8093,11 +10146,23 @@ const GRAMMAR_UNITS = [
               "whose"
             ],
             "answer": "where",
-            "hint": "Merujuk pada tempat (the town)",
-            "explanation": "Gunakan 'where' untuk merujuk pada tempat terjadinya sesuatu."
+            "hint": "Cafe adalah tempat.",
+            "explanation": "'where' digunakan untuk lokasi tempat."
           },
           {
-            "q": "4. I met a boy [BLANK] brother is a famous singer.",
+            "q": "3. Is this the camera [BLANK] you lost last week?",
+            "options": [
+              "which",
+              "who",
+              "where",
+              "whose"
+            ],
+            "answer": "which",
+            "hint": "Camera adalah benda.",
+            "explanation": "'which' digunakan untuk benda."
+          },
+          {
+            "q": "4. We met a neighbour [BLANK] son is studying in Oxford.",
             "options": [
               "whose",
               "who",
@@ -8105,8 +10170,8 @@ const GRAMMAR_UNITS = [
               "where"
             ],
             "answer": "whose",
-            "hint": "Kepemilikan saudara laki-laki dari anak itu",
-            "explanation": "Gunakan 'whose' untuk menyatakan hubungan kepemilikan."
+            "hint": "Anak laki-laki dari sang tetangga.",
+            "explanation": "'whose' menyatakan hubungan keluarga / kepemilikan."
           }
         ]
       },
@@ -8114,8 +10179,8 @@ const GRAMMAR_UNITS = [
         "id": "u14_ex8",
         "unitId": 14,
         "page": 47,
-        "title": "Latihan 8: Pemahaman Klausa Relatif (Audio TR 20)",
-        "instruction": "Dengarkan rekaman audio TR 20 dan lengkapi klausa relatif yang diucapkan.",
+        "title": "Latihan 8: Relative Clauses Pronunciation (Audio TR 20)",
+        "instruction": "Dengarkan audio TR 20 dan lengkapi kata hubung relatif yang diucapkan pada setiap kalimat berikut.",
         "type": "fill",
         "audioTrack": "TR 20",
         "questions": [
@@ -8123,34 +10188,154 @@ const GRAMMAR_UNITS = [
             "q": "1. The eggs [BLANK] I bought yesterday are bad.",
             "answer": "which",
             "alternateAnswers": [
-              "that"
+              "that",
+              "Which"
             ],
-            "hint": "Benda telur",
+            "hint": "Benda: the eggs.",
             "explanation": "Audio TR 20 nomor 1: 'The eggs which I bought yesterday are bad.'"
           },
           {
             "q": "2. The boy [BLANK] broke the window will be punished.",
             "answer": "who",
             "alternateAnswers": [
-              "that"
+              "that",
+              "Who"
             ],
-            "hint": "Anak laki-laki yang memecahkan jendela",
+            "hint": "Orang: the boy.",
             "explanation": "Audio TR 20 nomor 2: 'The boy who broke the window will be punished.'"
           },
           {
             "q": "3. The hairdresser [BLANK] cut your hair did a good job.",
             "answer": "who",
             "alternateAnswers": [
-              "that"
+              "that",
+              "Who"
             ],
-            "hint": "Penata rambut (orang)",
+            "hint": "Orang: the hairdresser.",
             "explanation": "Audio TR 20 nomor 3: 'The hairdresser who cut your hair did a good job.'"
           },
           {
-            "q": "4. This is the shop [BLANK] I go to buy my clothes.",
+            "q": "4. Is the book [BLANK] is on the table mine?",
+            "answer": "which",
+            "alternateAnswers": [
+              "that",
+              "Which"
+            ],
+            "hint": "Benda: the book.",
+            "explanation": "Audio TR 20 nomor 4: 'Is the book which is on the table mine?'"
+          },
+          {
+            "q": "5. This is the shop [BLANK] I go to buy my clothes.",
             "answer": "where",
-            "hint": "Toko tempat belanja pakaian",
+            "alternateAnswers": [
+              "Where"
+            ],
+            "hint": "Tempat: the shop.",
             "explanation": "Audio TR 20 nomor 5: 'This is the shop where I go to buy my clothes.'"
+          },
+          {
+            "q": "6. The boy [BLANK] is sitting at the desk is my brother.",
+            "answer": "who",
+            "alternateAnswers": [
+              "that",
+              "Who"
+            ],
+            "hint": "Orang: the boy.",
+            "explanation": "Audio TR 20 nomor 6: 'The boy who is sitting at the desk is my brother.'"
+          }
+        ]
+      },
+      {
+        "id": "u14_ex9",
+        "unitId": 14,
+        "page": 47,
+        "title": "Latihan 9: Melengkapi Kalimat Definisi dengan who, which, atau where",
+        "instruction": "Lengkapi kalimat definisi kosakata berikut dengan who, which, atau where.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. A library is a place [BLANK] you can borrow books.",
+            "answer": "where",
+            "alternateAnswers": [
+              "Where"
+            ],
+            "hint": "A place adalah tempat.",
+            "explanation": "Tempat meminjam buku &rarr; 'where'."
+          },
+          {
+            "q": "2. A pilot is a person [BLANK] flies aeroplanes.",
+            "answer": "who",
+            "alternateAnswers": [
+              "that",
+              "Who"
+            ],
+            "hint": "A person adalah orang.",
+            "explanation": "Orang penerbang pesawat &rarr; 'who'."
+          },
+          {
+            "q": "3. A thermometer is an instrument [BLANK] measures temperature.",
+            "answer": "which",
+            "alternateAnswers": [
+              "that",
+              "Which"
+            ],
+            "hint": "An instrument adalah alat ukur (benda).",
+            "explanation": "Alat pengukur &rarr; 'which'."
+          },
+          {
+            "q": "4. A bakery is a shop [BLANK] you can buy fresh bread and cakes.",
+            "answer": "where",
+            "alternateAnswers": [
+              "Where"
+            ],
+            "hint": "A shop adalah tempat berbelanja.",
+            "explanation": "Toko roti &rarr; 'where'."
+          }
+        ]
+      },
+      {
+        "id": "u14_ex10",
+        "unitId": 14,
+        "page": 47,
+        "title": "Latihan 10: Mengoreksi Kesalahan Relative Pronoun",
+        "instruction": "Pilihlah perbaikan yang tepat untuk mengoreksi kata ganti relatif yang salah dalam kalimat.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Salah: 'The person which called you didn't leave a message.' &rarr; Benar: [BLANK]",
+            "options": [
+              "The person who called you didn't leave a message.",
+              "The person where called you didn't leave a message.",
+              "The person whose called you didn't leave a message.",
+              "The person whom called you didn't leave a message."
+            ],
+            "answer": "The person who called you didn't leave a message.",
+            "hint": "Person adalah orang, tidak boleh memakai which.",
+            "explanation": "Untuk merujuk ke orang (person), gunakan 'who'."
+          },
+          {
+            "q": "2. Salah: 'I love the city which I was born.' &rarr; Benar: [BLANK]",
+            "options": [
+              "I love the city where I was born.",
+              "I love the city who I was born.",
+              "I love the city whose I was born.",
+              "I love the city that I was born in where."
+            ],
+            "answer": "I love the city where I was born.",
+            "hint": "Kota tempat dilahirkan membutuhkan kata keterangan tempat.",
+            "explanation": "Tempat dilahirkan: 'the city where I was born'."
+          },
+          {
+            "q": "3. Salah: 'He is the man who's car was stolen yesterday.' &rarr; Benar: [BLANK]",
+            "options": [
+              "He is the man whose car was stolen yesterday.",
+              "He is the man which car was stolen yesterday.",
+              "He is the man where car was stolen yesterday.",
+              "He is the man whom car was stolen yesterday."
+            ],
+            "answer": "He is the man whose car was stolen yesterday.",
+            "hint": "Menyatakan kepemilikan mobil (bukan who is).",
+            "explanation": "Kepemilikan mobil pria tersebut menggunakan 'whose car'."
           }
         ]
       }
@@ -8200,53 +10385,311 @@ const GRAMMAR_UNITS = [
         "id": "u15_ex1",
         "unitId": 15,
         "page": 48,
-        "title": "Latihan 1: Kata Kerja Diikuti to + Infinitif atau -ing (Gerund)",
-        "instruction": "Pilihlah bentuk kata kerja turunan yang tepat setelah kata kerja utama.",
+        "title": "Latihan 1: Pola Verb + Gerund (-ing) vs Verb + Infinitive (to)",
+        "instruction": "Kelompokkan kata kerja berikut berdasarkan pola setelahnya: diikuti Gerund (-ing) atau diikuti to-Infinitive.",
         "type": "choice",
         "questions": [
           {
-            "q": "1. We decided [BLANK] our holidays in Greece this summer.",
+            "q": "1. Kata kerja 'enjoy' selalu diikuti oleh: [BLANK]",
+            "options": [
+              "Gerund (V-ing)",
+              "to-Infinitive (to + V1)",
+              "Bare infinitive (V1)"
+            ],
+            "answer": "Gerund (V-ing)",
+            "hint": "Contoh: enjoy playing tennis.",
+            "explanation": "'enjoy' selalu diikuti bentuk gerund (-ing)."
+          },
+          {
+            "q": "2. Kata kerja 'decide' selalu diikuti oleh: [BLANK]",
+            "options": [
+              "to-Infinitive (to + V1)",
+              "Gerund (V-ing)",
+              "Kata sifat"
+            ],
+            "answer": "to-Infinitive (to + V1)",
+            "hint": "Contoh: decide to buy a new car.",
+            "explanation": "'decide' diikuti bentuk to-infinitive."
+          },
+          {
+            "q": "3. Kata kerja 'mind' (dalam 'don't mind / would you mind') diikuti oleh: [BLANK]",
+            "options": [
+              "Gerund (V-ing)",
+              "to-Infinitive (to + V1)",
+              "Past simple"
+            ],
+            "answer": "Gerund (V-ing)",
+            "hint": "Contoh: I don't mind waiting.",
+            "explanation": "'mind' diikuti oleh gerund (-ing)."
+          },
+          {
+            "q": "4. Kata kerja 'promise' selalu diikuti oleh: [BLANK]",
+            "options": [
+              "to-Infinitive (to + V1)",
+              "Gerund (V-ing)",
+              "Bare infinitive"
+            ],
+            "answer": "to-Infinitive (to + V1)",
+            "hint": "Contoh: promise to help someone.",
+            "explanation": "'promise' diikuti oleh to-infinitive."
+          },
+          {
+            "q": "5. Kata kerja 'avoid' selalu diikuti oleh: [BLANK]",
+            "options": [
+              "Gerund (V-ing)",
+              "to-Infinitive (to + V1)",
+              "Bare infinitive"
+            ],
+            "answer": "Gerund (V-ing)",
+            "hint": "Contoh: avoid making mistakes.",
+            "explanation": "'avoid' diikuti oleh gerund (-ing)."
+          },
+          {
+            "q": "6. Kata kerja 'hope' selalu diikuti oleh: [BLANK]",
+            "options": [
+              "to-Infinitive (to + V1)",
+              "Gerund (V-ing)",
+              "Preposition of place"
+            ],
+            "answer": "to-Infinitive (to + V1)",
+            "hint": "Contoh: hope to pass the test.",
+            "explanation": "'hope' diikuti oleh to-infinitive."
+          }
+        ]
+      },
+      {
+        "id": "u15_ex2",
+        "unitId": 15,
+        "page": 48,
+        "title": "Latihan 2: Melengkapi Kalimat dengan Gerund (-ing)",
+        "instruction": "Ubah kata kerja dalam tanda kurung menjadi bentuk Gerund (-ing) untuk melengkapi kalimat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. She avoids [BLANK] (eat) junk food because she wants to stay healthy.",
+            "answer": "eating",
+            "alternateAnswers": [
+              "Eating"
+            ],
+            "hint": "eat + ing.",
+            "explanation": "Avoid eating junk food."
+          },
+          {
+            "q": "2. Do you fancy [BLANK] (go) to the cinema this evening?",
+            "answer": "going",
+            "alternateAnswers": [
+              "Going"
+            ],
+            "hint": "go + ing.",
+            "explanation": "Fancy going to the cinema."
+          },
+          {
+            "q": "3. He admitted [BLANK] (break) the window by accident.",
+            "answer": "breaking",
+            "alternateAnswers": [
+              "Breaking"
+            ],
+            "hint": "break + ing.",
+            "explanation": "Admitted breaking the window."
+          },
+          {
+            "q": "4. I can't imagine [BLANK] (live) in a freezing cold country.",
+            "answer": "living",
+            "alternateAnswers": [
+              "Living"
+            ],
+            "hint": "live huruf 'e' dihilangkan lalu tambah ing.",
+            "explanation": "Imagine living in a cold country."
+          },
+          {
+            "q": "5. We finished [BLANK] (paint) the bedroom walls yesterday.",
+            "answer": "painting",
+            "alternateAnswers": [
+              "Painting"
+            ],
+            "hint": "paint + ing.",
+            "explanation": "Finished painting the walls."
+          }
+        ]
+      },
+      {
+        "id": "u15_ex3",
+        "unitId": 15,
+        "page": 49,
+        "title": "Latihan 3: Melengkapi Kalimat dengan to-Infinitive",
+        "instruction": "Lengkapi kalimat dengan to-infinitive (to + kata kerja) dari kata kerja dalam kurung.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. They agreed [BLANK] (meet) us at the station at six.",
+            "answer": "to meet",
+            "alternateAnswers": [
+              "To meet"
+            ],
+            "hint": "to + meet.",
+            "explanation": "Agreed to meet us."
+          },
+          {
+            "q": "2. She offered [BLANK] (carry) the heavy bags for her grandmother.",
+            "answer": "to carry",
+            "alternateAnswers": [
+              "To carry"
+            ],
+            "hint": "to + carry.",
+            "explanation": "Offered to carry the bags."
+          },
+          {
+            "q": "3. Don't forget [BLANK] (lock) the front door before you leave.",
+            "answer": "to lock",
+            "alternateAnswers": [
+              "To lock"
+            ],
+            "hint": "to + lock.",
+            "explanation": "Don't forget to lock the door."
+          },
+          {
+            "q": "4. He hopes [BLANK] (study) engineering at university.",
+            "answer": "to study",
+            "alternateAnswers": [
+              "To study"
+            ],
+            "hint": "to + study.",
+            "explanation": "Hopes to study engineering."
+          },
+          {
+            "q": "5. We managed [BLANK] (catch) the last bus home.",
+            "answer": "to catch",
+            "alternateAnswers": [
+              "To catch"
+            ],
+            "hint": "to + catch.",
+            "explanation": "Managed to catch the bus."
+          }
+        ]
+      },
+      {
+        "id": "u15_ex4",
+        "unitId": 15,
+        "page": 49,
+        "title": "Latihan 4: Memilih antara Gerund (-ing) atau to-Infinitive",
+        "instruction": "Pilihlah bentuk kata kerja yang benar (-ing atau to-infinitive) sesuai kata kerja utamanya.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. I refused [BLANK] his question because it was too personal.",
+            "options": [
+              "to answer",
+              "answering",
+              "answer"
+            ],
+            "answer": "to answer",
+            "hint": "'refuse' berpasangan dengan to-infinitive.",
+            "explanation": "Refuse to answer."
+          },
+          {
+            "q": "2. She suggested [BLANK] a picnic in the park.",
+            "options": [
+              "having",
+              "to have",
+              "have"
+            ],
+            "answer": "having",
+            "hint": "'suggest' diikuti gerund.",
+            "explanation": "Suggest having a picnic."
+          },
+          {
+            "q": "3. They decided [BLANK] their holiday in Portugal.",
             "options": [
               "to spend",
               "spending",
               "spend"
             ],
             "answer": "to spend",
-            "hint": "decide + to infinitive",
-            "explanation": "Kata kerja 'decide' selalu diikuti oleh 'to + infinitive'."
+            "hint": "'decide' diikuti to-infinitive.",
+            "explanation": "Decided to spend."
           },
           {
-            "q": "2. My father enjoys [BLANK] historical fiction novels.",
+            "q": "4. I really enjoy [BLANK] novels on rainy afternoons.",
             "options": [
               "reading",
               "to read",
               "read"
             ],
             "answer": "reading",
-            "hint": "enjoy + gerund (-ing)",
-            "explanation": "Kata kerja 'enjoy' selalu diikuti oleh bentuk gerund (-ing)."
+            "hint": "'enjoy' diikuti gerund.",
+            "explanation": "Enjoy reading novels."
           },
           {
-            "q": "3. Don't forget [BLANK] the door before you go to bed.",
+            "q": "5. He promised [BLANK] me as soon as he arrived.",
             "options": [
-              "to lock",
-              "locking",
-              "lock"
+              "to call",
+              "calling",
+              "call"
             ],
-            "answer": "to lock",
-            "hint": "forget to do something",
-            "explanation": "'forget to + infinitive' bermakna ingat untuk melakukan suatu tindakan."
+            "answer": "to call",
+            "hint": "'promise' diikuti to-infinitive.",
+            "explanation": "Promised to call."
+          }
+        ]
+      },
+      {
+        "id": "u15_ex5",
+        "unitId": 15,
+        "page": 49,
+        "title": "Latihan 5: Verb + -ing or Infinitive (Audio TR 21)",
+        "instruction": "Dengarkan rekaman audio TR 21 dan tentukan apakah kalimat yang diperdengarkan menggunakan bentuk gerund (-ing) atau to-infinitive.",
+        "type": "choice",
+        "audioTrack": "TR 21",
+        "questions": [
+          {
+            "q": "1. Kalimat 1: 'I liked going swimming.' &rarr; Pola yang digunakan:",
+            "options": [
+              "Gerund (-ing): going swimming",
+              "to-Infinitive: to swim"
+            ],
+            "answer": "Gerund (-ing): going swimming",
+            "hint": "Dengarkan kata setelah liked: 'going'.",
+            "explanation": "Audio TR 21 nomor 1: 'I liked going swimming.' (Gerund)"
           },
           {
-            "q": "4. She avoids [BLANK] sugary drinks when she is on a diet.",
+            "q": "2. Kalimat 2: 'I learnt to speak English when I was a child.' &rarr; Pola yang digunakan:",
             "options": [
-              "drinking",
-              "to drink",
-              "drink"
+              "to-Infinitive: to speak",
+              "Gerund (-ing): speaking"
             ],
-            "answer": "drinking",
-            "hint": "avoid + gerund",
-            "explanation": "'avoid' diikuti oleh kata kerja bentuk -ing (gerund)."
+            "answer": "to-Infinitive: to speak",
+            "hint": "Dengarkan kata setelah learnt: 'to speak'.",
+            "explanation": "Audio TR 21 nomor 2: 'I learnt to speak English...' (to-Infinitive)"
+          },
+          {
+            "q": "3. Kalimat 3: 'They didn't want to go.' &rarr; Pola yang digunakan:",
+            "options": [
+              "to-Infinitive: to go",
+              "Gerund (-ing): going"
+            ],
+            "answer": "to-Infinitive: to go",
+            "hint": "Dengarkan kata setelah want: 'to go'.",
+            "explanation": "Audio TR 21 nomor 3: 'They didn't want to go.' (to-Infinitive)"
+          },
+          {
+            "q": "4. Kalimat 4: 'They were allowed to stay late.' &rarr; Pola yang digunakan:",
+            "options": [
+              "to-Infinitive: to stay",
+              "Gerund (-ing): staying"
+            ],
+            "answer": "to-Infinitive: to stay",
+            "hint": "Dengarkan kata setelah allowed: 'to stay'.",
+            "explanation": "Audio TR 21 nomor 4: 'They were allowed to stay late.' (to-Infinitive)"
+          },
+          {
+            "q": "5. Kalimat 6: 'I love buying new clothes.' &rarr; Pola yang digunakan:",
+            "options": [
+              "Gerund (-ing): buying",
+              "to-Infinitive: to buy"
+            ],
+            "answer": "Gerund (-ing): buying",
+            "hint": "Dengarkan kata setelah love: 'buying'.",
+            "explanation": "Audio TR 21 nomor 6: 'I love buying new clothes.' (Gerund)"
           }
         ]
       },
@@ -8254,43 +10697,258 @@ const GRAMMAR_UNITS = [
         "id": "u15_ex6",
         "unitId": 15,
         "page": 50,
-        "title": "Latihan 6: Percakapan Rencana Andy & Angela (Audio TR 22)",
-        "instruction": "Dengarkan percakapan Andy dan Angela pada audio TR 22, lalu pilih jawaban yang tepat.",
+        "title": "Latihan 6: Rencana Akhir Pekan Andy & Angela (Audio TR 22)",
+        "instruction": "Dengarkan dialog antara Andy dan Angela mengenai rencana akhir pekan mereka pada audio TR 22, lalu jawablah pertanyaan berikut.",
         "type": "choice",
         "audioTrack": "TR 22",
         "questions": [
           {
-            "q": "1. Mengapa Angela tidak bisa makan malam bersama Andy malam ini?",
+            "q": "1. Why can't Angela have dinner with Andy tonight?",
             "options": [
-              "Karena Angela ada kelas bahasa Rusia (has a Russian class).",
-              "Karena Angela harus bekerja lembur.",
-              "Karena Angela sedang sakit flu."
+              "She has a Russian class.",
+              "She has to study Maths.",
+              "She is going to the doctor.",
+              "She has to clean her room."
             ],
-            "answer": "Karena Angela ada kelas bahasa Rusia (has a Russian class).",
-            "hint": "I have a Russian class.",
-            "explanation": "Angela menolak ajakan makan malam hari ini karena ada kelas bahasa Rusia."
+            "answer": "She has a Russian class.",
+            "hint": "Angela menyebutkan ada les bahasa malam ini.",
+            "explanation": "Angela: 'I'd love to but I have a Russian class.'"
           },
           {
-            "q": "2. Apa yang ingin dilakukan Andy pada hari Sabtu malam?",
+            "q": "2. What does Andy want to do on Saturday evening?",
             "options": [
-              "Pergi ke bioskop menonton film (go to the cinema).",
-              "Pergi ke restoran Italia.",
-              "Belajar bahasa Rusia bersama Angela."
+              "Go to the cinema, because he loves watching films.",
+              "Go to an Italian restaurant.",
+              "Play football in the park.",
+              "Stay at home and play video games."
             ],
-            "answer": "Pergi ke bioskop menonton film (go to the cinema).",
-            "hint": "I want to go to the cinema. I love watching films.",
-            "explanation": "Andy mengajak ke bioskop jam 8 malam."
+            "answer": "Go to the cinema, because he loves watching films.",
+            "hint": "Andy sangat suka menonton film.",
+            "explanation": "Andy: 'I want to go to the cinema. You know, I love watching films.'"
           },
           {
-            "q": "3. Mengapa Andy tidak bisa menjemput Angela dengan mobilnya di rumah?",
+            "q": "3. Which film show time was Andy thinking of going to?",
             "options": [
-              "Andy sudah berjanji meminjamkan mobilnya kepada saudara laki-lakinya.",
-              "Mobil Andy rusak di bengkel.",
-              "Andy tidak punya SIM mobil."
+              "The eight o'clock show.",
+              "The five o'clock show.",
+              "The ten o'clock show.",
+              "The afternoon matinee."
             ],
-            "answer": "Andy sudah berjanji meminjamkan mobilnya kepada saudara laki-lakinya.",
-            "hint": "I promised to lend my car to my brother Saturday.",
-            "explanation": "Andy mengatakan: 'I promised to lend my car to my brother Saturday.'"
+            "answer": "The eight o'clock show.",
+            "hint": "Dengarkan jam tayang yang diusulkan Andy.",
+            "explanation": "Andy: 'I was thinking of going to the eight o'clock show.'"
+          },
+          {
+            "q": "4. Why can't Andy pick Angela up at her house by car?",
+            "options": [
+              "He promised to lend his car to his brother on Saturday.",
+              "His car is broken.",
+              "He doesn't have a driving licence.",
+              "He doesn't know where she lives."
+            ],
+            "answer": "He promised to lend his car to his brother on Saturday.",
+            "hint": "Andy sudah berjanji meminjamkan mobil ke saudaranya.",
+            "explanation": "Andy: 'I promised to lend my car to my brother Saturday.'"
+          },
+          {
+            "q": "5. What time does Andy expect to be ready and meet Angela?",
+            "options": [
+              "By half past seven (7:30).",
+              "At eight o'clock (8:00).",
+              "At seven o'clock (7:00).",
+              "At six-thirty (6:30)."
+            ],
+            "answer": "By half past seven (7:30).",
+            "hint": "Dengarkan jam pertemuan yang disepakati.",
+            "explanation": "Andy: 'I expect to be ready by half past seven.' Angela: 'Seven-thirty is fine.'"
+          }
+        ]
+      },
+      {
+        "id": "u15_ex7",
+        "unitId": 15,
+        "page": 50,
+        "title": "Latihan 7: Melengkapi Kalimat Campuran (-ing atau to-Infinitive)",
+        "instruction": "Lengkapi kalimat dengan bentuk kata kerja yang benar di dalam tanda kurung (apakah memakai -ing atau to + infinitive).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. I look forward to [BLANK] (see) you next week.",
+            "answer": "seeing",
+            "alternateAnswers": [
+              "Seeing"
+            ],
+            "hint": "'look forward to' diikuti bentuk gerund (-ing).",
+            "explanation": "Look forward to seeing you."
+          },
+          {
+            "q": "2. She refused [BLANK] (tell) him the secret.",
+            "answer": "to tell",
+            "alternateAnswers": [
+              "To tell"
+            ],
+            "hint": "refuse + to-infinitive.",
+            "explanation": "Refused to tell him."
+          },
+          {
+            "q": "3. Would you mind [BLANK] (open) the window? It's stuffy.",
+            "answer": "opening",
+            "alternateAnswers": [
+              "Opening"
+            ],
+            "hint": "would you mind + -ing.",
+            "explanation": "Would you mind opening."
+          },
+          {
+            "q": "4. We arranged [BLANK] (meet) at the cafe at five.",
+            "answer": "to meet",
+            "alternateAnswers": [
+              "To meet"
+            ],
+            "hint": "arrange + to-infinitive.",
+            "explanation": "Arranged to meet."
+          },
+          {
+            "q": "5. He gave up [BLANK] (smoke) two years ago.",
+            "answer": "smoking",
+            "alternateAnswers": [
+              "Smoking"
+            ],
+            "hint": "give up (phrasal verb) + -ing.",
+            "explanation": "Gave up smoking."
+          }
+        ]
+      },
+      {
+        "id": "u15_ex8",
+        "unitId": 15,
+        "page": 50,
+        "title": "Latihan 8: Menjodohkan Belahan Kalimat (Sentence Matching)",
+        "instruction": "Pasangkan klausa awal (1-4) dengan kelanjutan klausa yang sesuai (a-d).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. She loves &rarr; [BLANK]",
+            "options": [
+              "buying new clothes at weekends.",
+              "to help her with the chores.",
+              "to lock the front door.",
+              "to be ready by seven."
+            ],
+            "answer": "buying new clothes at weekends.",
+            "hint": "Kegemaran berbelanja baju.",
+            "explanation": "She loves buying new clothes."
+          },
+          {
+            "q": "2. Don't forget &rarr; [BLANK]",
+            "options": [
+              "to lock the front door.",
+              "buying new clothes at weekends.",
+              "to be ready by seven.",
+              "eating fast food."
+            ],
+            "answer": "to lock the front door.",
+            "hint": "Pengingat untuk mengunci pintu.",
+            "explanation": "Don't forget to lock the door."
+          },
+          {
+            "q": "3. He promised &rarr; [BLANK]",
+            "options": [
+              "to help her with the chores.",
+              "buying new clothes at weekends.",
+              "living in a cold country.",
+              "avoiding traffic."
+            ],
+            "answer": "to help her with the chores.",
+            "hint": "Janji untuk membantu pekerjaan rumah.",
+            "explanation": "He promised to help her with the chores."
+          },
+          {
+            "q": "4. We expect &rarr; [BLANK]",
+            "options": [
+              "to be ready by seven o'clock.",
+              "buying new shoes.",
+              "going swimming tomorrow.",
+              "swimming across the river."
+            ],
+            "answer": "to be ready by seven o'clock.",
+            "hint": "Harapan untuk siap jam tujuh.",
+            "explanation": "We expect to be ready by seven o'clock."
+          }
+        ]
+      },
+      {
+        "id": "u15_ex9",
+        "unitId": 15,
+        "page": 50,
+        "title": "Latihan 9: Preferensi dan Minat Pribadi",
+        "instruction": "Pilihlah kalimat yang paling tepat secara gramatikal untuk mengungkapkan kesukaan dan rencana.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Ungkapan yang benar untuk hobi berenang:",
+            "options": [
+              "I enjoy swimming in the sea during summer.",
+              "I enjoy to swim in the sea.",
+              "I enjoy swim in the sea."
+            ],
+            "answer": "I enjoy swimming in the sea during summer.",
+            "hint": "'enjoy' membutuhkan bentuk -ing.",
+            "explanation": "'enjoy' diikuti gerund: 'enjoy swimming'."
+          },
+          {
+            "q": "2. Ungkapan yang benar untuk rencana belajar ke luar negeri:",
+            "options": [
+              "I plan to study abroad next year.",
+              "I plan studying abroad next year.",
+              "I plan study abroad next year."
+            ],
+            "answer": "I plan to study abroad next year.",
+            "hint": "'plan' berpasangan dengan to-infinitive.",
+            "explanation": "'plan' diikuti to-infinitive: 'plan to study'."
+          }
+        ]
+      },
+      {
+        "id": "u15_ex10",
+        "unitId": 15,
+        "page": 50,
+        "title": "Latihan 10: Mengoreksi Kesalahan Gerund dan Infinitive",
+        "instruction": "Pilihlah kalimat pembetulan yang benar dari kesalahan tata bahasa berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Salah: 'I enjoy to play football with my friends.' &rarr; Benar: [BLANK]",
+            "options": [
+              "I enjoy playing football with my friends.",
+              "I enjoy play football with my friends.",
+              "I enjoy played football with my friends."
+            ],
+            "answer": "I enjoy playing football with my friends.",
+            "hint": "Enjoy + V-ing.",
+            "explanation": "Setelah kata kerja 'enjoy' harus menggunakan gerund: 'playing'."
+          },
+          {
+            "q": "2. Salah: 'She decided studying French next term.' &rarr; Benar: [BLANK]",
+            "options": [
+              "She decided to study French next term.",
+              "She decided study French next term.",
+              "She decided for study French next term."
+            ],
+            "answer": "She decided to study French next term.",
+            "hint": "Decide + to-infinitive.",
+            "explanation": "Setelah 'decide' harus memakai to-infinitive: 'to study'."
+          },
+          {
+            "q": "3. Salah: 'We avoided to make noise in the library.' &rarr; Benar: [BLANK]",
+            "options": [
+              "We avoided making noise in the library.",
+              "We avoided make noise in the library.",
+              "We avoided of making noise in the library."
+            ],
+            "answer": "We avoided making noise in the library.",
+            "hint": "Avoid + V-ing.",
+            "explanation": "'avoid' selalu diikuti gerund: 'making'."
           }
         ]
       }
@@ -8340,45 +10998,57 @@ const GRAMMAR_UNITS = [
         "id": "u16_ex1",
         "unitId": 16,
         "page": 51,
-        "title": "Latihan 1: Prediksi Masa Depan dengan will / won't",
-        "instruction": "Pilihlah bentuk will atau won't yang tepat untuk melengkapi ramalan masa depan.",
+        "title": "Latihan 1: Zero Conditional (Kebenaran Ilmiah & Fakta Umum)",
+        "instruction": "Pasangkan klausa kondisi (If-clause) dengan fakta umum/ilmiah yang dihasilkan (Zero Conditional: If + Present Simple, Present Simple).",
         "type": "choice",
         "questions": [
           {
-            "q": "1. I think scientists [BLANK] discover a cure for cancer in the future.",
+            "q": "1. If you heat water to 100 degrees Celsius, &rarr; [BLANK]",
             "options": [
-              "will",
-              "won't",
-              "is going",
-              "shall not"
+              "it boils.",
+              "it freezes.",
+              "it will evaporate yesterday.",
+              "it became ice."
             ],
-            "answer": "will",
-            "hint": "Prediksi positif masa depan",
-            "explanation": "Gunakan 'will' setelah opini atau keyakinan masa depan ('I think...')."
+            "answer": "it boils.",
+            "hint": "Air pada suhu 100°C mendidih.",
+            "explanation": "Fakta ilmiah: If you heat water to 100°C, it boils."
           },
           {
-            "q": "2. Don't worry about the math test. I'm sure you [BLANK] fail.",
+            "q": "2. If you freeze water, &rarr; [BLANK]",
             "options": [
-              "won't",
-              "will",
-              "are not",
-              "shall"
+              "it turns into ice.",
+              "it gets very hot.",
+              "it boils.",
+              "it disappears."
             ],
-            "answer": "won't",
-            "hint": "Menenangkan seseorang agar tidak gagal",
-            "explanation": "'won't' (will not) digunakan untuk menyatakan keyakinan bahwa sesuatu tidak akan terjadi."
+            "answer": "it turns into ice.",
+            "hint": "Air membeku menjadi es.",
+            "explanation": "If you freeze water, it turns into ice."
           },
           {
-            "q": "3. In fifty years, people [BLANK] probably drive flying electric cars.",
+            "q": "3. If people don't eat or drink, &rarr; [BLANK]",
             "options": [
-              "will",
-              "won't",
-              "are",
-              "do"
+              "they die.",
+              "they get stronger.",
+              "they feel energetic.",
+              "they sleep forever."
             ],
-            "answer": "will",
-            "hint": "Kemungkinan masa depan (probably)",
-            "explanation": "Prediksi dengan kata 'probably' memakai 'will'."
+            "answer": "they die.",
+            "hint": "Kebutuhan dasar manusia.",
+            "explanation": "If people don't eat or drink, they die."
+          },
+          {
+            "q": "4. If you mix yellow and blue, &rarr; [BLANK]",
+            "options": [
+              "you get green.",
+              "you get red.",
+              "you get purple.",
+              "you get black."
+            ],
+            "answer": "you get green.",
+            "hint": "Pencampuran warna kuning dan biru.",
+            "explanation": "Kuning + biru = hijau: you get green."
           }
         ]
       },
@@ -8386,38 +11056,197 @@ const GRAMMAR_UNITS = [
         "id": "u16_ex2",
         "unitId": 16,
         "page": 52,
-        "title": "Latihan 2: Keputusan Spontan & Janji dengan will ('ll)",
-        "instruction": "Ketik 'll atau will beserta kata kerja dasar untuk merespon situasi secara spontan.",
+        "title": "Latihan 2: First Conditional (Kemungkinan di Masa Depan)",
+        "instruction": "Lengkapi kalimat First Conditional menggunakan pola: If + Present Simple, will + Infinitive.",
         "type": "fill",
         "questions": [
           {
-            "q": "1. A: The phone is ringing. B: Don't get up. I [BLANK] (answer) it.",
-            "answer": "'ll answer",
+            "q": "1. If it [BLANK] (rain) tomorrow, we will cancel the picnic.",
+            "answer": "rains",
             "alternateAnswers": [
-              "will answer",
-              "I'll answer"
+              "Rains"
             ],
-            "hint": "Keputusan spontan saat berbicara: I'll answer",
-            "explanation": "Gunakan 'will / 'll' untuk keputusan yang dibuat secara spontan pada saat berbicara."
+            "hint": "Subjek it memakai kata kerja bentuk -s.",
+            "explanation": "If-clause menggunakan Present Simple: 'rains'."
           },
           {
-            "q": "2. A: This suitcase is so heavy! B: Wait, I [BLANK] (help) you carry it.",
-            "answer": "'ll help",
+            "q": "2. If you study hard, you [BLANK] (pass) the examination.",
+            "answer": "will pass",
             "alternateAnswers": [
-              "will help",
-              "I'll help"
+              "'ll pass",
+              "Will pass"
             ],
-            "hint": "Tawaran bantuan spontan",
-            "explanation": "Menawarkan bantuan secara spontan: 'I'll help you'."
+            "hint": "Main clause menggunakan will + V1.",
+            "explanation": "Main clause: 'will pass'."
           },
           {
-            "q": "3. I promise I [BLANK] (not tell) anyone your secret.",
-            "answer": "won't tell",
+            "q": "3. She will be late if she [BLANK] (not hurry) up.",
+            "answer": "doesn't hurry",
             "alternateAnswers": [
-              "will not tell"
+              "does not hurry",
+              "Doesn't hurry"
             ],
-            "hint": "Janji bentuk negatif: won't tell",
-            "explanation": "Membuat janji negatif memakai 'won't tell'."
+            "hint": "Subjek she dalam bentuk Present Simple negatif.",
+            "explanation": "If-clause: 'doesn't hurry'."
+          },
+          {
+            "q": "4. If we [BLANK] (miss) the 8:00 train, we will take the next one.",
+            "answer": "miss",
+            "alternateAnswers": [
+              "Miss"
+            ],
+            "hint": "Subjek we memakai bentuk dasar kata kerja.",
+            "explanation": "If-clause: 'miss'."
+          },
+          {
+            "q": "5. What [BLANK] (you / do) if you don't find your keys?",
+            "answer": "will you do",
+            "alternateAnswers": [
+              "Will you do"
+            ],
+            "hint": "Kalimat tanya: will + subjek + do.",
+            "explanation": "Bentuk tanya: 'will you do'."
+          }
+        ]
+      },
+      {
+        "id": "u16_ex3",
+        "unitId": 16,
+        "page": 52,
+        "title": "Latihan 3: Memilih if atau unless",
+        "instruction": "Pilihlah antara 'if' (jika) atau 'unless' (jika tidak / kecuali jika).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. You won't pass the exam [BLANK] you study hard.",
+            "options": [
+              "unless",
+              "if"
+            ],
+            "answer": "unless",
+            "hint": "Unless you study = If you don't study.",
+            "explanation": "'unless' berarti 'kecuali jika' / 'jika tidak'."
+          },
+          {
+            "q": "2. We will go swimming tomorrow [BLANK] the weather is warm.",
+            "options": [
+              "if",
+              "unless"
+            ],
+            "answer": "if",
+            "hint": "Syarat positif: jika cuacanya hangat.",
+            "explanation": "Kondisi positif menggunakan 'if'."
+          },
+          {
+            "q": "3. He will be angry [BLANK] you don't tell him the truth.",
+            "options": [
+              "if",
+              "unless"
+            ],
+            "answer": "if",
+            "hint": "Sudah ada kata don't di dalam klausa.",
+            "explanation": "Karena sudah ada 'don't tell', gunakan 'if'."
+          },
+          {
+            "q": "4. We will be late [BLANK] we leave right now.",
+            "options": [
+              "unless",
+              "if"
+            ],
+            "answer": "unless",
+            "hint": "Kecuali jika kita berangkat sekarang.",
+            "explanation": "'unless we leave right now' = jika kita tidak segera berangkat."
+          }
+        ]
+      },
+      {
+        "id": "u16_ex4",
+        "unitId": 16,
+        "page": 53,
+        "title": "Latihan 4: Menyusun Kata Acak Menjadi Kalimat Pengandaian",
+        "instruction": "Susun kata-kata yang diacak menjadi kalimat First Conditional yang tepat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. rains / stay / it / we / if / will / home",
+            "answer": "If it rains we will stay home.",
+            "alternateAnswers": [
+              "if it rains we will stay home.",
+              "If it rains, we will stay home.",
+              "We will stay home if it rains."
+            ],
+            "hint": "Mulai dengan 'If it rains...'",
+            "explanation": "If it rains, we will stay home."
+          },
+          {
+            "q": "2. call / will / arrive / I / you / I / when",
+            "answer": "I will call you when I arrive.",
+            "alternateAnswers": [
+              "i will call you when i arrive.",
+              "When I arrive I will call you.",
+              "When I arrive, I will call you."
+            ],
+            "hint": "Mulai dengan 'I will call you...'",
+            "explanation": "I will call you when I arrive."
+          },
+          {
+            "q": "3. you / feel / better / take / will / medicine / you / if / this",
+            "answer": "If you take this medicine you will feel better.",
+            "alternateAnswers": [
+              "if you take this medicine you will feel better.",
+              "If you take this medicine, you will feel better.",
+              "You will feel better if you take this medicine."
+            ],
+            "hint": "Mulai dengan 'If you take this medicine...'",
+            "explanation": "If you take this medicine, you will feel better."
+          }
+        ]
+      },
+      {
+        "id": "u16_ex5",
+        "unitId": 16,
+        "page": 53,
+        "title": "Latihan 5: Melengkapi Dialog First Conditional",
+        "instruction": "Lengkapi kalimat dialog tentang rencana liburan dengan bentuk First Conditional yang tepat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Amy: What will happen if the flight [BLANK] (be) delayed?",
+            "answer": "is",
+            "alternateAnswers": [
+              "Is"
+            ],
+            "hint": "Present Simple dari be untuk the flight.",
+            "explanation": "If the flight is delayed."
+          },
+          {
+            "q": "2. Ben: If it's delayed, we [BLANK] (wait) in the departure lounge.",
+            "answer": "will wait",
+            "alternateAnswers": [
+              "'ll wait",
+              "Will wait"
+            ],
+            "hint": "will + wait.",
+            "explanation": "We will wait in the lounge."
+          },
+          {
+            "q": "3. Amy: And if we arrive late, [BLANK] (the hotel / keep) our room?",
+            "answer": "will the hotel keep",
+            "alternateAnswers": [
+              "Will the hotel keep"
+            ],
+            "hint": "will + subjek + keep.",
+            "explanation": "Will the hotel keep our room?"
+          },
+          {
+            "q": "4. Ben: Yes, don't worry. I [BLANK] (call) them if there are any changes.",
+            "answer": "will call",
+            "alternateAnswers": [
+              "'ll call",
+              "Will call"
+            ],
+            "hint": "will + call.",
+            "explanation": "I will call them."
           }
         ]
       }
@@ -8462,86 +11291,437 @@ const GRAMMAR_UNITS = [
         "id": "u17_ex1",
         "unitId": 17,
         "page": 54,
-        "title": "Latihan 1: First Conditional (If + Present Simple, will + V1)",
-        "instruction": "Lengkapi kalimat pengandaian nyata kemungkinan masa depan (First Conditional).",
+        "title": "Latihan 1: Klausa Waktu (Time Clauses with when, as soon as, before, after)",
+        "instruction": "Ingat aturan penting: Klausa waktu (setelah when, as soon as, before, after) SELALU menggunakan Present Simple, sedangkan klausa utama menggunakan will + V1.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. I will call you as soon as I [BLANK] at the airport.",
+            "options": [
+              "arrive",
+              "will arrive",
+              "arrived",
+              "am arriving"
+            ],
+            "answer": "arrive",
+            "hint": "Setelah 'as soon as' gunakan Present Simple.",
+            "explanation": "Klausa waktu menggunakan Present Simple: 'arrive'."
+          },
+          {
+            "q": "2. Before she goes to bed, she [BLANK] the doors.",
+            "options": [
+              "will lock",
+              "locks",
+              "locked",
+              "is locking"
+            ],
+            "answer": "will lock",
+            "hint": "Klausa utama menggunakan will + V1.",
+            "explanation": "Klausa utama aksi masa depan menggunakan 'will lock'."
+          },
+          {
+            "q": "3. We will have dinner after dad [BLANK] home from work.",
+            "options": [
+              "comes",
+              "will come",
+              "came",
+              "is coming"
+            ],
+            "answer": "comes",
+            "hint": "Setelah kata sambung waktu 'after', gunakan Present Simple.",
+            "explanation": "After dad comes home (Present Simple)."
+          },
+          {
+            "q": "4. When I [BLANK] time, I will help you with your project.",
+            "options": [
+              "have",
+              "will have",
+              "had",
+              "am having"
+            ],
+            "answer": "have",
+            "hint": "Klausa 'when' menggunakan Present Simple.",
+            "explanation": "When I have time (Present Simple)."
+          }
+        ]
+      },
+      {
+        "id": "u17_ex2",
+        "unitId": 17,
+        "page": 54,
+        "title": "Latihan 2: Melengkapi dengan will atau Present Simple",
+        "instruction": "Lengkapi kalimat dengan bentuk kata kerja yang tepat (will + V1 pada klausa utama atau Present Simple pada time clause).",
         "type": "fill",
         "questions": [
           {
-            "q": "1. If it rains tomorrow, we [BLANK] (cancel) the outdoor barbecue.",
-            "answer": "will cancel",
+            "q": "1. As soon as the rain stops, we [BLANK] (go) for a walk.",
+            "answer": "will go",
             "alternateAnswers": [
-              "'ll cancel"
+              "'ll go",
+              "Will go"
             ],
-            "hint": "Klausa hasil: will + V1",
-            "explanation": "Pola First Conditional: If + Present Simple, will + Verb 1."
+            "hint": "Klausa utama: will + go.",
+            "explanation": "Main clause: we will go for a walk."
           },
           {
-            "q": "2. If you [BLANK] (study) hard, you will pass your final exams easily.",
-            "answer": "study",
-            "hint": "Klausa syarat: Present Simple",
-            "explanation": "Setelah 'if' gunakan bentuk Present Simple ('study')."
+            "q": "2. I will send you an email when I [BLANK] (receive) the results.",
+            "answer": "receive",
+            "alternateAnswers": [
+              "Receive"
+            ],
+            "hint": "Time clause (when I): Present Simple.",
+            "explanation": "Time clause: when I receive."
           },
           {
-            "q": "3. She will miss the early train if she [BLANK] (not hurry).",
-            "answer": "doesn't hurry",
+            "q": "3. Wash your hands before you [BLANK] (eat) your lunch.",
+            "answer": "eat",
             "alternateAnswers": [
-              "does not hurry"
+              "Eat"
             ],
-            "hint": "Present Simple negatif untuk subjek she: doesn't hurry",
-            "explanation": "Subjek 'she' menggunakan 'doesn't hurry' dalam klausa if."
+            "hint": "Before you: Present Simple.",
+            "explanation": "Before you eat."
           },
           {
-            "q": "4. If we don't protect the rainforests, many wild animals [BLANK] (lose) their habitats.",
-            "answer": "will lose",
+            "q": "4. He [BLANK] (buy) a new computer when he gets his salary.",
+            "answer": "will buy",
             "alternateAnswers": [
-              "'ll lose"
+              "'ll buy",
+              "Will buy"
             ],
-            "hint": "will + lose",
-            "explanation": "Konsekuensi masa depan memakai 'will lose'."
+            "hint": "Klausa utama: will + buy.",
+            "explanation": "Main clause: he will buy."
+          }
+        ]
+      },
+      {
+        "id": "u17_ex3",
+        "unitId": 17,
+        "page": 55,
+        "title": "Latihan 3: Menjodohkan Klausa Pengandaian dan Waktu",
+        "instruction": "Pasangkan klausa awal (1-4) dengan klausa kelanjutan yang logis (a-d).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. If you don't wear a warm coat, &rarr; [BLANK]",
+            "options": [
+              "you will catch a cold.",
+              "I will wash the dishes.",
+              "as soon as the movie ends.",
+              "before the train leaves."
+            ],
+            "answer": "you will catch a cold.",
+            "hint": "Tidak pakai mantel hangat &rarr; masuk angin.",
+            "explanation": "If you don't wear a warm coat, you will catch a cold."
+          },
+          {
+            "q": "2. After we finish dinner, &rarr; [BLANK]",
+            "options": [
+              "I will wash the dishes.",
+              "you will catch a cold.",
+              "it boils.",
+              "if it rains tomorrow."
+            ],
+            "answer": "I will wash the dishes.",
+            "hint": "Selesai makan malam &rarr; mencuci piring.",
+            "explanation": "After we finish dinner, I will wash the dishes."
+          },
+          {
+            "q": "3. We must hurry to the platform &rarr; [BLANK]",
+            "options": [
+              "before the train leaves.",
+              "unless you study hard.",
+              "after he will arrive.",
+              "when it boiled."
+            ],
+            "answer": "before the train leaves.",
+            "hint": "Cepat-cepat ke peron sebelum kereta berangkat.",
+            "explanation": "Before the train leaves."
+          },
+          {
+            "q": "4. I will turn off the television &rarr; [BLANK]",
+            "options": [
+              "as soon as this programme finishes.",
+              "unless you are happy.",
+              "if he bought new shoes.",
+              "when I was tired."
+            ],
+            "answer": "as soon as this programme finishes.",
+            "hint": "Matikan TV setelah acara selesai.",
+            "explanation": "As soon as this programme finishes."
           }
         ]
       },
       {
         "id": "u17_ex4",
         "unitId": 17,
-        "page": 56,
-        "title": "Latihan 4: Kalimat Kondisional Pertama (Audio TR 23)",
-        "instruction": "Dengarkan rekaman klausa pada audio TR 23, lalu pasangkan dengan kelanjutan kalimat yang tepat.",
+        "page": 55,
+        "title": "Latihan 4: First Conditional Clauses (Audio TR 23)",
+        "instruction": "Dengarkan audio TR 23 yang memuat awal klausa pengandaian (1-6) dan pilihlah kelanjutan klausa yang paling tepat dan logis.",
         "type": "choice",
         "audioTrack": "TR 23",
         "questions": [
           {
-            "q": "1. Audio: 'If he has to work late...' &rarr; Kelanjutan yang tepat:",
+            "q": "1. Audio: 'If he has to work late...' &rarr; [BLANK]",
             "options": [
-              "he'll call her tomorrow.",
-              "we'll have a picnic in the park.",
-              "I'll wear a warm sweater."
+              "he won't be able to join us for dinner.",
+              "he bought a new car yesterday.",
+              "he would fly to Paris.",
+              "he goes to sleep immediately."
             ],
-            "answer": "he'll call her tomorrow.",
-            "hint": "Hubungan kerja lembur dengan menelepon",
-            "explanation": "Audio TR 23: 'If he has to work late, he'll call her tomorrow.'"
+            "answer": "he won't be able to join us for dinner.",
+            "hint": "Jika harus kerja lembur, dia tidak bisa ikut makan malam.",
+            "explanation": "Audio TR 23 nomor 1: 'If he has to work late... he won't be able to join us for dinner.'"
           },
           {
-            "q": "2. Audio: 'If it's a nice day tomorrow...' &rarr; Kelanjutan yang tepat:",
+            "q": "2. Audio: 'If it's a nice day tomorrow...' &rarr; [BLANK]",
             "options": [
-              "we'll have a picnic.",
-              "I'll wear a sweater.",
-              "he'll fail his test."
+              "we'll go to the beach for a swim.",
+              "we stayed at home all day.",
+              "it would be very cold.",
+              "we don't like it."
             ],
-            "answer": "we'll have a picnic.",
-            "hint": "Cuaca cerah cocok untuk piknik",
-            "explanation": "Audio TR 23: 'If it's a nice day tomorrow, we'll have a picnic.'"
+            "answer": "we'll go to the beach for a swim.",
+            "hint": "Jika besok hari cerah, kita pergi ke pantai.",
+            "explanation": "Audio TR 23 nomor 2: 'If it's a nice day tomorrow... we'll go to the beach.'"
           },
           {
-            "q": "3. Audio: 'If you don't eat properly...' &rarr; Kelanjutan yang tepat:",
+            "q": "3. Audio: 'If you don't eat properly...' &rarr; [BLANK]",
             "options": [
-              "you will get sick.",
-              "I'll buy her a present.",
-              "we won't have a picnic."
+              "you'll feel tired and get sick.",
+              "you ate all the food.",
+              "you would be strong.",
+              "you are a chef."
             ],
-            "answer": "you will get sick.",
-            "hint": "Tidak makan dengan benar menyebabkan jatuh sakit",
-            "explanation": "Kondisi tidak makan sehat mengakibatkan jatuh sakit."
+            "answer": "you'll feel tired and get sick.",
+            "hint": "Jika tidak makan dengan baik, badan akan lemas/sakit.",
+            "explanation": "Audio TR 23 nomor 3: 'If you don't eat properly... you'll feel tired and get sick.'"
+          },
+          {
+            "q": "4. Audio: 'I'll wear a sweater...' &rarr; [BLANK]",
+            "options": [
+              "if the weather gets chilly tonight.",
+              "when I bought it last week.",
+              "unless it was hot.",
+              "if I had more money."
+            ],
+            "answer": "if the weather gets chilly tonight.",
+            "hint": "Pakai sweater jika cuaca dingin nanti malam.",
+            "explanation": "Audio TR 23 nomor 4: 'I'll wear a sweater... if the weather gets chilly.'"
+          },
+          {
+            "q": "5. Audio: 'We'll have a picnic...' &rarr; [BLANK]",
+            "options": [
+              "if it doesn't rain on Saturday.",
+              "because we ate yesterday.",
+              "if we would like it.",
+              "unless it is sunny."
+            ],
+            "answer": "if it doesn't rain on Saturday.",
+            "hint": "Piknik jika tidak turun hujan.",
+            "explanation": "Audio TR 23 nomor 5: 'We'll have a picnic... if it doesn't rain.'"
+          },
+          {
+            "q": "6. Audio: 'If you're finished with that book...' &rarr; [BLANK]",
+            "options": [
+              "can I please borrow it?",
+              "I bought it yesterday.",
+              "you would read it again.",
+              "it was very boring."
+            ],
+            "answer": "can I please borrow it?",
+            "hint": "Jika sudah selesai membaca buku, bolehkah dipinjam?",
+            "explanation": "Audio TR 23 nomor 6: 'If you're finished with that book... can I please borrow it?'"
+          }
+        ]
+      },
+      {
+        "id": "u17_ex5",
+        "unitId": 17,
+        "page": 55,
+        "title": "Latihan 5: Menulis Ulang Kalimat Menggunakan unless",
+        "instruction": "Tulis ulang kalimat pengandaian negatif berikut menggunakan 'unless' (Ingat: unless = if not).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. If you don't leave now, you will miss the train. &rarr; [BLANK], you will miss the train.",
+            "answer": "Unless you leave now",
+            "alternateAnswers": [
+              "unless you leave now"
+            ],
+            "hint": "Ganti 'If you don't leave now' menjadi 'Unless you leave now'.",
+            "explanation": "Unless you leave now, you will miss the train."
+          },
+          {
+            "q": "2. If he doesn't apologise, I won't speak to him. &rarr; [BLANK], I won't speak to him.",
+            "answer": "Unless he apologises",
+            "alternateAnswers": [
+              "Unless he apologizes",
+              "unless he apologises",
+              "unless he apologizes"
+            ],
+            "hint": "Gunakan kata kerja 'apologises' setelah he.",
+            "explanation": "Unless he apologises, I won't speak to him."
+          },
+          {
+            "q": "3. We won't go on a picnic if it isn't sunny. &rarr; We won't go on a picnic [BLANK].",
+            "answer": "unless it is sunny",
+            "alternateAnswers": [
+              "unless it's sunny"
+            ],
+            "hint": "Ganti 'if it isn't sunny' menjadi 'unless it is sunny'.",
+            "explanation": "We won't go on a picnic unless it is sunny."
+          }
+        ]
+      },
+      {
+        "id": "u17_ex6",
+        "unitId": 17,
+        "page": 56,
+        "title": "Latihan 6: Melengkapi dengan as soon as, until, unless, atau when",
+        "instruction": "Pilih kata sambung waktu atau pengandaian yang tepat: as soon as (segera setelah), until (sampai), unless (kecuali jika), when (ketika).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Please wait here [BLANK] the doctor is ready to see you.",
+            "options": [
+              "until",
+              "unless",
+              "as soon as",
+              "when"
+            ],
+            "answer": "until",
+            "hint": "Menunggu sampai dokter siap.",
+            "explanation": "'until' = sampai titik waktu tertentu tercapai."
+          },
+          {
+            "q": "2. I will send you a text message [BLANK] the plane lands.",
+            "options": [
+              "as soon as",
+              "until",
+              "unless",
+              "before"
+            ],
+            "answer": "as soon as",
+            "hint": "Segera setelah pesawat mendarat.",
+            "explanation": "'as soon as' = sesegera mungkin setelah kejadian."
+          },
+          {
+            "q": "3. You cannot drive a car [BLANK] you have a valid driving licence.",
+            "options": [
+              "unless",
+              "until",
+              "as soon as",
+              "when"
+            ],
+            "answer": "unless",
+            "hint": "Kecuali jika Anda memiliki SIM.",
+            "explanation": "'unless' = jika tidak memiliki SIM."
+          },
+          {
+            "q": "4. What will you do [BLANK] you finish high school?",
+            "options": [
+              "when",
+              "unless",
+              "until",
+              "as soon"
+            ],
+            "answer": "when",
+            "hint": "Ketika Anda lulus nanti.",
+            "explanation": "'when' = pada saat waktunya tiba."
+          }
+        ]
+      },
+      {
+        "id": "u17_ex7",
+        "unitId": 17,
+        "page": 56,
+        "title": "Latihan 7: Bentuk Kata Kerja yang Benar dalam Time Clauses",
+        "instruction": "Pilihlah bentuk kata kerja yang benar pada time clause.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. We will leave as soon as Jack [BLANK] his keys.",
+            "options": [
+              "finds",
+              "will find",
+              "found",
+              "is finding"
+            ],
+            "answer": "finds",
+            "hint": "Klausa 'as soon as' membutuhkan Present Simple.",
+            "explanation": "Jack tunggal &rarr; 'finds'."
+          },
+          {
+            "q": "2. I'll pay you back when I [BLANK] paid on Friday.",
+            "options": [
+              "get",
+              "will get",
+              "got",
+              "am getting"
+            ],
+            "answer": "get",
+            "hint": "Klausa 'when' membutuhkan Present Simple.",
+            "explanation": "When I get paid."
+          },
+          {
+            "q": "3. She will stay at home until she [BLANK] completely better.",
+            "options": [
+              "feels",
+              "will feel",
+              "felt",
+              "is feeling"
+            ],
+            "answer": "feels",
+            "hint": "Klausa 'until' menggunakan Present Simple.",
+            "explanation": "Until she feels better."
+          }
+        ]
+      },
+      {
+        "id": "u17_ex8",
+        "unitId": 17,
+        "page": 56,
+        "title": "Latihan 8: Melengkapi Dialog Rencana Liburan",
+        "instruction": "Lengkapi dialog rencana bepergian berikut dengan bentuk kata kerja yang tepat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Lisa: What time will we leave for the airport? Sam: We will leave as soon as the taxi [BLANK] (arrive).",
+            "answer": "arrives",
+            "alternateAnswers": [
+              "Arrives"
+            ],
+            "hint": "Present Simple untuk the taxi.",
+            "explanation": "As soon as the taxi arrives."
+          },
+          {
+            "q": "2. Lisa: And what if there [BLANK] (be) heavy traffic on the road?",
+            "answer": "is",
+            "alternateAnswers": [
+              "Is"
+            ],
+            "hint": "Present Simple dari be untuk traffic (uncountable).",
+            "explanation": "What if there is heavy traffic?"
+          },
+          {
+            "q": "3. Sam: If there is heavy traffic, the driver [BLANK] (take) the ring road instead.",
+            "answer": "will take",
+            "alternateAnswers": [
+              "'ll take",
+              "Will take"
+            ],
+            "hint": "Main clause: will + take.",
+            "explanation": "The driver will take the ring road."
+          },
+          {
+            "q": "4. Lisa: Great! I [BLANK] (call) mum as soon as we check into the hotel.",
+            "answer": "will call",
+            "alternateAnswers": [
+              "'ll call",
+              "Will call"
+            ],
+            "hint": "Main clause: will + call.",
+            "explanation": "I will call mum as soon as we check into the hotel."
           }
         ]
       }
@@ -8586,83 +11766,509 @@ const GRAMMAR_UNITS = [
         "id": "u18_ex1",
         "unitId": 18,
         "page": 57,
-        "title": "Latihan 1: Second Conditional (If + Past Simple, would + V1)",
-        "instruction": "Lengkapi kalimat pengandaian imajiner / tidak nyata saat ini (Second Conditional).",
+        "title": "Latihan 1: Bentuk Pengandaian Tipe 2 (Second Conditional Structure)",
+        "instruction": "Pahami rumus Second Conditional untuk situasi imajinatif/tidak nyata: If + Past Simple (V2 / were), would + Infinitive (V1). Tentukan bentuk kata kerja yang benar.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. If I [BLANK] rich, I would travel around the world.",
+            "options": [
+              "were",
+              "will be",
+              "am",
+              "have been"
+            ],
+            "answer": "were",
+            "hint": "Dalam bahasa formal/standar, gunakan 'were' untuk semua subjek dalam Second Conditional.",
+            "explanation": "Second conditional if-clause menggunakan bentuk lampau: 'were' (atau was)."
+          },
+          {
+            "q": "2. What would you do if you [BLANK] a million dollars?",
+            "options": [
+              "won",
+              "win",
+              "will win",
+              "would win"
+            ],
+            "answer": "won",
+            "hint": "If-clause menggunakan bentuk Past Simple dari win.",
+            "explanation": "If you won a million dollars."
+          },
+          {
+            "q": "3. If she had more free time, she [BLANK] a new language.",
+            "options": [
+              "would learn",
+              "will learn",
+              "learnt",
+              "learns"
+            ],
+            "answer": "would learn",
+            "hint": "Main clause menggunakan would + V1.",
+            "explanation": "Main clause: would learn."
+          },
+          {
+            "q": "4. We [BLANK] that house if it wasn't so expensive.",
+            "options": [
+              "would buy",
+              "bought",
+              "will buy",
+              "buy"
+            ],
+            "answer": "would buy",
+            "hint": "Main clause: would + buy.",
+            "explanation": "Main clause: we would buy."
+          }
+        ]
+      },
+      {
+        "id": "u18_ex2",
+        "unitId": 18,
+        "page": 58,
+        "title": "Latihan 2: Melengkapi Kalimat Second Conditional",
+        "instruction": "Lengkapi kalimat dengan bentuk Past Simple (pada if-clause) atau would + V1 (pada main clause) dari kata kerja dalam kurung.",
         "type": "fill",
         "questions": [
           {
-            "q": "1. If I won a million dollars, I [BLANK] (travel) around the entire world.",
-            "answer": "would travel",
+            "q": "1. If I had a car, I [BLANK] (drive) to work every day.",
+            "answer": "would drive",
             "alternateAnswers": [
-              "'d travel"
+              "'d drive",
+              "Would drive"
             ],
-            "hint": "would + V1",
-            "explanation": "Pola Second Conditional: If + Past Simple, would + Verb 1."
+            "hint": "would + drive.",
+            "explanation": "Main clause: would drive."
           },
           {
-            "q": "2. If she [BLANK] (have) more free time, she would learn how to paint.",
-            "answer": "had",
-            "hint": "Past simple dari have",
-            "explanation": "Klausa if menggunakan kata kerja bentuk lampau (had)."
-          },
-          {
-            "q": "3. If I [BLANK] (be) you, I would consult a professional doctor immediately.",
-            "answer": "were",
+            "q": "2. If she [BLANK] (know) his number, she would call him.",
+            "answer": "knew",
             "alternateAnswers": [
-              "was"
+              "Knew"
             ],
-            "hint": "If I were you (ungkapan saran)",
-            "explanation": "Dalam Second Conditional formal, bentuk to be untuk semua subjek adalah 'were' (If I were you...)."
+            "hint": "Past Simple dari know adalah knew.",
+            "explanation": "If-clause: knew."
           },
           {
-            "q": "4. What [BLANK] you do if you saw a ghost in an old castle?",
-            "answer": "would",
-            "hint": "Kata bantu pengandaian: would",
-            "explanation": "Kalimat tanya Second Conditional: What would you do if...?"
+            "q": "3. They would be very happy if they [BLANK] (win) the championship.",
+            "answer": "won",
+            "alternateAnswers": [
+              "Won"
+            ],
+            "hint": "Past Simple dari win adalah won.",
+            "explanation": "If-clause: won."
+          },
+          {
+            "q": "4. If we lived by the sea, we [BLANK] (go) swimming every morning.",
+            "answer": "would go",
+            "alternateAnswers": [
+              "'d go",
+              "Would go"
+            ],
+            "hint": "would + go.",
+            "explanation": "Main clause: would go."
+          },
+          {
+            "q": "5. What [BLANK] (you / do) if you saw a ghost?",
+            "answer": "would you do",
+            "alternateAnswers": [
+              "Would you do"
+            ],
+            "hint": "would + subjek + do.",
+            "explanation": "Bentuk tanya: would you do."
+          }
+        ]
+      },
+      {
+        "id": "u18_ex3",
+        "unitId": 18,
+        "page": 58,
+        "title": "Latihan 3: Menjodohkan Klausa If dan Klausa Utama",
+        "instruction": "Pasangkan if-clause (1-4) dengan kelanjutan klausa utama yang sesuai (a-d).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. If I met an alien from outer space, &rarr; [BLANK]",
+            "options": [
+              "I would take a photograph with it.",
+              "I would buy a big mansion.",
+              "I will call the police.",
+              "I would lend you some money."
+            ],
+            "answer": "I would take a photograph with it.",
+            "hint": "Bertemu alien &rarr; berfoto bersama.",
+            "explanation": "If I met an alien, I would take a photograph with it."
+          },
+          {
+            "q": "2. If I had lots of spare cash right now, &rarr; [BLANK]",
+            "options": [
+              "I would buy a new gaming laptop.",
+              "I was happy.",
+              "I will drink water.",
+              "I would fly to space yesterday."
+            ],
+            "answer": "I would buy a new gaming laptop.",
+            "hint": "Punya uang tunai lebih &rarr; beli laptop gaming.",
+            "explanation": "If I had lots of spare cash, I would buy a new gaming laptop."
+          },
+          {
+            "q": "3. If you asked him nicely, &rarr; [BLANK]",
+            "options": [
+              "he would probably help you with the bags.",
+              "he will be angry.",
+              "he helped you.",
+              "he wouldn't know."
+            ],
+            "answer": "he would probably help you with the bags.",
+            "hint": "Meminta tolong dengan sopan &rarr; dia mau membantu.",
+            "explanation": "If you asked him nicely, he would probably help you."
+          },
+          {
+            "q": "4. If we didn't have school tomorrow, &rarr; [BLANK]",
+            "options": [
+              "we would sleep until midday.",
+              "we will attend class.",
+              "we go to bed early.",
+              "we studied maths."
+            ],
+            "answer": "we would sleep until midday.",
+            "hint": "Besok libur sekolah &rarr; tidur sampai siang.",
+            "explanation": "If we didn't have school tomorrow, we would sleep until midday."
           }
         ]
       },
       {
         "id": "u18_ex4",
         "unitId": 18,
-        "page": 59,
-        "title": "Latihan 4: Percakapan Rencana Menang Lotre Monica & Terry (Audio TR 24)",
-        "instruction": "Dengarkan percakapan pengandaian Monica dan Terry pada audio TR 24, lalu pilih jawaban yang tepat.",
+        "page": 58,
+        "title": "Latihan 4: Rencana Undian Lotre Monica & Terry (Audio TR 24)",
+        "instruction": "Dengarkan percakapan Monica dan Terry mengenai apa yang akan Terry lakukan jika memenangkan lotre pada audio TR 24, lalu jawablah pertanyaan berikut.",
         "type": "choice",
         "audioTrack": "TR 24",
         "questions": [
           {
-            "q": "1. Apa hal pertama yang ingin dibeli Terry jika dia memenangkan lotre?",
+            "q": "1. What is the very first thing Terry would buy if he won the lottery?",
             "options": [
-              "A new car (Mobil baru karena mobil lamanya sering mogok)",
-              "A yacht (Kapal pesiar mewah)",
-              "A private airplane (Pesawat pribadi)"
+              "A new car, because his old car keeps breaking down.",
+              "A diamond ring for Monica.",
+              "A big yacht.",
+              "A helicopter."
             ],
-            "answer": "A new car (Mobil baru karena mobil lamanya sering mogok)",
-            "hint": "First of all I'd buy a new car. Mine is old and it's always breaking down.",
-            "explanation": "Terry ingin membeli mobil baru terlebih dahulu karena mobil tuanya sering rusak."
+            "answer": "A new car, because his old car keeps breaking down.",
+            "hint": "Terry menyebutkan mobil lamanya sering mogok.",
+            "explanation": "Terry: 'First of all I'd buy a new car. Mine is old and it's always breaking down.'"
           },
           {
-            "q": "2. Di manakah lokasi rumah yang ingin dibeli Terry?",
+            "q": "2. Where would Terry love to buy a house?",
             "options": [
-              "A house in the country close to where his parents live",
-              "A penthouse in New York City",
-              "A villa on a tropical beach"
+              "In the country, close to where his parents live.",
+              "In central London.",
+              "In New York City.",
+              "On a tropical private island."
             ],
-            "answer": "A house in the country close to where his parents live",
-            "hint": "a house in the country close to where my parents live",
-            "explanation": "Terry ingin rumah di desa dekat tempat tinggal orang tuanya."
+            "answer": "In the country, close to where his parents live.",
+            "hint": "Terry ingin rumah di desa dekat orang tuanya.",
+            "explanation": "Terry: 'Then I'd really love to buy a house in the country... close to where my parents live.'"
           },
           {
-            "q": "3. Selain membeli barang untuk diri sendiri, apa perbuatan baik yang akan dilakukan Terry dan Monica?",
+            "q": "3. What would Terry do to help others with his money?",
             "options": [
-              "Menyumbangkan banyak uang ke organisasi sosial (donate money to organisations that help the needy).",
-              "Membangun stadion sepak bola baru.",
-              "Membeli pulau terpencil."
+              "He would donate a lot of money to organisations that help the needy.",
+              "He would build a personal amusement park.",
+              "He would keep all the money in a safe.",
+              "He would buy gold bars."
             ],
-            "answer": "Menyumbangkan banyak uang ke organisasi sosial (donate money to organisations that help the needy).",
-            "hint": "donate a lot of money to organisations that help the needy",
-            "explanation": "Keduanya sepakat untuk mendonasikan uang bagi orang-orang yang membutuhkan."
+            "answer": "He would donate a lot of money to organisations that help the needy.",
+            "hint": "Terry ingin menyumbang organisasi amal.",
+            "explanation": "Terry: 'I would also donate a lot of money to organisations that help the needy.'"
+          },
+          {
+            "q": "4. Does Monica agree with donating to charitable causes?",
+            "options": [
+              "Yes, she says if she won she would do the same.",
+              "No, she thinks it's a waste of money.",
+              "She didn't hear what he said.",
+              "She prefers buying jewellery."
+            ],
+            "answer": "Yes, she says if she won she would do the same.",
+            "hint": "Monica setuju itu ide bagus.",
+            "explanation": "Monica: 'That's a good idea. If I won a lot of money I would do the same.'"
+          },
+          {
+            "q": "5. What is the final thing Terry thought of doing for his next holiday?",
+            "options": [
+              "Go to an exotic place and invite Monica too.",
+              "Go camping in his backyard.",
+              "Stay at home alone.",
+              "Go to Antarctica."
+            ],
+            "answer": "Go to an exotic place and invite Monica too.",
+            "hint": "Dengarkan akhir percakapan mereka.",
+            "explanation": "Terry: 'I'd like to go to an exotic place on my next holiday. And I'd invite you too!'"
+          }
+        ]
+      },
+      {
+        "id": "u18_ex5",
+        "unitId": 18,
+        "page": 59,
+        "title": "Latihan 5: First Conditional vs Second Conditional",
+        "instruction": "Pilihlah bentuk kondisional yang tepat: First Conditional (kemungkinan nyata di masa depan) atau Second Conditional (situasi khayalan/mustahil saat ini).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. If I [BLANK] wings, I would fly across the ocean.",
+            "options": [
+              "had",
+              "have",
+              "will have",
+              "would have"
+            ],
+            "answer": "had",
+            "hint": "Manusia punya sayap adalah khayalan (Second Conditional).",
+            "explanation": "Situasi imajinatif &rarr; Second Conditional: 'had'."
+          },
+          {
+            "q": "2. If it [BLANK] tomorrow, we will play tennis in the park.",
+            "options": [
+              "doesn't rain",
+              "didn't rain",
+              "won't rain",
+              "wouldn't rain"
+            ],
+            "answer": "doesn't rain",
+            "hint": "Kemungkinan nyata besok hari &rarr; First Conditional (will play).",
+            "explanation": "First conditional memakai Present Simple: 'doesn't rain'."
+          },
+          {
+            "q": "3. If I were the President, I [BLANK] education free for everyone.",
+            "options": [
+              "would make",
+              "will make",
+              "made",
+              "make"
+            ],
+            "answer": "would make",
+            "hint": "Pengandaian tidak nyata (If I were the President).",
+            "explanation": "Second Conditional main clause: 'would make'."
+          },
+          {
+            "q": "4. If you leave now, you [BLANK] the 9:00 train.",
+            "options": [
+              "will catch",
+              "would catch",
+              "caught",
+              "catch"
+            ],
+            "answer": "will catch",
+            "hint": "Situasi nyata saat ini &rarr; First Conditional.",
+            "explanation": "First Conditional: 'will catch'."
+          }
+        ]
+      },
+      {
+        "id": "u18_ex6",
+        "unitId": 18,
+        "page": 59,
+        "title": "Latihan 6: Memberikan Nasihat dengan 'If I were you, I would...'",
+        "instruction": "Lengkapi kalimat saran menggunakan pola 'If I were you, I would / wouldn't + V1'.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Your friend has a toothache. &rarr; If I were you, I [BLANK] (see) a dentist.",
+            "answer": "would see",
+            "alternateAnswers": [
+              "'d see",
+              "Would see"
+            ],
+            "hint": "would + see.",
+            "explanation": "If I were you, I would see a dentist."
+          },
+          {
+            "q": "2. That jacket looks very cheap. &rarr; If I were you, I [BLANK] (not buy) it.",
+            "answer": "wouldn't buy",
+            "alternateAnswers": [
+              "would not buy",
+              "Wouldn't buy"
+            ],
+            "hint": "wouldn't + buy.",
+            "explanation": "If I were you, I wouldn't buy it."
+          },
+          {
+            "q": "3. You look exhausted. &rarr; If I were you, I [BLANK] (take) a short nap.",
+            "answer": "would take",
+            "alternateAnswers": [
+              "'d take",
+              "Would take"
+            ],
+            "hint": "would + take.",
+            "explanation": "If I were you, I would take a nap."
+          },
+          {
+            "q": "4. The test is tomorrow. &rarr; If I were you, I [BLANK] (revise) the notes tonight.",
+            "answer": "would revise",
+            "alternateAnswers": [
+              "'d revise",
+              "Would revise"
+            ],
+            "hint": "would + revise.",
+            "explanation": "If I were you, I would revise the notes."
+          }
+        ]
+      },
+      {
+        "id": "u18_ex7",
+        "unitId": 18,
+        "page": 59,
+        "title": "Latihan 7: Pilihan Ganda Second Conditional",
+        "instruction": "Pilihlah bentuk kata kerja yang tepat untuk melengkapi kalimat pengandaian.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. If she spoke fluent Spanish, she [BLANK] for the job in Madrid.",
+            "options": [
+              "would apply",
+              "will apply",
+              "applied",
+              "applies"
+            ],
+            "answer": "would apply",
+            "hint": "Spoke adalah past simple &rarr; pasangannya would + V1.",
+            "explanation": "Main clause: would apply."
+          },
+          {
+            "q": "2. If I [BLANK] where my glasses were, I wouldn't be looking for them!",
+            "options": [
+              "knew",
+              "know",
+              "will know",
+              "would know"
+            ],
+            "answer": "knew",
+            "hint": "If-clause tipe 2 memakai past simple.",
+            "explanation": "If I knew where my glasses were."
+          },
+          {
+            "q": "3. Where would you go on holiday if you [BLANK] choose anywhere in the world?",
+            "options": [
+              "could",
+              "can",
+              "will",
+              "would"
+            ],
+            "answer": "could",
+            "hint": "Bentuk lampau dari can adalah could.",
+            "explanation": "If you could choose."
+          }
+        ]
+      },
+      {
+        "id": "u18_ex8",
+        "unitId": 18,
+        "page": 60,
+        "title": "Latihan 8: Melengkapi Kalimat Pengandaian Tipe 2",
+        "instruction": "Lengkapi kalimat pengandaian imajinatif berikut dengan bentuk kata kerja yang tepat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. If we had a garden, we [BLANK] (grow) our own vegetables.",
+            "answer": "would grow",
+            "alternateAnswers": [
+              "'d grow",
+              "Would grow"
+            ],
+            "hint": "would + grow.",
+            "explanation": "We would grow our own vegetables."
+          },
+          {
+            "q": "2. If I [BLANK] (be) taller, I could reach the top shelf easily.",
+            "answer": "were",
+            "alternateAnswers": [
+              "was",
+              "Were"
+            ],
+            "hint": "Bentuk past conditional dari be untuk I.",
+            "explanation": "If I were / was taller."
+          },
+          {
+            "q": "3. What would happen if the sun [BLANK] (not shine)?",
+            "answer": "didn't shine",
+            "alternateAnswers": [
+              "did not shine",
+              "Didn't shine"
+            ],
+            "hint": "Bentuk lampau negatif: didn't + V1.",
+            "explanation": "If the sun didn't shine."
+          }
+        ]
+      },
+      {
+        "id": "u18_ex9",
+        "unitId": 18,
+        "page": 60,
+        "title": "Latihan 9: Mengubah Situasi Menjadi Kalimat Pengandaian",
+        "instruction": "Ubah fakta situasi nyata menjadi kalimat pengandaian Second Conditional.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Fakta: I don't have enough money, so I don't buy that phone. &rarr; If I had enough money, I [BLANK] that phone.",
+            "answer": "would buy",
+            "alternateAnswers": [
+              "'d buy",
+              "Would buy"
+            ],
+            "hint": "would + buy.",
+            "explanation": "If I had enough money, I would buy that phone."
+          },
+          {
+            "q": "2. Fakta: He doesn't know the answer, so he doesn't tell us. &rarr; If he [BLANK] the answer, he would tell us.",
+            "answer": "knew",
+            "alternateAnswers": [
+              "Knew"
+            ],
+            "hint": "Past Simple dari know adalah knew.",
+            "explanation": "If he knew the answer."
+          },
+          {
+            "q": "3. Fakta: She isn't here, so she can't help us. &rarr; If she were here, she [BLANK] us.",
+            "answer": "could help",
+            "alternateAnswers": [
+              "would help",
+              "Could help",
+              "Would help"
+            ],
+            "hint": "could help atau would help.",
+            "explanation": "If she were here, she could help us."
+          }
+        ]
+      },
+      {
+        "id": "u18_ex10",
+        "unitId": 18,
+        "page": 60,
+        "title": "Latihan 10: Mengoreksi Kesalahan Second Conditional",
+        "instruction": "Pilihlah kalimat yang sudah diperbaiki dengan benar dari kesalahan berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Salah: 'If I will win the lottery, I would buy a mansion.' &rarr; Benar: [BLANK]",
+            "options": [
+              "If I won the lottery, I would buy a mansion.",
+              "If I win the lottery, I would buy a mansion.",
+              "If I would win the lottery, I bought a mansion."
+            ],
+            "answer": "If I won the lottery, I would buy a mansion.",
+            "hint": "If-clause tidak boleh memakai will atau would.",
+            "explanation": "Klausa 'if' pada tipe 2 harus menggunakan Past Simple 'won'."
+          },
+          {
+            "q": "2. Salah: 'If she had a bike, she will ride to school.' &rarr; Benar: [BLANK]",
+            "options": [
+              "If she had a bike, she would ride to school.",
+              "If she has a bike, she would ride to school.",
+              "If she had a bike, she rode to school."
+            ],
+            "answer": "If she had a bike, she would ride to school.",
+            "hint": "Main clause tipe 2 memakai would + V1, bukan will.",
+            "explanation": "Pasangan 'had' pada Second Conditional adalah 'would ride'."
           }
         ]
       }
@@ -8732,57 +12338,57 @@ const GRAMMAR_UNITS = [
         "id": "u19_ex1",
         "unitId": 19,
         "page": 61,
-        "title": "Latihan 1: Perubahan Tenses dalam Kalimat Tidak Langsung (Reported Speech)",
-        "instruction": "Pilihlah bentuk kalimat tidak langsung yang benar sesuai aturan pergeseran tenses (backshift).",
+        "title": "Latihan 1: Fungsi Modal Verbs",
+        "instruction": "Pasangkan kata kerja bantu (modal verbs) dengan fungsinya yang tepat.",
         "type": "choice",
         "questions": [
           {
-            "q": "1. Kalimat langsung: 'I am learning Spanish,' said Daniel. &rarr; Daniel said that he [BLANK] Spanish.",
+            "q": "1. 'must' / 'have to' digunakan untuk menyatakan: [BLANK]",
             "options": [
-              "was learning",
-              "is learning",
-              "learns",
-              "has learned"
+              "Keharusan / kewajiban (obligation)",
+              "Larangan keras (prohibition)",
+              "Saran / anjuran (advice)",
+              "Kemampuan (ability)"
             ],
-            "answer": "was learning",
-            "hint": "am learning (Present Cont.) bergeser menjadi was learning (Past Cont.)",
-            "explanation": "Present Continuous bergeser menjadi Past Continuous dalam Reported Speech."
+            "answer": "Keharusan / kewajiban (obligation)",
+            "hint": "Menyatakan sesuatu yang wajib dilakukan.",
+            "explanation": "'must' dan 'have to' menyatakan keharusan/kewajiban."
           },
           {
-            "q": "2. Kalimat langsung: 'We live in Manchester,' they told me. &rarr; They told me that they [BLANK] in Manchester.",
+            "q": "2. 'mustn't' digunakan untuk menyatakan: [BLANK]",
             "options": [
-              "lived",
-              "live",
-              "are living",
-              "will live"
+              "Larangan keras (prohibition)",
+              "Ketidakhadiran kewajiban (no obligation)",
+              "Saran (advice)",
+              "Kemungkinan (possibility)"
             ],
-            "answer": "lived",
-            "hint": "live (Present Simple) bergeser menjadi lived (Past Simple)",
-            "explanation": "Present Simple berubah menjadi Past Simple."
+            "answer": "Larangan keras (prohibition)",
+            "hint": "Tidak boleh / dilarang keras.",
+            "explanation": "'mustn't' berarti dilarang (prohibition)."
           },
           {
-            "q": "3. Kalimat langsung: 'I will call you tomorrow,' promised Kevin. &rarr; Kevin promised that he [BLANK] call me the next day.",
+            "q": "3. 'don't have to' digunakan untuk menyatakan: [BLANK]",
             "options": [
-              "would",
-              "will",
-              "can",
-              "shall"
+              "Tidak perlu / tidak wajib (lack of obligation)",
+              "Larangan keras (prohibition)",
+              "Kemampuan (ability)",
+              "Izin (permission)"
             ],
-            "answer": "would",
-            "hint": "will bergeser menjadi would",
-            "explanation": "Kata bantu 'will' berubah menjadi 'would'."
+            "answer": "Tidak perlu / tidak wajib (lack of obligation)",
+            "hint": "Bebas memilih, tidak ada kewajiban.",
+            "explanation": "'don't have to' menyatakan tidak ada keharusan (tidak wajib)."
           },
           {
-            "q": "4. Kalimat langsung: 'I have finished my project,' said Lisa. &rarr; Lisa said that she [BLANK] her project.",
+            "q": "4. 'should' / 'shouldn't' digunakan untuk menyatakan: [BLANK]",
             "options": [
-              "had finished",
-              "has finished",
-              "finishes",
-              "was finishing"
+              "Saran / anjuran (advice)",
+              "Kewajiban hukum (legal obligation)",
+              "Kemampuan fisik (physical ability)",
+              "Kepemilikan (possession)"
             ],
-            "answer": "had finished",
-            "hint": "have finished (Present Perfect) bergeser menjadi had finished (Past Perfect)",
-            "explanation": "Present Perfect bergeser menjadi Past Perfect ('had finished')."
+            "answer": "Saran / anjuran (advice)",
+            "hint": "Nasehat yang baik dilakukan atau tidak.",
+            "explanation": "'should' menyatakan saran atau pendapat nasehat."
           }
         ]
       },
@@ -8790,33 +12396,309 @@ const GRAMMAR_UNITS = [
         "id": "u19_ex2",
         "unitId": 19,
         "page": 62,
-        "title": "Latihan 2: Membedakan said (that) vs told me/him/her",
-        "instruction": "Ketik said atau told pada bagian yang kosong.",
+        "title": "Latihan 2: must vs mustn't",
+        "instruction": "Lengkapi kalimat aturan dengan 'must' (harus/wajib) atau 'mustn't' (dilarang).",
         "type": "fill",
         "questions": [
           {
-            "q": "1. She [BLANK] that she was too tired to go out.",
-            "answer": "said",
-            "hint": "Tidak ada objek orang langsung",
-            "explanation": "Gunakan 'said' saat tidak diikuti langsung oleh objek pendengar."
+            "q": "1. You [BLANK] stop when the traffic light is red.",
+            "answer": "must",
+            "alternateAnswers": [
+              "Must"
+            ],
+            "hint": "Lampu merah mewajibkan kendaraan berhenti.",
+            "explanation": "Aturan lalu lintas wajib: 'must stop'."
           },
           {
-            "q": "2. He [BLANK] me the surprising news yesterday morning.",
-            "answer": "told",
-            "hint": "Diikuti objek 'me'",
-            "explanation": "Gunakan 'told' jika langsung diikuti oleh objek orang ('told me')."
+            "q": "2. You [BLANK] use your mobile phone during the exam.",
+            "answer": "mustn't",
+            "alternateAnswers": [
+              "must not",
+              "Mustn't"
+            ],
+            "hint": "Dilarang menggunakan HP saat ujian.",
+            "explanation": "Larangan ujian: 'mustn't use'."
           },
           {
-            "q": "3. The teacher [BLANK] the students to open their books.",
-            "answer": "told",
-            "hint": "Diikuti objek 'the students'",
-            "explanation": "'told + someone + to do something'."
+            "q": "3. Students [BLANK] wear their uniform at school.",
+            "answer": "must",
+            "alternateAnswers": [
+              "Must"
+            ],
+            "hint": "Kewajiban berseragam sekolah.",
+            "explanation": "Kewajiban: 'must wear'."
           },
           {
-            "q": "4. Oliver [BLANK] that he would help us with the preparations.",
-            "answer": "said",
-            "hint": "Diikuti kata that",
-            "explanation": "Oliver said that..."
+            "q": "4. You [BLANK] feed the animals at the zoo. It's strictly forbidden.",
+            "answer": "mustn't",
+            "alternateAnswers": [
+              "must not",
+              "Mustn't"
+            ],
+            "hint": "Dilarang memberi makan binatang kebun binatang.",
+            "explanation": "Larangan keras: 'mustn't feed'."
+          }
+        ]
+      },
+      {
+        "id": "u19_ex3",
+        "unitId": 19,
+        "page": 62,
+        "title": "Latihan 3: mustn't vs don't have to",
+        "instruction": "Pilih 'mustn't' (dilarang keras!) atau 'don't have to / doesn't have to' (tidak perlu/tidak wajib, boleh jika mau).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Tomorrow is Sunday, so I [BLANK] wake up early.",
+            "options": [
+              "don't have to",
+              "mustn't"
+            ],
+            "answer": "don't have to",
+            "hint": "Hari libur, tidak ada keharusan bangun pagi.",
+            "explanation": "Tidak ada kewajiban &rarr; 'don't have to'."
+          },
+          {
+            "q": "2. You [BLANK] touch that pot! It's boiling hot.",
+            "options": [
+              "mustn't",
+              "don't have to"
+            ],
+            "answer": "mustn't",
+            "hint": "Panci panas membahayakan jika disentuh.",
+            "explanation": "Larangan demi keselamatan &rarr; 'mustn't'."
+          },
+          {
+            "q": "3. The museum entry is free today, so we [BLANK] pay for tickets.",
+            "options": [
+              "don't have to",
+              "mustn't"
+            ],
+            "answer": "don't have to",
+            "hint": "Gratis berarti tidak perlu membayar.",
+            "explanation": "Tidak wajib bayar &rarr; 'don't have to'."
+          },
+          {
+            "q": "4. Passengers [BLANK] talk to the driver while the bus is moving.",
+            "options": [
+              "mustn't",
+              "don't have to"
+            ],
+            "answer": "mustn't",
+            "hint": "Aturan keselamatan melarang mengganggu supir.",
+            "explanation": "Larangan keselamatan bus &rarr; 'mustn't'."
+          }
+        ]
+      },
+      {
+        "id": "u19_ex4",
+        "unitId": 19,
+        "page": 62,
+        "title": "Latihan 4: should vs must",
+        "instruction": "Pilihlah modal yang paling sesuai: 'should' (saran/rekomendasi baik) atau 'must' (kewajiban mendesak/mutlak).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. You [BLANK] try this chocolate cake; it's absolutely delicious!",
+            "options": [
+              "should",
+              "mustn't",
+              "can't"
+            ],
+            "answer": "should",
+            "hint": "Saran mencicipi kue enak.",
+            "explanation": "Rekomendasi ramah memakai 'should'."
+          },
+          {
+            "q": "2. You [BLANK] show your passport when entering another country.",
+            "options": [
+              "must",
+              "should",
+              "might"
+            ],
+            "answer": "must",
+            "hint": "Hukum imigrasi mewajibkan paspor.",
+            "explanation": "Kewajiban hukum mutlak memakai 'must' / 'have to'."
+          },
+          {
+            "q": "3. You look very pale. You [BLANK] see a doctor.",
+            "options": [
+              "should",
+              "mustn't",
+              "don't have to"
+            ],
+            "answer": "should",
+            "hint": "Nasihat kesehatan.",
+            "explanation": "Saran nasehat memakai 'should'."
+          }
+        ]
+      },
+      {
+        "id": "u19_ex5",
+        "unitId": 19,
+        "page": 63,
+        "title": "Latihan 5: Peraturan Sekolah dan Rambu-Rambu",
+        "instruction": "Lengkapi peraturan sekolah berikut dengan must, mustn't, atau have to.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. All students [BLANK] arrive at school before 8:00 a.m.",
+            "answer": "must",
+            "alternateAnswers": [
+              "have to",
+              "Must",
+              "Have to"
+            ],
+            "hint": "Wajib hadir tepat waktu.",
+            "explanation": "Aturan kehadiran: must / have to arrive."
+          },
+          {
+            "q": "2. You [BLANK] run in the school corridors. Walk carefully.",
+            "answer": "mustn't",
+            "alternateAnswers": [
+              "must not",
+              "Mustn't"
+            ],
+            "hint": "Dilarang berlari di lorong sekolah.",
+            "explanation": "Larangan keselamatan: mustn't run."
+          },
+          {
+            "q": "3. Students [BLANK] switch off their mobile phones during lessons.",
+            "answer": "must",
+            "alternateAnswers": [
+              "have to",
+              "Must",
+              "Have to"
+            ],
+            "hint": "Wajib mematikan HP saat pelajaran.",
+            "explanation": "Kewajiban kelas: must switch off."
+          }
+        ]
+      },
+      {
+        "id": "u19_ex6",
+        "unitId": 19,
+        "page": 63,
+        "title": "Latihan 6: Pilihan Ganda Modals Campuran",
+        "instruction": "Pilihlah modal verb yang paling tepat untuk setiap konteks kalimat berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. You [BLANK] bring an umbrella. The forecast said it will be sunny all day.",
+            "options": [
+              "don't have to",
+              "mustn't",
+              "must",
+              "should"
+            ],
+            "answer": "don't have to",
+            "hint": "Tidak perlu bawa karena tidak akan hujan.",
+            "explanation": "Tidak perlu &rarr; 'don't have to'."
+          },
+          {
+            "q": "2. You [BLANK] smoke inside the hospital. It's against the law.",
+            "options": [
+              "mustn't",
+              "don't have to",
+              "can",
+              "should"
+            ],
+            "answer": "mustn't",
+            "hint": "Merokok di rumah sakit dilarang oleh hukum.",
+            "explanation": "Larangan hukum &rarr; 'mustn't'."
+          },
+          {
+            "q": "3. He is bilingual; he [BLANK] speak both English and French fluently.",
+            "options": [
+              "can",
+              "must",
+              "should",
+              "has to"
+            ],
+            "answer": "can",
+            "hint": "Kemampuan bahasa (ability).",
+            "explanation": "Kemampuan &rarr; 'can'."
+          }
+        ]
+      },
+      {
+        "id": "u19_ex7",
+        "unitId": 19,
+        "page": 64,
+        "title": "Latihan 7: Menulis Ulang Kalimat dengan Modal Verb",
+        "instruction": "Tulis ulang kalimat berikut menggunakan modal verb yang setara (must, mustn't, don't have to).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. It is not necessary for you to wait. &rarr; You [BLANK] wait.",
+            "answer": "don't have to",
+            "alternateAnswers": [
+              "do not have to",
+              "needn't"
+            ],
+            "hint": "'not necessary' = don't have to.",
+            "explanation": "You don't have to wait."
+          },
+          {
+            "q": "2. It is strictly forbidden to park your car here. &rarr; You [BLANK] park your car here.",
+            "answer": "mustn't",
+            "alternateAnswers": [
+              "must not",
+              "cannot",
+              "can't"
+            ],
+            "hint": "'forbidden' = mustn't.",
+            "explanation": "You mustn't park here."
+          },
+          {
+            "q": "3. It is necessary for him to study harder. &rarr; He [BLANK] harder.",
+            "answer": "must study",
+            "alternateAnswers": [
+              "has to study",
+              "Must study",
+              "Has to study"
+            ],
+            "hint": "'necessary' = must / has to.",
+            "explanation": "He must study / has to study harder."
+          }
+        ]
+      },
+      {
+        "id": "u19_ex8",
+        "unitId": 19,
+        "page": 64,
+        "title": "Latihan 8: Melengkapi Percakapan Rencana dan Aturan",
+        "instruction": "Lengkapi dialog antara pemandu wisata dan peserta tur dengan modal verb yang tepat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Guide: Welcome to the historic palace! You [BLANK] (must / can) stay with the group at all times.",
+            "answer": "must",
+            "alternateAnswers": [
+              "Must"
+            ],
+            "hint": "Wajib tetap bersama rombongan.",
+            "explanation": "You must stay with the group."
+          },
+          {
+            "q": "2. Tourist: Can we take photos inside? Guide: No, you [BLANK] (mustn't / don't have to) take flash photos of the paintings.",
+            "answer": "mustn't",
+            "alternateAnswers": [
+              "must not",
+              "Mustn't"
+            ],
+            "hint": "Dilarang memotret dengan lampu kilat.",
+            "explanation": "You mustn't take flash photos."
+          },
+          {
+            "q": "3. Tourist: Do we have to pay extra for the audio guide? Guide: No, it's free, you [BLANK] (don't have to / mustn't) pay anything extra.",
+            "answer": "don't have to",
+            "alternateAnswers": [
+              "do not have to",
+              "Don't have to"
+            ],
+            "hint": "Gratis = tidak perlu membayar.",
+            "explanation": "You don't have to pay anything extra."
           }
         ]
       }
@@ -8866,84 +12748,380 @@ const GRAMMAR_UNITS = [
         "id": "u20_ex1",
         "unitId": 20,
         "page": 65,
-        "title": "Latihan 1: Kebiasaan Masa Lalu dengan used to",
-        "instruction": "Lengkapi kalimat dengan used to atau didn't use to dan kata kerja yang sesuai.",
+        "title": "Latihan 1: Bentuk Dasar used to (Kebiasaan Masa Lalu)",
+        "instruction": "Pahami rumus 'used to' untuk kebiasaan masa lalu yang sudah tidak dilakukan lagi: Positif: used to + V1; Negatif: didn't use to + V1; Tanya: Did + S + use to + V1?",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Kalimat positif: 'I [BLANK] play tennis every Saturday when I was younger.'",
+            "options": [
+              "used to",
+              "use to",
+              "am used to",
+              "was used to"
+            ],
+            "answer": "used to",
+            "hint": "Bentuk lampau positif berakhiran -d.",
+            "explanation": "Kalimat positif masa lalu: 'used to play'."
+          },
+          {
+            "q": "2. Kalimat negatif: 'He [BLANK] like vegetables, but now he loves them.'",
+            "options": [
+              "didn't use to",
+              "didn't used to",
+              "used not",
+              "wasn't use to"
+            ],
+            "answer": "didn't use to",
+            "hint": "Setelah kata bantu 'didn't', kata 'use' kembali ke bentuk dasar tanpa -d.",
+            "explanation": "Bentuk negatif: 'didn't use to like'."
+          },
+          {
+            "q": "3. Kalimat tanya: '[BLANK] you use to walk to school?'",
+            "options": [
+              "Did",
+              "Do",
+              "Have",
+              "Were"
+            ],
+            "answer": "Did",
+            "hint": "Kata bantu lampau untuk kalimat tanya adalah 'Did'.",
+            "explanation": "Kalimat tanya kebiasaan lampau: 'Did you use to...?'"
+          }
+        ]
+      },
+      {
+        "id": "u20_ex2",
+        "unitId": 20,
+        "page": 65,
+        "title": "Latihan 2: Melengkapi dengan used to + Kata Kerja dalam Kotak",
+        "instruction": "Lengkapi kalimat dengan used to dan salah satu kata kerja: live, have, wear, travel, ride, play.",
         "type": "fill",
         "questions": [
           {
-            "q": "1. When I was a child, I [BLANK] (play) outdoors with my friends every afternoon.",
-            "answer": "used to play",
-            "hint": "used to + V1",
-            "explanation": "Menyatakan kebiasaan masa lalu yang sudah tidak dilakukan lagi: 'used to play'."
+            "q": "1. My grandfather [BLANK] (live) in a small village before moving to the city.",
+            "answer": "used to live",
+            "alternateAnswers": [
+              "Used to live"
+            ],
+            "hint": "Kata kerja: live.",
+            "explanation": "Used to live."
           },
           {
-            "q": "2. She [BLANK] (not like) vegetables when she was younger, but now she loves salad.",
+            "q": "2. She [BLANK] (have) long curly hair when she was a teenager.",
+            "answer": "used to have",
+            "alternateAnswers": [
+              "Used to have"
+            ],
+            "hint": "Kata kerja: have.",
+            "explanation": "Used to have."
+          },
+          {
+            "q": "3. We [BLANK] (ride) our bikes to school every sunny morning.",
+            "answer": "used to ride",
+            "alternateAnswers": [
+              "Used to ride"
+            ],
+            "hint": "Kata kerja: ride.",
+            "explanation": "Used to ride."
+          },
+          {
+            "q": "4. He [BLANK] (wear) glasses, but now he wears contact lenses.",
+            "answer": "used to wear",
+            "alternateAnswers": [
+              "Used to wear"
+            ],
+            "hint": "Kata kerja: wear.",
+            "explanation": "Used to wear."
+          },
+          {
+            "q": "5. They [BLANK] (travel) abroad by train before flights became cheap.",
+            "answer": "used to travel",
+            "alternateAnswers": [
+              "Used to travel"
+            ],
+            "hint": "Kata kerja: travel.",
+            "explanation": "Used to travel."
+          }
+        ]
+      },
+      {
+        "id": "u20_ex3",
+        "unitId": 20,
+        "page": 66,
+        "title": "Latihan 3: Membuat Kalimat Negatif dengan didn't use to",
+        "instruction": "Ubah kalimat berikut menjadi bentuk negatif menggunakan 'didn't use to + V1'.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. He liked spicy food as a kid. &rarr; He [BLANK] (not like) spicy food as a kid.",
             "answer": "didn't use to like",
             "alternateAnswers": [
-              "did not use to like"
+              "did not use to like",
+              "Didn't use to like"
             ],
-            "hint": "didn't use to + V1",
-            "explanation": "Bentuk negatif: 'didn't use to' (kata 'use' kembali ke bentuk dasar tanpa 'd')."
+            "hint": "didn't use to + like.",
+            "explanation": "He didn't use to like spicy food."
           },
           {
-            "q": "3. [BLANK] (you / have) long hair when you were at school?",
-            "answer": "Did you use to have",
+            "q": "2. We watched a lot of television. &rarr; We [BLANK] (not watch) so much television.",
+            "answer": "didn't use to watch",
             "alternateAnswers": [
-              "did you use to have"
+              "did not use to watch",
+              "Didn't use to watch"
             ],
-            "hint": "Did you use to have...",
-            "explanation": "Pola kalimat tanya: 'Did + subjek + use to + kata kerja dasar'."
+            "hint": "didn't use to + watch.",
+            "explanation": "We didn't use to watch television."
           },
           {
-            "q": "4. There [BLANK] (be) a quiet park here before they built the shopping mall.",
+            "q": "3. She had a pet dog. &rarr; She [BLANK] (not have) a pet dog.",
+            "answer": "didn't use to have",
+            "alternateAnswers": [
+              "did not use to have",
+              "Didn't use to have"
+            ],
+            "hint": "didn't use to + have.",
+            "explanation": "She didn't use to have a dog."
+          }
+        ]
+      },
+      {
+        "id": "u20_ex4",
+        "unitId": 20,
+        "page": 66,
+        "title": "Latihan 4: Membuat Kalimat Tanya dengan Did ... use to ...?",
+        "instruction": "Susun kata-kata petunjuk berikut menjadi kalimat tanya menggunakan 'Did + subjek + use to + V1...?'.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. you / live / in the countryside &rarr; [BLANK]?",
+            "answer": "Did you use to live in the countryside",
+            "alternateAnswers": [
+              "did you use to live in the countryside",
+              "Did you use to live in the countryside?"
+            ],
+            "hint": "Did you use to live in the countryside?",
+            "explanation": "Did you use to live in the countryside?"
+          },
+          {
+            "q": "2. she / play / the piano &rarr; [BLANK]?",
+            "answer": "Did she use to play the piano",
+            "alternateAnswers": [
+              "did she use to play the piano",
+              "Did she use to play the piano?"
+            ],
+            "hint": "Did she use to play the piano?",
+            "explanation": "Did she use to play the piano?"
+          },
+          {
+            "q": "3. they / go / camping every summer &rarr; [BLANK]?",
+            "answer": "Did they use to go camping every summer",
+            "alternateAnswers": [
+              "did they use to go camping every summer",
+              "Did they use to go camping every summer?"
+            ],
+            "hint": "Did they use to go camping every summer?",
+            "explanation": "Did they use to go camping every summer?"
+          }
+        ]
+      },
+      {
+        "id": "u20_ex5",
+        "unitId": 20,
+        "page": 66,
+        "title": "Latihan 5: Membandingkan Masa Lalu dan Sekarang (used to vs Present Simple)",
+        "instruction": "Lengkapi kalimat perbandingan dengan used to (kebiasaan masa lalu) dan Present Simple (kebiasaan sekarang).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. In the past, people [BLANK] (write) letters, but now they send emails.",
+            "answer": "used to write",
+            "alternateAnswers": [
+              "Used to write"
+            ],
+            "hint": "used to + write.",
+            "explanation": "Used to write letters."
+          },
+          {
+            "q": "2. I [BLANK] (drink) milk every day, but now I prefer tea.",
+            "answer": "used to drink",
+            "alternateAnswers": [
+              "Used to drink"
+            ],
+            "hint": "used to + drink.",
+            "explanation": "Used to drink milk."
+          },
+          {
+            "q": "3. There [BLANK] (be) a cinema here, but now there is a supermarket.",
             "answer": "used to be",
-            "hint": "used to be",
-            "explanation": "Menyatakan keberadaan di masa lalu: 'There used to be'."
+            "alternateAnswers": [
+              "Used to be"
+            ],
+            "hint": "used to + be.",
+            "explanation": "There used to be a cinema."
           }
         ]
       },
       {
         "id": "u20_ex6",
         "unitId": 20,
-        "page": 67,
-        "title": "Latihan 6: Perubahan Kota Dulu dan Sekarang (Audio TR 25 & Gambar)",
-        "instruction": "Amati gambar dan dengarkan rekaman audio TR 25, lalu lengkapi paragraf tentang kota yang dulu tenang dan kini berubah ramai.",
-        "type": "fill",
+        "page": 66,
+        "title": "Latihan 6: Perubahan Kota Masa Lalu dan Sekarang (Audio TR 25)",
+        "instruction": "Dengarkan audio TR 25 tentang narator yang menceritakan kotanya di masa lalu dan jawablah pertanyaan pemahaman berikut.",
+        "type": "choice",
         "audioTrack": "TR 25",
-        "image": "images/u20_ex6_town.png",
         "questions": [
           {
-            "q": "1. My town has grown (1) [BLANK] a bit since I've been living here.",
-            "answer": "quite",
-            "hint": "quite a bit = cukup banyak",
-            "explanation": "Audio TR 25: 'My town has grown quite a bit...'"
-          },
-          {
-            "q": "2. It used to be a (2) [BLANK] town; everyone used to (3) [BLANK2] each other.",
-            "answer": "quiet / know",
-            "alternateAnswers": [
-              "quiet/know"
+            "q": "1. How was the narrator's town in the past?",
+            "options": [
+              "It used to be a quiet town where everyone knew each other.",
+              "It used to be an overcrowded industrial city.",
+              "It used to be noisy and dirty.",
+              "It was completely empty."
             ],
-            "hint": "Dulu kota tenang dan saling mengenal",
-            "explanation": "Audio TR 25: 'It used to be a quiet town; everyone used to know each other...'"
+            "answer": "It used to be a quiet town where everyone knew each other.",
+            "hint": "Narator menyebutkan suasana kotanya dulu sangat tenang dan orang-orangnya ramah.",
+            "explanation": "Audio TR 25: 'It used to be a quiet town; everyone used to know each other and the people used to be very friendly.'"
           },
           {
-            "q": "3. There didn't use to be any air (4) [BLANK] either; now there is.",
-            "answer": "pollution",
-            "hint": "Polusi udara",
-            "explanation": "Audio TR 25: 'There didn't use to be any air pollution either...'"
+            "q": "2. What did the air quality use to be like?",
+            "options": [
+              "There didn't use to be any air pollution.",
+              "There used to be heavy smoke everywhere.",
+              "It was always polluted by factories.",
+              "There was constant fog."
+            ],
+            "answer": "There didn't use to be any air pollution.",
+            "hint": "Dulu tidak ada polusi udara.",
+            "explanation": "Audio TR 25: 'There didn't use to be any air pollution either; now there is.'"
           },
           {
-            "q": "4. There used to be small market stalls selling food. Now there is a big (5) [BLANK].",
-            "answer": "supermarket",
-            "hint": "Pasar swalayan besar",
-            "explanation": "Audio TR 25: 'Now there is a big supermarket.'"
+            "q": "3. What was there in place of the big supermarket nowadays?",
+            "options": [
+              "There used to be small market stalls selling food.",
+              "There used to be a train station.",
+              "There used to be a football stadium.",
+              "There used to be a huge parking lot."
+            ],
+            "answer": "There used to be small market stalls selling food.",
+            "hint": "Dulu ada kios-kios pasar kecil.",
+            "explanation": "Audio TR 25: 'There used to be small market stalls selling food. Now there is a big supermarket.'"
           },
           {
-            "q": "5. The people are always in a (6) [BLANK] nowadays and they never have time to stop and chat.",
-            "answer": "hurry",
-            "hint": "in a hurry = terburu-buru",
-            "explanation": "Audio TR 25: 'The people are always in a hurry nowadays...'"
+            "q": "4. What does the speaker miss the most about the past?",
+            "options": [
+              "People stopping to chat when meeting each other.",
+              "The cheaper bus tickets.",
+              "The cold winters.",
+              "Going to the cinema alone."
+            ],
+            "answer": "People stopping to chat when meeting each other.",
+            "hint": "Narator rindu keramahan orang yang saling mengobrol saat bertemu.",
+            "explanation": "Audio TR 25: 'I miss that; we used to always chat when we met each other.'"
+          }
+        ]
+      },
+      {
+        "id": "u20_ex7",
+        "unitId": 20,
+        "page": 67,
+        "title": "Latihan 7: used to vs Past Simple",
+        "instruction": "Pilihlah bentuk yang tepat: 'used to' untuk kebiasaan berulang masa lalu yang sudah tidak ada, atau 'Past Simple' untuk peristiwa satu kali di masa lalu.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Last night, I [BLANK] dinner with my grandparents.",
+            "options": [
+              "had",
+              "used to have",
+              "use to have"
+            ],
+            "answer": "had",
+            "hint": "Peristiwa satu kali spesifik semalam ('Last night').",
+            "explanation": "Kejadian satu kali di waktu tertentu menggunakan Past Simple: 'had'."
+          },
+          {
+            "q": "2. When I was seven, I [BLANK] believe in fairies.",
+            "options": [
+              "used to",
+              "use to",
+              "am used to"
+            ],
+            "answer": "used to",
+            "hint": "Keyakinan masa kecil dalam rentang waktu lama.",
+            "explanation": "Kebiasaan/keadaan masa lalu berulang memakai 'used to'."
+          },
+          {
+            "q": "3. In 2015, they [BLANK] to Rome for a two-week holiday.",
+            "options": [
+              "went",
+              "used to go",
+              "use to go"
+            ],
+            "answer": "went",
+            "hint": "Liburan satu kali pada tahun 2015.",
+            "explanation": "Kejadian satu kali masa lalu memakai Past Simple: 'went'."
+          }
+        ]
+      },
+      {
+        "id": "u20_ex8",
+        "unitId": 20,
+        "page": 67,
+        "title": "Latihan 8: Menulis Ulang Kalimat Menggunakan used to",
+        "instruction": "Tulis ulang kalimat berikut dengan used to atau didn't use to.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. I had a cat when I was little (I don't have one now). &rarr; I [BLANK] a cat when I was little.",
+            "answer": "used to have",
+            "alternateAnswers": [
+              "Used to have"
+            ],
+            "hint": "used to + have.",
+            "explanation": "I used to have a cat."
+          },
+          {
+            "q": "2. She didn't enjoy reading books before, but now she loves it. &rarr; She [BLANK] reading books.",
+            "answer": "didn't use to enjoy",
+            "alternateAnswers": [
+              "did not use to enjoy",
+              "Didn't use to enjoy"
+            ],
+            "hint": "didn't use to + enjoy.",
+            "explanation": "She didn't use to enjoy reading books."
+          }
+        ]
+      },
+      {
+        "id": "u20_ex9",
+        "unitId": 20,
+        "page": 67,
+        "title": "Latihan 9: Mengoreksi Kesalahan used to",
+        "instruction": "Pilihlah kalimat yang sudah diperbaiki secara benar dari kesalahan tata bahasa berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Salah: 'Did you used to play football?' &rarr; Benar: [BLANK]",
+            "options": [
+              "Did you use to play football?",
+              "Did you used to played football?",
+              "Do you used to play football?"
+            ],
+            "answer": "Did you use to play football?",
+            "hint": "Setelah Did, use tidak memakai akhiran -d.",
+            "explanation": "Did you use to play football?"
+          },
+          {
+            "q": "2. Salah: 'I didn't used to like coffee.' &rarr; Benar: [BLANK]",
+            "options": [
+              "I didn't use to like coffee.",
+              "I didn't use to liked coffee.",
+              "I don't used to like coffee."
+            ],
+            "answer": "I didn't use to like coffee.",
+            "hint": "Setelah didn't, gunakan use to tanpa huruf d.",
+            "explanation": "I didn't use to like coffee."
           }
         ]
       }
@@ -8999,103 +13177,157 @@ const GRAMMAR_UNITS = [
         "id": "u21_ex1",
         "unitId": 21,
         "page": 68,
-        "title": "Latihan 1: Persetujuan Positif (So do I / So am I / So can I / So have I)",
-        "instruction": "Pilihlah ungkapan persetujuan yang benar sesuai kata kerja bantu kalimat afirmatif.",
+        "title": "Latihan 1: So do I, Neither do I, So am I, Neither can I",
+        "instruction": "Pilihlah ungkapan persetujuan yang tepat: 'So + auxiliary + I' untuk kalimat positif, atau 'Neither + auxiliary + I' untuk kalimat negatif.",
         "type": "choice",
         "questions": [
           {
-            "q": "1. A: I love listening to classical music. &rarr; B: [BLANK]",
+            "q": "1. A: 'I love Italian food.' &rarr; B: '[BLANK]'",
             "options": [
               "So do I.",
-              "So am I.",
               "Neither do I.",
-              "So can I."
+              "So am I.",
+              "Neither am I."
             ],
             "answer": "So do I.",
-            "hint": "love (Present Simple) -> kata bantu do",
-            "explanation": "Untuk kata kerja Present Simple biasa (love), gunakan 'So do I.'"
+            "hint": "Kalimat positif dengan kata kerja umum (love) memakai do.",
+            "explanation": "Menyetujui kalimat positif Present Simple: 'So do I.'"
           },
           {
-            "q": "2. A: I am really tired after the long journey. &rarr; B: [BLANK]",
+            "q": "2. A: 'I don't like horror movies.' &rarr; B: '[BLANK]'",
+            "options": [
+              "Neither do I.",
+              "So do I.",
+              "Neither am I.",
+              "So am I."
+            ],
+            "answer": "Neither do I.",
+            "hint": "Kalimat negatif (don't like) disetujui dengan Neither.",
+            "explanation": "Menyetujui kalimat negatif: 'Neither do I.'"
+          },
+          {
+            "q": "3. A: 'I am very tired today.' &rarr; B: '[BLANK]'",
             "options": [
               "So am I.",
               "So do I.",
               "Neither am I.",
-              "So was I."
+              "Neither do I."
             ],
             "answer": "So am I.",
-            "hint": "am (to be) -> So am I",
-            "explanation": "Untuk to be 'am', respon persetujuan adalah 'So am I.'"
+            "hint": "Kalimat menggunakan to be 'am'.",
+            "explanation": "Menyetujui kalimat to be: 'So am I.'"
           },
           {
-            "q": "3. A: I can speak three languages fluently. &rarr; B: [BLANK]",
+            "q": "4. A: 'I can't swim very well.' &rarr; B: '[BLANK]'",
             "options": [
+              "Neither can I.",
               "So can I.",
-              "So do I.",
-              "So am I.",
-              "Neither can I."
+              "Neither do I.",
+              "So do I."
             ],
-            "answer": "So can I.",
-            "hint": "can -> So can I",
-            "explanation": "Untuk modal 'can', respon persetujuan adalah 'So can I.'"
-          },
-          {
-            "q": "4. A: I have visited Paris twice. &rarr; B: [BLANK]",
-            "options": [
-              "So have I.",
-              "So do I.",
-              "So did I.",
-              "Neither have I."
-            ],
-            "answer": "So have I.",
-            "hint": "have (Present Perfect) -> So have I",
-            "explanation": "Untuk kata bantu 'have', respon persetujuan adalah 'So have I.'"
+            "answer": "Neither can I.",
+            "hint": "Kalimat negatif memakai modal 'can't'.",
+            "explanation": "Menyetujui kalimat modal negatif: 'Neither can I.'"
           }
         ]
       },
       {
         "id": "u21_ex2",
         "unitId": 21,
-        "page": 69,
-        "title": "Latihan 2: Persetujuan Negatif (Neither do I / Neither am I / Neither can I)",
-        "instruction": "Pilihlah respon persetujuan atas pernyataan bernada negatif.",
-        "type": "choice",
+        "page": 68,
+        "title": "Latihan 2: Penggunaan too dan either",
+        "instruction": "Lengkapi persetujuan di akhir kalimat dengan 'too' (untuk kalimat positif) atau 'either' (untuk kalimat negatif).",
+        "type": "fill",
         "questions": [
           {
-            "q": "1. A: I don't like horror movies. &rarr; B: [BLANK]",
-            "options": [
-              "Neither do I.",
-              "So do I.",
-              "Neither am I.",
-              "So don't I."
+            "q": "1. A: I have finished my homework. B: I have finished mine, [BLANK].",
+            "answer": "too",
+            "alternateAnswers": [
+              "Too"
             ],
-            "answer": "Neither do I.",
-            "hint": "Persetujuan negatif untuk don't like",
-            "explanation": "Gunakan 'Neither do I' untuk menyetujui pernyataan negatif berpredikat don't."
+            "hint": "Kalimat bernada positif.",
+            "explanation": "Persetujuan positif di akhir kalimat: 'too'."
           },
           {
-            "q": "2. A: I'm not ready for the exam yet. &rarr; B: [BLANK]",
-            "options": [
-              "Neither am I.",
-              "Neither do I.",
-              "So am I.",
-              "So neither I."
+            "q": "2. A: I haven't seen that film yet. B: I haven't seen it, [BLANK].",
+            "answer": "either",
+            "alternateAnswers": [
+              "Either"
             ],
+            "hint": "Kalimat bernada negatif (haven't).",
+            "explanation": "Persetujuan negatif di akhir kalimat: 'either'."
+          },
+          {
+            "q": "3. A: She is going to the party tonight. B: We are going, [BLANK].",
+            "answer": "too",
+            "alternateAnswers": [
+              "Too"
+            ],
+            "hint": "Kalimat positif.",
+            "explanation": "Gunakan 'too'."
+          },
+          {
+            "q": "4. A: He can't drive a car. B: His brother can't drive, [BLANK].",
+            "answer": "either",
+            "alternateAnswers": [
+              "Either"
+            ],
+            "hint": "Kalimat negatif (can't).",
+            "explanation": "Gunakan 'either'."
+          }
+        ]
+      },
+      {
+        "id": "u21_ex3",
+        "unitId": 21,
+        "page": 69,
+        "title": "Latihan 3: Menyetujui Pernyataan dengan So / Neither + Auxiliary",
+        "instruction": "Tuliskan ungkapan persetujuan yang tepat (So do I / Neither have I / So did I, dll) untuk merespons setiap pernyataan berikut.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. 'I went to London last summer.' &rarr; [BLANK]",
+            "answer": "So did I.",
+            "alternateAnswers": [
+              "so did i.",
+              "So did I",
+              "so did i"
+            ],
+            "hint": "Went adalah Past Simple &rarr; gunakan 'did'.",
+            "explanation": "So did I."
+          },
+          {
+            "q": "2. 'I haven't eaten breakfast yet.' &rarr; [BLANK]",
+            "answer": "Neither have I.",
+            "alternateAnswers": [
+              "neither have i.",
+              "Neither have I",
+              "neither have i"
+            ],
+            "hint": "Haven't adalah Present Perfect negatif &rarr; gunakan 'have'.",
+            "explanation": "Neither have I."
+          },
+          {
+            "q": "3. 'I will call you tomorrow.' &rarr; [BLANK]",
+            "answer": "So will I.",
+            "alternateAnswers": [
+              "so will i.",
+              "So will I",
+              "so will i"
+            ],
+            "hint": "Modal will &rarr; gunakan 'will'.",
+            "explanation": "So will I."
+          },
+          {
+            "q": "4. 'I am not ready for the exam.' &rarr; [BLANK]",
             "answer": "Neither am I.",
-            "hint": "to be not ready",
-            "explanation": "Gunakan 'Neither am I' untuk menyetujui pernyataan to be negatif."
-          },
-          {
-            "q": "3. A: I can't swim very well. &rarr; B: [BLANK]",
-            "options": [
-              "Neither can I.",
-              "So can I.",
-              "Neither do I.",
-              "Nor do I can."
+            "alternateAnswers": [
+              "neither am i.",
+              "Neither am I",
+              "neither am i"
             ],
-            "answer": "Neither can I.",
-            "hint": "can't swim",
-            "explanation": "Respon persetujuan negatif untuk modal 'can't' adalah 'Neither can I.'"
+            "hint": "To be negatif &rarr; gunakan 'am'.",
+            "explanation": "Neither am I."
           }
         ]
       },
@@ -9103,54 +13335,150 @@ const GRAMMAR_UNITS = [
         "id": "u21_ex4",
         "unitId": 21,
         "page": 69,
-        "title": "Latihan 4: Merespon Pernyataan Rekaman Audio TR 26",
-        "instruction": "Dengarkan pernyataan pada audio TR 26, lalu pasangkan respon persetujuan atau ketidaksetujuan yang tepat.",
+        "title": "Latihan 4: Expressing Agreement & Disagreement (Audio TR 26)",
+        "instruction": "Dengarkan setiap pernyataan pada audio TR 26 (1-8) dan pilihlah respons persetujuan yang tepat sesuai kata kerja bantunya.",
         "type": "choice",
         "audioTrack": "TR 26",
         "questions": [
           {
-            "q": "1. Audio: 'Megan must work harder.' &rarr; Respon persetujuan:",
+            "q": "1. Audio: 'Megan must work harder.' &rarr; [BLANK]",
             "options": [
               "So must we.",
               "Neither must we.",
-              "So do we."
+              "So do we.",
+              "Neither do we."
             ],
             "answer": "So must we.",
-            "hint": "must -> So must...",
-            "explanation": "Menyetujui keharusan: 'So must we.'"
+            "hint": "Pernyataan positif dengan modal 'must'.",
+            "explanation": "Audio TR 26 nomor 1: 'Megan must work harder.' &rarr; So must we."
           },
           {
-            "q": "2. Audio: 'They never do any homework in class.' &rarr; Respon persetujuan (kalimat bernada negatif karena ada kata never):",
+            "q": "2. Audio: 'We always ask that question.' &rarr; [BLANK]",
+            "options": [
+              "So do I.",
+              "Neither do I.",
+              "So am I.",
+              "Neither did I."
+            ],
+            "answer": "So do I.",
+            "hint": "Pernyataan positif Present Simple dengan kata kerja 'ask'.",
+            "explanation": "Audio TR 26 nomor 2: 'We always ask that question.' &rarr; So do I."
+          },
+          {
+            "q": "3. Audio: 'They never do any homework in class.' &rarr; [BLANK]",
             "options": [
               "Neither do we.",
               "So do we.",
-              "So are we."
+              "So did we.",
+              "Neither did we."
             ],
             "answer": "Neither do we.",
-            "hint": "never = bermakna negatif",
-            "explanation": "Kata 'never' membuat kalimat bernada negatif sehingga dijawab dengan 'Neither do we.'"
+            "hint": "Kata 'never' bernilai negatif, maka disetujui dengan Neither.",
+            "explanation": "Audio TR 26 nomor 3: 'They never do any homework...' &rarr; Neither do we."
           },
           {
-            "q": "3. Audio: 'I've been to Japan.' &rarr; Respon persetujuan:",
+            "q": "4. Audio: 'He feels ill.' &rarr; [BLANK]",
+            "options": [
+              "So do I.",
+              "Neither do I.",
+              "So am I.",
+              "Neither am I."
+            ],
+            "answer": "So do I.",
+            "hint": "Feels adalah Present Simple kata kerja aksi.",
+            "explanation": "Audio TR 26 nomor 4: 'He feels ill.' &rarr; So do I."
+          },
+          {
+            "q": "5. Audio: 'He's going to the mountains this weekend.' &rarr; [BLANK]",
+            "options": [
+              "So am I.",
+              "So do I.",
+              "Neither am I.",
+              "So will I."
+            ],
+            "answer": "So am I.",
+            "hint": "Menggunakan bentuk to be (He is going).",
+            "explanation": "Audio TR 26 nomor 5: 'He's going...' &rarr; So am I."
+          },
+          {
+            "q": "6. Audio: 'I've been to Japan.' &rarr; [BLANK]",
             "options": [
               "So have I.",
               "So did I.",
-              "Neither have I."
+              "Neither have I.",
+              "So do I."
             ],
             "answer": "So have I.",
-            "hint": "I've been -> So have I",
-            "explanation": "Respon persetujuan Present Perfect: 'So have I.'"
+            "hint": "Present Perfect 'I've been' &rarr; So have I.",
+            "explanation": "Audio TR 26 nomor 6: 'I've been to Japan.' &rarr; So have I."
           },
           {
-            "q": "4. Audio: 'She wasn't here yesterday.' &rarr; Respon persetujuan:",
+            "q": "7. Audio: 'She wasn't here yesterday.' &rarr; [BLANK]",
             "options": [
               "Neither was I.",
               "So was I.",
-              "Neither did I."
+              "Neither did I.",
+              "So did I."
             ],
             "answer": "Neither was I.",
-            "hint": "wasn't -> Neither was I",
-            "explanation": "Respon persetujuan to be lampau negatif: 'Neither was I.'"
+            "hint": "Past to be negatif 'wasn't' &rarr; Neither was I.",
+            "explanation": "Audio TR 26 nomor 7: 'She wasn't here yesterday.' &rarr; Neither was I."
+          },
+          {
+            "q": "8. Audio: 'We shouldn't talk so loudly.' &rarr; [BLANK]",
+            "options": [
+              "Neither should we.",
+              "So should we.",
+              "Neither do we.",
+              "So do we."
+            ],
+            "answer": "Neither should we.",
+            "hint": "Modal negatif 'shouldn't' &rarr; Neither should we.",
+            "explanation": "Audio TR 26 nomor 8: 'We shouldn't talk so loudly.' &rarr; Neither should we."
+          }
+        ]
+      },
+      {
+        "id": "u21_ex5",
+        "unitId": 21,
+        "page": 69,
+        "title": "Latihan 5: Melengkapi Dialog Persetujuan dan Ketidaksetujuan",
+        "instruction": "Lengkapi respons dialog dengan persetujuan atau ketidaksetujuan yang tepat.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Emma: I really love chocolate ice cream. Dan (setuju): [BLANK]",
+            "answer": "So do I.",
+            "alternateAnswers": [
+              "so do i.",
+              "So do I",
+              "so do i",
+              "Me too."
+            ],
+            "hint": "Persetujuan positif Present Simple.",
+            "explanation": "So do I."
+          },
+          {
+            "q": "2. Emma: I didn't watch the football match last night. Dan (setuju): [BLANK]",
+            "answer": "Neither did I.",
+            "alternateAnswers": [
+              "neither did i.",
+              "Neither did I",
+              "neither did i",
+              "Me neither."
+            ],
+            "hint": "Persetujuan negatif Past Simple.",
+            "explanation": "Neither did I."
+          },
+          {
+            "q": "3. Emma: I can speak three languages. Dan (tidak setuju / beda): Oh, I [BLANK]. I only speak English.",
+            "answer": "can't",
+            "alternateAnswers": [
+              "cannot",
+              "Can't"
+            ],
+            "hint": "Menyatakan ketidakmampuan diri.",
+            "explanation": "Oh, I can't. I only speak English."
           }
         ]
       }
@@ -9205,102 +13533,533 @@ const GRAMMAR_UNITS = [
       {
         "id": "u22_ex1",
         "unitId": 22,
-        "page": 70,
-        "title": "Latihan 1: Melengkapi Question Tags (Pernyataan Positif & Negatif)",
-        "instruction": "Ketik question tag yang tepat (misal: isn't he, do they, can you, aren't you) pada bagian yang kosong.",
+        "page": 71,
+        "title": "Latihan 1: Menjodohkan Belahan Kalimat dengan Question Tag",
+        "instruction": "Pasangkan pernyataan di sebelah kiri (1-6) dengan question tag yang sesuai di sebelah kanan (a-f).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. You don't like meat, &rarr; [BLANK]",
+            "options": [
+              "do you?",
+              "don't we?",
+              "does she?",
+              "can't he?",
+              "are you?",
+              "haven't they?"
+            ],
+            "answer": "do you?",
+            "hint": "Pernyataan negatif 'don't like' berpasangan dengan tag positif 'do you?'.",
+            "explanation": "You don't like meat, do you?"
+          },
+          {
+            "q": "2. They've been travelling for hours, &rarr; [BLANK]",
+            "options": [
+              "haven't they?",
+              "do you?",
+              "don't we?",
+              "can't he?",
+              "does she?",
+              "are you?"
+            ],
+            "answer": "haven't they?",
+            "hint": "'They've' = They have &rarr; tag negatif: 'haven't they?'.",
+            "explanation": "They've been travelling for hours, haven't they?"
+          },
+          {
+            "q": "3. Ben can play the piano, &rarr; [BLANK]",
+            "options": [
+              "can't he?",
+              "do you?",
+              "don't we?",
+              "does she?",
+              "are you?",
+              "haven't they?"
+            ],
+            "answer": "can't he?",
+            "hint": "Modal positif 'can' &rarr; tag negatif 'can't he?'.",
+            "explanation": "Ben can play the piano, can't he?"
+          },
+          {
+            "q": "4. We have a free period before lunch today, &rarr; [BLANK]",
+            "options": [
+              "don't we?",
+              "do you?",
+              "does she?",
+              "can't he?",
+              "are you?",
+              "haven't they?"
+            ],
+            "answer": "don't we?",
+            "hint": "Kata kerja 'have' Present Simple &rarr; 'don't we?'.",
+            "explanation": "We have a free period, don't we?"
+          },
+          {
+            "q": "5. She doesn't work at the leisure centre anymore, &rarr; [BLANK]",
+            "options": [
+              "does she?",
+              "do you?",
+              "don't we?",
+              "can't he?",
+              "are you?",
+              "haven't they?"
+            ],
+            "answer": "does she?",
+            "hint": "Negatif 'doesn't work' &rarr; tag positif 'does she?'.",
+            "explanation": "She doesn't work at the leisure centre anymore, does she?"
+          },
+          {
+            "q": "6. You aren't upset about what Timothy said, &rarr; [BLANK]",
+            "options": [
+              "are you?",
+              "do you?",
+              "don't we?",
+              "can't he?",
+              "does she?",
+              "haven't they?"
+            ],
+            "answer": "are you?",
+            "hint": "Negatif 'aren't' &rarr; tag positif 'are you?'.",
+            "explanation": "You aren't upset, are you?"
+          }
+        ]
+      },
+      {
+        "id": "u22_ex2",
+        "unitId": 22,
+        "page": 71,
+        "title": "Latihan 2: Melengkapi dengan Question Tags dalam Kotak",
+        "instruction": "Lengkapi kalimat dengan question tags yang tepat dari pilihan dalam kotak: did she, aren't you, have you, isn't it, weren't they, can we.",
         "type": "fill",
         "questions": [
           {
-            "q": "1. You are from London, [BLANK]?",
+            "q": "1. You are going to buy a new dog, [BLANK]?",
             "answer": "aren't you",
             "alternateAnswers": [
-              "are not you"
+              "are not you",
+              "Aren't you"
             ],
-            "hint": "Pernyataan positif (+ are) -> tag negatif (- aren't you)",
-            "explanation": "Subjek 'you' dengan to be positif 'are' menghasilkan tag 'aren't you?'."
+            "hint": "Positif 'You are' &rarr; tag negatif: aren't you.",
+            "explanation": "You are going to buy a new dog, aren't you?"
           },
           {
-            "q": "2. She doesn't speak Japanese, [BLANK]?",
-            "answer": "does she",
-            "hint": "Pernyataan negatif (- doesn't) -> tag positif (+ does she)",
-            "explanation": "Kalimat negatif 'doesn't' menghasilkan tag positif 'does she?'."
+            "q": "2. We can't go through the security checks at the airport with liquids, [BLANK]?",
+            "answer": "can we",
+            "alternateAnswers": [
+              "Can we"
+            ],
+            "hint": "Negatif 'We can't' &rarr; tag positif: can we.",
+            "explanation": "We can't go through security checks with liquids, can we?"
           },
           {
-            "q": "3. They watched the film yesterday, [BLANK]?",
-            "answer": "didn't they",
-            "hint": "Past Simple positif (+ watched) -> tag negatif (- didn't they)",
-            "explanation": "Bentuk lampau positif 'watched' memakai tag 'didn't they?'."
+            "q": "3. The salt-water crocodile is the most dangerous animal, [BLANK]?",
+            "answer": "isn't it",
+            "alternateAnswers": [
+              "is not it",
+              "Isn't it"
+            ],
+            "hint": "Positif 'is' dengan subjek tunggal hewani/benda (it) &rarr; isn't it.",
+            "explanation": "The crocodile is the most dangerous animal, isn't it?"
           },
           {
-            "q": "4. He can play the piano very well, [BLANK]?",
-            "answer": "can't he",
-            "hint": "Modal positif can -> tag negatif can't he",
-            "explanation": "Modal 'can' menghasilkan tag 'can't he?'."
+            "q": "4. You haven't seen James today, [BLANK]?",
+            "answer": "have you",
+            "alternateAnswers": [
+              "Have you"
+            ],
+            "hint": "Negatif 'haven't' &rarr; tag positif: have you.",
+            "explanation": "You haven't seen James today, have you?"
           },
           {
-            "q": "5. We haven't met before, [BLANK]?",
-            "answer": "have we",
-            "hint": "Negatif haven't -> tag positif have we",
-            "explanation": "Kalimat negatif 'haven't' menghasilkan tag positif 'have we?'."
+            "q": "5. Max and Jason were quite bored during the lesson, [BLANK]?",
+            "answer": "weren't they",
+            "alternateAnswers": [
+              "were not they",
+              "Weren't they"
+            ],
+            "hint": "Positif 'were' dengan subjek jamak (they) &rarr; weren't they.",
+            "explanation": "Max and Jason were quite bored, weren't they?"
+          },
+          {
+            "q": "6. She didn't revise for her exams enough, [BLANK]?",
+            "answer": "did she",
+            "alternateAnswers": [
+              "Did she"
+            ],
+            "hint": "Negatif 'didn't' &rarr; tag positif: did she.",
+            "explanation": "She didn't revise for her exams enough, did she?"
+          }
+        ]
+      },
+      {
+        "id": "u22_ex3",
+        "unitId": 22,
+        "page": 71,
+        "title": "Latihan 3: Menambahkan Question Tags dan Jawaban Singkat",
+        "instruction": "Tuliskan question tag dan jawaban singkat yang sesuai.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. They are learning English, [BLANK]? &rarr; Yes, [BLANK2].",
+            "answer": "aren't they / they are",
+            "alternateAnswers": [
+              "aren't they? / they are",
+              "aren't they / they are."
+            ],
+            "hint": "Tag: aren't they, Jawaban: they are.",
+            "explanation": "They are learning English, aren't they? - Yes, they are."
+          },
+          {
+            "q": "2. She sang well, [BLANK]? &rarr; No, [BLANK2].",
+            "answer": "didn't she / she didn't",
+            "alternateAnswers": [
+              "didn't she? / she didn't",
+              "didn't she / she didn't."
+            ],
+            "hint": "Sang adalah Past Simple &rarr; didn't she / she didn't.",
+            "explanation": "She sang well, didn't she? - No, she didn't."
+          },
+          {
+            "q": "3. It didn't hurt you, [BLANK]? &rarr; No, [BLANK2].",
+            "answer": "did it / it didn't",
+            "alternateAnswers": [
+              "did it? / it didn't",
+              "did it / it didn't."
+            ],
+            "hint": "Negatif didn't &rarr; tag: did it / it didn't.",
+            "explanation": "It didn't hurt you, did it? - No, it didn't."
+          },
+          {
+            "q": "4. He has been to Switzerland, [BLANK]? &rarr; No, [BLANK2].",
+            "answer": "hasn't he / he hasn't",
+            "alternateAnswers": [
+              "hasn't he? / he hasn't",
+              "hasn't he / he hasn't."
+            ],
+            "hint": "Present Perfect has &rarr; hasn't he / he hasn't.",
+            "explanation": "He has been to Switzerland, hasn't he? - No, he hasn't."
+          },
+          {
+            "q": "5. He can do that for you, [BLANK]? &rarr; Yes, [BLANK2].",
+            "answer": "can't he / he can",
+            "alternateAnswers": [
+              "can't he? / he can",
+              "can't he / he can."
+            ],
+            "hint": "Modal can &rarr; can't he / he can.",
+            "explanation": "He can do that for you, can't he? - Yes, he can."
+          },
+          {
+            "q": "6. Juliane likes broccoli, [BLANK]? &rarr; Yes, [BLANK2].",
+            "answer": "doesn't she / she does",
+            "alternateAnswers": [
+              "doesn't she? / she does",
+              "doesn't she / she does."
+            ],
+            "hint": "Present Simple 'likes' &rarr; doesn't she / she does.",
+            "explanation": "Juliane likes broccoli, doesn't she? - Yes, she does."
           }
         ]
       },
       {
         "id": "u22_ex4",
         "unitId": 22,
-        "page": 72,
-        "title": "Latihan 4: Pertanyaan Penegas Question Tags dalam Dialog (Audio TR 27)",
-        "instruction": "Dengarkan percakapan konfirmasi pada audio TR 27, lalu pilih tag pertanyaan dan jawaban singkat yang sesuai.",
-        "type": "choice",
+        "page": 71,
+        "title": "Latihan 4: Question Tags Dialog (Audio TR 27)",
+        "instruction": "Dengarkan rekaman percakapan audio TR 27 (1-6) dan lengkapi question tag serta respons jawaban yang diucapkan.",
+        "type": "fill",
         "audioTrack": "TR 27",
         "questions": [
           {
-            "q": "1. A: Louise needs a new mobile phone, [BLANK]? B: Yes, she does.",
-            "options": [
-              "doesn't she",
-              "does she",
-              "isn't she",
-              "hasn't she"
+            "q": "1. A: Louise needs a new mobile phone, [BLANK]? &rarr; B: [BLANK2].",
+            "answer": "doesn't she / Yes, she does",
+            "alternateAnswers": [
+              "doesn't she / yes, she does",
+              "doesn't she / Yes, she does."
             ],
-            "answer": "doesn't she",
-            "hint": "needs (Present Simple kata kerja tunggal)",
-            "explanation": "Audio TR 27 nomor 1: 'Louise needs a new mobile phone, doesn't she?'"
+            "hint": "Audio 1: Louise needs... doesn't she? Yes, she does.",
+            "explanation": "Audio TR 27 nomor 1: 'Louise needs a new mobile phone, doesn't she? - Yes, she does.'"
           },
           {
-            "q": "2. A: Mark can't drive yet, [BLANK]? B: No, he can't.",
-            "options": [
-              "can he",
-              "can't he",
-              "does he",
-              "is he"
+            "q": "2. A: Mark can't drive yet, [BLANK]? &rarr; B: [BLANK2].",
+            "answer": "can he / No, he can't",
+            "alternateAnswers": [
+              "can he / no, he can't",
+              "can he / No, he can't."
             ],
-            "answer": "can he",
-            "hint": "can't -> tag positif: can he?",
-            "explanation": "Audio TR 27 nomor 2: 'Mark can't drive yet, can he?'"
+            "hint": "Audio 2: can he? No, he can't.",
+            "explanation": "Audio TR 27 nomor 2: 'Mark can't drive yet, can he? - No, he can't.'"
           },
           {
-            "q": "3. A: The post office is next to the bank in town, [BLANK]? B: Yes, it is.",
-            "options": [
+            "q": "3. A: Joanne and Michael are going to the music festival on Saturday, [BLANK]? &rarr; B: [BLANK2].",
+            "answer": "aren't they / Yes, they are",
+            "alternateAnswers": [
+              "aren't they / yes, they are",
+              "aren't they / Yes, they are."
+            ],
+            "hint": "Audio 3: aren't they? Yes, they are.",
+            "explanation": "Audio TR 27 nomor 3: '...aren't they? - Yes, they are.'"
+          },
+          {
+            "q": "4. A: The post office is next to the bank in town, [BLANK]? &rarr; B: [BLANK2].",
+            "answer": "isn't it / Yes, it is",
+            "alternateAnswers": [
+              "isn't it / yes, it is",
+              "isn't it / Yes, it is."
+            ],
+            "hint": "Audio 4: isn't it? Yes, it is.",
+            "explanation": "Audio TR 27 nomor 4: '...isn't it? - Yes, it is.'"
+          },
+          {
+            "q": "5. A: Simon hasn't got any pets, [BLANK]? &rarr; B: [BLANK2].",
+            "answer": "has he / No, he hasn't",
+            "alternateAnswers": [
+              "has he / no, he hasn't",
+              "has he / No, he hasn't."
+            ],
+            "hint": "Audio 5: has he? No, he hasn't.",
+            "explanation": "Audio TR 27 nomor 5: '...has he? - No, he hasn't.'"
+          },
+          {
+            "q": "6. A: Your sister couldn't get tickets for the show, [BLANK]? &rarr; B: [BLANK2].",
+            "answer": "could she / No, she couldn't",
+            "alternateAnswers": [
+              "could she / no, she couldn't",
+              "could she / No, she couldn't."
+            ],
+            "hint": "Audio 6: could she? No, she couldn't.",
+            "explanation": "Audio TR 27 nomor 6: '...could she? - No, she couldn't.'"
+          }
+        ]
+      },
+      {
+        "id": "u22_ex5",
+        "unitId": 22,
+        "page": 72,
+        "title": "Latihan 5: Mengoreksi Question Tag yang Salah",
+        "instruction": "Koreksi question tag yang salah pada setiap pertanyaan berikut.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Sam isn't catching the 7 o'clock train to London anymore, has he? &rarr; Tag yang benar: [BLANK]",
+            "answer": "is he?",
+            "alternateAnswers": [
+              "is he",
+              "Is he?"
+            ],
+            "hint": "Kalimat memakai 'isn't' &rarr; tag yang benar adalah 'is he?'.",
+            "explanation": "Sam isn't catching the train, is he?"
+          },
+          {
+            "q": "2. You can't play the guitar, can't you? &rarr; Tag yang benar: [BLANK]",
+            "answer": "can you?",
+            "alternateAnswers": [
+              "can you",
+              "Can you?"
+            ],
+            "hint": "Pernyataan negatif 'can't' harus berpasangan dengan tag positif.",
+            "explanation": "You can't play the guitar, can you?"
+          },
+          {
+            "q": "3. Hannah and Jessica were at the zoo yesterday, were they? &rarr; Tag yang benar: [BLANK]",
+            "answer": "weren't they?",
+            "alternateAnswers": [
+              "weren't they",
+              "Weren't they?"
+            ],
+            "hint": "Pernyataan positif 'were' &rarr; tag negatif.",
+            "explanation": "Hannah and Jessica were at the zoo, weren't they?"
+          },
+          {
+            "q": "4. These cupcakes are delicious. You made them yourself, can you? &rarr; Tag yang benar: [BLANK]",
+            "answer": "didn't you?",
+            "alternateAnswers": [
+              "didn't you",
+              "Didn't you?"
+            ],
+            "hint": "Made adalah Past Simple &rarr; tag yang benar: didn't you?",
+            "explanation": "You made them yourself, didn't you?"
+          },
+          {
+            "q": "5. It's going to rain this afternoon, is it? &rarr; Tag yang benar: [BLANK]",
+            "answer": "isn't it?",
+            "alternateAnswers": [
               "isn't it",
-              "is it",
-              "doesn't it",
-              "wasn't it"
+              "Isn't it?"
             ],
-            "answer": "isn't it",
-            "hint": "is -> isn't it?",
-            "explanation": "Audio TR 27 nomor 4: 'The post office is next to the bank in town, isn't it?'"
+            "hint": "It's = It is (positif) &rarr; tag negatif: isn't it?",
+            "explanation": "It's going to rain this afternoon, isn't it?"
           },
           {
-            "q": "4. A: Simon hasn't got any pets, [BLANK]? B: No, he hasn't.",
-            "options": [
-              "has he",
-              "hasn't he",
-              "does he",
-              "is he"
+            "q": "6. You will meet Alexandra later for lunch, are you? &rarr; Tag yang benar: [BLANK]",
+            "answer": "won't you?",
+            "alternateAnswers": [
+              "won't you",
+              "Won't you?"
             ],
+            "hint": "Modal 'will' &rarr; tag negatif: won't you?",
+            "explanation": "You will meet Alexandra later, won't you?"
+          }
+        ]
+      },
+      {
+        "id": "u22_ex6",
+        "unitId": 22,
+        "page": 72,
+        "title": "Latihan 6: Melengkapi 12 Kalimat dengan Question Tags",
+        "instruction": "Lengkapi setiap kalimat berikut dengan question tag yang benar.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. All the students can take part in the charity run, [BLANK]?",
+            "answer": "can't they",
+            "alternateAnswers": [
+              "can't they?"
+            ],
+            "hint": "can &rarr; can't they?",
+            "explanation": "can't they?"
+          },
+          {
+            "q": "2. Your aunt has a summer house in Spain, [BLANK]?",
+            "answer": "doesn't she",
+            "alternateAnswers": [
+              "doesn't she?"
+            ],
+            "hint": "has (Present Simple) &rarr; doesn't she?",
+            "explanation": "doesn't she?"
+          },
+          {
+            "q": "3. Victoria has got a new job, [BLANK]?",
+            "answer": "hasn't she",
+            "alternateAnswers": [
+              "hasn't she?"
+            ],
+            "hint": "has got &rarr; hasn't she?",
+            "explanation": "hasn't she?"
+          },
+          {
+            "q": "4. The countryside in France is beautiful, [BLANK]?",
+            "answer": "isn't it",
+            "alternateAnswers": [
+              "isn't it?"
+            ],
+            "hint": "is &rarr; isn't it?",
+            "explanation": "isn't it?"
+          },
+          {
+            "q": "5. Julia didn't hurt herself when she fell over, [BLANK]?",
+            "answer": "did she",
+            "alternateAnswers": [
+              "did she?"
+            ],
+            "hint": "didn't &rarr; did she?",
+            "explanation": "did she?"
+          },
+          {
+            "q": "6. We mustn't use mobile phones in class, [BLANK]?",
+            "answer": "must we",
+            "alternateAnswers": [
+              "must we?"
+            ],
+            "hint": "mustn't &rarr; must we?",
+            "explanation": "must we?"
+          },
+          {
+            "q": "7. Vince will visit his grandparents on Sunday, [BLANK]?",
+            "answer": "won't he",
+            "alternateAnswers": [
+              "won't he?"
+            ],
+            "hint": "will &rarr; won't he?",
+            "explanation": "won't he?"
+          },
+          {
+            "q": "8. Martin hasn't ever cooked on his own before, [BLANK]?",
             "answer": "has he",
-            "hint": "hasn't got -> has he?",
-            "explanation": "Audio TR 27 nomor 5: 'Simon hasn't got any pets, has he?'"
+            "alternateAnswers": [
+              "has he?"
+            ],
+            "hint": "hasn't &rarr; has he?",
+            "explanation": "has he?"
+          },
+          {
+            "q": "9. Jacob should see a dentist about his tooth, [BLANK]?",
+            "answer": "shouldn't he",
+            "alternateAnswers": [
+              "shouldn't he?"
+            ],
+            "hint": "should &rarr; shouldn't he?",
+            "explanation": "shouldn't he?"
+          },
+          {
+            "q": "10. We won't go jogging later if it's still raining, [BLANK]?",
+            "answer": "will we",
+            "alternateAnswers": [
+              "will we?"
+            ],
+            "hint": "won't &rarr; will we?",
+            "explanation": "will we?"
+          },
+          {
+            "q": "11. You haven't seen my new sunglasses, [BLANK]?",
+            "answer": "have you",
+            "alternateAnswers": [
+              "have you?"
+            ],
+            "hint": "haven't &rarr; have you?",
+            "explanation": "have you?"
+          },
+          {
+            "q": "12. He can speak Chinese, [BLANK]?",
+            "answer": "can't he",
+            "alternateAnswers": [
+              "can't he?"
+            ],
+            "hint": "can &rarr; can't he?",
+            "explanation": "can't he?"
+          }
+        ]
+      },
+      {
+        "id": "u22_ex7",
+        "unitId": 22,
+        "page": 72,
+        "title": "Latihan 7: Memperbaiki Kesalahan Tanya-Jawab Question Tag",
+        "instruction": "Pilihlah pasangan question tag dan jawaban yang benar untuk memperbaiki kesalahan dialog berikut.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Salah: 'We shouldn't be late to class, shouldn't we? - No, we should.' &rarr; Benar: [BLANK]",
+            "options": [
+              "should we? - No, we shouldn't.",
+              "shouldn't we? - Yes, we should.",
+              "did we? - No, we didn't."
+            ],
+            "answer": "should we? - No, we shouldn't.",
+            "hint": "Negatif shouldn't berpasangan dengan tag positif 'should we?'.",
+            "explanation": "Tag yang benar: 'should we?' dan respon setuju larangan: 'No, we shouldn't.'"
+          },
+          {
+            "q": "2. Salah: 'We'll travel by car, don't we? - Yes, we did.' &rarr; Benar: [BLANK]",
+            "options": [
+              "won't we? - Yes, we will.",
+              "didn't we? - Yes, we did.",
+              "aren't we? - Yes, we are."
+            ],
+            "answer": "won't we? - Yes, we will.",
+            "hint": "We'll = We will &rarr; tag: won't we?, respon: Yes, we will.",
+            "explanation": "We'll travel by car, won't we? - Yes, we will."
+          },
+          {
+            "q": "3. Salah: 'Paul doesn't work at the bakery anymore, is he? - No, he does.' &rarr; Benar: [BLANK]",
+            "options": [
+              "does he? - No, he doesn't.",
+              "is he? - Yes, he is.",
+              "did he? - No, he didn't."
+            ],
+            "answer": "does he? - No, he doesn't.",
+            "hint": "doesn't work &rarr; tag: does he?, respon: No, he doesn't.",
+            "explanation": "Paul doesn't work at the bakery anymore, does he? - No, he doesn't."
           }
         ]
       }
@@ -9345,79 +14104,420 @@ const GRAMMAR_UNITS = [
         "id": "u23_ex1",
         "unitId": 23,
         "page": 73,
-        "title": "Latihan 1: Kalimat Pasif Waktu Sekarang (Present Simple Passive: is/are + V3)",
-        "instruction": "Ketik bentuk kalimat pasif yang tepat (is / are + kata kerja ketiga V3).",
+        "title": "Latihan 1: Bentuk Past Passive (was/were + V3)",
+        "instruction": "Lengkapi kalimat dengan bentuk Past Passive (was / were + Past Participle) dari kata kerja di dalam kurung.",
         "type": "fill",
         "questions": [
           {
-            "q": "1. Millions of emails [BLANK] (send) around the world every single day.",
-            "answer": "are sent",
-            "hint": "Emails (jamak) -> are + sent",
-            "explanation": "Subjek jamak 'emails' menggunakan 'are' + V3 'sent'."
+            "q": "1. Kim [BLANK] (give) an application form to fill out for the job.",
+            "answer": "was given",
+            "alternateAnswers": [
+              "Was given"
+            ],
+            "hint": "was + given.",
+            "explanation": "Kim was given an application form."
           },
           {
-            "q": "2. Coffee [BLANK] (grow) in tropical countries like Brazil and Indonesia.",
-            "answer": "is grown",
-            "hint": "Coffee (tak terhitung) -> is + grown",
-            "explanation": "Benda tak terhitung 'coffee' diperlakukan tunggal: 'is grown'."
+            "q": "2. Why [BLANK] this package [BLANK2] (leave) by the front door?",
+            "answer": "was / left",
+            "alternateAnswers": [
+              "was / left"
+            ],
+            "hint": "was + left.",
+            "explanation": "Why was this package left by the front door?"
           },
           {
-            "q": "3. English [BLANK] (speak) by people in many international conferences.",
-            "answer": "is spoken",
-            "hint": "English -> is + spoken",
-            "explanation": "'English' adalah subjek tunggal: 'is spoken'."
+            "q": "3. The hotel [BLANK] (not book) on the Internet.",
+            "answer": "wasn't booked",
+            "alternateAnswers": [
+              "was not booked",
+              "Wasn't booked"
+            ],
+            "hint": "wasn't + booked.",
+            "explanation": "The hotel wasn't booked on the Internet."
           },
           {
-            "q": "4. The classrooms [BLANK] (clean) by the janitors every evening.",
-            "answer": "are cleaned",
-            "hint": "The classrooms (jamak) -> are + cleaned",
-            "explanation": "Subjek jamak 'classrooms' menggunakan 'are cleaned'."
+            "q": "4. [BLANK] these clothes [BLANK2] (make) in the UK?",
+            "answer": "Were / made",
+            "alternateAnswers": [
+              "were / made",
+              "Were / made"
+            ],
+            "hint": "were + made (these clothes jamak).",
+            "explanation": "Were these clothes made in the UK?"
+          },
+          {
+            "q": "5. The printer [BLANK] (fix) by the technician yesterday.",
+            "answer": "was fixed",
+            "alternateAnswers": [
+              "Was fixed"
+            ],
+            "hint": "was + fixed.",
+            "explanation": "The printer was fixed."
+          },
+          {
+            "q": "6. The motorbike [BLANK] (sell) for £1500!",
+            "answer": "was sold",
+            "alternateAnswers": [
+              "Was sold"
+            ],
+            "hint": "was + sold.",
+            "explanation": "The motorbike was sold for £1500."
           }
         ]
       },
       {
         "id": "u23_ex2",
         "unitId": 23,
+        "page": 73,
+        "title": "Latihan 2: Mengubah Kalimat Aktif Menjadi Present Passive",
+        "instruction": "Ubahlah kalimat aktif berikut menjadi kalimat pasif Present Simple (is / are + V3).",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. My mum cleans the house every morning. &rarr; The house [BLANK] by my mum.",
+            "answer": "is cleaned",
+            "alternateAnswers": [
+              "Is cleaned"
+            ],
+            "hint": "is + cleaned.",
+            "explanation": "The house is cleaned by my mum."
+          },
+          {
+            "q": "2. We use this room only on special occasions. &rarr; This room [BLANK] only on special occasions.",
+            "answer": "is used",
+            "alternateAnswers": [
+              "Is used"
+            ],
+            "hint": "is + used.",
+            "explanation": "This room is used only on special occasions."
+          },
+          {
+            "q": "3. People leave bicycles in the hall. &rarr; Bicycles [BLANK] in the hall.",
+            "answer": "are left",
+            "alternateAnswers": [
+              "Are left"
+            ],
+            "hint": "are + left (bicycles jamak).",
+            "explanation": "Bicycles are left in the hall."
+          },
+          {
+            "q": "4. They ring the church bells after the wedding. &rarr; The church bells [BLANK] after the wedding.",
+            "answer": "are rung",
+            "alternateAnswers": [
+              "Are rung"
+            ],
+            "hint": "are + rung (ring &rarr; rang &rarr; rung).",
+            "explanation": "The church bells are rung after the wedding."
+          },
+          {
+            "q": "5. Visitors always admire this painting. &rarr; This painting [BLANK] by visitors.",
+            "answer": "is always admired",
+            "alternateAnswers": [
+              "is admired"
+            ],
+            "hint": "is + admired.",
+            "explanation": "This painting is always admired by visitors."
+          }
+        ]
+      },
+      {
+        "id": "u23_ex3",
+        "unitId": 23,
         "page": 74,
-        "title": "Latihan 2: Kalimat Pasif Waktu Lampau (Past Simple Passive: was/were + V3)",
-        "instruction": "Pilihlah bentuk pasif lampau yang tepat sesuai subjek dan peristiwa sejarah.",
+        "title": "Latihan 3: Menyusun Kalimat Pasif dari Petunjuk Kata",
+        "instruction": "Susun petunjuk kata berikut menjadi kalimat pasif (Present atau Past) yang benar.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. people / speak English / all over the world &rarr; [BLANK]",
+            "answer": "English is spoken all over the world.",
+            "alternateAnswers": [
+              "english is spoken all over the world.",
+              "English is spoken all over the world"
+            ],
+            "hint": "English + is + spoken...",
+            "explanation": "English is spoken all over the world."
+          },
+          {
+            "q": "2. someone / invite me / to lunch yesterday &rarr; [BLANK]",
+            "answer": "I was invited to lunch yesterday.",
+            "alternateAnswers": [
+              "i was invited to lunch yesterday.",
+              "I was invited to lunch yesterday"
+            ],
+            "hint": "I + was + invited...",
+            "explanation": "I was invited to lunch yesterday."
+          },
+          {
+            "q": "3. someone / feed the dog / this morning &rarr; [BLANK]",
+            "answer": "The dog was fed this morning.",
+            "alternateAnswers": [
+              "the dog was fed this morning.",
+              "The dog was fed this morning"
+            ],
+            "hint": "The dog + was + fed...",
+            "explanation": "The dog was fed this morning."
+          },
+          {
+            "q": "4. somebody / build this sandcastle / this morning &rarr; [BLANK]",
+            "answer": "This sandcastle was built this morning.",
+            "alternateAnswers": [
+              "this sandcastle was built this morning.",
+              "This sandcastle was built this morning"
+            ],
+            "hint": "This sandcastle + was + built...",
+            "explanation": "This sandcastle was built this morning."
+          }
+        ]
+      },
+      {
+        "id": "u23_ex4",
+        "unitId": 23,
+        "page": 74,
+        "title": "Latihan 4: Melengkapi dengan Kata Kerja Pasif dalam Kotak",
+        "instruction": "Lengkapi kalimat dengan bentuk pasif dari kata kerja: invent, win, draw, build, upload, send.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. The photos [BLANK] to my website a few days ago.",
+            "answer": "were uploaded",
+            "alternateAnswers": [
+              "Were uploaded"
+            ],
+            "hint": "Kata kerja: upload (the photos jamak).",
+            "explanation": "The photos were uploaded."
+          },
+          {
+            "q": "2. Traffic lights [BLANK] a hundred years ago.",
+            "answer": "were invented",
+            "alternateAnswers": [
+              "Were invented"
+            ],
+            "hint": "Kata kerja: invent.",
+            "explanation": "Traffic lights were invented."
+          },
+          {
+            "q": "3. The laptop I bought online [BLANK] to me by courier.",
+            "answer": "was sent",
+            "alternateAnswers": [
+              "Was sent"
+            ],
+            "hint": "Kata kerja: send (sent).",
+            "explanation": "The laptop was sent to me."
+          },
+          {
+            "q": "4. This masterpiece [BLANK] by a famous Renaissance artist.",
+            "answer": "was drawn",
+            "alternateAnswers": [
+              "was painted",
+              "Was drawn"
+            ],
+            "hint": "Kata kerja: draw (drawn).",
+            "explanation": "This masterpiece was drawn."
+          },
+          {
+            "q": "5. The championship [BLANK] by two players from Scotland.",
+            "answer": "was won",
+            "alternateAnswers": [
+              "Was won"
+            ],
+            "hint": "Kata kerja: win (won).",
+            "explanation": "The championship was won."
+          },
+          {
+            "q": "6. The ancient Egyptian pyramids [BLANK] over 4,500 years ago.",
+            "answer": "were built",
+            "alternateAnswers": [
+              "Were built"
+            ],
+            "hint": "Kata kerja: build (built).",
+            "explanation": "The pyramids were built."
+          }
+        ]
+      },
+      {
+        "id": "u23_ex5",
+        "unitId": 23,
+        "page": 74,
+        "title": "Latihan 5: Passive or Active?",
+        "instruction": "Tentukan apakah kata kerja dalam tanda kurung berupa kalimat Aktif (Active) atau Pasif (Passive), lalu pilih bentuk yang tepat.",
         "type": "choice",
         "questions": [
           {
-            "q": "1. The telephone [BLANK] by Alexander Graham Bell in 1876.",
+            "q": "1. Millions of people [BLANK] (play) football all around the world.",
             "options": [
-              "was invented",
-              "were invented",
-              "is invented",
-              "invented"
+              "play (Active)",
+              "is played (Passive)",
+              "are played (Passive)"
             ],
-            "answer": "was invented",
-            "hint": "Subjek tunggal lampau (in 1876)",
-            "explanation": "'The telephone' adalah subjek tunggal di masa lampau: 'was invented'."
+            "answer": "play (Active)",
+            "hint": "Millions of people adalah pelaku aksi aktif.",
+            "explanation": "Bentuk aktif: play."
           },
           {
-            "q": "2. The ancient pyramids in Egypt [BLANK] thousands of years ago.",
+            "q": "2. Football [BLANK] (play) in almost every country.",
             "options": [
-              "were built",
-              "was built",
-              "are built",
-              "have built"
+              "is played (Passive)",
+              "plays (Active)",
+              "played (Active)"
             ],
-            "answer": "were built",
-            "hint": "Pyramids (jamak)",
-            "explanation": "Subjek jamak 'The pyramids' menggunakan 'were built'."
+            "answer": "is played (Passive)",
+            "hint": "Football adalah objek yang dimainkan orang (Pasif).",
+            "explanation": "Bentuk pasif: is played."
           },
           {
-            "q": "3. The masterpiece Mona Lisa [BLANK] by Leonardo da Vinci.",
+            "q": "3. The thief [BLANK] (catch) by the police last night.",
             "options": [
-              "was painted",
-              "were painted",
-              "is painted",
-              "painted"
+              "was caught (Passive)",
+              "caught (Active)",
+              "catches (Active)"
             ],
-            "answer": "was painted",
-            "hint": "Mona Lisa (tunggal)",
-            "explanation": "Lukisan tunggal 'Mona Lisa' menggunakan 'was painted'."
+            "answer": "was caught (Passive)",
+            "hint": "Pencuri ditangkap oleh polisi (Pasif).",
+            "explanation": "Past Passive: was caught."
+          },
+          {
+            "q": "4. The police officer [BLANK] (catch) the criminal quickly.",
+            "options": [
+              "caught (Active)",
+              "was caught (Passive)",
+              "is caught (Passive)"
+            ],
+            "answer": "caught (Active)",
+            "hint": "Polisi yang menangkap pencuri (Aktif).",
+            "explanation": "Past Active: caught."
+          }
+        ]
+      },
+      {
+        "id": "u23_ex6",
+        "unitId": 23,
+        "page": 75,
+        "title": "Latihan 6: Tanya-Jawab dalam Bentuk Past Passive",
+        "instruction": "Lengkapi pertanyaan dan jawaban kalimat pasif lampau berikut.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Q: Where [BLANK] these jeans [BLANK2]? &rarr; A: They were made in America.",
+            "answer": "were / made",
+            "alternateAnswers": [
+              "were / made"
+            ],
+            "hint": "were + made.",
+            "explanation": "Where were these jeans made?"
+          },
+          {
+            "q": "2. Q: When [BLANK] the package [BLANK2]? &rarr; A: It was delivered just after midday.",
+            "answer": "was / delivered",
+            "alternateAnswers": [
+              "was / delivered"
+            ],
+            "hint": "was + delivered.",
+            "explanation": "When was the package delivered?"
+          },
+          {
+            "q": "3. Q: Who [BLANK] this portrait [BLANK2] by? &rarr; A: It was painted by Luke Stratton.",
+            "answer": "was / painted",
+            "alternateAnswers": [
+              "was / drawn",
+              "was / painted"
+            ],
+            "hint": "was + painted / drawn.",
+            "explanation": "Who was this portrait drawn / painted by?"
+          }
+        ]
+      },
+      {
+        "id": "u23_ex7",
+        "unitId": 23,
+        "page": 75,
+        "title": "Latihan 7: Mengubah Kalimat Menjadi Bentuk Pasif",
+        "instruction": "Ubahlah kalimat aktif berikut menjadi kalimat pasif yang setara.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. The fire destroyed that house. &rarr; That house [BLANK] by the fire.",
+            "answer": "was destroyed",
+            "alternateAnswers": [
+              "Was destroyed"
+            ],
+            "hint": "was + destroyed.",
+            "explanation": "That house was destroyed by the fire."
+          },
+          {
+            "q": "2. The audience enjoyed the concert very much. &rarr; The concert [BLANK] very much by the audience.",
+            "answer": "was enjoyed",
+            "alternateAnswers": [
+              "Was enjoyed"
+            ],
+            "hint": "was + enjoyed.",
+            "explanation": "The concert was enjoyed by the audience."
+          },
+          {
+            "q": "3. Paul will eat the cake. &rarr; The cake [BLANK] by Paul.",
+            "answer": "will be eaten",
+            "alternateAnswers": [
+              "Will be eaten"
+            ],
+            "hint": "Future passive: will be + eaten.",
+            "explanation": "The cake will be eaten by Paul."
+          },
+          {
+            "q": "4. Beth has finished the report. &rarr; The report [BLANK] by Beth.",
+            "answer": "has been finished",
+            "alternateAnswers": [
+              "Has been finished"
+            ],
+            "hint": "Present Perfect passive: has been + finished.",
+            "explanation": "The report has been finished by Beth."
+          }
+        ]
+      },
+      {
+        "id": "u23_ex8",
+        "unitId": 23,
+        "page": 75,
+        "title": "Latihan 8: Melengkapi Teks Perjalanan Mesir dengan Bentuk Pasif",
+        "instruction": "Lengkapi teks petunjuk keselamatan berlibur di Mesir dengan bentuk pasif dari kata kerja dalam kurung.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. Marc: Certain precautions [BLANK] (take) by my friends to enjoy the trip fully.",
+            "answer": "were taken",
+            "alternateAnswers": [
+              "Were taken"
+            ],
+            "hint": "Past passive: were taken.",
+            "explanation": "Precautions were taken."
+          },
+          {
+            "q": "2. Water [BLANK] (always / boil) before it is drunk.",
+            "answer": "is always boiled",
+            "alternateAnswers": [
+              "is boiled",
+              "Is always boiled"
+            ],
+            "hint": "is always + boiled.",
+            "explanation": "Water is always boiled."
+          },
+          {
+            "q": "3. Long-sleeved garments [BLANK] (wear) by tourists to protect their skin from the sun.",
+            "answer": "are worn",
+            "alternateAnswers": [
+              "Are worn"
+            ],
+            "hint": "are + worn (wear &rarr; wore &rarr; worn).",
+            "explanation": "Long-sleeved garments are worn by tourists."
+          },
+          {
+            "q": "4. Sunscreen [BLANK] (sell) in lots of local shops.",
+            "answer": "is sold",
+            "alternateAnswers": [
+              "Is sold"
+            ],
+            "hint": "is + sold.",
+            "explanation": "Sunscreen is sold in lots of shops."
           }
         ]
       }
@@ -9462,69 +14562,83 @@ const GRAMMAR_UNITS = [
         "id": "u24_ex1",
         "unitId": 24,
         "page": 76,
-        "title": "Latihan 1: Kata Kerja Indrawi (look, sound, smell, taste, feel + Adjective)",
-        "instruction": "Pilihlah kata kerja indrawi yang paling tepat sesuai fungsi panca indra.",
-        "type": "choice",
+        "title": "Latihan 1: Verba Persepsi Indrawi (Verbs of Sensory Perception)",
+        "instruction": "Lengkapi kalimat dengan bentuk kata kerja indrawi yang tepat dari kotak: look, watch, feel, smell, hear, listen, taste, sound, see, touch.",
+        "type": "fill",
         "questions": [
           {
-            "q": "1. Mmm! Those chocolate cookies [BLANK] delicious! Can I try one?",
-            "options": [
-              "smell",
-              "sound",
-              "feel",
-              "look like"
+            "q": "1. I [BLANK] the rumbles of the lorries on the road as I lay in bed.",
+            "answer": "felt",
+            "alternateAnswers": [
+              "Felt"
             ],
-            "answer": "smell",
-            "hint": "Aroma kue cokelat yang harum",
-            "explanation": "Indra penciuman untuk aroma lezat memakai 'smell delicious'."
+            "hint": "Merasakan getaran truk (feel &rarr; felt).",
+            "explanation": "I felt the rumbles of the lorries."
           },
           {
-            "q": "2. Listen to this new song! It [BLANK] fantastic.",
-            "options": [
-              "sounds",
-              "tastes",
-              "feels",
-              "looks like"
+            "q": "2. John [BLANK] the fresh bread that was baking in the oven.",
+            "answer": "smelled",
+            "alternateAnswers": [
+              "smelt",
+              "Smelled",
+              "Smelt"
             ],
-            "answer": "sounds",
-            "hint": "Indra pendengaran (listen to this song)",
-            "explanation": "Indra pendengaran (musik/suara) memakai 'sounds fantastic'."
+            "hint": "Mencium aroma roti (smell).",
+            "explanation": "John smelled / smelt the fresh bread."
           },
           {
-            "q": "3. Touch this silk scarf. It [BLANK] very soft and smooth.",
-            "options": [
-              "feels",
-              "tastes",
-              "sounds",
-              "smells"
+            "q": "3. The music on the computer [BLANK] brilliant. Did you record it yourself?",
+            "answer": "sounded",
+            "alternateAnswers": [
+              "Sounded"
             ],
-            "answer": "feels",
-            "hint": "Indra peraba (touch this scarf)",
-            "explanation": "Indra peraba untuk tekstur kain menggunakan 'feels soft'."
+            "hint": "Terdengar sangat bagus (sound &rarr; sounded).",
+            "explanation": "The music sounded brilliant."
           },
           {
-            "q": "4. This soup [BLANK] a bit too salty. Did you put too much salt in it?",
-            "options": [
-              "tastes",
-              "sounds",
-              "feels",
-              "looks like"
+            "q": "4. Could you [BLANK] the fresh oregano in that salad?",
+            "answer": "taste",
+            "alternateAnswers": [
+              "Taste"
             ],
-            "answer": "tastes",
-            "hint": "Indra pengecap rasa asin",
-            "explanation": "Indra pengecap lidah memakai 'tastes salty'."
+            "hint": "Mengecap rasa bumbu (taste).",
+            "explanation": "Could you taste the oregano?"
           },
           {
-            "q": "5. You [BLANK] very tired today. Did you stay up late last night?",
-            "options": [
-              "look",
-              "taste",
-              "smell",
-              "sound like"
+            "q": "5. We [BLANK] to my brother playing the acoustic guitar.",
+            "answer": "listened",
+            "alternateAnswers": [
+              "Listened"
             ],
-            "answer": "look",
-            "hint": "Indra penglihatan tampak lelah",
-            "explanation": "Tampilan visual seseorang memakai 'look tired'."
+            "hint": "Mendengarkan dengan seksama (listen &rarr; listened).",
+            "explanation": "We listened to my brother playing."
+          },
+          {
+            "q": "6. Mark and James are [BLANK] football on the TV in the living room.",
+            "answer": "watching",
+            "alternateAnswers": [
+              "Watching"
+            ],
+            "hint": "Menonton pertandingan TV (watch &rarr; watching).",
+            "explanation": "They are watching football."
+          },
+          {
+            "q": "7. Did you [BLANK] that strange noise coming from the kitchen?",
+            "answer": "hear",
+            "alternateAnswers": [
+              "Hear"
+            ],
+            "hint": "Mendengar suara bunyi (hear).",
+            "explanation": "Did you hear that noise?"
+          },
+          {
+            "q": "8. You can [BLANK] the hot air balloon rising over the green hill.",
+            "answer": "see",
+            "alternateAnswers": [
+              "See"
+            ],
+            "hint": "Melihat balon udara (see).",
+            "explanation": "You can see the hot air balloon."
           }
         ]
       },
@@ -9532,27 +14646,357 @@ const GRAMMAR_UNITS = [
         "id": "u24_ex2",
         "unitId": 24,
         "page": 77,
-        "title": "Latihan 2: Penggunaan like setelah Kata Kerja Indrawi (look like, sound like, taste like)",
-        "instruction": "Ketik bentuk 'verb + like' yang sesuai (misal: sounds like, looks like, tastes like) sebelum kata benda.",
+        "title": "Latihan 2: Persepsi Indrawi + Gerund (-ing) untuk Aksi Berlangsung",
+        "instruction": "Lengkapi kalimat dengan bentuk -ing dari kata kerja: explain, talk, play, ride, argue, chase, ring, knock, try, run.",
         "type": "fill",
         "questions": [
           {
-            "q": "1. That cloud [BLANK] (look) a giant fluffy rabbit!",
-            "answer": "looks like",
-            "hint": "look like + kata benda (a giant rabbit)",
-            "explanation": "Jika diikuti kata benda, tambahkan 'like': 'looks like a giant fluffy rabbit'."
+            "q": "1. I saw David [BLANK] (talk) with Janet at the corner of the street.",
+            "answer": "talking",
+            "alternateAnswers": [
+              "Talking"
+            ],
+            "hint": "talk + ing.",
+            "explanation": "Saw David talking."
           },
           {
-            "q": "2. That guitar riff [BLANK] (sound) an old Beatles song.",
-            "answer": "sounds like",
-            "hint": "sound like + noun",
-            "explanation": "'sounds like' digunakan saat membandingkan suara dengan suatu benda."
+            "q": "2. We heard our neighbours [BLANK] (argue) loudly in the living room.",
+            "answer": "arguing",
+            "alternateAnswers": [
+              "Arguing"
+            ],
+            "hint": "argue + ing.",
+            "explanation": "Heard them arguing."
           },
           {
-            "q": "3. This exotic fruit [BLANK] (taste) a mix of strawberry and banana.",
-            "answer": "tastes like",
-            "hint": "taste like + noun",
-            "explanation": "'tastes like' digunakan untuk membandingkan cita rasa dengan makanan lain."
+            "q": "3. We are watching that mechanic [BLANK] (try) to repair the traffic light.",
+            "answer": "trying",
+            "alternateAnswers": [
+              "Trying"
+            ],
+            "hint": "try + ing.",
+            "explanation": "Watching that mechanic trying."
+          },
+          {
+            "q": "4. I watched the little girl [BLANK] (play) with her doll on the rug.",
+            "answer": "playing",
+            "alternateAnswers": [
+              "Playing"
+            ],
+            "hint": "play + ing.",
+            "explanation": "Watched her playing."
+          },
+          {
+            "q": "5. We saw the cat [BLANK] (chase) the mouse across the kitchen floor.",
+            "answer": "chasing",
+            "alternateAnswers": [
+              "Chasing"
+            ],
+            "hint": "chase + ing.",
+            "explanation": "Saw the cat chasing the mouse."
+          },
+          {
+            "q": "6. I listened to the teacher [BLANK] (explain) the grammar lesson.",
+            "answer": "explaining",
+            "alternateAnswers": [
+              "Explaining"
+            ],
+            "hint": "explain + ing.",
+            "explanation": "Listened to the teacher explaining."
+          },
+          {
+            "q": "7. I heard someone [BLANK] (knock) at the front door.",
+            "answer": "knocking",
+            "alternateAnswers": [
+              "Knocking"
+            ],
+            "hint": "knock + ing.",
+            "explanation": "Heard someone knocking."
+          },
+          {
+            "q": "8. I saw Francis [BLANK] (run) to catch the morning bus.",
+            "answer": "running",
+            "alternateAnswers": [
+              "Running"
+            ],
+            "hint": "run + n + ing.",
+            "explanation": "Saw Francis running."
+          }
+        ]
+      },
+      {
+        "id": "u24_ex3",
+        "unitId": 24,
+        "page": 77,
+        "title": "Latihan 3: Persepsi Indrawi + Infinitive Tanpa to (Aksi Lengkap)",
+        "instruction": "Lengkapi kalimat dengan bentuk bare infinitive (kata kerja dasar tanpa to) dari: say, make, call, steal, play, leave, get, sing, eat, jump.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. I told the police that I didn't see the thief [BLANK] (steal) my car.",
+            "answer": "steal",
+            "alternateAnswers": [
+              "Steal"
+            ],
+            "hint": "Bentuk dasar tanpa to: steal.",
+            "explanation": "Didn't see the thief steal my car."
+          },
+          {
+            "q": "2. I heard my mother [BLANK] (say) that she would pick us up after school.",
+            "answer": "say",
+            "alternateAnswers": [
+              "Say"
+            ],
+            "hint": "Bentuk dasar: say.",
+            "explanation": "Heard my mother say."
+          },
+          {
+            "q": "3. We watched the children [BLANK] (jump) into the swimming pool.",
+            "answer": "jump",
+            "alternateAnswers": [
+              "Jump"
+            ],
+            "hint": "Bentuk dasar: jump.",
+            "explanation": "Watched the children jump."
+          },
+          {
+            "q": "4. I heard someone [BLANK] (call) my name from across the street.",
+            "answer": "call",
+            "alternateAnswers": [
+              "Call"
+            ],
+            "hint": "Bentuk dasar: call.",
+            "explanation": "Heard someone call my name."
+          },
+          {
+            "q": "5. We saw him [BLANK] (eat) a whole giant watermelon by himself!",
+            "answer": "eat",
+            "alternateAnswers": [
+              "Eat"
+            ],
+            "hint": "Bentuk dasar: eat.",
+            "explanation": "Saw him eat a whole watermelon."
+          },
+          {
+            "q": "6. I've never seen them [BLANK] (leave) the house without closing all windows.",
+            "answer": "leave",
+            "alternateAnswers": [
+              "Leave"
+            ],
+            "hint": "Bentuk dasar: leave.",
+            "explanation": "Seen them leave the house."
+          }
+        ]
+      },
+      {
+        "id": "u24_ex4",
+        "unitId": 24,
+        "page": 77,
+        "title": "Latihan 4: Memilih Bentuk -ing atau Bare Infinitive",
+        "instruction": "Pilihlah bentuk kata kerja yang tepat sesuai dengan apakah aksi disaksikan secara menyeluruh (infinitive) atau sedang berlangsung sebagian (-ing).",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. We saw the car [BLANK] into the truck at the crossroads.",
+            "options": [
+              "crash",
+              "crashing",
+              "to crash"
+            ],
+            "answer": "crash",
+            "hint": "Peristiwa tabrakan terjadi dalam sekejap selesai (complete action).",
+            "explanation": "Aksi tuntas seketika: saw the car crash."
+          },
+          {
+            "q": "2. When the police arrived, they saw the injured man [BLANK] on the ground.",
+            "options": [
+              "lying",
+              "lie",
+              "to lie"
+            ],
+            "answer": "lying",
+            "hint": "Pria itu sedang terbaring di tanah saat polisi datang.",
+            "explanation": "Aksi sedang berlangsung: saw him lying."
+          },
+          {
+            "q": "3. Sam heard the telephone [BLANK], but he decided not to answer.",
+            "options": [
+              "ring",
+              "ringing",
+              "to ring"
+            ],
+            "answer": "ring",
+            "hint": "Mendengar dering telepon.",
+            "explanation": "Heard the telephone ring / ringing."
+          },
+          {
+            "q": "4. We watched our friends [BLANK] tennis in the finals.",
+            "options": [
+              "playing",
+              "to play",
+              "play"
+            ],
+            "answer": "playing",
+            "hint": "Menonton pertandingan yang sedang berlangsung.",
+            "explanation": "Watched them playing / play tennis."
+          }
+        ]
+      },
+      {
+        "id": "u24_ex5",
+        "unitId": 24,
+        "page": 78,
+        "title": "Latihan 5: Melengkapi Kalimat Persepsi Indrawi",
+        "instruction": "Lengkapi kalimat dengan kata kerja yang cocok dalam bentuk -ing atau infinitive.",
+        "type": "fill",
+        "questions": [
+          {
+            "q": "1. I heard Tina [BLANK] (talk / argue) with her boyfriend yesterday.",
+            "answer": "arguing",
+            "alternateAnswers": [
+              "talking",
+              "argue",
+              "talk"
+            ],
+            "hint": "talking atau arguing.",
+            "explanation": "Heard Tina arguing / talking."
+          },
+          {
+            "q": "2. I didn't see my father [BLANK] (wash / park / fix) his car.",
+            "answer": "wash",
+            "alternateAnswers": [
+              "park",
+              "fix",
+              "clean",
+              "drive"
+            ],
+            "hint": "wash, clean, atau park.",
+            "explanation": "Didn't see my father wash his car."
+          },
+          {
+            "q": "3. We saw Katie [BLANK] (walk / run) to school this morning.",
+            "answer": "walking",
+            "alternateAnswers": [
+              "running",
+              "walk",
+              "run"
+            ],
+            "hint": "walking atau running.",
+            "explanation": "Saw Katie walking to school."
+          },
+          {
+            "q": "4. I heard someone [BLANK] (shout / call / cry) for help, so I called the police.",
+            "answer": "shouting",
+            "alternateAnswers": [
+              "calling",
+              "crying",
+              "call",
+              "shout"
+            ],
+            "hint": "calling atau shouting for help.",
+            "explanation": "Heard someone shouting for help."
+          },
+          {
+            "q": "5. I listened to my daughter [BLANK] (play) the piano beautifully.",
+            "answer": "play",
+            "alternateAnswers": [
+              "playing",
+              "Play",
+              "Playing"
+            ],
+            "hint": "play atau playing.",
+            "explanation": "Listened to my daughter play the piano."
+          },
+          {
+            "q": "6. I hear a strange noise [BLANK] (come) from upstairs.",
+            "answer": "coming",
+            "alternateAnswers": [
+              "Coming"
+            ],
+            "hint": "coming from upstairs.",
+            "explanation": "Hear a noise coming from upstairs."
+          }
+        ]
+      },
+      {
+        "id": "u24_ex6",
+        "unitId": 24,
+        "page": 78,
+        "title": "Latihan 6: Mengamati Gambar Bandara dengan Verba Persepsi Indrawi",
+        "instruction": "Berdasarkan gambar suasana ruang tunggu bandara di buku hal. 78, jodohkan orang-orang dalam gambar dengan aktivitas indrawi yang tepat.",
+        "type": "choice",
+        "questions": [
+          {
+            "q": "1. Pada gambar di sudut kanan bawah, kita melihat remaja mengenakan headphone: [BLANK]",
+            "options": [
+              "I can see a teenager listening to music.",
+              "I can see two men tasting food.",
+              "I can hear an alarm ringing.",
+              "I can see a pilot flying a plane."
+            ],
+            "answer": "I can see a teenager listening to music.",
+            "hint": "Remaja berheadphone sedang mendengarkan musik.",
+            "explanation": "Buku hal. 78 nomor 1: 'I can see a teenager listening to music.'"
+          },
+          {
+            "q": "2. Pada meja bundar di sebelah kanan: [BLANK]",
+            "options": [
+              "I can see two men tasting food.",
+              "I can see an old man sleeping on the sofa.",
+              "I can see a woman pulling a suitcase.",
+              "I can hear dogs barking."
+            ],
+            "answer": "I can see two men tasting food.",
+            "hint": "Dua pria sedang mencicipi makanan di meja.",
+            "explanation": "Buku hal. 78 nomor 2: 'I can see two men tasting food.'"
+          },
+          {
+            "q": "3. Pada pria berjas hijau di sebelah kiri dekat bar: [BLANK]",
+            "options": [
+              "I can see a man talking on his mobile phone.",
+              "I can see people boarding a plane.",
+              "I can hear a baby crying.",
+              "I can see children playing football."
+            ],
+            "answer": "I can see a man talking on his mobile phone.",
+            "hint": "Pria berjas sedang menelepon.",
+            "explanation": "I can see a man talking on his mobile phone."
+          },
+          {
+            "q": "4. Di area sofa ruang tunggu di tengah: [BLANK]",
+            "options": [
+              "I can see a man reading a newspaper and someone sleeping.",
+              "I can see people swimming.",
+              "I can see monkeys dancing.",
+              "I can see cars racing."
+            ],
+            "answer": "I can see a man reading a newspaper and someone sleeping.",
+            "hint": "Orang duduk santai di sofa membaca koran.",
+            "explanation": "I can see an old man reading a newspaper."
+          },
+          {
+            "q": "5. Di bagian depan tengah: [BLANK]",
+            "options": [
+              "I can see a boy blowing a big pink bubble with chewing gum.",
+              "I can see a policeman arresting a thief.",
+              "I can see a girl eating an ice cream cone.",
+              "I can see someone painting a wall."
+            ],
+            "answer": "I can see a boy blowing a big pink bubble with chewing gum.",
+            "hint": "Anak laki-laki meniup balon permen karet pink.",
+            "explanation": "I can see a boy blowing a bubble gum."
+          },
+          {
+            "q": "6. Di dekat papan keberangkatan (Departures): [BLANK]",
+            "options": [
+              "I can see passengers checking their flight times.",
+              "I can see tourists swimming in the sea.",
+              "I can see a waiter serving pizza.",
+              "I can see a train passing by."
+            ],
+            "answer": "I can see passengers checking their flight times.",
+            "hint": "Penumpang melihat jadwal penerbangan.",
+            "explanation": "I can see passengers looking at the flight board."
           }
         ]
       }

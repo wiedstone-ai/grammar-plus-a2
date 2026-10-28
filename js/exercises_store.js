@@ -4,7 +4,7 @@
  */
 
 const ExercisesStore = {
-  STORAGE_KEY: "grammar_a2_exercises_v4.0",
+  STORAGE_KEY: "grammar_a2_exercises_v5.0",
   PROGRESS_KEY: "grammar_a2_progress_v3",
   db: null,
 
@@ -14,11 +14,13 @@ const ExercisesStore = {
         window.localStorage.removeItem("grammar_a2_exercises_v1");
         window.localStorage.removeItem("grammar_a2_exercises_v2");
         window.localStorage.removeItem("grammar_a2_exercises_v3.0");
+        window.localStorage.removeItem("grammar_a2_exercises_v4.0");
       }
       if (typeof localStorage !== "undefined") {
         localStorage.removeItem("grammar_a2_exercises_v1");
         localStorage.removeItem("grammar_a2_exercises_v2");
         localStorage.removeItem("grammar_a2_exercises_v3.0");
+        localStorage.removeItem("grammar_a2_exercises_v4.0");
       }
     } catch (e) {}
   },
@@ -77,10 +79,10 @@ const ExercisesStore = {
         }
       }
 
-      // Initialize from sourceUnits (contains authentic 107 exercises)
+      // Initialize from sourceUnits (contains authentic 190 exercises)
       if (sourceUnits && sourceUnits.length > 0) {
         this.db = {
-          version: "4.0.0",
+          version: "5.0.0",
           updatedAt: new Date().toISOString(),
           units: sourceUnits
         };
@@ -92,7 +94,7 @@ const ExercisesStore = {
       const fallback = (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS))
         ? GRAMMAR_UNITS
         : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
-      this.db = { version: "4.0.0", units: fallback };
+      this.db = { version: "5.0.0", units: fallback };
       if (typeof window !== "undefined") window.GRAMMAR_UNITS = fallback;
     }
   },
@@ -181,7 +183,7 @@ const ExercisesStore = {
       ? GRAMMAR_UNITS
       : ((typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS)) ? window.GRAMMAR_UNITS : []);
     this.db = {
-      version: "4.0.0",
+      version: "5.0.0",
       updatedAt: new Date().toISOString(),
       units: sourceUnits
     };
