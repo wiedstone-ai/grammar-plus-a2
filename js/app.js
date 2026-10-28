@@ -1117,26 +1117,48 @@ function renderSingleExercise(exercise, unit) {
   if (exercise.type === "fill") {
     questionsHtml = exercise.questions.map((q, idx) => `
       <div class="question-item" id="q-box-${idx}">
-        <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off">`)}</div>
-        ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.25rem;">💡 Petunjuk: ${q.hint}</div>` : ''}
-        <div class="feedback-box" id="feedback-q-${idx}"></div>
+        <div style="display: flex; gap: 0.85rem; align-items: flex-start; flex-wrap: wrap;">
+          ${q.image ? `
+            <div class="question-thumb-box" style="flex-shrink: 0; margin-top: 0.15rem;">
+              <a href="${escapeHtml(q.image)}" target="_blank" rel="noopener noreferrer" title="Klik untuk memperbesar gambar">
+                <img src="${escapeHtml(q.image)}" alt="Ilustrasi butir soal" style="width: 84px; height: 84px; object-fit: contain; border-radius: 8px; border: 1.5px solid #CBD5E1; background: #FFFFFF; padding: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.06)';">
+              </a>
+            </div>
+          ` : ''}
+          <div style="flex: 1; min-width: 220px;">
+            <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off">`)}</div>
+            ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.35rem; display: flex; align-items: center; gap: 0.3rem;"><span>💡</span> Petunjuk: ${q.hint}</div>` : ''}
+            <div class="feedback-box" id="feedback-q-${idx}"></div>
+          </div>
+        </div>
       </div>
     `).join("");
   } else {
     // Choice / Pilihan Ganda
     questionsHtml = exercise.questions.map((q, idx) => `
       <div class="question-item" id="q-box-${idx}">
-        <div class="question-text">${idx + 1}. ${q.q.replace('[BLANK]', '_______')}</div>
-        <div class="options-group">
-          ${q.options.map(opt => `
-            <button type="button" class="btn-option" onclick="selectOption(${idx}, '${escapeHtml(opt)}')">
-              <span>${opt}</span>
-            </button>
-          `).join("")}
+        <div style="display: flex; gap: 0.85rem; align-items: flex-start; flex-wrap: wrap;">
+          ${q.image ? `
+            <div class="question-thumb-box" style="flex-shrink: 0; margin-top: 0.15rem;">
+              <a href="${escapeHtml(q.image)}" target="_blank" rel="noopener noreferrer" title="Klik untuk memperbesar gambar">
+                <img src="${escapeHtml(q.image)}" alt="Ilustrasi butir soal" style="width: 88px; height: 88px; object-fit: contain; border-radius: 8px; border: 1.5px solid #CBD5E1; background: #FFFFFF; padding: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.06)';">
+              </a>
+            </div>
+          ` : ''}
+          <div style="flex: 1; min-width: 220px;">
+            <div class="question-text">${idx + 1}. ${q.q.replace('[BLANK]', '_______')}</div>
+            <div class="options-group">
+              ${q.options.map(opt => `
+                <button type="button" class="btn-option" onclick="selectOption(${idx}, '${escapeHtml(opt)}')">
+                  <span>${opt}</span>
+                </button>
+              `).join("")}
+            </div>
+            <input type="hidden" id="answer-q-${idx}" value="">
+            ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.35rem; display: flex; align-items: center; gap: 0.3rem;"><span>💡</span> Petunjuk: ${q.hint}</div>` : ''}
+            <div class="feedback-box" id="feedback-q-${idx}"></div>
+          </div>
         </div>
-        <input type="hidden" id="answer-q-${idx}" value="">
-        ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.25rem;">💡 Petunjuk: ${q.hint}</div>` : ''}
-        <div class="feedback-box" id="feedback-q-${idx}"></div>
       </div>
     `).join("");
   }
@@ -1149,10 +1171,10 @@ function renderSingleExercise(exercise, unit) {
     <p class="exercise-instruction">${exercise.instruction}</p>
     ${audioHtml}
 
-    ${exercise.image ? `
+    ${(exercise.image && !exercise.questions.some(q => q.image)) ? `
       <div class="exercise-illustration-card" style="margin: 1.25rem 0; text-align: center; background: #F8FAFC; padding: 1rem; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
         <div style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.65rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
-          <span style="font-size: 1.1rem;">🎨</span> Ilustrasi Gambar Kartun Edukatif &bull; Panduan Visual Soal
+          <span style="font-size: 1.1rem;">🎨</span> Ilustrasi Gambar Panduan &bull; Peta / Suasana Soal
         </div>
         <div style="position: relative; display: inline-block; max-width: 100%;">
           <a href="${escapeHtml(exercise.image)}" target="_blank" rel="noopener noreferrer" title="Klik untuk memperbesar gambar">
