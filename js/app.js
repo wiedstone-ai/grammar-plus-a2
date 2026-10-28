@@ -1150,8 +1150,18 @@ function renderSingleExercise(exercise, unit) {
     ${audioHtml}
 
     ${exercise.image ? `
-      <div style="margin: 1.25rem 0; text-align: center;">
-        <img src="${escapeHtml(exercise.image)}" alt="${escapeHtml(exercise.title)}" style="max-width: 100%; max-height: 380px; border-radius: 8px; border: 1px solid #CBD5E1; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+      <div class="exercise-illustration-card" style="margin: 1.25rem 0; text-align: center; background: #F8FAFC; padding: 1rem; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.65rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+          <span style="font-size: 1.1rem;">🎨</span> Ilustrasi Gambar Kartun Edukatif &bull; Panduan Visual Soal
+        </div>
+        <div style="position: relative; display: inline-block; max-width: 100%;">
+          <a href="${escapeHtml(exercise.image)}" target="_blank" rel="noopener noreferrer" title="Klik untuk memperbesar gambar">
+            <img src="${escapeHtml(exercise.image)}" alt="${escapeHtml(exercise.title)}" style="max-width: 100%; max-height: 440px; border-radius: 8px; border: 1px solid #CBD5E1; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.01)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 14px rgba(0,0,0,0.08)';">
+          </a>
+        </div>
+        <div style="font-size: 0.75rem; color: #64748B; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+          <span>🔍</span> Klik gambar untuk membuka resolusi penuh di tab baru
+        </div>
       </div>
     ` : ''}
 

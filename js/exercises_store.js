@@ -4,7 +4,7 @@
  */
 
 const ExercisesStore = {
-  STORAGE_KEY: "grammar_a2_exercises_v5.0",
+  STORAGE_KEY: "grammar_a2_exercises_v5.1",
   PROGRESS_KEY: "grammar_a2_progress_v3",
   db: null,
 
@@ -15,12 +15,14 @@ const ExercisesStore = {
         window.localStorage.removeItem("grammar_a2_exercises_v2");
         window.localStorage.removeItem("grammar_a2_exercises_v3.0");
         window.localStorage.removeItem("grammar_a2_exercises_v4.0");
+        window.localStorage.removeItem("grammar_a2_exercises_v5.0");
       }
       if (typeof localStorage !== "undefined") {
         localStorage.removeItem("grammar_a2_exercises_v1");
         localStorage.removeItem("grammar_a2_exercises_v2");
         localStorage.removeItem("grammar_a2_exercises_v3.0");
         localStorage.removeItem("grammar_a2_exercises_v4.0");
+        localStorage.removeItem("grammar_a2_exercises_v5.0");
       }
     } catch (e) {}
   },
