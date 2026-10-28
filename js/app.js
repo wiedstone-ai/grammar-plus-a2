@@ -758,6 +758,44 @@ function initUnitBrowser() {
   }
 }
 
+// Data Visual & Icon Spesifik untuk Tiap Unit Pembelajaran A2
+const UNIT_CARD_VISUALS = {
+  1: { icon: "🏷️", bg: "linear-gradient(135deg, #EEF2FF, #E0E7FF)", border: "#C7D2FE", color: "#4338CA", tooltip: "Possessive & Whose (Kepemilikan Barang)" },
+  2: { icon: "☕", bg: "linear-gradient(135deg, #FFFBEB, #FEF3C7)", border: "#FDE68A", color: "#D97706", tooltip: "Usage of have, can, could (Aktivitas & Kemampuan)" },
+  3: { icon: "💌", bg: "linear-gradient(135deg, #FFF1F2, #FFE4E6)", border: "#FECDD3", color: "#E11D48", tooltip: "Invitations & Suggestions (Undangan & Ajakan)" },
+  4: { icon: "✈️", bg: "linear-gradient(135deg, #F0F9FF, #E0F2FE)", border: "#BAE6FD", color: "#0284C7", tooltip: "Future: be going to (Rencana Masa Depan)" },
+  5: { icon: "🪞", bg: "linear-gradient(135deg, #FAF5FF, #F3E8FF)", border: "#E9D5FF", color: "#7E22CE", tooltip: "Reflexive Pronouns (Cermin Diri Sendiri - myself/herself)" },
+  6: { icon: "🔄", bg: "linear-gradient(135deg, #ECFDF5, #D1FAE5)", border: "#A7F3D0", color: "#059669", tooltip: "to get (Perubahan Keadaan: get married, get tired)" },
+  7: { icon: "🎩", bg: "linear-gradient(135deg, #F8FAFC, #F1F5F9)", border: "#CBD5E1", color: "#475569", tooltip: "could: Past Ability & Polite Requests (Kesopanan)" },
+  8: { icon: "🧺", bg: "linear-gradient(135deg, #F7FEE7, #ECFCCB)", border: "#D9F99D", color: "#65A30D", tooltip: "some, any, no, every (Kuantitas & Keranjang Belanja)" },
+  9: { icon: "👥", bg: "linear-gradient(135deg, #F0FDFA, #CCFBF1)", border: "#99F6E4", color: "#0D9488", tooltip: "Compound Words (someone, nowhere, everything)" },
+  10: { icon: "📋", bg: "linear-gradient(135deg, #FFF7ED, #FFEDD5)", border: "#FED7AA", color: "#EA580C", tooltip: "have to / don't have to (Papan Aturan & Kewajiban)" },
+  11: { icon: "💡", bg: "linear-gradient(135deg, #FEFCE8, #FEF08A)", border: "#FDE047", color: "#CA8A04", tooltip: "should, shall, ought to (Ide & Nasihat Bijak)" },
+  12: { icon: "🏆", bg: "linear-gradient(135deg, #EFF6FF, #DBEAFE)", border: "#BFDBFE", color: "#1D4ED8", tooltip: "Present Perfect (Piala Pengalaman Hidup)" },
+  13: { icon: "⏳", bg: "linear-gradient(135deg, #ECFEFF, #CFFAFE)", border: "#A5F3FC", color: "#0891B2", tooltip: "Present Perfect Continuous (Durasi Berkelanjutan)" },
+  14: { icon: "🔗", bg: "linear-gradient(135deg, #F5F3FF, #EDE9FE)", border: "#DDD6FE", color: "#6D28D9", tooltip: "Relative Clauses (Klausa Penghubung who/which/where)" },
+  15: { icon: "🎯", bg: "linear-gradient(135deg, #FDF4FF, #FAE8FF)", border: "#F5D0FE", color: "#A21CAF", tooltip: "Verb Patterns (Infinitive & Gerund -ing)" },
+  16: { icon: "🔮", bg: "linear-gradient(135deg, #F3E8FF, #E9D5FF)", border: "#D8B4FE", color: "#9333EA", tooltip: "will: Future Simple (Bola Kristal Prediksi Masa Depan)" },
+  17: { icon: "🌦️", bg: "linear-gradient(135deg, #F0F9FF, #E0F2FE)", border: "#BAE6FD", color: "#0369A1", tooltip: "First Conditional (Pengandaian Cuaca Nyata Jika-Maka)" },
+  18: { icon: "🏰", bg: "linear-gradient(135deg, #FFFBEB, #FEE2E2)", border: "#FECACA", color: "#DC2626", tooltip: "Second Conditional (Istana Impian & Situasi Imajiner)" },
+  19: { icon: "💬", bg: "linear-gradient(135deg, #EEF2FF, #E0E7FF)", border: "#C7D2FE", color: "#3730A3", tooltip: "Reported Speech (Balon Ucapan Menyampaikan Pesan)" },
+  20: { icon: "📻", bg: "linear-gradient(135deg, #F8FAFC, #F1F5F9)", border: "#E2E8F0", color: "#334155", tooltip: "used to: Past Habits (Radio Nostalgia Masa Lalu)" },
+  21: { icon: "🤝", bg: "linear-gradient(135deg, #ECFDF5, #D1FAE5)", border: "#A7F3D0", color: "#047857", tooltip: "Agreement & Disagreement (Jabat Tangan Persetujuan)" },
+  22: { icon: "❓", bg: "linear-gradient(135deg, #FFF7ED, #FFEDD5)", border: "#FED7AA", color: "#C2410C", tooltip: "Question Tags & Short Answers (Tanya Penegas)" },
+  23: { icon: "⚙️", bg: "linear-gradient(135deg, #F1F5F9, #E2E8F0)", border: "#CBD5E1", color: "#1E293B", tooltip: "Passive Voice (Roda Gigi Kalimat Pasif)" },
+  24: { icon: "🌸", bg: "linear-gradient(135deg, #FFF1F2, #FFEDD5)", border: "#FECDD3", color: "#BE123C", tooltip: "Sense Verbs (Kata Kerja Indrawi: look, sound, smell, taste)" }
+};
+
+function getUnitCardVisual(unitId) {
+  return UNIT_CARD_VISUALS[unitId] || {
+    icon: "📘",
+    bg: "linear-gradient(135deg, #EFF6FF, #DBEAFE)",
+    border: "#BFDBFE",
+    color: "#2563EB",
+    tooltip: `Unit ${unitId}`
+  };
+}
+
 function renderUnitGrid(filterKeyword = "") {
   const container = document.getElementById("unit-grid-container");
   if (!container) return;
@@ -783,22 +821,30 @@ function renderUnitGrid(filterKeyword = "") {
     return;
   }
 
-  container.innerHTML = filtered.map(u => `
-    <div class="unit-card" onclick="openUnitDetail(${u.id})">
-      <div>
-        <div class="unit-card-top">
-          <span class="unit-number-tag">Unit ${u.id}</span>
-          <span class="badge badge-primary">${u.category}</span>
+  container.innerHTML = filtered.map(u => {
+    const meta = getUnitCardVisual(u.id);
+    return `
+      <div class="unit-card" onclick="openUnitDetail(${u.id})">
+        <div>
+          <div class="unit-card-top">
+            <div style="display: flex; align-items: center; gap: 0.65rem;">
+              <div class="unit-visual-avatar" style="background: ${meta.bg}; border: 1.5px solid ${meta.border};" title="${meta.tooltip}">
+                <span>${meta.icon}</span>
+              </div>
+              <span class="unit-number-tag">Unit ${u.id}</span>
+            </div>
+            <span class="badge badge-primary" style="font-size: 0.68rem; padding: 0.25rem 0.5rem; text-transform: uppercase;">${u.category}</span>
+          </div>
+          <h3>${u.title}</h3>
+          <p><em>${u.english_title}</em></p>
         </div>
-        <h3>${u.title}</h3>
-        <p><em>${u.english_title}</em></p>
+        <div class="unit-card-footer">
+          <span>📖 ${u.exercises ? u.exercises.length : 0} Latihan</span>
+          <span class="unit-footer-action">Pelajari &amp; Kerjakan &rarr;</span>
+        </div>
       </div>
-      <div class="unit-card-footer">
-        <span>📖 ${u.exercises ? u.exercises.length : 0} Latihan</span>
-        <span style="color: #2563EB; font-weight: 700;">Pelajari & Kerjakan &rarr;</span>
-      </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
 function openUnitDetail(unitId) {
@@ -811,6 +857,8 @@ function openUnitDetail(unitId) {
   // Render konten detail materi
   const container = document.getElementById("unit-detail-content");
   if (!container) return;
+
+  const meta = getUnitCardVisual(unit.id);
 
   let tablesHtml = "";
   if (unit.grammar.tables && unit.grammar.tables.length > 0) {
@@ -846,7 +894,12 @@ function openUnitDetail(unitId) {
   container.innerHTML = `
     <div class="unit-detail-header">
       <div>
-        <span class="unit-tag-big">UNIT ${unit.id}</span>
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <div class="unit-visual-avatar" style="width: 48px; height: 48px; font-size: 1.65rem; background: ${meta.bg}; border: 1.5px solid ${meta.border};" title="${meta.tooltip}">
+            <span>${meta.icon}</span>
+          </div>
+          <span class="unit-tag-big" style="margin-bottom: 0;">UNIT ${unit.id}</span>
+        </div>
         <h2 style="font-size: 1.4rem; font-weight: 800; color: #0F172A; margin: 0.35rem 0;">${unit.title}</h2>
         <p style="color: #64748B; font-size: 0.95rem;"><em>${unit.english_title}</em></p>
       </div>
