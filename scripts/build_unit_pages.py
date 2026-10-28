@@ -24,15 +24,15 @@ def build_unit_pages():
         next_uid = uid + 1 if uid < total_units else None
         
         # Collect relevant transcripts for this unit
-        tracks_in_unit = set()
-        for ex in u.get("exercises", []):
-            if ex.get("audioTrack"):
-                tracks_in_unit.add(ex["audioTrack"].lower())
+        tracks_in_unit = {ex["audioTrack"].strip().lower() for ex in u.get("exercises", []) if ex.get("audioTrack")}
         
-        rel_transcripts = [
-            t for t in transcripts 
-            if any(tr in t.get("track", "").lower() for tr in tracks_in_unit)
-        ]
+        rel_transcripts = []
+        for t in transcripts:
+            t_track = t.get("track", "").strip().lower()
+            for tr in tracks_in_unit:
+                if t_track == tr or t_track.startswith(tr + " ") or t_track.startswith(tr + ":"):
+                    rel_transcripts.append(t)
+                    break
         
         # Build Grammar HTML
         grammar = u.get("grammar", {})

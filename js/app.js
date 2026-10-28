@@ -832,7 +832,7 @@ function renderUnitGrid(filterKeyword = "") {
   container.innerHTML = filtered.map(u => {
     const meta = getUnitCardVisual(u.id);
     return `
-      <div class="unit-card" onclick="openUnitDetail(${u.id})">
+      <div class="unit-card" onclick="window.location.href='units/unit_${u.id}.html'" style="cursor: pointer;">
         <div>
           <div class="unit-card-top">
             <div style="display: flex; align-items: center; gap: 0.65rem;">
@@ -848,7 +848,10 @@ function renderUnitGrid(filterKeyword = "") {
         </div>
         <div class="unit-card-footer">
           <span>📖 ${u.exercises ? u.exercises.length : 0} Latihan</span>
-          <a href="units/unit_${u.id}.html" class="btn-fast-unit" onclick="event.stopPropagation();">Masuk &rarr;</a>
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); openUnitDetail(${u.id});" title="Lihat ringkasan rumus tata bahasa" style="font-size: 0.725rem; padding: 0.2rem 0.5rem;">Teori</button>
+            <a href="units/unit_${u.id}.html" class="btn-fast-unit" onclick="event.stopPropagation();">Buka Unit &rarr;</a>
+          </div>
         </div>
       </div>
     `;
@@ -1001,6 +1004,16 @@ function renderExerciseForUnit(unit) {
     : [];
 
   container.innerHTML = `
+    <div style="background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border: 1.5px solid #93C5FD; border-radius: 10px; padding: 0.85rem 1.25rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+      <div>
+        <strong style="color: #1E40AF; font-size: 0.95rem;">🚀 Rekomendasi: Gunakan Halaman Mandiri Unit ${unit.id}</strong>
+        <div style="color: #1E3A8A; font-size: 0.825rem;">Halaman terpisah lebih cepat, super ringan, dan bebas lag dibanding mode satu halaman.</div>
+      </div>
+      <a href="units/unit_${unit.id}.html" class="btn btn-primary" style="text-decoration: none; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1.15rem; box-shadow: 0 2px 4px rgba(37,99,235,0.2);">
+        Buka Halaman Mandiri Unit ${unit.id} &rarr;
+      </a>
+    </div>
+
     <div class="card" style="border-top: 4px solid #2563EB;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
         <div>
@@ -1008,6 +1021,9 @@ function renderExerciseForUnit(unit) {
           <h2 style="font-size: 1.3rem; font-weight: 800; color: #0F172A; margin-top: 0.25rem;">${unit.title}</h2>
           <span style="font-size: 0.825rem; color: #64748B;">Materi & Latihan Resmi Buku Grammar Plus A2 (${unit.exercises.length} Latihan)</span>
         </div>
+        <a href="units/unit_${unit.id}.html" class="btn btn-secondary btn-sm" style="font-weight: 600;">
+          ⚡ Mode Mandiri
+        </a>
       </div>
 
       <div class="exercise-tabs" style="display: flex; gap: 0.4rem; border-bottom: 1px solid #CBD5E1; padding-bottom: 0.6rem; margin-bottom: 1.25rem; overflow-x: auto; flex-wrap: wrap;">

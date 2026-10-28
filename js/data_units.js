@@ -153,10 +153,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. This coat isn't [BLANK], it's too small. It must be [BLANK2].",
             "options": [
-              "my / your",
-              "my / yours",
               "mine / your",
-              "mine / yours"
+              "mine / yours",
+              "my / yours",
+              "my / your"
             ],
             "answer": "mine / yours",
             "hint": "Keduanya berdiri sendiri tanpa kata benda.",
@@ -166,9 +166,9 @@ const GRAMMAR_UNITS = [
             "q": "2. Tell Lisa not to forget [BLANK] passport and not to forget [BLANK2] either.",
             "options": [
               "her / my",
-              "her / mine",
+              "hers / mine",
               "hers / my",
-              "hers / mine"
+              "her / mine"
             ],
             "answer": "her / mine",
             "hint": "Passport adalah kata benda, di akhir berdiri sendiri.",
@@ -197,10 +197,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Two of [BLANK] children go to junior school and [BLANK2] oldest son goes to secondary school.",
             "options": [
-              "their / their",
-              "theirs / their",
+              "theirs / theirs",
               "their / theirs",
-              "theirs / theirs"
+              "their / their",
+              "theirs / their"
             ],
             "answer": "their / their",
             "hint": "Keduanya diikuti kata benda: 'children' dan 'oldest son'.",
@@ -209,10 +209,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. You can take [BLANK] keys if you can't find [BLANK2].",
             "options": [
-              "my / your",
-              "my / yours",
               "mine / your",
-              "mine / yours"
+              "mine / yours",
+              "my / yours",
+              "my / your"
             ],
             "answer": "my / yours",
             "hint": "Pertama ada kata 'keys', kedua berdiri sendiri.",
@@ -684,9 +684,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Whose / these red socks / be? (I)",
             "options": [
+              "A: Who's red socks are these? B: They are me.",
               "A: Whose red socks are these? B: They are mine.",
-              "A: Whose red socks is this? B: It is my.",
-              "A: Who's red socks are these? B: They are me."
+              "A: Whose red socks is this? B: It is my."
             ],
             "answer": "A: Whose red socks are these? B: They are mine.",
             "hint": "Socks adalah jamak (are these) dan kepemilikan orang pertama (mine).",
@@ -717,9 +717,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Whose / this MP3 player / be? (she)",
             "options": [
-              "A: Whose MP3 player is this? B: It is hers.",
+              "A: Who's MP3 player is this? B: They are hers.",
               "A: Whose MP3 player are these? B: It is her.",
-              "A: Who's MP3 player is this? B: They are hers."
+              "A: Whose MP3 player is this? B: It is hers."
             ],
             "answer": "A: Whose MP3 player is this? B: It is hers.",
             "hint": "MP3 player tunggal, kepunyaan dia perempuan (hers).",
@@ -729,8 +729,8 @@ const GRAMMAR_UNITS = [
             "q": "5. Whose / this umbrella / be? (we)",
             "options": [
               "A: Whose umbrella is this? B: It is ours.",
-              "A: Whose umbrella are these? B: It is our.",
-              "A: Who's umbrella is this? B: They are ours."
+              "A: Who's umbrella is this? B: They are ours.",
+              "A: Whose umbrella are these? B: It is our."
             ],
             "answer": "A: Whose umbrella is this? B: It is ours.",
             "hint": "Umbrella tunggal, kepemilikan kami (ours).",
@@ -740,8 +740,8 @@ const GRAMMAR_UNITS = [
             "q": "6. Whose / that digital camera / be? (I)",
             "options": [
               "A: Whose digital camera is that? B: It is mine.",
-              "A: Whose digital camera are those? B: They are my.",
-              "A: Who's digital camera is that? B: It is me."
+              "A: Who's digital camera is that? B: It is me.",
+              "A: Whose digital camera are those? B: They are my."
             ],
             "answer": "A: Whose digital camera is that? B: It is mine.",
             "hint": "That digital camera tunggal, kepemilikan saya (mine).",
@@ -750,8 +750,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. Whose / these jeans / be? (he)",
             "options": [
-              "A: Whose jeans are these? B: They are his.",
               "A: Whose jeans is this? B: It is his.",
+              "A: Whose jeans are these? B: They are his.",
               "A: Who's jeans are these? B: They are him."
             ],
             "answer": "A: Whose jeans are these? B: They are his.",
@@ -782,10 +782,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Gary invited [BLANK] girlfriend out for dinner with us last night. She's a lovely girl.",
             "options": [
-              "his",
+              "he",
               "him",
               "her",
-              "he"
+              "his"
             ],
             "answer": "his",
             "hint": "Pacar Gary (laki-laki)",
@@ -794,10 +794,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. The thief grabbed [BLANK] purse and ran away.",
             "options": [
+              "his",
               "her",
               "hers",
-              "she",
-              "his"
+              "she"
             ],
             "answer": "her",
             "hint": "Tas wanita korban pencurian",
@@ -806,10 +806,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. I need a pen to sign [BLANK] name on this paper.",
             "options": [
-              "my",
+              "I",
               "mine",
-              "me",
-              "I"
+              "my",
+              "me"
             ],
             "answer": "my",
             "hint": "Nama saya sendiri (I)",
@@ -819,9 +819,9 @@ const GRAMMAR_UNITS = [
             "q": "4. A: Is this the magazine you bought yesterday? B: No, it's not [BLANK] magazine. [BLANK2] is over there on the table.",
             "options": [
               "my / Mine",
+              "mine / Mine",
               "mine / My",
-              "my / My",
-              "mine / Mine"
+              "my / My"
             ],
             "answer": "my / Mine",
             "hint": "Pertama ada kata benda 'magazine', kedua berdiri sendiri.",
@@ -830,10 +830,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. [BLANK] cake is delicious, Isabel.",
             "options": [
-              "Your",
-              "Yours",
+              "Her",
               "You",
-              "Her"
+              "Yours",
+              "Your"
             ],
             "answer": "Your",
             "hint": "Kue buatanmu, Isabel.",
@@ -842,10 +842,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. A: Is this your laptop, Mary? B: No, it's not [BLANK]. It's Sarah's. [BLANK2] is black and this is red, so it must be [BLANK3].",
             "options": [
-              "mine / Mine / hers",
-              "my / My / her",
+              "my / Mine / her",
               "mine / My / hers",
-              "my / Mine / her"
+              "my / My / her",
+              "mine / Mine / hers"
             ],
             "answer": "mine / Mine / hers",
             "hint": "Ketiganya berdiri sendiri tanpa diikuti kata benda laptop.",
@@ -878,10 +878,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. Peter, this is [BLANK] friend Alan.",
             "options": [
-              "my",
               "mine",
+              "I",
               "me",
-              "I"
+              "my"
             ],
             "answer": "my",
             "hint": "Teman saya.",
@@ -890,10 +890,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. A: Whose car is that? B: That's [BLANK]. John likes sports cars.",
             "options": [
-              "his",
-              "him",
+              "hers",
               "he",
-              "hers"
+              "his",
+              "him"
             ],
             "answer": "his",
             "hint": "Kepunyaan John (laki-laki).",
@@ -1016,9 +1016,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Sometimes my brother and I have [BLANK] about whose turn it is to play on the computer.",
             "options": [
+              "a chat",
               "a talk",
-              "an argument",
-              "a chat"
+              "an argument"
             ],
             "answer": "an argument",
             "hint": "Pertengkaran atau perdebatan",
@@ -1027,9 +1027,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. My family often has [BLANK] to somewhere hot during the summer.",
             "options": [
+              "a party",
               "a holiday",
-              "a rest",
-              "a party"
+              "a rest"
             ],
             "answer": "a holiday",
             "hint": "Liburan ke tempat hangat saat musim panas",
@@ -1038,9 +1038,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. I always know when my dog is having [BLANK] because he moves his legs in his sleep.",
             "options": [
-              "a swim",
+              "a dream",
               "a look",
-              "a dream"
+              "a swim"
             ],
             "answer": "a dream",
             "hint": "Bermimpi saat tidur",
@@ -1095,8 +1095,8 @@ const GRAMMAR_UNITS = [
             "q": "2. Bayi yang sedang mandi air hangat di bak mandi &rarr; [BLANK]",
             "options": [
               "have a bath",
-              "have a holiday",
               "have a chat",
+              "have a holiday",
               "have a meal"
             ],
             "answer": "have a bath",
@@ -1108,9 +1108,9 @@ const GRAMMAR_UNITS = [
             "q": "3. Tidur lelap dan mengalami mimpi indah &rarr; [BLANK]",
             "options": [
               "have a dream",
-              "have breakfast",
               "have an argument",
-              "have a party"
+              "have a party",
+              "have breakfast"
             ],
             "answer": "have a dream",
             "hint": "Bermimpi",
@@ -1120,10 +1120,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Merayakan pesta bersama teman-teman dengan musik &rarr; [BLANK]",
             "options": [
-              "have a party",
               "have a holiday",
               "have a meal",
-              "have a chat"
+              "have a chat",
+              "have a party"
             ],
             "answer": "have a party",
             "hint": "Pesta",
@@ -1146,10 +1146,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Menyantap telur mata sapi, sereal, dan kopi di pagi hari &rarr; [BLANK]",
             "options": [
-              "have breakfast",
+              "have a chat",
               "have a dream",
-              "have a meal",
-              "have a chat"
+              "have breakfast",
+              "have a meal"
             ],
             "answer": "have breakfast",
             "hint": "Sarapan pagi",
@@ -1160,8 +1160,8 @@ const GRAMMAR_UNITS = [
             "q": "7. Dua orang pria berjas sedang berdebat sengit &rarr; [BLANK]",
             "options": [
               "have an argument",
-              "have a chat",
               "have a party",
+              "have a chat",
               "have a holiday"
             ],
             "answer": "have an argument",
@@ -1172,8 +1172,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. Dua orang wanita mengobrol santai sambil berjalan &rarr; [BLANK]",
             "options": [
-              "have a chat",
               "have an argument",
+              "have a chat",
               "have a meal",
               "have a dream"
             ],
@@ -1343,8 +1343,8 @@ const GRAMMAR_UNITS = [
             "q": "1. have a snack",
             "options": [
               "A: Can I have a snack? B: Yes, you can.",
-              "A: Could I having a snack? B: Yes, you can.",
-              "A: Can I have a snack? B: No, you don't."
+              "A: Can I have a snack? B: No, you don't.",
+              "A: Could I having a snack? B: Yes, you can."
             ],
             "answer": "A: Can I have a snack? B: Yes, you can.",
             "hint": "Meminta camilan",
@@ -1353,9 +1353,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. have another piece of cake",
             "options": [
+              "A: Can you have another piece of cake? B: Yes, you could.",
               "A: Can I have another piece of cake? B: Yes, you can.",
-              "A: Can I having another cake? B: Yes, I can.",
-              "A: Can you have another piece of cake? B: Yes, you could."
+              "A: Can I having another cake? B: Yes, I can."
             ],
             "answer": "A: Can I have another piece of cake? B: Yes, you can.",
             "hint": "Meminta sepotong kue lagi",
@@ -1365,8 +1365,8 @@ const GRAMMAR_UNITS = [
             "q": "3. come tomorrow",
             "options": [
               "A: Can you come tomorrow? B: Yes, I can.",
-              "A: Could you came tomorrow? B: Yes, I can.",
-              "A: Can you coming tomorrow? B: No, I can."
+              "A: Can you coming tomorrow? B: No, I can.",
+              "A: Could you came tomorrow? B: Yes, I can."
             ],
             "answer": "A: Can you come tomorrow? B: Yes, I can.",
             "hint": "Bisa datang besok",
@@ -1375,9 +1375,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. use your mobile",
             "options": [
+              "A: Can I used your mobile? B: No, you couldn't.",
               "A: Can I use your mobile? B: Yes, of course you can.",
-              "A: Could I using your mobile? B: Yes, I do.",
-              "A: Can I used your mobile? B: No, you couldn't."
+              "A: Could I using your mobile? B: Yes, I do."
             ],
             "answer": "A: Can I use your mobile? B: Yes, of course you can.",
             "hint": "Meminjam HP",
@@ -1387,8 +1387,8 @@ const GRAMMAR_UNITS = [
             "q": "5. go away this weekend with my friends",
             "options": [
               "A: Can I go away this weekend with my friends? B: Yes, you can.",
-              "A: Can you go away with friends? B: Yes, I could.",
-              "A: Could I went away this weekend? B: No, you don't."
+              "A: Could I went away this weekend? B: No, you don't.",
+              "A: Can you go away with friends? B: Yes, I could."
             ],
             "answer": "A: Can I go away this weekend with my friends? B: Yes, you can.",
             "hint": "Pergi akhir pekan bersama teman",
@@ -1397,9 +1397,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. walk to school with you",
             "options": [
-              "A: Can I walk to school with you? B: Yes, of course.",
+              "A: Can I walking to school with you? B: Yes, you can.",
               "A: Could I walked to school with you? B: Yes, I walk.",
-              "A: Can I walking to school with you? B: Yes, you can."
+              "A: Can I walk to school with you? B: Yes, of course."
             ],
             "answer": "A: Can I walk to school with you? B: Yes, of course.",
             "hint": "Berjalan ke sekolah bersamamu",
@@ -1496,8 +1496,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. [BLANK] you speak French when you were in primary school?",
             "options": [
-              "Can",
-              "Could"
+              "Could",
+              "Can"
             ],
             "answer": "Could",
             "hint": "Perhatikan klausa 'when you were in primary school' (masa lalu)",
@@ -1506,8 +1506,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Megan [BLANK] go out when she finishes her homework.",
             "options": [
-              "can",
-              "could"
+              "could",
+              "can"
             ],
             "answer": "can",
             "hint": "Izin di masa sekarang / mendatang",
@@ -1526,8 +1526,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. My father [BLANK] drive when he was 16.",
             "options": [
-              "can",
-              "could"
+              "could",
+              "can"
             ],
             "answer": "could",
             "hint": "Perhatikan 'when he was 16'",
@@ -1611,8 +1611,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "She is a music teacher, so she [BLANK] play the guitar and piano very well.",
             "options": [
-              "can",
-              "can't"
+              "can't",
+              "can"
             ],
             "answer": "can",
             "hint": "Guru musik pasti bisa memainkan alat musik",
@@ -1621,8 +1621,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "He is afraid of deep water because he [BLANK] swim.",
             "options": [
-              "can",
-              "can't"
+              "can't",
+              "can"
             ],
             "answer": "can't",
             "hint": "Takut air karena tidak bisa berenang",
@@ -1631,8 +1631,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "Lili has been riding since she was five. She [BLANK] ride a horse skillfully.",
             "options": [
-              "can",
-              "can't"
+              "can't",
+              "can"
             ],
             "answer": "can",
             "hint": "Sudah berkuda sejak umur 5 tahun",
@@ -1651,8 +1651,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "Tom doesn't have a driving licence, so he [BLANK] drive a car.",
             "options": [
-              "can",
-              "can't"
+              "can't",
+              "can"
             ],
             "answer": "can't",
             "hint": "Tidak punya SIM",
@@ -1671,10 +1671,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Can you speak two languages? &rarr; [BLANK], English and Indonesian.",
             "options": [
-              "Yes, I can",
-              "No, I can't",
+              "No, I don't",
               "Yes, I do",
-              "No, I don't"
+              "Yes, I can",
+              "No, I can't"
             ],
             "answer": "Yes, I can",
             "hint": "Bisa bahasa Inggris dan Indonesia",
@@ -1683,10 +1683,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Can your brother fix this computer? &rarr; [BLANK], he knows nothing about IT.",
             "options": [
-              "Yes, he can",
+              "No, he doesn't",
               "No, he can't",
               "Yes, he does",
-              "No, he doesn't"
+              "Yes, he can"
             ],
             "answer": "No, he can't",
             "hint": "Dia tidak mengerti IT sama sekali",
@@ -1695,10 +1695,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Can they come to our dinner tonight? &rarr; [BLANK], they have a flight to catch.",
             "options": [
-              "Yes, they can",
               "No, they can't",
-              "No, they don't",
-              "Yes, they do"
+              "Yes, they do",
+              "Yes, they can",
+              "No, they don't"
             ],
             "answer": "No, they can't",
             "hint": "Ada jadwal penerbangan sehingga tidak bisa hadir",
@@ -1709,8 +1709,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "Yes, she can",
               "No, she can't",
-              "Yes, she does",
-              "No, she doesn't"
+              "No, she doesn't",
+              "Yes, she does"
             ],
             "answer": "Yes, she can",
             "hint": "Memenangkan turnamen sekolah",
@@ -1719,10 +1719,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Can you whistle loudly? &rarr; [BLANK], I never learned how to do it.",
             "options": [
+              "Yes, I do",
               "Yes, I can",
-              "No, I can't",
               "No, I don't",
-              "Yes, I do"
+              "No, I can't"
             ],
             "answer": "No, I can't",
             "hint": "Tidak pernah belajar bersiul",
@@ -1731,8 +1731,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "Can we park our car here? &rarr; [BLANK], it is a private parking area.",
             "options": [
-              "Yes, we can",
               "No, we can't",
+              "Yes, we can",
               "No, we don't",
               "Yes, we do"
             ],
@@ -1764,9 +1764,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. There's a public transport strike. (go to work by car)",
             "options": [
-              "We can go to work by car.",
+              "Can we went by car?",
               "We can't go to work by car.",
-              "Can we went by car?"
+              "We can go to work by car."
             ],
             "answer": "We can go to work by car.",
             "hint": "Angkutan umum mogok, alternatifnya naik mobil",
@@ -1775,8 +1775,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Tina is very ill today. (come to work)",
             "options": [
-              "She can't come to work.",
               "She can come to work.",
+              "She can't come to work.",
               "Can she comes to work?"
             ],
             "answer": "She can't come to work.",
@@ -1786,9 +1786,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. This place is very noisy. (you / speak louder)",
             "options": [
-              "Can you speak louder?",
+              "You can speak louder.",
               "Can't you spoke louder?",
-              "You can speak louder."
+              "Can you speak louder?"
             ],
             "answer": "Can you speak louder?",
             "hint": "Tempat bising, tolong bicara lebih keras",
@@ -1808,9 +1808,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. My car broke down. (you / give me a ride)",
             "options": [
+              "You can give me a ride.",
               "Can you give me a ride?",
-              "Can I give you a ride?",
-              "You can give me a ride."
+              "Can I give you a ride?"
             ],
             "answer": "Can you give me a ride?",
             "hint": "Mobil mogok, minta tumpangan",
@@ -1819,8 +1819,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. I left my umbrella in the taxi. (borrow yours)",
             "options": [
-              "Can I borrow yours?",
               "Can you borrow mine?",
+              "Can I borrow yours?",
               "I can't borrow yours."
             ],
             "answer": "Can I borrow yours?",
@@ -1830,9 +1830,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. The girl over there is crying. (help her)",
             "options": [
+              "We can't help her.",
               "Can we help her?",
-              "She can't help us.",
-              "We can't help her."
+              "She can't help us."
             ],
             "answer": "Can we help her?",
             "hint": "Anak gadis itu menangis, bisakah kita menolongnya",
@@ -1841,9 +1841,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. I have no money. (lend me some)",
             "options": [
-              "Can you lend me some?",
+              "You can't lend me some.",
               "Can I lend you some?",
-              "You can't lend me some."
+              "Can you lend me some?"
             ],
             "answer": "Can you lend me some?",
             "hint": "Tidak punya uang, bisakah meminjamkan saya sedikit",
@@ -1852,9 +1852,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. The roads are very icy from the snow. (use our bike today)",
             "options": [
-              "We can't use our bike today.",
               "We can use our bike today.",
-              "Can we used our bike today?"
+              "Can we used our bike today?",
+              "We can't use our bike today."
             ],
             "answer": "We can't use our bike today.",
             "hint": "Jalanan licin tertutup es, tidak bisa naik sepeda",
@@ -1874,8 +1874,8 @@ const GRAMMAR_UNITS = [
             "q": "1. When does Graham have breakfast everyday?",
             "options": [
               "At 6:45 a.m.",
-              "At 6:30 a.m.",
-              "At 8:00 a.m."
+              "At 8:00 a.m.",
+              "At 6:30 a.m."
             ],
             "answer": "At 6:45 a.m.",
             "hint": "Cari jam sarapan pada paragraf pertama.",
@@ -1884,9 +1884,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. What does Graham do after breakfast?",
             "options": [
-              "He has a shower, gets dressed and leaves for school.",
               "He plays the guitar and rides his horse.",
-              "He feeds the dog and swims."
+              "He feeds the dog and swims.",
+              "He has a shower, gets dressed and leaves for school."
             ],
             "answer": "He has a shower, gets dressed and leaves for school.",
             "hint": "Aktivitas setelah sarapan.",
@@ -1907,8 +1907,8 @@ const GRAMMAR_UNITS = [
             "q": "4. What couldn't he do when he was a child?",
             "options": [
               "He couldn't swim very well.",
-              "He couldn't ride a horse.",
-              "He couldn't play football."
+              "He couldn't play football.",
+              "He couldn't ride a horse."
             ],
             "answer": "He couldn't swim very well.",
             "hint": "Ketidakmampuan di masa kecil.",
@@ -1918,8 +1918,8 @@ const GRAMMAR_UNITS = [
             "q": "5. Where do Graham and his family usually have a holiday?",
             "options": [
               "In a country where they can scuba dive.",
-              "In a big city with shopping malls.",
-              "In the mountains for skiing."
+              "In the mountains for skiing.",
+              "In a big city with shopping malls."
             ],
             "answer": "In a country where they can scuba dive.",
             "hint": "Tempat liburan keluarga tahunan.",
@@ -1928,9 +1928,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. What does he say about his holiday in Australia?",
             "options": [
-              "They went to The Great Barrier Reef and it was amazing.",
+              "He got sick and couldn't swim.",
               "They didn't like the weather.",
-              "He got sick and couldn't swim."
+              "They went to The Great Barrier Reef and it was amazing."
             ],
             "answer": "They went to The Great Barrier Reef and it was amazing.",
             "hint": "Kesan liburan di Australia.",
@@ -1997,9 +1997,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. the / go / to / tonight / theatre / let's / !",
             "options": [
+              "Let's to go theatre tonight!",
               "Let's go to the theatre tonight!",
-              "Tonight let's the theatre go to!",
-              "Let's to go theatre tonight!"
+              "Tonight let's the theatre go to!"
             ],
             "answer": "Let's go to the theatre tonight!",
             "hint": "Let's + verb 1...",
@@ -2008,9 +2008,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. about / for / how / at / out / going / the weekend / a meal / ?",
             "options": [
-              "How about going out for a meal at the weekend?",
               "How about at the weekend going out for meal?",
-              "How going out for about a meal at weekend?"
+              "How going out for about a meal at weekend?",
+              "How about going out for a meal at the weekend?"
             ],
             "answer": "How about going out for a meal at the weekend?",
             "hint": "How about + V-ing...",
@@ -2020,8 +2020,8 @@ const GRAMMAR_UNITS = [
             "q": "3. swimming / you / to / go / would / this afternoon / like / ?",
             "options": [
               "Would you like to go swimming this afternoon?",
-              "Would like you to go swimming this afternoon?",
-              "You would like to go swimming this afternoon?"
+              "You would like to go swimming this afternoon?",
+              "Would like you to go swimming this afternoon?"
             ],
             "answer": "Would you like to go swimming this afternoon?",
             "hint": "Would you like to + verb...",
@@ -2030,9 +2030,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. listen / we / some / to / don't / why / music / ?",
             "options": [
+              "Why don't listen we some music to?",
               "Why don't we listen to some music?",
-              "Why we don't listen to some music?",
-              "Why don't listen we some music to?"
+              "Why we don't listen to some music?"
             ],
             "answer": "Why don't we listen to some music?",
             "hint": "Why don't we + verb...",
@@ -2041,8 +2041,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. holidays / you / like / to / what / over / the / would / summer / do / ?",
             "options": [
-              "What would you like to do over the summer holidays?",
               "What you would like to do over the summer holidays?",
+              "What would you like to do over the summer holidays?",
               "Would you like what to do over summer holidays?"
             ],
             "answer": "What would you like to do over the summer holidays?",
@@ -2073,10 +2073,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Aktivitas menonton film di bioskop &rarr; [BLANK]",
             "options": [
-              "Let's go to the cinema.",
               "Let's have a snack.",
               "Let's play football.",
-              "Let's go camping."
+              "Let's go camping.",
+              "Let's go to the cinema."
             ],
             "answer": "Let's go to the cinema.",
             "hint": "Menonton film di bioskop",
@@ -2085,10 +2085,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Aktivitas bersantai di pantai dan laut &rarr; [BLANK]",
             "options": [
-              "Let's go to the beach.",
               "Let's do our homework.",
+              "Let's wash the car.",
               "Let's go to the library.",
-              "Let's wash the car."
+              "Let's go to the beach."
             ],
             "answer": "Let's go to the beach.",
             "hint": "Bersantai di pantai",
@@ -2097,8 +2097,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "Aktivitas berbelanja di pusat perbelanjaan &rarr; [BLANK]",
             "options": [
-              "Let's go shopping.",
               "Let's go swimming.",
+              "Let's go shopping.",
               "Let's clean the room.",
               "Let's have a sleep."
             ],
@@ -2109,8 +2109,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "Aktivitas mengobrol sambil minum kopi di kafe &rarr; [BLANK]",
             "options": [
-              "Let's have a coffee.",
               "Let's run 5 km.",
+              "Let's have a coffee.",
               "Let's go to church.",
               "Let's take an exam."
             ],
@@ -2121,10 +2121,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Aktivitas berenang di kolam renang saat cuaca panas &rarr; [BLANK]",
             "options": [
+              "Let's buy a car.",
               "Let's go swimming.",
-              "Let's play tennis.",
               "Let's paint the fence.",
-              "Let's buy a car."
+              "Let's play tennis."
             ],
             "answer": "Let's go swimming.",
             "hint": "Berenang di kolam",
@@ -2133,10 +2133,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "Aktivitas menonton konser musik di lapangan &rarr; [BLANK]",
             "options": [
-              "Let's go to a concert.",
-              "Let's go to the dentist.",
+              "Let's go to bed.",
               "Let's wash dishes.",
-              "Let's go to bed."
+              "Let's go to a concert.",
+              "Let's go to the dentist."
             ],
             "answer": "Let's go to a concert.",
             "hint": "Konser musik",
@@ -2146,8 +2146,8 @@ const GRAMMAR_UNITS = [
             "q": "Aktivitas berkemah dan mendirikan tenda di alam &rarr; [BLANK]",
             "options": [
               "Let's go camping.",
-              "Let's stay at a hotel.",
               "Let's study history.",
+              "Let's stay at a hotel.",
               "Let's watch TV."
             ],
             "answer": "Let's go camping.",
@@ -2157,9 +2157,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "Aktivitas menonton pertandingan sepak bola di stadion &rarr; [BLANK]",
             "options": [
-              "Let's watch a football match.",
-              "Let's go to the airport.",
               "Let's buy bread.",
+              "Let's go to the airport.",
+              "Let's watch a football match.",
               "Let's wash the clothes."
             ],
             "answer": "Let's watch a football match.",
@@ -2179,10 +2179,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "A: Let's go to the cinema tonight. &rarr; B (Menerima): [BLANK]",
             "options": [
-              "That's a great idea! What's on?",
+              "Go by yourself.",
               "No, I hate you.",
-              "I don't like movies at all.",
-              "Go by yourself."
+              "That's a great idea! What's on?",
+              "I don't like movies at all."
             ],
             "answer": "That's a great idea! What's on?",
             "hint": "Menerima dengan antusias",
@@ -2192,9 +2192,9 @@ const GRAMMAR_UNITS = [
             "q": "A: Why don't we have a pizza for lunch? &rarr; B (Menolak dengan alasan): [BLANK]",
             "options": [
               "I'd love to, but I'm on a diet.",
-              "Yes, let's order now.",
               "Pizza is Italian.",
-              "I ate yesterday."
+              "I ate yesterday.",
+              "Yes, let's order now."
             ],
             "answer": "I'd love to, but I'm on a diet.",
             "hint": "Menolak dengan alasan sopan (diet)",
@@ -2204,8 +2204,8 @@ const GRAMMAR_UNITS = [
             "q": "A: Shall we go swimming this afternoon? &rarr; B (Menerima): [BLANK]",
             "options": [
               "Yes, let's! It's so hot today.",
-              "I can't swim.",
               "Water is wet.",
+              "I can't swim.",
               "No, never."
             ],
             "answer": "Yes, let's! It's so hot today.",
@@ -2215,9 +2215,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "A: Would you like to come to my birthday party on Saturday? &rarr; B (Menolak dengan alasan): [BLANK]",
             "options": [
-              "I'd love to, but I have to study for exams.",
-              "Happy birthday to you.",
               "Parties are boring.",
+              "Happy birthday to you.",
+              "I'd love to, but I have to study for exams.",
               "Who else is coming?"
             ],
             "answer": "I'd love to, but I have to study for exams.",
@@ -2227,9 +2227,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "A: How about going camping this weekend? &rarr; B (Menolak dengan alasan): [BLANK]",
             "options": [
+              "Camping is outdoor.",
               "I'm sorry, I can't. I'm visiting my grandparents.",
               "Yes, take a tent.",
-              "Camping is outdoor.",
               "Where is the forest?"
             ],
             "answer": "I'm sorry, I can't. I'm visiting my grandparents.",
@@ -2239,10 +2239,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "A: Let's play tennis after school. &rarr; B (Menerima): [BLANK]",
             "options": [
-              "Good idea! I'll bring my racket.",
               "Tennis has balls.",
-              "I don't have shoes.",
-              "School is finished."
+              "School is finished.",
+              "Good idea! I'll bring my racket.",
+              "I don't have shoes."
             ],
             "answer": "Good idea! I'll bring my racket.",
             "hint": "Menerima dan membawa raket",
@@ -2261,9 +2261,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. rent a DVD tonight / am going out with my parents",
             "options": [
-              "A: Let's rent a DVD tonight. B: Sorry, I can't. I'm going out with my parents tonight.",
               "A: Shall we rent DVD? B: No, I don't want.",
-              "A: Let's renting a DVD. B: I can't rent."
+              "A: Let's renting a DVD. B: I can't rent.",
+              "A: Let's rent a DVD tonight. B: Sorry, I can't. I'm going out with my parents tonight."
             ],
             "answer": "A: Let's rent a DVD tonight. B: Sorry, I can't. I'm going out with my parents tonight.",
             "hint": "Let's rent... / Sorry, I can't...",
@@ -2272,9 +2272,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. come with us to the mountains this weekend / must study for exams",
             "options": [
-              "A: Would you like to come with us to the mountains this weekend? B: Sorry, I can't. I must study for exams.",
+              "A: Shall you coming to mountains? B: I must study.",
               "A: You come to mountains? B: No, study exams.",
-              "A: Shall you coming to mountains? B: I must study."
+              "A: Would you like to come with us to the mountains this weekend? B: Sorry, I can't. I must study for exams."
             ],
             "answer": "A: Would you like to come with us to the mountains this weekend? B: Sorry, I can't. I must study for exams.",
             "hint": "Would you like to come... / Sorry, I can't...",
@@ -2294,9 +2294,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. come to my house after school / must go to the dentist's",
             "options": [
+              "A: Let's coming to my house. B: No dentist.",
               "A: Why don't you come to my house after school? B: Sorry, I can't. I must go to the dentist's.",
-              "A: Why you don't come home? B: Dentist.",
-              "A: Let's coming to my house. B: No dentist."
+              "A: Why you don't come home? B: Dentist."
             ],
             "answer": "A: Why don't you come to my house after school? B: Sorry, I can't. I must go to the dentist's.",
             "hint": "Why don't you come... / dentist's",
@@ -2305,9 +2305,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. go to the music festival / haven't got any tickets",
             "options": [
-              "A: How about going to the music festival? B: I'd love to, but I haven't got any tickets.",
+              "A: Shall we going to festival? B: I don't ticket.",
               "A: How about go to music festival? B: No ticket.",
-              "A: Shall we going to festival? B: I don't ticket."
+              "A: How about going to the music festival? B: I'd love to, but I haven't got any tickets."
             ],
             "answer": "A: How about going to the music festival? B: I'd love to, but I haven't got any tickets.",
             "hint": "How about going... / haven't got any tickets",
@@ -2316,9 +2316,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. call him now / must do the cleaning up now",
             "options": [
-              "A: Shall we call him now? B: Not now, I must do the cleaning up now.",
+              "A: Why don't we to call him? B: I clean.",
               "A: Let's calling him now. B: No cleaning.",
-              "A: Why don't we to call him? B: I clean."
+              "A: Shall we call him now? B: Not now, I must do the cleaning up now."
             ],
             "answer": "A: Shall we call him now? B: Not now, I must do the cleaning up now.",
             "hint": "Shall we call... / cleaning up",
@@ -2338,8 +2338,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Would you like to go to the cinema?",
             "options": [
-              "a. Yes, I like cinemas.",
-              "b. No, I'd rather go bowling."
+              "b. No, I'd rather go bowling.",
+              "a. Yes, I like cinemas."
             ],
             "answer": "b. No, I'd rather go bowling.",
             "hint": "Penolakan dengan alternatif I'd rather...",
@@ -2348,8 +2348,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Let's have a picnic. It's a beautiful day.",
             "options": [
-              "a. That's a great idea!",
-              "b. Yes, if you want."
+              "b. Yes, if you want.",
+              "a. That's a great idea!"
             ],
             "answer": "a. That's a great idea!",
             "hint": "Menerima ajakan dengan antusias",
@@ -2368,8 +2368,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. How about we go for coffee?",
             "options": [
-              "a. Yes, OK.",
-              "b. Yes, it's very nice."
+              "b. Yes, it's very nice.",
+              "a. Yes, OK."
             ],
             "answer": "a. Yes, OK.",
             "hint": "Menyetujui ajakan minum kopi",
@@ -2408,8 +2408,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Jane has all the Coldplay albums.",
             "options": [
-              "She likes Coldplay.",
-              "She would like Coldplay."
+              "She would like Coldplay.",
+              "She likes Coldplay."
             ],
             "answer": "She likes Coldplay.",
             "hint": "Kesukaan umum (hobi/favorit)",
@@ -2419,8 +2419,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Peter has more than twenty cookbooks.",
             "options": [
-              "He likes cooking.",
-              "He would like cooking."
+              "He would like cooking.",
+              "He likes cooking."
             ],
             "answer": "He likes cooking.",
             "hint": "Hobi memasak secara umum",
@@ -2441,8 +2441,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Cathy thinks her house is very small.",
             "options": [
-              "She would like a bigger house.",
-              "She likes a bigger house."
+              "She likes a bigger house.",
+              "She would like a bigger house."
             ],
             "answer": "She would like a bigger house.",
             "hint": "Keinginan rumah yang lebih besar",
@@ -2463,8 +2463,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. There's a good film on TV tonight.",
             "options": [
-              "I would like to watch it.",
-              "I like to watch it."
+              "I like to watch it.",
+              "I would like to watch it."
             ],
             "answer": "I would like to watch it.",
             "hint": "Keinginan menonton film malam ini",
@@ -2474,8 +2474,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. Simon buys a lot of music from the Internet.",
             "options": [
-              "He likes music.",
-              "He would like music."
+              "He would like music.",
+              "He likes music."
             ],
             "answer": "He likes music.",
             "hint": "Kesukaan terhadap musik",
@@ -2484,8 +2484,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. I don't want to go out tonight.",
             "options": [
-              "I would like to stay at home.",
-              "I like to stay at home."
+              "I like to stay at home.",
+              "I would like to stay at home."
             ],
             "answer": "I would like to stay at home.",
             "hint": "Keinginan berada di rumah malam ini",
@@ -2504,8 +2504,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. Lucy wants to try Japanese food at the new restaurant in town.",
             "options": [
-              "She would like to eat sushi.",
-              "She likes to eat sushi."
+              "She likes to eat sushi.",
+              "She would like to eat sushi."
             ],
             "answer": "She would like to eat sushi.",
             "hint": "Keinginan mencoba makanan Jepang",
@@ -2524,8 +2524,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. watch a sci-fi film",
             "options": [
-              "A: Would you like to watch a sci-fi film? B: Yes, I'd love to.",
               "A: Do you like watch sci-fi film? B: Yes, I like.",
+              "A: Would you like to watch a sci-fi film? B: Yes, I'd love to.",
               "A: Would you like watching a film? B: No, I don't."
             ],
             "answer": "A: Would you like to watch a sci-fi film? B: Yes, I'd love to.",
@@ -2546,9 +2546,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. listen to music",
             "options": [
+              "A: Would you like listening music? B: Yes, I would.",
               "A: Would you like to listen to music? B: Yes, I'd love to.",
-              "A: Do you listen to music? B: Yes, I listen.",
-              "A: Would you like listening music? B: Yes, I would."
+              "A: Do you listen to music? B: Yes, I listen."
             ],
             "answer": "A: Would you like to listen to music? B: Yes, I'd love to.",
             "hint": "Would you like to listen... / Yes, I'd love to.",
@@ -2558,8 +2558,8 @@ const GRAMMAR_UNITS = [
             "q": "4. go shopping with me next Saturday",
             "options": [
               "A: Would you like to go shopping with me next Saturday? B: Yes, I'd love to.",
-              "A: Do you like go shopping next Saturday? B: Yes, I like.",
-              "A: Shall you go shopping with me? B: Yes, I do."
+              "A: Shall you go shopping with me? B: Yes, I do.",
+              "A: Do you like go shopping next Saturday? B: Yes, I like."
             ],
             "answer": "A: Would you like to go shopping with me next Saturday? B: Yes, I'd love to.",
             "hint": "Would you like to go shopping... / Yes, I'd love to.",
@@ -2568,9 +2568,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. try my new car",
             "options": [
-              "A: Would you like to try my new car? B: Yes, please.",
+              "A: Would you to try my car? B: Yes, I like.",
               "A: Do you like trying my car? B: Yes, I try.",
-              "A: Would you to try my car? B: Yes, I like."
+              "A: Would you like to try my new car? B: Yes, please."
             ],
             "answer": "A: Would you like to try my new car? B: Yes, please.",
             "hint": "Would you like to try... / Yes, please.",
@@ -2579,9 +2579,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. go ice skating this afternoon",
             "options": [
+              "A: Would you like going ice skating? B: Yes, wonderful.",
               "A: Would you like to go ice skating this afternoon? B: Yes, that would be wonderful.",
-              "A: Do you like go ice skating? B: Yes, I do.",
-              "A: Would you like going ice skating? B: Yes, wonderful."
+              "A: Do you like go ice skating? B: Yes, I do."
             ],
             "answer": "A: Would you like to go ice skating this afternoon? B: Yes, that would be wonderful.",
             "hint": "Would you like to go ice skating... / that would be wonderful.",
@@ -2600,9 +2600,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. go to the cinema on Saturday afternoon / go to the cinema Saturday night",
             "options": [
-              "A: Would you like to go to the cinema on Saturday afternoon? B: I'd rather go on Saturday night.",
+              "A: Shall we going Saturday afternoon? B: No Saturday.",
               "A: Do you go to cinema Saturday? B: I prefer Saturday.",
-              "A: Shall we going Saturday afternoon? B: No Saturday."
+              "A: Would you like to go to the cinema on Saturday afternoon? B: I'd rather go on Saturday night."
             ],
             "answer": "A: Would you like to go to the cinema on Saturday afternoon? B: I'd rather go on Saturday night.",
             "hint": "I'd rather + verb 1...",
@@ -2612,8 +2612,8 @@ const GRAMMAR_UNITS = [
             "q": "2. have a seat / stand up",
             "options": [
               "A: Would you like to have a seat? B: I'd rather stand up.",
-              "A: Do you like sitting? B: I stand.",
-              "A: Would you like to sit? B: No, sitting."
+              "A: Would you like to sit? B: No, sitting.",
+              "A: Do you like sitting? B: I stand."
             ],
             "answer": "A: Would you like to have a seat? B: I'd rather stand up.",
             "hint": "I'd rather stand up.",
@@ -2622,9 +2622,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. go skiing this weekend / go to the beach",
             "options": [
-              "A: Would you like to go skiing this weekend? B: I'd rather go to the beach.",
               "A: Do you go skiing? B: Beach is better.",
-              "A: Let's skiing. B: I don't skiing."
+              "A: Let's skiing. B: I don't skiing.",
+              "A: Would you like to go skiing this weekend? B: I'd rather go to the beach."
             ],
             "answer": "A: Would you like to go skiing this weekend? B: I'd rather go to the beach.",
             "hint": "I'd rather go to the beach.",
@@ -2633,9 +2633,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. travel by train / travel by bus",
             "options": [
-              "A: Would you like to travel by train? B: I'd rather travel by bus.",
               "A: Do you like travel train? B: Bus please.",
-              "A: Shall we to travel by train? B: Rather bus."
+              "A: Shall we to travel by train? B: Rather bus.",
+              "A: Would you like to travel by train? B: I'd rather travel by bus."
             ],
             "answer": "A: Would you like to travel by train? B: I'd rather travel by bus.",
             "hint": "I'd rather travel by bus.",
@@ -2644,9 +2644,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. have something to eat / have something to drink",
             "options": [
-              "A: Would you like to have something to eat? B: I'd rather have something to drink.",
+              "A: Shall you eating? B: Rather drink.",
               "A: Do you like eating? B: I drink.",
-              "A: Shall you eating? B: Rather drink."
+              "A: Would you like to have something to eat? B: I'd rather have something to drink."
             ],
             "answer": "A: Would you like to have something to eat? B: I'd rather have something to drink.",
             "hint": "I'd rather have something to drink.",
@@ -2655,9 +2655,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. go for a walk / go for a bike ride",
             "options": [
-              "A: Would you like to go for a walk? B: I'd rather go for a bike ride.",
               "A: Do you walk? B: I bike.",
-              "A: Let's walking. B: Rather biking."
+              "A: Let's walking. B: Rather biking.",
+              "A: Would you like to go for a walk? B: I'd rather go for a bike ride."
             ],
             "answer": "A: Would you like to go for a walk? B: I'd rather go for a bike ride.",
             "hint": "I'd rather go for a bike ride.",
@@ -2689,8 +2689,8 @@ const GRAMMAR_UNITS = [
             "q": "2. Laura: How are you? &rarr; Janet (2): [BLANK]",
             "options": [
               "Fine, thanks.",
-              "What time do you think we'll be back?",
-              "OK. I'd love to come."
+              "OK. I'd love to come.",
+              "What time do you think we'll be back?"
             ],
             "answer": "Fine, thanks.",
             "hint": "Kabar baik.",
@@ -2699,8 +2699,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Laura: Are you busy on Tuesday afternoon? &rarr; Janet (3): [BLANK]",
             "options": [
-              "Mmm. Well, I usually do my homework. Why?",
               "Bye.",
+              "Mmm. Well, I usually do my homework. Why?",
               "Where do you want to go?"
             ],
             "answer": "Mmm. Well, I usually do my homework. Why?",
@@ -2711,8 +2711,8 @@ const GRAMMAR_UNITS = [
             "q": "4. Laura: Would you like to come shopping with me? &rarr; Janet (4): [BLANK]",
             "options": [
               "OK. I'd love to come.",
-              "Fine, thanks.",
-              "Hello."
+              "Hello.",
+              "Fine, thanks."
             ],
             "answer": "OK. I'd love to come.",
             "hint": "Menerima ajakan belanja.",
@@ -2721,8 +2721,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Laura: I'd like a new winter coat. &rarr; Janet (5): [BLANK]",
             "options": [
-              "What do you want to buy?",
               "Where do you want to go?",
+              "What do you want to buy?",
               "Bye."
             ],
             "answer": "What do you want to buy?",
@@ -2743,9 +2743,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. Laura: I'm not sure. Maybe around six. &rarr; Janet (7): [BLANK]",
             "options": [
+              "OK. I'd love to come.",
               "What time do you think we'll be back?",
-              "Bye.",
-              "OK. I'd love to come."
+              "Bye."
             ],
             "answer": "What time do you think we'll be back?",
             "hint": "Menanyakan jam pulang.",
@@ -2788,8 +2788,8 @@ const GRAMMAR_UNITS = [
             "q": "1. Alice: Hi, Jason. (1) [BLANK]?",
             "options": [
               "How are you",
-              "Where",
-              "Fine"
+              "Fine",
+              "Where"
             ],
             "answer": "How are you",
             "hint": "Menanyakan kabar.",
@@ -2798,9 +2798,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Jason: (2) [BLANK], thanks.",
             "options": [
+              "good idea",
               "Fine",
-              "pizza",
-              "good idea"
+              "pizza"
             ],
             "answer": "Fine",
             "hint": "Baik-baik saja.",
@@ -2820,9 +2820,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Jason: I (4) [BLANK] two tickets for that new West End show, Bright Lights.",
             "options": [
-              "'ve got",
+              "four hours",
               "art gallery",
-              "four hours"
+              "'ve got"
             ],
             "answer": "'ve got",
             "hint": "Saya punya dua tiket.",
@@ -2842,9 +2842,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Jason: I waited in line for (6) [BLANK]!",
             "options": [
+              "Friday",
               "four hours",
-              "pizza",
-              "Friday"
+              "pizza"
             ],
             "answer": "four hours",
             "hint": "Mengantre selama 4 jam.",
@@ -2854,8 +2854,8 @@ const GRAMMAR_UNITS = [
             "q": "7. Alice: (7) [BLANK] shall we meet?",
             "options": [
               "Where",
-              "Fine",
-              "'ve got"
+              "'ve got",
+              "Fine"
             ],
             "answer": "Where",
             "hint": "Di mana kita akan bertemu?",
@@ -2864,9 +2864,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. Jason: (8) [BLANK] in front of the art gallery at 3 o'clock.",
             "options": [
+              "Have you got any plans",
               "Let's meet",
-              "Would you like",
-              "Have you got any plans"
+              "Would you like"
             ],
             "answer": "Let's meet",
             "hint": "Mari kita bertemu di depan galeri seni.",
@@ -2886,9 +2886,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. Jason: That's a (10) [BLANK]! Do you like pizza?",
             "options": [
-              "good idea",
               "Fine",
-              "Where"
+              "Where",
+              "good idea"
             ],
             "answer": "good idea",
             "hint": "Ide yang bagus!",
@@ -2897,8 +2897,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "11. Alice: Yes, I love it. It's my favourite food. (Menjawab tawaran makan (11) [BLANK])",
             "options": [
-              "pizza",
               "art gallery",
+              "pizza",
               "four hours"
             ],
             "answer": "pizza",
@@ -2908,9 +2908,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "12. Jason: See you on (12) [BLANK]!",
             "options": [
-              "Friday",
               "pizza",
-              "good idea"
+              "good idea",
+              "Friday"
             ],
             "answer": "Friday",
             "hint": "Hari pertunjukan.",
@@ -3059,10 +3059,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. go to school &rarr; Kalimat rencana hari esok:",
             "options": [
-              "I'm going to go to school.",
               "I'm going to school.",
               "I will to go to school.",
-              "I am go to school."
+              "I am go to school.",
+              "I'm going to go to school."
             ],
             "answer": "I'm going to go to school.",
             "hint": "Pola: be going to + infinitive (go).",
@@ -3073,8 +3073,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "I'm going to do my school project.",
               "I'm doing my school project.",
-              "I go to do my school project.",
-              "I am do my school project."
+              "I am do my school project.",
+              "I go to do my school project."
             ],
             "answer": "I'm going to do my school project.",
             "hint": "your school project menjadi my school project.",
@@ -3083,10 +3083,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. play basketball &rarr; Bentuk negatif tidak berencana:",
             "options": [
-              "I'm not going to play basketball.",
-              "I don't going to play basketball.",
               "I am not play basketball.",
-              "I not going to play basketball."
+              "I not going to play basketball.",
+              "I don't going to play basketball.",
+              "I'm not going to play basketball."
             ],
             "answer": "I'm not going to play basketball.",
             "hint": "Bentuk negatif: I'm not going to + verb.",
@@ -3096,9 +3096,9 @@ const GRAMMAR_UNITS = [
             "q": "4. visit your cousins &rarr; Kalimat rencana:",
             "options": [
               "I'm going to visit my cousins.",
+              "I will going to visit my cousins.",
               "I am visit my cousins.",
-              "I going to visit my cousins.",
-              "I will going to visit my cousins."
+              "I going to visit my cousins."
             ],
             "answer": "I'm going to visit my cousins.",
             "hint": "I'm going to + visit.",
@@ -3107,9 +3107,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. go on a social networking website &rarr; Kalimat rencana:",
             "options": [
-              "I'm going to go on a social networking website.",
-              "I am go on a social networking website.",
               "I go to a social networking website.",
+              "I am go on a social networking website.",
+              "I'm going to go on a social networking website.",
               "I'm not go to website."
             ],
             "answer": "I'm going to go on a social networking website.",
@@ -3119,10 +3119,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. help do the housework &rarr; Kalimat rencana:",
             "options": [
-              "I'm going to help do the housework.",
-              "I help going to do housework.",
+              "I am do help housework.",
               "I'm going help do housework.",
-              "I am do help housework."
+              "I'm going to help do the housework.",
+              "I help going to do housework."
             ],
             "answer": "I'm going to help do the housework.",
             "hint": "be going to + help do...",
@@ -3131,10 +3131,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. listen to music online &rarr; Kalimat rencana:",
             "options": [
-              "I'm going to listen to music online.",
+              "I'm go to listen to music.",
               "I going listen to music online.",
               "I am listening to music online.",
-              "I'm go to listen to music."
+              "I'm going to listen to music online."
             ],
             "answer": "I'm going to listen to music online.",
             "hint": "I'm going to + listen...",
@@ -3143,10 +3143,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. visit a museum &rarr; Bentuk negatif:",
             "options": [
-              "I'm not going to visit a museum.",
               "I not am going to visit a museum.",
-              "I don't go to visit a museum.",
-              "I am not visit a museum."
+              "I am not visit a museum.",
+              "I'm not going to visit a museum.",
+              "I don't go to visit a museum."
             ],
             "answer": "I'm not going to visit a museum.",
             "hint": "I'm not going to...",
@@ -3155,10 +3155,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. read a magazine &rarr; Kalimat rencana:",
             "options": [
-              "I'm going to read a magazine.",
-              "I am read a magazine.",
               "I'm reading going a magazine.",
-              "I going to read a magazine."
+              "I am read a magazine.",
+              "I going to read a magazine.",
+              "I'm going to read a magazine."
             ],
             "answer": "I'm going to read a magazine.",
             "hint": "I'm going to + read...",
@@ -3168,8 +3168,8 @@ const GRAMMAR_UNITS = [
             "q": "10. ride your bike &rarr; Kalimat rencana:",
             "options": [
               "I'm going to ride my bike.",
-              "I'm going to ride your bike.",
               "I ride going to my bike.",
+              "I'm going to ride your bike.",
               "I am ride my bike."
             ],
             "answer": "I'm going to ride my bike.",
@@ -3179,10 +3179,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "11. call your friends on your mobile &rarr; Kalimat rencana:",
             "options": [
-              "I'm going to call my friends on my mobile.",
               "I'm going call friends on mobile.",
-              "I am call my friends on mobile.",
-              "I will going to call my friends."
+              "I will going to call my friends.",
+              "I'm going to call my friends on my mobile.",
+              "I am call my friends on mobile."
             ],
             "answer": "I'm going to call my friends on my mobile.",
             "hint": "I'm going to + call...",
@@ -3191,10 +3191,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "12. buy a present for a friend &rarr; Kalimat rencana:",
             "options": [
+              "I'm buy going a present.",
               "I'm going to buy a present for a friend.",
-              "I going to buy a present for a friend.",
               "I am buy a present for a friend.",
-              "I'm buy going a present."
+              "I going to buy a present for a friend."
             ],
             "answer": "I'm going to buy a present for a friend.",
             "hint": "I'm going to + buy...",
@@ -3284,9 +3284,9 @@ const GRAMMAR_UNITS = [
             "q": "1. Jawaban: 'I'm going to call at half past eleven.' &rarr; Pertanyaan yang tepat:",
             "options": [
               "What time are you going to call?",
+              "What are you going to call?",
               "Where are you going to call?",
-              "Who are you going to call?",
-              "What are you going to call?"
+              "Who are you going to call?"
             ],
             "answer": "What time are you going to call?",
             "hint": "'at half past eleven' menanyakan waktu jam.",
@@ -3295,10 +3295,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Jawaban: 'He's going to catch the train in an hour.' &rarr; Pertanyaan yang tepat:",
             "options": [
-              "When is he going to catch the train?",
               "Where is he going to catch the train?",
+              "Who is going to catch the train?",
               "What time is he catching?",
-              "Who is going to catch the train?"
+              "When is he going to catch the train?"
             ],
             "answer": "When is he going to catch the train?",
             "hint": "'in an hour' menyatakan keterangan waktu kapan.",
@@ -3307,10 +3307,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Jawaban: 'They're going to invite all their friends.' &rarr; Pertanyaan yang tepat:",
             "options": [
-              "Who are they going to invite?",
-              "Where are they going to invite?",
               "What time are they going to invite?",
-              "When are they going to invite?"
+              "Who are they going to invite?",
+              "When are they going to invite?",
+              "Where are they going to invite?"
             ],
             "answer": "Who are they going to invite?",
             "hint": "'all their friends' adalah orang (objek).",
@@ -3319,10 +3319,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Jawaban: 'I'm going to spend the weekend in the countryside.' &rarr; Pertanyaan yang tepat:",
             "options": [
+              "Who are you going to spend?",
               "Where are you going to spend the weekend?",
-              "When are you going to spend the weekend?",
               "What are you going to spend?",
-              "Who are you going to spend?"
+              "When are you going to spend the weekend?"
             ],
             "answer": "Where are you going to spend the weekend?",
             "hint": "'in the countryside' adalah keterangan tempat.",
@@ -3344,9 +3344,9 @@ const GRAMMAR_UNITS = [
             "q": "6. Jawaban: 'He's going to open the window.' &rarr; Pertanyaan yang tepat:",
             "options": [
               "What is he going to open?",
-              "Where is he going to open?",
+              "Who is he going to open?",
               "When is he going to open?",
-              "Who is he going to open?"
+              "Where is he going to open?"
             ],
             "answer": "What is he going to open?",
             "hint": "'the window' adalah objek benda.",
@@ -3355,10 +3355,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. Jawaban: 'Rita's going to visit her best friend.' &rarr; Pertanyaan yang tepat:",
             "options": [
-              "Who is Rita going to visit?",
+              "When is Rita going to visit?",
               "Where is Rita going to visit?",
-              "What is Rita going to visit?",
-              "When is Rita going to visit?"
+              "Who is Rita going to visit?",
+              "What is Rita going to visit?"
             ],
             "answer": "Who is Rita going to visit?",
             "hint": "'her best friend' adalah orang.",
@@ -3368,9 +3368,9 @@ const GRAMMAR_UNITS = [
             "q": "8. Jawaban: 'My lessons are going to start at ten past eight.' &rarr; Pertanyaan yang tepat:",
             "options": [
               "What time are your lessons going to start?",
+              "When is your lesson starting?",
               "Where are your lessons going to start?",
-              "Who is going to start lessons?",
-              "When is your lesson starting?"
+              "Who is going to start lessons?"
             ],
             "answer": "What time are your lessons going to start?",
             "hint": "'at ten past eight' adalah jam tertentu.",
@@ -3391,10 +3391,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. Jawaban: 'She's going to meet them at the train station.' &rarr; Pertanyaan yang tepat:",
             "options": [
-              "Where is she going to meet them?",
-              "When is she going to meet them?",
               "Who is she going to meet?",
-              "What time is she meeting them?"
+              "What time is she meeting them?",
+              "Where is she going to meet them?",
+              "When is she going to meet them?"
             ],
             "answer": "Where is she going to meet them?",
             "hint": "'at the train station' adalah tempat.",
@@ -3403,10 +3403,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "11. Jawaban: 'I'm going to buy a new pair of shoes.' &rarr; Pertanyaan yang tepat:",
             "options": [
-              "What are you going to buy?",
-              "Where are you going to buy shoes?",
               "When are you going to buy?",
-              "Who are you going to buy?"
+              "What are you going to buy?",
+              "Who are you going to buy?",
+              "Where are you going to buy shoes?"
             ],
             "answer": "What are you going to buy?",
             "hint": "'a new pair of shoes' adalah barang yang dibeli.",
@@ -3417,8 +3417,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "Where are they going to spend their honeymoon?",
               "When are they going to spend their honeymoon?",
-              "What are they going to spend?",
-              "Who are they going to spend honeymoon with?"
+              "Who are they going to spend honeymoon with?",
+              "What are they going to spend?"
             ],
             "answer": "Where are they going to spend their honeymoon?",
             "hint": "'in Barbados' adalah tempat pulau/negara.",
@@ -3809,10 +3809,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Megan wasn't able to pay for a new laptop itself. &rarr; Kata yang benar menggantikan 'itself':",
             "options": [
-              "herself",
               "himself",
+              "myself",
               "themselves",
-              "myself"
+              "herself"
             ],
             "answer": "herself",
             "hint": "Megan adalah perempuan (she).",
@@ -3821,10 +3821,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. I taught I how to play the piano last year. &rarr; Kata yang benar menggantikan 'I':",
             "options": [
-              "myself",
-              "me",
+              "mine",
               "my",
-              "mine"
+              "me",
+              "myself"
             ],
             "answer": "myself",
             "hint": "Subjek I mengajari dirinya sendiri.",
@@ -3833,10 +3833,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Dylan and Andrew cooked dinner for ourselves yesterday as I was at work. &rarr; Kata yang benar:",
             "options": [
-              "themselves",
               "himself",
-              "yourselves",
-              "myself"
+              "myself",
+              "themselves",
+              "yourselves"
             ],
             "answer": "themselves",
             "hint": "Dylan and Andrew adalah orang ketiga jamak (they).",
@@ -3845,10 +3845,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. B: No, it's fine, I can find it yourself. &rarr; Kata yang benar menggantikan 'yourself':",
             "options": [
-              "myself",
               "herself",
+              "itself",
               "himself",
-              "itself"
+              "myself"
             ],
             "answer": "myself",
             "hint": "Subjek kalimat adalah 'I'.",
@@ -3857,10 +3857,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Max and Julia, you can collect the package from the post office yourself. &rarr; Kata yang benar:",
             "options": [
-              "yourselves",
               "themselves",
-              "ourselves",
-              "yourself"
+              "yourselves",
+              "yourself",
+              "ourselves"
             ],
             "answer": "yourselves",
             "hint": "Max dan Julia adalah dua orang (kamu jamak).",
@@ -3869,9 +3869,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. We baked a cake for Kim's birthday myself. &rarr; Kata yang benar menggantikan 'myself':",
             "options": [
+              "herself",
               "ourselves",
               "themselves",
-              "herself",
               "yourself"
             ],
             "answer": "ourselves",
@@ -3992,10 +3992,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Some people are very selfish. They only [BLANK].",
             "options": [
-              "think of themselves",
               "think themselves",
               "think of them",
-              "think they"
+              "think they",
+              "think of themselves"
             ],
             "answer": "think of themselves",
             "hint": "Hanya memikirkan diri mereka sendiri.",
@@ -4005,8 +4005,8 @@ const GRAMMAR_UNITS = [
             "q": "2. You work too hard. You should [BLANK] more.",
             "options": [
               "relax",
-              "relax yourself",
               "relax yourselves",
+              "relax yourself",
               "relaxing"
             ],
             "answer": "relax",
@@ -4016,10 +4016,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. My husband and I [BLANK] when we were at school.",
             "options": [
-              "met",
               "met ourselves",
-              "met each",
-              "meeting"
+              "meeting",
+              "met",
+              "met each"
             ],
             "answer": "met",
             "hint": "Kata kerja meet tidak memerlukan refleksif.",
@@ -4029,9 +4029,9 @@ const GRAMMAR_UNITS = [
             "q": "4. It was a fantastic evening. We really [BLANK].",
             "options": [
               "enjoyed ourselves",
-              "enjoyed",
               "enjoyed us",
-              "enjoying ourselves"
+              "enjoying ourselves",
+              "enjoyed"
             ],
             "answer": "enjoyed ourselves",
             "hint": "Kata kerja enjoy membutuhkan reflexive pronoun.",
@@ -4040,10 +4040,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. After Tony had breakfast, he [BLANK].",
             "options": [
+              "was shaving himself",
               "shaved",
               "shaved himself",
-              "shaved him",
-              "was shaving himself"
+              "shaved him"
             ],
             "answer": "shaved",
             "hint": "Kata kerja shave biasa tidak memakai himself.",
@@ -4052,9 +4052,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Tina and Sam, if you want more to drink, [BLANK].",
             "options": [
-              "help yourselves",
               "help yourself",
               "help them",
+              "help yourselves",
               "help you"
             ],
             "answer": "help yourselves",
@@ -4065,8 +4065,8 @@ const GRAMMAR_UNITS = [
             "q": "7. I'm trying to [BLANK] to play the guitar but I'm not doing very well.",
             "options": [
               "teach myself",
-              "teach me",
               "teach I",
+              "teach me",
               "teaching"
             ],
             "answer": "teach myself",
@@ -4076,10 +4076,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. Can you and Alicia [BLANK] some chairs with you when you come to the barbecue?",
             "options": [
+              "bringing",
               "bring",
-              "bring yourselves",
               "bring themselves",
-              "bringing"
+              "bring yourselves"
             ],
             "answer": "bring",
             "hint": "Bring ... with you.",
@@ -4088,10 +4088,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. My baby sister is so clever, she can now [BLANK]. And she's only 2 years old.",
             "options": [
-              "feed herself",
-              "feed her",
               "feed",
-              "feeding"
+              "feed herself",
+              "feeding",
+              "feed her"
             ],
             "answer": "feed herself",
             "hint": "Bisa makan/menyuap dirinya sendiri.",
@@ -4100,10 +4100,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. I don't need to go to the computer repair shop. My dad can [BLANK].",
             "options": [
-              "fix it himself",
-              "fix himself",
+              "fix it",
               "fix it his",
-              "fix it"
+              "fix it himself",
+              "fix himself"
             ],
             "answer": "fix it himself",
             "hint": "Bisa memperbaiki komputernya sendiri.",
@@ -4226,10 +4226,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. John, don't be rude! Behave [BLANK] properly.",
             "options": [
-              "yourself",
-              "you",
               "himself",
-              "- (tidak perlu)"
+              "- (tidak perlu)",
+              "you",
+              "yourself"
             ],
             "answer": "yourself",
             "hint": "behave yourself = bersikap sopan",
@@ -4238,10 +4238,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. The children are amusing [BLANK] with the kitten.",
             "options": [
+              "- (tidak perlu)",
               "themselves",
               "them",
-              "their",
-              "- (tidak perlu)"
+              "their"
             ],
             "answer": "themselves",
             "hint": "Anak-anak menghibur diri mereka sendiri",
@@ -4250,10 +4250,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Do your parents often get up [BLANK] early in the morning?",
             "options": [
+              "them",
               "- (tidak perlu)",
-              "themselves",
               "their",
-              "them"
+              "themselves"
             ],
             "answer": "- (tidak perlu)",
             "hint": "Get up tidak menggunakan kata ganti refleksif.",
@@ -4262,10 +4262,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. They are doing their homework by [BLANK].",
             "options": [
-              "themselves",
-              "their",
               "them",
-              "himself"
+              "himself",
+              "themselves",
+              "their"
             ],
             "answer": "themselves",
             "hint": "by themselves = sendirian",
@@ -4274,9 +4274,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. My friend Brenda lives by [BLANK].",
             "options": [
-              "herself",
               "her",
               "she",
+              "herself",
               "- (tidak perlu)"
             ],
             "answer": "herself",
@@ -4287,8 +4287,8 @@ const GRAMMAR_UNITS = [
             "q": "6. The little girl hurt [BLANK] in the playground.",
             "options": [
               "herself",
-              "her",
               "she",
+              "her",
               "itself"
             ],
             "answer": "herself",
@@ -4298,10 +4298,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. I can do that [BLANK]!",
             "options": [
-              "myself",
-              "me",
+              "- (tidak perlu)",
               "mine",
-              "- (tidak perlu)"
+              "me",
+              "myself"
             ],
             "answer": "myself",
             "hint": "Saya bisa melakukannya sendiri",
@@ -4310,9 +4310,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. Tom, you must brush [BLANK] teeth three times a day.",
             "options": [
-              "your",
               "yourself",
               "yours",
+              "your",
               "- (tidak perlu)"
             ],
             "answer": "your",
@@ -4324,8 +4324,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "- (tidak perlu)",
               "ourselves",
-              "each other",
-              "us"
+              "us",
+              "each other"
             ],
             "answer": "- (tidak perlu)",
             "hint": "Kata kerja meet tidak memerlukan ourselves.",
@@ -4334,10 +4334,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. He's always complaining [BLANK] about my cooking.",
             "options": [
-              "- (tidak perlu)",
               "himself",
-              "his",
-              "him"
+              "him",
+              "- (tidak perlu)",
+              "his"
             ],
             "answer": "- (tidak perlu)",
             "hint": "Complain tidak diikuti refleksif.",
@@ -4356,10 +4356,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. 'Jamie liked his new haircut and was looking at his hair in the mirror.' &rarr; Kalimat dengan reflexive pronoun:",
             "options": [
-              "Jamie liked his new haircut and was looking at himself in the mirror.",
-              "Jamie liked his new haircut and was looking at his in the mirror.",
+              "Jamie was looking at him in the mirror.",
               "Jamie liked his new haircut and looked himself.",
-              "Jamie was looking at him in the mirror."
+              "Jamie liked his new haircut and was looking at his in the mirror.",
+              "Jamie liked his new haircut and was looking at himself in the mirror."
             ],
             "answer": "Jamie liked his new haircut and was looking at himself in the mirror.",
             "hint": "Melihat dirinya sendiri di cermin = looking at himself in the mirror.",
@@ -4368,10 +4368,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. 'I accidentally burnt my finger on the iron.' &rarr; Kalimat dengan reflexive pronoun:",
             "options": [
-              "I accidentally burnt myself on the iron.",
               "I accidentally burnt me on the iron.",
-              "I accidentally burnt my on the iron.",
-              "I burnt myself finger on the iron."
+              "I accidentally burnt myself on the iron.",
+              "I burnt myself finger on the iron.",
+              "I accidentally burnt my on the iron."
             ],
             "answer": "I accidentally burnt myself on the iron.",
             "hint": "Saya tak sengaja melukai diri sendiri = burnt myself.",
@@ -4381,9 +4381,9 @@ const GRAMMAR_UNITS = [
             "q": "3. 'Megan and I enjoyed it at Christine's barbecue.' &rarr; Kalimat dengan reflexive pronoun:",
             "options": [
               "Megan and I enjoyed ourselves at Christine's barbecue.",
-              "Megan and I enjoyed themselves at Christine's barbecue.",
               "Megan and I enjoyed us at Christine's barbecue.",
-              "Megan and I enjoyed our at Christine's barbecue."
+              "Megan and I enjoyed our at Christine's barbecue.",
+              "Megan and I enjoyed themselves at Christine's barbecue."
             ],
             "answer": "Megan and I enjoyed ourselves at Christine's barbecue.",
             "hint": "Megan and I = We -> enjoyed ourselves.",
@@ -4393,9 +4393,9 @@ const GRAMMAR_UNITS = [
             "q": "4. 'The children behaved really well at school today.' &rarr; Kalimat dengan reflexive pronoun:",
             "options": [
               "The children behaved themselves really well at school today.",
+              "The children behaved itself really well at school today.",
               "The children behaved their really well at school today.",
-              "The children behaved them really well at school today.",
-              "The children behaved itself really well at school today."
+              "The children behaved them really well at school today."
             ],
             "answer": "The children behaved themselves really well at school today.",
             "hint": "The children (they) -> behaved themselves.",
@@ -4404,9 +4404,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. 'Julia painted her own bedroom at the weekend.' &rarr; Kalimat dengan reflexive pronoun:",
             "options": [
+              "Julia painted her bedroom by him at the weekend.",
               "Julia painted her bedroom herself at the weekend.",
               "Julia painted her bedroom herself own at the weekend.",
-              "Julia painted her bedroom by him at the weekend.",
               "Julia herself painted bedroom at the weekend."
             ],
             "answer": "Julia painted her bedroom herself at the weekend.",
@@ -4416,10 +4416,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. 'Did you cut your own hair? It looks really nice.' &rarr; Kalimat dengan reflexive pronoun:",
             "options": [
-              "Did you cut your hair yourself? It looks really nice.",
-              "Did you cut you hair yourself? It looks really nice.",
               "Did you cut yourself hair? It looks really nice.",
-              "Did you cut your hair you? It looks really nice."
+              "Did you cut your hair yourself? It looks really nice.",
+              "Did you cut your hair you? It looks really nice.",
+              "Did you cut you hair yourself? It looks really nice."
             ],
             "answer": "Did you cut your hair yourself? It looks really nice.",
             "hint": "Memotong rambutmu sendiri = cut your hair yourself.",
@@ -4555,9 +4555,9 @@ const GRAMMAR_UNITS = [
             "q": "1. A: 'We're getting old.' &rarr; Respon B:",
             "options": [
               "Oh, don't say that!",
+              "Let's hurry up.",
               "Let's go outside.",
-              "Why don't you take a break?",
-              "Let's hurry up."
+              "Why don't you take a break?"
             ],
             "answer": "Oh, don't say that!",
             "hint": "Audio TR 8: Tanggapan terhadap merasa tua.",
@@ -4566,9 +4566,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. A: 'It's getting busy in this café.' &rarr; Respon B:",
             "options": [
-              "Let's go outside.",
               "Where are you going?",
               "Who is it from?",
+              "Let's go outside.",
               "Why don't you ask for help?"
             ],
             "answer": "Let's go outside.",
@@ -4578,8 +4578,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. A: 'I'm getting bored of doing my homework.' &rarr; Respon B:",
             "options": [
-              "Why don't you take a break?",
               "Why don't you put him to bed?",
+              "Why don't you take a break?",
               "Let's hurry up.",
               "Who gave it to her?"
             ],
@@ -4591,8 +4591,8 @@ const GRAMMAR_UNITS = [
             "q": "4. A: 'The baby's getting tired.' &rarr; Respon B:",
             "options": [
               "Why don't you put him to bed?",
-              "Why doesn't he get it himself?",
               "Where are you going?",
+              "Why doesn't he get it himself?",
               "Oh, don't say that!"
             ],
             "answer": "Why don't you put him to bed?",
@@ -4602,10 +4602,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. A: 'I'm ready to go out.' &rarr; Respon B:",
             "options": [
-              "Where are you going?",
-              "Let's go outside.",
+              "Why don't you ask for help?",
               "Who is it from?",
-              "Why don't you ask for help?"
+              "Let's go outside.",
+              "Where are you going?"
             ],
             "answer": "Where are you going?",
             "hint": "Siap pergi keluar.",
@@ -4614,9 +4614,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. A: 'This exercise is getting difficult.' &rarr; Respon B:",
             "options": [
+              "Let's hurry up.",
               "Why don't you ask for help?",
               "Why don't you take a break?",
-              "Let's hurry up.",
               "Who gave it to her?"
             ],
             "answer": "Why don't you ask for help?",
@@ -4626,10 +4626,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. A: 'It's getting late.' &rarr; Respon B:",
             "options": [
-              "Let's hurry up.",
+              "Who is it from?",
               "Let's go outside.",
-              "Where are you going?",
-              "Who is it from?"
+              "Let's hurry up.",
+              "Where are you going?"
             ],
             "answer": "Let's hurry up.",
             "hint": "Hari mulai larut.",
@@ -4638,10 +4638,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. A: 'I'm getting his jacket for him.' &rarr; Respon B:",
             "options": [
+              "Oh, don't say that!",
               "Why doesn't he get it himself?",
-              "Who gave it to her?",
               "Why don't you put him to bed?",
-              "Oh, don't say that!"
+              "Who gave it to her?"
             ],
             "answer": "Why doesn't he get it himself?",
             "hint": "Mengambilkan jaket untuknya.",
@@ -4651,9 +4651,9 @@ const GRAMMAR_UNITS = [
             "q": "9. A: 'We got an email.' &rarr; Respon B:",
             "options": [
               "Who is it from?",
+              "Let's hurry up.",
               "Where are you going?",
-              "Why don't you ask for help?",
-              "Let's hurry up."
+              "Why don't you ask for help?"
             ],
             "answer": "Who is it from?",
             "hint": "Mendapat email.",
@@ -4662,9 +4662,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. A: 'She got a dog for Christmas.' &rarr; Respon B:",
             "options": [
+              "Oh, don't say that!",
               "Who gave it to her?",
               "Why doesn't he get it himself?",
-              "Oh, don't say that!",
               "Let's go outside."
             ],
             "answer": "Who gave it to her?",
@@ -4810,8 +4810,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "off",
               "out of",
-              "up",
-              "to"
+              "to",
+              "up"
             ],
             "answer": "off",
             "hint": "Turun dari sofa.",
@@ -4820,10 +4820,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. I always get [BLANK] at seven o'clock on weekdays.",
             "options": [
-              "up",
+              "in",
               "off",
-              "on",
-              "in"
+              "up",
+              "on"
             ],
             "answer": "up",
             "hint": "Bangun tidur jam 7.",
@@ -4833,9 +4833,9 @@ const GRAMMAR_UNITS = [
             "q": "3. That loud noise really gets [BLANK] me. It's so annoying!",
             "options": [
               "to",
-              "in",
               "off",
-              "up"
+              "up",
+              "in"
             ],
             "answer": "to",
             "hint": "Gets to me = sangat mengganggu saya.",
@@ -4844,10 +4844,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. The teacher asked us to get [BLANK] with some work quietly as she had to leave the classroom.",
             "options": [
-              "on",
+              "off",
               "up",
-              "out of",
-              "off"
+              "on",
+              "out of"
             ],
             "answer": "on",
             "hint": "Get on with work = melanjutkan pekerjaan.",
@@ -4856,10 +4856,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Can we all get [BLANK] your mum's car and go to the town centre?",
             "options": [
-              "in",
-              "on",
               "up",
-              "to"
+              "to",
+              "in",
+              "on"
             ],
             "answer": "in",
             "hint": "Masuk ke dalam mobil (car).",
@@ -4868,10 +4868,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. The minute we got [BLANK] the house, it started to rain.",
             "options": [
-              "out of",
+              "up",
               "off",
-              "on",
-              "up"
+              "out of",
+              "on"
             ],
             "answer": "out of",
             "hint": "Keluar dari dalam rumah.",
@@ -4881,8 +4881,8 @@ const GRAMMAR_UNITS = [
             "q": "7. Get [BLANK] the train. It leaves in 5 minutes!",
             "options": [
               "on",
-              "in",
               "up",
+              "in",
               "to"
             ],
             "answer": "on",
@@ -4892,10 +4892,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. I got [BLANK] a list on the Internet about the top 10 cities in the world.",
             "options": [
-              "up",
               "out of",
-              "off",
-              "to"
+              "to",
+              "up",
+              "off"
             ],
             "answer": "up",
             "hint": "Get up a list = membuka/memunculkan daftar di layar.",
@@ -4904,10 +4904,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. I usually get [BLANK] the gym 20 minutes after I finish work.",
             "options": [
+              "out of",
               "to",
-              "off",
               "up",
-              "out of"
+              "off"
             ],
             "answer": "to",
             "hint": "Sampai / tiba di gym.",
@@ -4916,10 +4916,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. I got [BLANK] the Metro and walked to the restaurant.",
             "options": [
+              "up",
               "off",
               "out of",
-              "in",
-              "up"
+              "in"
             ],
             "answer": "off",
             "hint": "Turun dari metro/kereta bawah tanah.",
@@ -4939,9 +4939,9 @@ const GRAMMAR_UNITS = [
             "q": "1. If you don't take your vitamins, you'll [BLANK].",
             "options": [
               "get sick",
-              "get cold",
               "get wet",
-              "get fat"
+              "get fat",
+              "get cold"
             ],
             "answer": "get sick",
             "hint": "Tidak minum vitamin bisa jatuh sakit.",
@@ -4950,10 +4950,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. If you drink too much beer, you [BLANK].",
             "options": [
-              "get drunk",
               "get sick",
-              "get tired",
-              "get dark"
+              "get dark",
+              "get drunk",
+              "get tired"
             ],
             "answer": "get drunk",
             "hint": "Minum banyak bir menjadi mabuk.",
@@ -4962,10 +4962,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. The film is boring at first but it [BLANK] at the end.",
             "options": [
-              "gets interesting",
               "gets better",
               "gets dark",
-              "gets tired"
+              "gets tired",
+              "gets interesting"
             ],
             "answer": "gets interesting",
             "hint": "Filmnya menjadi menarik di bagian akhir.",
@@ -4974,10 +4974,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. If you leave the window open in the winter, the room [BLANK].",
             "options": [
-              "gets cold",
+              "gets wet",
               "gets hot",
-              "gets dark",
-              "gets wet"
+              "gets cold",
+              "gets dark"
             ],
             "answer": "gets cold",
             "hint": "Musim dingin (winter).",
@@ -4986,10 +4986,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. If you stay up late every night, eventually you [BLANK].",
             "options": [
+              "get wet",
               "get tired",
-              "get drunk",
               "get hot",
-              "get wet"
+              "get drunk"
             ],
             "answer": "get tired",
             "hint": "Begadang setiap malam.",
@@ -4998,10 +4998,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. If you go out in the rain without an umbrella, you [BLANK].",
             "options": [
-              "get wet",
+              "get fat",
               "get cold",
-              "get sick",
-              "get fat"
+              "get wet",
+              "get sick"
             ],
             "answer": "get wet",
             "hint": "Hujan tanpa payung.",
@@ -5010,10 +5010,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. You'll [BLANK] if you keep eating all that fried food.",
             "options": [
-              "get fat",
-              "get hot",
+              "get dark",
               "get wet",
-              "get dark"
+              "get fat",
+              "get hot"
             ],
             "answer": "get fat",
             "hint": "Terlalu banyak makan gorengan.",
@@ -5022,10 +5022,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. Turn on the lights before it [BLANK] in here.",
             "options": [
+              "gets better",
               "gets dark",
               "gets cold",
-              "gets hot",
-              "gets better"
+              "gets hot"
             ],
             "answer": "gets dark",
             "hint": "Nyalakan lampu sebelum gelap.",
@@ -5034,10 +5034,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. I can't come to your party because I'm sick. I'll call you when I [BLANK].",
             "options": [
+              "get hot",
               "get better",
-              "get sick",
               "get tired",
-              "get hot"
+              "get sick"
             ],
             "answer": "get better",
             "hint": "Ketika sudah sembuh/membaik.",
@@ -5069,9 +5069,9 @@ const GRAMMAR_UNITS = [
             "q": "1. 'Michael got full marks on his exams last month.' &rarr; Makna kata got:",
             "options": [
               "to obtain",
+              "to buy or to take",
               "to receive",
-              "to go and bring back",
-              "to buy or to take"
+              "to go and bring back"
             ],
             "answer": "to obtain",
             "hint": "Mendapatkan nilai sempurna.",
@@ -5081,8 +5081,8 @@ const GRAMMAR_UNITS = [
             "q": "2. 'I got my brother's tennis racket out of his room.' &rarr; Makna got:",
             "options": [
               "to go and bring back",
-              "to buy or to take",
               "to receive",
+              "to buy or to take",
               "to obtain"
             ],
             "answer": "to go and bring back",
@@ -5092,10 +5092,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. 'Sam and Francesca got their dog from an animal rescue centre.' &rarr; Makna got:",
             "options": [
+              "to go and bring back",
               "to obtain",
               "to buy or to take",
-              "to receive",
-              "to go and bring back"
+              "to receive"
             ],
             "answer": "to obtain",
             "hint": "Memperoleh anjing dari tempat penampungan.",
@@ -5104,9 +5104,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. 'Would you get some bread from the bakery?' &rarr; Makna get:",
             "options": [
-              "to buy or to take",
               "to receive",
               "to obtain",
+              "to buy or to take",
               "to become"
             ],
             "answer": "to buy or to take",
@@ -5117,8 +5117,8 @@ const GRAMMAR_UNITS = [
             "q": "5. 'I got these trousers for half price.' &rarr; Makna got:",
             "options": [
               "to buy or to take",
-              "to receive",
               "to go and bring back",
+              "to receive",
               "to obtain"
             ],
             "answer": "to buy or to take",
@@ -5128,9 +5128,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. 'Did you get the key that was on the table?' &rarr; Makna get:",
             "options": [
-              "to go and bring back",
-              "to receive",
               "to buy or to take",
+              "to receive",
+              "to go and bring back",
               "to obtain"
             ],
             "answer": "to go and bring back",
@@ -5142,8 +5142,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "to receive",
               "to obtain",
-              "to buy or to take",
-              "to go and bring back"
+              "to go and bring back",
+              "to buy or to take"
             ],
             "answer": "to receive",
             "hint": "Menerima email pesan masuk.",
@@ -5152,10 +5152,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. 'Could you get me my coat from the car, please?' &rarr; Makna get:",
             "options": [
-              "to go and bring back",
               "to receive",
-              "to buy or to take",
-              "to obtain"
+              "to obtain",
+              "to go and bring back",
+              "to buy or to take"
             ],
             "answer": "to go and bring back",
             "hint": "Tolong ambilkan mantel saya dari mobil.",
@@ -5164,9 +5164,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. 'I got a new digital camera for my birthday.' &rarr; Makna got:",
             "options": [
-              "to receive",
-              "to buy or to take",
               "to go and bring back",
+              "to buy or to take",
+              "to receive",
               "to obtain"
             ],
             "answer": "to receive",
@@ -5176,8 +5176,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. 'I usually get a coffee from a café in the morning.' &rarr; Makna get:",
             "options": [
-              "to buy or to take",
               "to receive",
+              "to buy or to take",
               "to obtain",
               "to go and bring back"
             ],
@@ -5300,9 +5300,9 @@ const GRAMMAR_UNITS = [
             "q": "1. Every morning I [BLANK] early to prepare for school.",
             "options": [
               "get up",
+              "get to",
               "got off",
-              "get out",
-              "get to"
+              "get out"
             ],
             "answer": "get up",
             "hint": "Bangun pagi.",
@@ -5311,10 +5311,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. The thing that really [BLANK] my nerves is when people are noisy.",
             "options": [
+              "gets out",
               "gets on",
               "gets off",
-              "gets up",
-              "gets out"
+              "gets up"
             ],
             "answer": "gets on",
             "hint": "Gets on my nerves = membuat jengkel.",
@@ -5323,10 +5323,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. The minute I [BLANK] the house this morning, it started raining.",
             "options": [
-              "got out of",
               "got on",
+              "get up",
               "get to",
-              "get up"
+              "got out of"
             ],
             "answer": "got out of",
             "hint": "Keluar dari rumah.",
@@ -5337,8 +5337,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "got off",
               "get up",
-              "get out",
-              "got on of"
+              "got on of",
+              "get out"
             ],
             "answer": "got off",
             "hint": "Turun dari kereta metro.",
@@ -5347,10 +5347,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. I often [BLANK] the sports club half an hour after I finish school.",
             "options": [
-              "get to",
               "got off",
+              "get on",
               "get up",
-              "get on"
+              "get to"
             ],
             "answer": "get to",
             "hint": "Sampai/tiba di klub olahraga.",
@@ -5359,10 +5359,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. One of the things that can [BLANK] me in a bad mood is traffic jams.",
             "options": [
-              "get",
-              "gets on",
               "got off",
-              "get out"
+              "get out",
+              "gets on",
+              "get"
             ],
             "answer": "get",
             "hint": "Get me in a bad mood = membuat suasana hati buruk.",
@@ -5518,10 +5518,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Situasi: You're hot and the window is closed. &rarr; Permintaan yang tepat:",
             "options": [
-              "Could you open the window, please?",
-              "Could you close the window, please?",
               "Could I open the door?",
-              "Could you shut the window?"
+              "Could you open the window, please?",
+              "Could you shut the window?",
+              "Could you close the window, please?"
             ],
             "answer": "Could you open the window, please?",
             "hint": "Merasa gerah dan jendela tertutup.",
@@ -5531,9 +5531,9 @@ const GRAMMAR_UNITS = [
             "q": "2. Situasi: You need help carrying your suitcase. &rarr; Permintaan yang tepat:",
             "options": [
               "Could you help me carry my suitcase, please?",
-              "Could you carry your suitcase?",
               "Could I take your suitcase?",
-              "Could you leave the suitcase?"
+              "Could you leave the suitcase?",
+              "Could you carry your suitcase?"
             ],
             "answer": "Could you help me carry my suitcase, please?",
             "hint": "Butuh bantuan membawakan koper.",
@@ -5543,9 +5543,9 @@ const GRAMMAR_UNITS = [
             "q": "3. Situasi: You are at the train station and want to catch a train to Dublin, but don't know the departure time. &rarr; Permintaan:",
             "options": [
               "Could you tell me what time the train to Dublin leaves?",
-              "Could you drive me to Dublin?",
+              "Could you stop the Dublin train?",
               "Could I buy a car to Dublin?",
-              "Could you stop the Dublin train?"
+              "Could you drive me to Dublin?"
             ],
             "answer": "Could you tell me what time the train to Dublin leaves?",
             "hint": "Menanyakan jadwal keberangkatan kereta ke Dublin.",
@@ -5556,8 +5556,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "Could you tell me the time, please?",
               "Could you lend me your watch forever?",
-              "Could I buy your watch?",
-              "Could you tell me where the station is?"
+              "Could you tell me where the station is?",
+              "Could I buy your watch?"
             ],
             "answer": "Could you tell me the time, please?",
             "hint": "Lupa jam tangan dan ingin tahu waktu.",
@@ -5566,10 +5566,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Situasi: You forgot your wallet at home. &rarr; Permintaan:",
             "options": [
-              "Could you lend me some money, please?",
-              "Could you buy a new wallet for me?",
+              "Could you pay all my bills?",
               "Could I take your wallet?",
-              "Could you pay all my bills?"
+              "Could you lend me some money, please?",
+              "Could you buy a new wallet for me?"
             ],
             "answer": "Could you lend me some money, please?",
             "hint": "Dompet tertinggal, meminjam uang.",
@@ -5578,10 +5578,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Situasi: The children are screaming and you want to rest. &rarr; Permintaan:",
             "options": [
-              "Could you please be quiet?",
-              "Could you scream louder?",
+              "Could you wake me up?",
               "Could you play football inside?",
-              "Could you wake me up?"
+              "Could you please be quiet?",
+              "Could you scream louder?"
             ],
             "answer": "Could you please be quiet?",
             "hint": "Anak-anak berteriak dan Anda ingin istirahat.",
@@ -5590,10 +5590,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. Situasi: You receive a phone call but you can't talk right now. &rarr; Permintaan:",
             "options": [
-              "Could I call you back later?",
-              "Could you talk louder?",
+              "Could you come right now?",
               "Could I never talk to you?",
-              "Could you come right now?"
+              "Could you talk louder?",
+              "Could I call you back later?"
             ],
             "answer": "Could I call you back later?",
             "hint": "Tidak bisa bicara sekarang, menelpon kembali nanti.",
@@ -5602,10 +5602,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. Situasi: You are doing maths homework and need help with an exercise. &rarr; Permintaan:",
             "options": [
-              "Could you help me with this exercise, please?",
-              "Could you do all my exams?",
               "Could I give you my homework?",
-              "Could you leave me alone?"
+              "Could you leave me alone?",
+              "Could you help me with this exercise, please?",
+              "Could you do all my exams?"
             ],
             "answer": "Could you help me with this exercise, please?",
             "hint": "Butuh bantuan mengerjakan latihan matematika.",
@@ -5689,10 +5689,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. What does Anne ask Jack?",
             "options": [
-              "To drive her to her evening English class.",
+              "To do her coursework for her.",
               "To fix her car in the garage.",
-              "To lend her some money for university.",
-              "To do her coursework for her."
+              "To drive her to her evening English class.",
+              "To lend her some money for university."
             ],
             "answer": "To drive her to her evening English class.",
             "hint": "Anne meminta diantar ke kelas bahasa Inggris.",
@@ -5701,10 +5701,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Is Jack happy to do Anne a favour?",
             "options": [
-              "Yes, of course!",
-              "No, he is too busy.",
+              "He asks Anne to pay for petrol.",
               "He refuses because of his lectures.",
-              "He asks Anne to pay for petrol."
+              "Yes, of course!",
+              "No, he is too busy."
             ],
             "answer": "Yes, of course!",
             "hint": "Respon ramah Jack.",
@@ -5713,10 +5713,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. What does Anne have to do in the afternoon before her class?",
             "options": [
+              "Cook dinner for Jack.",
               "Finish some coursework.",
-              "Go shopping in the town centre.",
               "Visit her parents.",
-              "Cook dinner for Jack."
+              "Go shopping in the town centre."
             ],
             "answer": "Finish some coursework.",
             "hint": "Menyelesaikan tugas kuliah.",
@@ -5737,10 +5737,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. What time is Anne's class?",
             "options": [
-              "From 7:30 p.m. to 9:30 p.m.",
-              "From 7:00 p.m. to 8:00 p.m.",
               "From 8:00 p.m. to 10:00 p.m.",
-              "From 6:30 p.m. to 8:30 p.m."
+              "From 6:30 p.m. to 8:30 p.m.",
+              "From 7:00 p.m. to 8:00 p.m.",
+              "From 7:30 p.m. to 9:30 p.m."
             ],
             "answer": "From 7:30 p.m. to 9:30 p.m.",
             "hint": "Jadwal jam kelas Anne.",
@@ -5749,10 +5749,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. What does Jack tell Anne to do when she is ready to leave?",
             "options": [
-              "Knock on his room door.",
               "Send him a text message.",
-              "Call his mobile phone.",
-              "Wait in front of the house."
+              "Knock on his room door.",
+              "Wait in front of the house.",
+              "Call his mobile phone."
             ],
             "answer": "Knock on his room door.",
             "hint": "Mengetuk pintu kamar Jack.",
@@ -5783,10 +5783,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Ben: 'I keep losing my keys in my house.' &rarr; Saran:",
             "options": [
-              "You could put a key bowl near the front door to keep them in one place.",
-              "You could never lock your house door.",
               "You could throw away all your keys.",
-              "You could buy ten new houses."
+              "You could put a key bowl near the front door to keep them in one place.",
+              "You could buy ten new houses.",
+              "You could never lock your house door."
             ],
             "answer": "You could put a key bowl near the front door to keep them in one place.",
             "hint": "Menaruh mangkuk kunci dekat pintu depan.",
@@ -5795,10 +5795,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Marco: 'My brother wants to get fit but he hates the gym.' &rarr; Saran:",
             "options": [
-              "He could take up running or cycling outdoors.",
-              "He could eat fast food every day.",
               "He could sleep 15 hours a day.",
-              "He could buy a gym."
+              "He could buy a gym.",
+              "He could eat fast food every day.",
+              "He could take up running or cycling outdoors."
             ],
             "answer": "He could take up running or cycling outdoors.",
             "hint": "Berolahraga di luar ruangan seperti lari atau sepeda.",
@@ -5807,10 +5807,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Luke: 'I'm new in my neighbourhood and haven't got any friends yet.' &rarr; Saran:",
             "options": [
-              "You could join a local sports club or community centre.",
-              "You could stay inside your room forever.",
               "You could move to another country immediately.",
-              "You could ignore all your neighbours."
+              "You could stay inside your room forever.",
+              "You could ignore all your neighbours.",
+              "You could join a local sports club or community centre."
             ],
             "answer": "You could join a local sports club or community centre.",
             "hint": "Bergabung dengan klub olahraga atau kegiatan warga.",
@@ -5819,10 +5819,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Georgia: 'My essay is due in next week, but I'm stuck and I need help.' &rarr; Saran:",
             "options": [
+              "You could miss the submission deadline.",
               "You could ask your teacher or tutor for guidance.",
               "You could delete your essay.",
-              "You could copy an essay from the internet.",
-              "You could miss the submission deadline."
+              "You could copy an essay from the internet."
             ],
             "answer": "You could ask your teacher or tutor for guidance.",
             "hint": "Meminta bimbingan guru atau tutor.",
@@ -5831,10 +5831,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Aaron: 'I really liked a song I heard on the radio, but I don't know what it is called.' &rarr; Saran:",
             "options": [
+              "You could buy the whole radio station.",
               "You could use a music recognition app or search the lyrics online.",
-              "You could never listen to music again.",
               "You could call the president.",
-              "You could buy the whole radio station."
+              "You could never listen to music again."
             ],
             "answer": "You could use a music recognition app or search the lyrics online.",
             "hint": "Mencari lirik lagu atau memakai aplikasi pengenal musik.",
@@ -5854,10 +5854,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Where does Ursula want to go?",
             "options": [
-              "To the Central Train Station",
-              "To the airport",
+              "To a shopping mall",
               "To an art gallery",
-              "To a shopping mall"
+              "To the airport",
+              "To the Central Train Station"
             ],
             "answer": "To the Central Train Station",
             "hint": "Mencari stasiun kereta pusat.",
@@ -5866,10 +5866,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Who does Ursula ask for help?",
             "options": [
-              "A police officer",
-              "A bus driver",
+              "A hotel receptionist",
               "A shop assistant",
-              "A hotel receptionist"
+              "A police officer",
+              "A bus driver"
             ],
             "answer": "A police officer",
             "hint": "Meminta tolong kepada polisi.",
@@ -5879,9 +5879,9 @@ const GRAMMAR_UNITS = [
             "q": "3. Is Ursula walking in the right direction?",
             "options": [
               "Yes, she is in the right direction.",
-              "No, she is completely in the opposite direction.",
+              "The policeman doesn't know.",
               "She is outside the city.",
-              "The policeman doesn't know."
+              "No, she is completely in the opposite direction."
             ],
             "answer": "Yes, she is in the right direction.",
             "hint": "Polisi membenarkan arahnya.",
@@ -5890,10 +5890,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Why does Ursula decide not to walk?",
             "options": [
-              "Because her suitcase is very heavy.",
-              "Because it is raining heavily.",
               "Because she has no shoes.",
-              "Because the street is closed."
+              "Because her suitcase is very heavy.",
+              "Because the street is closed.",
+              "Because it is raining heavily."
             ],
             "answer": "Because her suitcase is very heavy.",
             "hint": "Kopernya sangat berat.",
@@ -5914,9 +5914,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Where can Ursula buy a bus ticket?",
             "options": [
+              "At the post office.",
               "At the newsstand across the street.",
               "On the train.",
-              "At the post office.",
               "Inside Jefferson's Groceries."
             ],
             "answer": "At the newsstand across the street.",
@@ -5928,8 +5928,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "About six minutes",
               "About fifteen minutes",
-              "About thirty minutes",
-              "About an hour"
+              "About an hour",
+              "About thirty minutes"
             ],
             "answer": "About six minutes",
             "hint": "Hanya sekitar 6 menit karena jalanan lancar.",
@@ -5938,9 +5938,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. How will Ursula know when to get off the bus?",
             "options": [
-              "The Central Station is very big; she can't miss it.",
               "The bus driver will wake her up.",
               "She has to look for a small sign.",
+              "The Central Station is very big; she can't miss it.",
               "The policeman will ride with her."
             ],
             "answer": "The Central Station is very big; she can't miss it.",
@@ -5962,8 +5962,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Situasi 1: You're hot and all the windows on the train are closed.",
             "options": [
-              "Could I open the window, please?",
-              "Could I shut the window, please?"
+              "Could I shut the window, please?",
+              "Could I open the window, please?"
             ],
             "answer": "Could I open the window, please?",
             "hint": "Membuka jendela karena gerah.",
@@ -5972,8 +5972,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Situasi 2: You're a tourist and need information on how to get to the train station.",
             "options": [
-              "Could you tell me the way to the train station, please?",
-              "Could you tell me what time the train leaves, please?"
+              "Could you tell me what time the train leaves, please?",
+              "Could you tell me the way to the train station, please?"
             ],
             "answer": "Could you tell me the way to the train station, please?",
             "hint": "Menanyakan arah jalan ke stasiun.",
@@ -5982,8 +5982,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Situasi 3: You see a pair of jeans you like but don't know if they fit you.",
             "options": [
-              "Could I try them on, please?",
-              "Could I buy them, please?"
+              "Could I buy them, please?",
+              "Could I try them on, please?"
             ],
             "answer": "Could I try them on, please?",
             "hint": "Mencoba celana jeans di ruang pas.",
@@ -6002,8 +6002,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Situasi 5: You forgot your watch and the bus isn't arriving. What do you ask?",
             "options": [
-              "Could you tell me the time, please?",
-              "Could you arrive on time, please?"
+              "Could you arrive on time, please?",
+              "Could you tell me the time, please?"
             ],
             "answer": "Could you tell me the time, please?",
             "hint": "Menanyakan jam kepada orang di sebelah halte.",
@@ -6022,10 +6022,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Kalimat pembuka menawarkan bantuan pindahan:",
             "options": [
-              "Hi! Could I help you unpack some boxes?",
               "Could you pay me for visiting?",
               "Why are you moving here?",
-              "Could you leave your boxes outside?"
+              "Could you leave your boxes outside?",
+              "Hi! Could I help you unpack some boxes?"
             ],
             "answer": "Hi! Could I help you unpack some boxes?",
             "hint": "Menawarkan membuka kardus.",
@@ -6034,9 +6034,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Tanggapan sepupu menerima bantuan:",
             "options": [
-              "That would be wonderful, thanks! Could you carry this box into the bedroom?",
-              "No, don't touch anything.",
               "I hate moving.",
+              "No, don't touch anything.",
+              "That would be wonderful, thanks! Could you carry this box into the bedroom?",
               "Could you go away?"
             ],
             "answer": "That would be wonderful, thanks! Could you carry this box into the bedroom?",
@@ -6046,10 +6046,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Menanyakan hal lain yang bisa dibantu:",
             "options": [
-              "Could I help you assemble the furniture too?",
               "Could you buy me lunch right now?",
+              "Could I break this lamp?",
               "Could you do everything alone?",
-              "Could I break this lamp?"
+              "Could I help you assemble the furniture too?"
             ],
             "answer": "Could I help you assemble the furniture too?",
             "hint": "Membantu merakit perabot.",
@@ -6059,9 +6059,9 @@ const GRAMMAR_UNITS = [
             "q": "4. Mengusulkan istirahat dan makan bersama:",
             "options": [
               "When we finish, could we get something to eat at the new café?",
+              "Could you give me your house?",
               "You must cook dinner for me now.",
-              "I am leaving immediately.",
-              "Could you give me your house?"
+              "I am leaving immediately."
             ],
             "answer": "When we finish, could we get something to eat at the new café?",
             "hint": "Mengajak makan bersama setelah selesai.",
@@ -6200,9 +6200,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Gambar 1 (Toples bertuliskan 'SUGAR' kosong melompong) &rarr; Deskripsi yang tepat:",
             "options": [
-              "The woman doesn't have any sugar.",
-              "The woman has got some sugar.",
               "The woman has no animals.",
+              "The woman has got some sugar.",
+              "The woman doesn't have any sugar.",
               "The woman doesn't have some sugar."
             ],
             "answer": "The woman doesn't have any sugar.",
@@ -6214,8 +6214,8 @@ const GRAMMAR_UNITS = [
             "q": "2. Gambar 2 (Sapi, domba, dan kuda di padang rumput) &rarr; Deskripsi yang tepat:",
             "options": [
               "There are some animals in the field.",
-              "There aren't any animals in the field.",
               "There is some sugar in the field.",
+              "There aren't any animals in the field.",
               "There are every animals."
             ],
             "answer": "There are some animals in the field.",
@@ -6226,9 +6226,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Gambar 3 (Mobil van bermuatan kursi, meja, dan lemari) &rarr; Deskripsi yang tepat:",
             "options": [
-              "The van has got some furniture.",
               "The van doesn't have any furniture.",
               "There is some animals in the van.",
+              "The van has got some furniture.",
               "There aren't any furniture."
             ],
             "answer": "The van has got some furniture.",
@@ -6239,10 +6239,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Gambar 4 (Jalan raya dengan dua mobil) &rarr; Deskripsi yang tepat:",
             "options": [
+              "There are every traffic.",
               "There is some traffic on the road.",
-              "There isn't any road.",
               "There is no cars on the road.",
-              "There are every traffic."
+              "There isn't any road."
             ],
             "answer": "There is some traffic on the road.",
             "hint": "Ada lalu lintas kendaraan di jalan.",
@@ -6253,9 +6253,9 @@ const GRAMMAR_UNITS = [
             "q": "5. Gambar 5 (Mangkuk berisi buah persik/buah-buahan) &rarr; Deskripsi yang tepat:",
             "options": [
               "There are some peaches in the bowl.",
+              "There is some sugar in the bowl.",
               "There isn't any peaches in the bowl.",
-              "There are any peaches in the bowl.",
-              "There is some sugar in the bowl."
+              "There are any peaches in the bowl."
             ],
             "answer": "There are some peaches in the bowl.",
             "hint": "Ada buah persik dalam mangkuk.",
@@ -6265,10 +6265,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Gambar 6 (Kios majalah penuh pajangan) &rarr; Deskripsi yang tepat:",
             "options": [
-              "There are some magazines in the shop.",
+              "There is some peaches.",
               "There aren't any magazines in the shop.",
               "The shop has no magazines.",
-              "There is some peaches."
+              "There are some magazines in the shop."
             ],
             "answer": "There are some magazines in the shop.",
             "hint": "Ada banyak majalah di toko.",
@@ -6288,10 +6288,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. 'I haven't got any friends.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "I've got no friends.",
               "I have no any friends.",
-              "I got not friends.",
-              "I haven't no friends."
+              "I've got no friends.",
+              "I haven't no friends.",
+              "I got not friends."
             ],
             "answer": "I've got no friends.",
             "hint": "haven't got any = have got no.",
@@ -6301,8 +6301,8 @@ const GRAMMAR_UNITS = [
             "q": "2. 'I have no coins.' &rarr; Bentuk dengan 'not any':",
             "options": [
               "I haven't got any coins.",
-              "I not have any coins.",
               "I have not coins.",
+              "I not have any coins.",
               "I haven't some coins."
             ],
             "answer": "I haven't got any coins.",
@@ -6312,10 +6312,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. 'I've got no cats or dogs.' &rarr; Bentuk dengan 'not any':",
             "options": [
-              "I haven't got any cats or dogs.",
-              "I have no any cats or dogs.",
+              "I haven't got some cats.",
               "I not got cats or dogs.",
-              "I haven't got some cats."
+              "I have no any cats or dogs.",
+              "I haven't got any cats or dogs."
             ],
             "answer": "I haven't got any cats or dogs.",
             "hint": "Gunakan haven't got any.",
@@ -6324,10 +6324,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. 'I've got no money to lend you.' &rarr; Bentuk dengan 'not any':",
             "options": [
-              "I haven't got any money to lend you.",
               "I haven't money to lend you.",
               "I not have money to lend you.",
-              "I don't have no money."
+              "I don't have no money.",
+              "I haven't got any money to lend you."
             ],
             "answer": "I haven't got any money to lend you.",
             "hint": "haven't got any money.",
@@ -6336,10 +6336,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. 'I haven't got any idea.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "I've got no idea.",
+              "I am no idea.",
               "I have no any idea.",
               "I got not idea.",
-              "I am no idea."
+              "I've got no idea."
             ],
             "answer": "I've got no idea.",
             "hint": "I have got no idea.",
@@ -6348,10 +6348,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. 'There isn't any sugar in this coffee.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "There's no sugar in this coffee.",
-              "There is not no sugar in this coffee.",
+              "There no sugar in this coffee.",
               "There has no sugar in this coffee.",
-              "There no sugar in this coffee."
+              "There is not no sugar in this coffee.",
+              "There's no sugar in this coffee."
             ],
             "answer": "There's no sugar in this coffee.",
             "hint": "There isn't any = There is no.",
@@ -6360,8 +6360,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. 'There were no students in school.' &rarr; Bentuk dengan 'not any':",
             "options": [
-              "There weren't any students in school.",
               "There was not any students in school.",
+              "There weren't any students in school.",
               "There didn't have students in school.",
               "There aren't some students."
             ],
@@ -6372,10 +6372,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. 'She can't play any instruments.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "She can play no instruments.",
-              "She can't play no instruments.",
               "She plays not instruments.",
-              "She has no play instruments."
+              "She can play no instruments.",
+              "She has no play instruments.",
+              "She can't play no instruments."
             ],
             "answer": "She can play no instruments.",
             "hint": "can't play any = can play no.",
@@ -6384,10 +6384,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. 'I read no books last year.' &rarr; Bentuk dengan 'not any':",
             "options": [
-              "I didn't read any books last year.",
-              "I don't read any books last year.",
               "I wasn't read any books last year.",
-              "I read not any books last year."
+              "I don't read any books last year.",
+              "I read not any books last year.",
+              "I didn't read any books last year."
             ],
             "answer": "I didn't read any books last year.",
             "hint": "Bentuk lampau (past simple): didn't read any.",
@@ -6396,10 +6396,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. 'I'm not going to watch any TV tonight.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "I'm going to watch no TV tonight.",
-              "I'm not watch no TV tonight.",
               "I will watch not TV tonight.",
-              "I'm going no watch TV."
+              "I'm not watch no TV tonight.",
+              "I'm going no watch TV.",
+              "I'm going to watch no TV tonight."
             ],
             "answer": "I'm going to watch no TV tonight.",
             "hint": "am not going to watch any = am going to watch no.",
@@ -6408,10 +6408,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "11. 'She didn't give me any help.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "She gave me no help.",
               "She gives me no help.",
               "She didn't give me no help.",
-              "She was no help me."
+              "She was no help me.",
+              "She gave me no help."
             ],
             "answer": "She gave me no help.",
             "hint": "didn't give any -> gave no.",
@@ -6420,10 +6420,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "12. 'There's no more bread left in the cupboard.' &rarr; Bentuk dengan 'not any':",
             "options": [
-              "There isn't any more bread left in the cupboard.",
+              "There isn't no more bread.",
               "There aren't any more bread left in the cupboard.",
               "There not any bread left in the cupboard.",
-              "There isn't no more bread."
+              "There isn't any more bread left in the cupboard."
             ],
             "answer": "There isn't any more bread left in the cupboard.",
             "hint": "There is no more = There isn't any more.",
@@ -6542,9 +6542,9 @@ const GRAMMAR_UNITS = [
             "q": "1. 'We didn't see...' &rarr; Kelanjutan kalimat:",
             "options": [
               "anyone we knew at the party.",
-              "anywhere nice during Easter?",
               "anything for lunch, thank you.",
-              "everybody to sponsor her 10km run."
+              "everybody to sponsor her 10km run.",
+              "anywhere nice during Easter?"
             ],
             "answer": "anyone we knew at the party.",
             "hint": "Melihat orang di pesta.",
@@ -6554,9 +6554,9 @@ const GRAMMAR_UNITS = [
             "q": "2. 'Did you go...' &rarr; Kelanjutan kalimat:",
             "options": [
               "anywhere nice during Easter?",
-              "anything for lunch, thank you.",
               "nothing wrong with the painting.",
-              "somewhere in this area."
+              "somewhere in this area.",
+              "anything for lunch, thank you."
             ],
             "answer": "anywhere nice during Easter?",
             "hint": "Pergi ke suatu tempat saat liburan.",
@@ -6565,10 +6565,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. 'I don't want...' &rarr; Kelanjutan kalimat:",
             "options": [
-              "anything for lunch, thank you.",
-              "anyone we knew at the party.",
               "somewhere in this area.",
-              "everywhere now."
+              "anything for lunch, thank you.",
+              "everywhere now.",
+              "anyone we knew at the party."
             ],
             "answer": "anything for lunch, thank you.",
             "hint": "Tidak ingin makan apa-apa untuk makan siang.",
@@ -6577,10 +6577,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. 'Karen goes to the gym...' &rarr; Kelanjutan kalimat:",
             "options": [
+              "no one took part.",
               "every day.",
               "anywhere by now.",
-              "nothing wrong with the painting.",
-              "no one took part."
+              "nothing wrong with the painting."
             ],
             "answer": "every day.",
             "hint": "Jadwal rutin ke gym.",
@@ -6589,9 +6589,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. 'Emily asked...' &rarr; Kelanjutan kalimat:",
             "options": [
-              "everybody to sponsor her 10km run.",
               "anything for lunch, thank you.",
               "somewhere in this area.",
+              "everybody to sponsor her 10km run.",
               "nothing wrong with the painting."
             ],
             "answer": "everybody to sponsor her 10km run.",
@@ -6601,9 +6601,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. 'We saw...' &rarr; Kelanjutan kalimat:",
             "options": [
-              "nothing wrong with the painting.",
               "anyone from school.",
               "anywhere nice during Easter?",
+              "nothing wrong with the painting.",
               "everybody was welcome."
             ],
             "answer": "nothing wrong with the painting.",
@@ -6625,8 +6625,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. 'Did Marcus tell you...' &rarr; Kelanjutan kalimat:",
             "options": [
-              "everybody was welcome to his barbecue?",
               "somewhere in this area.",
+              "everybody was welcome to his barbecue?",
               "anyone we knew at the party.",
               "no one took part."
             ],
@@ -6637,9 +6637,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. 'Is there...' &rarr; Kelanjutan kalimat:",
             "options": [
-              "something wrong with Emma?",
-              "nothing wrong with the painting.",
               "everywhere now.",
+              "nothing wrong with the painting.",
+              "something wrong with Emma?",
               "anyone from school."
             ],
             "answer": "something wrong with Emma?",
@@ -6649,10 +6649,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. 'The stolen car could be...' &rarr; Kelanjutan kalimat:",
             "options": [
-              "somewhere in this area.",
+              "anyone from school.",
               "anything for lunch.",
               "everybody was welcome.",
-              "anyone from school."
+              "somewhere in this area."
             ],
             "answer": "somewhere in this area.",
             "hint": "Mobil curian berada di suatu tempat di area ini.",
@@ -6661,10 +6661,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "11. 'Do you know if...' &rarr; Kelanjutan kalimat:",
             "options": [
-              "anyone from school is on the football team?",
-              "somewhere in this area.",
               "everybody was welcome.",
-              "nothing wrong with the painting."
+              "anyone from school is on the football team?",
+              "nothing wrong with the painting.",
+              "somewhere in this area."
             ],
             "answer": "anyone from school is on the football team?",
             "hint": "Adakah murid dari sekolah yang ikut tim sepak bola.",
@@ -6674,9 +6674,9 @@ const GRAMMAR_UNITS = [
             "q": "12. 'It's a shame that...' &rarr; Kelanjutan kalimat:",
             "options": [
               "no one took part in the charity run.",
+              "somewhere in this area.",
               "everywhere now.",
-              "anything for lunch.",
-              "somewhere in this area."
+              "anything for lunch."
             ],
             "answer": "no one took part in the charity run.",
             "hint": "Sangat disayangkan tak ada yang ikut.",
@@ -6878,10 +6878,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. 'We haven't got anything in the fridge.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "We've got nothing in the fridge.",
-              "We haven't nothing in the fridge.",
               "We got not nothing in fridge.",
-              "We have got anything in fridge."
+              "We have got anything in fridge.",
+              "We haven't nothing in the fridge.",
+              "We've got nothing in the fridge."
             ],
             "answer": "We've got nothing in the fridge.",
             "hint": "haven't got anything = have got nothing.",
@@ -6890,10 +6890,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. 'There wasn't anybody there when I arrived.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "There was nobody there when I arrived.",
+              "There no one when I arrived.",
               "There wasn't nobody there when I arrived.",
               "There was anybody there when I arrived.",
-              "There no one when I arrived."
+              "There was nobody there when I arrived."
             ],
             "answer": "There was nobody there when I arrived.",
             "hint": "There wasn't anybody = There was nobody.",
@@ -6902,10 +6902,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. 'She didn't go anywhere on holiday this year.' &rarr; Bentuk dengan 'no':",
             "options": [
+              "She was nowhere on holiday.",
               "She went nowhere on holiday this year.",
-              "She didn't go nowhere on holiday this year.",
               "She goes nowhere on holiday this year.",
-              "She was nowhere on holiday."
+              "She didn't go nowhere on holiday this year."
             ],
             "answer": "She went nowhere on holiday this year.",
             "hint": "didn't go anywhere = went nowhere.",
@@ -6915,9 +6915,9 @@ const GRAMMAR_UNITS = [
             "q": "4. 'She hasn't done anything yet.' &rarr; Bentuk dengan 'no':",
             "options": [
               "She has done nothing yet.",
-              "She hasn't done nothing yet.",
               "She does nothing yet.",
-              "She is done nothing yet."
+              "She is done nothing yet.",
+              "She hasn't done nothing yet."
             ],
             "answer": "She has done nothing yet.",
             "hint": "hasn't done anything = has done nothing.",
@@ -6926,10 +6926,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. 'I haven't anywhere to go.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "I have nowhere to go.",
-              "I haven't nowhere to go.",
               "I got nowhere to go.",
-              "I am nowhere to go."
+              "I haven't nowhere to go.",
+              "I am nowhere to go.",
+              "I have nowhere to go."
             ],
             "answer": "I have nowhere to go.",
             "hint": "haven't anywhere = have nowhere.",
@@ -6938,9 +6938,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. 'He wasn't anybody important.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "He was nobody important.",
               "He wasn't nobody important.",
               "He did nobody important.",
+              "He was nobody important.",
               "He is nobody important."
             ],
             "answer": "He was nobody important.",
@@ -6950,10 +6950,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. 'Didn't anyone see who stole the money?' &rarr; Bentuk dengan 'no':",
             "options": [
-              "Did no one see who stole the money?",
-              "Did anyone not see who stole the money?",
               "Did nobody saw who stole the money?",
-              "Saw no one who stole the money?"
+              "Saw no one who stole the money?",
+              "Did no one see who stole the money?",
+              "Did anyone not see who stole the money?"
             ],
             "answer": "Did no one see who stole the money?",
             "hint": "Didn't anyone see = Did no one see.",
@@ -6963,9 +6963,9 @@ const GRAMMAR_UNITS = [
             "q": "8. 'Michelle never goes anywhere without her mobile.' &rarr; Bentuk dengan 'no':",
             "options": [
               "Michelle goes nowhere without her mobile.",
-              "Michelle doesn't go nowhere without her mobile.",
+              "Michelle is nowhere without mobile.",
               "Michelle went nowhere without mobile.",
-              "Michelle is nowhere without mobile."
+              "Michelle doesn't go nowhere without her mobile."
             ],
             "answer": "Michelle goes nowhere without her mobile.",
             "hint": "never goes anywhere = goes nowhere.",
@@ -6974,10 +6974,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. 'Is there anything I can help you with?' &rarr; Bentuk negatif penegasan:",
             "options": [
-              "There is nothing I can help you with.",
+              "Nothing is there I help.",
               "Is there nothing I can help you with?",
-              "There isn't nothing I can help you with.",
-              "Nothing is there I help."
+              "There is nothing I can help you with.",
+              "There isn't nothing I can help you with."
             ],
             "answer": "Is there nothing I can help you with?",
             "hint": "anything -> nothing dalam pertanyaan penegas.",
@@ -6986,10 +6986,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. 'I'm bored. We haven't got anything to do.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "We have got nothing to do.",
-              "We haven't got nothing to do.",
+              "We have anything to do.",
               "We do nothing.",
-              "We have anything to do."
+              "We have got nothing to do.",
+              "We haven't got nothing to do."
             ],
             "answer": "We have got nothing to do.",
             "hint": "haven't got anything = have got nothing.",
@@ -6998,10 +6998,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "11. 'I don't think anyone wants my old bike.' &rarr; Bentuk dengan 'no':",
             "options": [
-              "I think no one wants my old bike.",
-              "I don't think no one wants my old bike.",
               "I think anyone wants no bike.",
-              "I think nobody want my old bike."
+              "I think nobody want my old bike.",
+              "I don't think no one wants my old bike.",
+              "I think no one wants my old bike."
             ],
             "answer": "I think no one wants my old bike.",
             "hint": "don't think anyone = think no one.",
@@ -7012,8 +7012,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "I read about nothing interesting happening this weekend.",
               "I didn't read about nothing interesting happening this weekend.",
-              "I read nothing about interesting this weekend.",
-              "I was reading nothing interesting."
+              "I was reading nothing interesting.",
+              "I read nothing about interesting this weekend."
             ],
             "answer": "I read about nothing interesting happening this weekend.",
             "hint": "didn't read anything -> read nothing.",
@@ -7204,10 +7204,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. 'Something that nobody knows about you' &rarr; Kalimat yang tepat:",
             "options": [
-              "Something that nobody knows about me is that I enjoy fishing.",
-              "Nobody knows everything about the world.",
               "I know something about nothing.",
-              "Somebody knows where I live."
+              "Nobody knows everything about the world.",
+              "Somebody knows where I live.",
+              "Something that nobody knows about me is that I enjoy fishing."
             ],
             "answer": "Something that nobody knows about me is that I enjoy fishing.",
             "hint": "Contoh kalimat dari buku panduan.",
@@ -7216,10 +7216,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. 'Somewhere fun you like to go' &rarr; Kalimat yang tepat:",
             "options": [
-              "Somewhere fun I like to go is the theme park with my friends.",
-              "I don't go anywhere.",
               "Everywhere is boring.",
-              "Nowhere is fun."
+              "Nowhere is fun.",
+              "I don't go anywhere.",
+              "Somewhere fun I like to go is the theme park with my friends."
             ],
             "answer": "Somewhere fun I like to go is the theme park with my friends.",
             "hint": "Tempat menyenangkan yang disukai.",
@@ -7228,10 +7228,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. 'Somebody famous that everyone likes in your class' &rarr; Kalimat yang tepat:",
             "options": [
+              "Somebody likes no one.",
               "Somebody famous that everyone in my class likes is Taylor Swift.",
-              "Nobody likes any singer.",
               "Everyone is famous in my class.",
-              "Somebody likes no one."
+              "Nobody likes any singer."
             ],
             "answer": "Somebody famous that everyone in my class likes is Taylor Swift.",
             "hint": "Sosok terkenal yang disukai semua teman sekelas.",
@@ -7240,10 +7240,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. 'Something you do to help the environment' &rarr; Kalimat yang tepat:",
             "options": [
-              "Something I do to help the environment is recycling plastic bottles.",
               "I do nothing at all.",
-              "Everything is dirty.",
-              "Somebody helps the earth."
+              "Somebody helps the earth.",
+              "Something I do to help the environment is recycling plastic bottles.",
+              "Everything is dirty."
             ],
             "answer": "Something I do to help the environment is recycling plastic bottles.",
             "hint": "Kegiatan membantu lingkungan hidup.",
@@ -7252,10 +7252,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. 'Something that makes you happy' &rarr; Kalimat yang tepat:",
             "options": [
-              "Something that makes me happy is listening to my favourite music.",
               "Nothing makes anyone happy.",
-              "Everything is bad.",
-              "Somewhere is happy."
+              "Something that makes me happy is listening to my favourite music.",
+              "Somewhere is happy.",
+              "Everything is bad."
             ],
             "answer": "Something that makes me happy is listening to my favourite music.",
             "hint": "Hal yang membuat bahagia.",
@@ -7264,9 +7264,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. 'A place where everybody goes at the weekend' &rarr; Kalimat yang tepat:",
             "options": [
+              "Everywhere is empty.",
               "A place where everybody goes at the weekend is the city park or mall.",
               "Nobody goes anywhere.",
-              "Everywhere is empty.",
               "Nowhere is open."
             ],
             "answer": "A place where everybody goes at the weekend is the city park or mall.",
@@ -7583,10 +7583,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. I don't want to miss my plane...",
             "options": [
+              "...so I have to buy some more at the supermarket.",
               "...so I have to catch the 7:10 train.",
-              "...so I have to study more this time.",
               "...so I have to do the housework.",
-              "...so I have to buy some more at the supermarket."
+              "...so I have to study more this time."
             ],
             "answer": "...so I have to catch the 7:10 train.",
             "hint": "Agar tidak tertinggal pesawat -> naik kereta 7:10",
@@ -7595,9 +7595,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. I didn't do well on my last English test...",
             "options": [
-              "...so I have to study more this time.",
-              "...so I usually have to ask for help.",
               "...so I have to stay in bed for a few days.",
+              "...so I usually have to ask for help.",
+              "...so I have to study more this time.",
               "...so I have to catch the 7:10 train."
             ],
             "answer": "...so I have to study more this time.",
@@ -7608,9 +7608,9 @@ const GRAMMAR_UNITS = [
             "q": "3. My mother is away this week...",
             "options": [
               "...so I have to do the housework.",
-              "...so I have to catch the 7:10 train.",
+              "...so I have to study more this time.",
               "...so I have to stay in bed for a few days.",
-              "...so I have to study more this time."
+              "...so I have to catch the 7:10 train."
             ],
             "answer": "...so I have to do the housework.",
             "hint": "Ibu sedang bepergian minggu ini -> harus mengerjakan pekerjaan rumah",
@@ -7619,9 +7619,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. I've used up all the coffee...",
             "options": [
-              "...so I have to buy some more at the supermarket.",
               "...so I usually have to ask for help.",
               "...so I have to do the housework.",
+              "...so I have to buy some more at the supermarket.",
               "...so I have to stay in bed for a few days."
             ],
             "answer": "...so I have to buy some more at the supermarket.",
@@ -7631,10 +7631,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. I'm not very good at Maths...",
             "options": [
-              "...so I usually have to ask for help.",
-              "...so I have to study more this time.",
               "...so I have to catch the 7:10 train.",
-              "...so I have to do the housework."
+              "...so I have to study more this time.",
+              "...so I have to do the housework.",
+              "...so I usually have to ask for help."
             ],
             "answer": "...so I usually have to ask for help.",
             "hint": "Kurang mahir matematika -> biasanya harus minta bantuan",
@@ -7643,8 +7643,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. I've got a cold...",
             "options": [
-              "...so I have to stay in bed for a few days.",
               "...so I have to catch the 7:10 train.",
+              "...so I have to stay in bed for a few days.",
               "...so I usually have to ask for help.",
               "...so I have to buy some more at the supermarket."
             ],
@@ -7730,8 +7730,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. What does Tony's company sell?",
             "options": [
-              "food",
               "clothes",
+              "food",
               "cars",
               "electronics"
             ],
@@ -7742,10 +7742,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. What does Tony have to do when he receives the products?",
             "options": [
-              "send them to the supermarkets",
-              "eat them with his colleagues",
+              "store them in his garage",
               "sell them at the street market",
-              "store them in his garage"
+              "send them to the supermarkets",
+              "eat them with his colleagues"
             ],
             "answer": "send them to the supermarkets",
             "hint": "supermarkets",
@@ -7755,9 +7755,9 @@ const GRAMMAR_UNITS = [
             "q": "3. Does Tony have to work long hours?",
             "options": [
               "Yes, he does.",
-              "No, he doesn't.",
+              "He only works part-time.",
               "Only at the weekend.",
-              "He only works part-time."
+              "No, he doesn't."
             ],
             "answer": "Yes, he does.",
             "hint": "Tony: 'Well, sort of. I have to work long hours.'",
@@ -7766,9 +7766,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. What time does he have to start work in the morning?",
             "options": [
+              "at eight in the morning (8 a.m.)",
               "at five in the morning (5 a.m.)",
               "at seven in the morning (7 a.m.)",
-              "at eight in the morning (8 a.m.)",
               "at nine in the morning (9 a.m.)"
             ],
             "answer": "at five in the morning (5 a.m.)",
@@ -7778,9 +7778,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Where does Tony's boss have to go next week?",
             "options": [
-              "to Ireland, Scotland and Wales",
               "to France, Germany and Italy",
               "to the United States and Canada",
+              "to Ireland, Scotland and Wales",
               "to Australia and New Zealand"
             ],
             "answer": "to Ireland, Scotland and Wales",
@@ -7790,10 +7790,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. What does Tony have to do while his boss is away on a trip?",
             "options": [
-              "fill in for him in the office",
               "travel with him to Ireland",
-              "take a week off work",
-              "clean up the entire building"
+              "clean up the entire building",
+              "fill in for him in the office",
+              "take a week off work"
             ],
             "answer": "fill in for him in the office",
             "hint": "fill in for him",
@@ -7975,10 +7975,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. I've got the flu. &rarr; [BLANK]",
             "options": [
-              "You should stay in bed.",
-              "You should buy new shoes.",
               "You should take a taxi.",
-              "You should open the window."
+              "You should stay in bed.",
+              "You should open the window.",
+              "You should buy new shoes."
             ],
             "answer": "You should stay in bed.",
             "hint": "Saat terkena flu, istirahat di ranjang adalah yang terbaik.",
@@ -7987,10 +7987,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. My feet hurt. &rarr; [BLANK]",
             "options": [
-              "You should buy new shoes.",
+              "You should open the window.",
               "You should eat something for breakfast.",
-              "You should pay more attention.",
-              "You should open the window."
+              "You should buy new shoes.",
+              "You should pay more attention."
             ],
             "answer": "You should buy new shoes.",
             "hint": "Kaki sakit sering disebabkan oleh sepatu yang tidak pas.",
@@ -7999,10 +7999,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. This jacket is too tight. &rarr; [BLANK]",
             "options": [
-              "You should buy a new one.",
               "You should go to bed earlier.",
               "You should stay in bed.",
-              "You should take a taxi."
+              "You should take a taxi.",
+              "You should buy a new one."
             ],
             "answer": "You should buy a new one.",
             "hint": "Jaket yang terlalu sempit perlu diganti dengan yang baru.",
@@ -8011,9 +8011,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. I'm always tired in the morning. &rarr; [BLANK]",
             "options": [
-              "You should go to bed earlier.",
-              "You should buy her some flowers.",
               "You should try exercising more.",
+              "You should buy her some flowers.",
+              "You should go to bed earlier.",
               "You should take a taxi."
             ],
             "answer": "You should go to bed earlier.",
@@ -8035,10 +8035,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. I don't feel like walking. &rarr; [BLANK]",
             "options": [
-              "You should take a taxi.",
               "You should pay more attention.",
-              "You should eat something.",
-              "You should stay in bed."
+              "You should stay in bed.",
+              "You should take a taxi.",
+              "You should eat something."
             ],
             "answer": "You should take a taxi.",
             "hint": "Jika malas berjalan kaki, gunakan taksi.",
@@ -8047,10 +8047,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. I don't remember what the teacher said. &rarr; [BLANK]",
             "options": [
-              "You should pay more attention.",
               "You should buy new shoes.",
-              "You should open the window.",
-              "You should go to bed earlier."
+              "You should go to bed earlier.",
+              "You should pay more attention.",
+              "You should open the window."
             ],
             "answer": "You should pay more attention.",
             "hint": "Perhatikan guru saat menjelaskan di kelas.",
@@ -8059,9 +8059,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "8. I'm hungry. &rarr; [BLANK]",
             "options": [
-              "You should eat something for breakfast.",
-              "You should try exercising more.",
               "You should buy her some flowers.",
+              "You should try exercising more.",
+              "You should eat something for breakfast.",
               "You should take a taxi."
             ],
             "answer": "You should eat something for breakfast.",
@@ -8071,10 +8071,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "9. I'm hot. &rarr; [BLANK]",
             "options": [
-              "You should open the window.",
-              "You should stay in bed.",
               "You should buy a new one.",
-              "You should pay more attention."
+              "You should open the window.",
+              "You should pay more attention.",
+              "You should stay in bed."
             ],
             "answer": "You should open the window.",
             "hint": "Buka jendela agar ruangan menjadi sejuk.",
@@ -8083,10 +8083,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "10. Tomorrow is my mother's birthday. &rarr; [BLANK]",
             "options": [
-              "You should buy her some flowers.",
-              "You should go to bed earlier.",
               "You should eat something.",
-              "You should take a taxi."
+              "You should take a taxi.",
+              "You should go to bed earlier.",
+              "You should buy her some flowers."
             ],
             "answer": "You should buy her some flowers.",
             "hint": "Hadiah bunga untuk ulang tahun ibu.",
@@ -8384,8 +8384,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. 'I want to get fit, but I don't know where to start.' &rarr; [BLANK]",
             "options": [
-              "You should join a local gym or go jogging regularly.",
               "You shouldn't eat any vegetables.",
+              "You should join a local gym or go jogging regularly.",
               "You should sleep all afternoon.",
               "You shouldn't drink any water."
             ],
@@ -8397,9 +8397,9 @@ const GRAMMAR_UNITS = [
             "q": "2. 'I'm always late for school in the mornings.' &rarr; [BLANK]",
             "options": [
               "You should set an earlier alarm and go to bed on time.",
-              "You should stay up watching movies till 3 a.m.",
+              "You should walk more slowly.",
               "You shouldn't wear your school uniform.",
-              "You should walk more slowly."
+              "You should stay up watching movies till 3 a.m."
             ],
             "answer": "You should set an earlier alarm and go to bed on time.",
             "hint": "Bangun pagi dimulai dari pasang alarm lebih awal.",
@@ -8409,9 +8409,9 @@ const GRAMMAR_UNITS = [
             "q": "3. 'I have a terrible sore throat and I can hardly talk.' &rarr; [BLANK]",
             "options": [
               "You should drink warm tea with honey and rest your voice.",
-              "You should shout as loudly as possible.",
+              "You shouldn't see a doctor.",
               "You should drink ice-cold soda.",
-              "You shouldn't see a doctor."
+              "You should shout as loudly as possible."
             ],
             "answer": "You should drink warm tea with honey and rest your voice.",
             "hint": "Sakit tenggorokan butuh minuman hangat.",
@@ -8420,10 +8420,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. 'I don't understand our Maths homework at all.' &rarr; [BLANK]",
             "options": [
-              "You should ask the teacher or a classmate to explain it.",
               "You should throw your Maths book away.",
               "You shouldn't do any homework ever.",
-              "You should copy random numbers."
+              "You should copy random numbers.",
+              "You should ask the teacher or a classmate to explain it."
             ],
             "answer": "You should ask the teacher or a classmate to explain it.",
             "hint": "Jika tidak paham pelajaran, bertanyalah.",
@@ -8432,10 +8432,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. 'My phone battery drains in just two hours.' &rarr; [BLANK]",
             "options": [
-              "You should have the battery checked or replaced at a service centre.",
+              "You should buy ten more chargers.",
               "You should drop it in water to cool it down.",
               "You shouldn't charge it ever again.",
-              "You should buy ten more chargers."
+              "You should have the battery checked or replaced at a service centre."
             ],
             "answer": "You should have the battery checked or replaced at a service centre.",
             "hint": "Baterai bocor perlu diperiksa ke pusat servis.",
@@ -8445,9 +8445,9 @@ const GRAMMAR_UNITS = [
             "q": "6. 'I have an important exam tomorrow and I feel very stressed.' &rarr; [BLANK]",
             "options": [
               "You should review your main notes, relax, and get a good night's sleep.",
-              "You should panic and drink five cups of coffee.",
               "You shouldn't go to the exam tomorrow.",
-              "You should stay awake all night."
+              "You should stay awake all night.",
+              "You should panic and drink five cups of coffee."
             ],
             "answer": "You should review your main notes, relax, and get a good night's sleep.",
             "hint": "Menghadapi ujian butuh ketenangan dan istirahat cukup.",
@@ -8540,10 +8540,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Dialogue 1: What is Miss Smith's problem?",
             "options": [
-              "She has a terrible headache that started two days ago.",
-              "She hurt her foot while running.",
+              "She has lost her glasses.",
               "She has a stomach ache.",
-              "She has lost her glasses."
+              "She hurt her foot while running.",
+              "She has a terrible headache that started two days ago."
             ],
             "answer": "She has a terrible headache that started two days ago.",
             "hint": "Dengarkan awal dialog dokter dengan Miss Smith.",
@@ -8552,10 +8552,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Dialogue 1: What advice does the doctor give Miss Smith?",
             "options": [
-              "She should take some time off work.",
-              "She should buy new shoes.",
               "She should eat more fast food.",
-              "She should move house."
+              "She should take some time off work.",
+              "She should move house.",
+              "She should buy new shoes."
             ],
             "answer": "She should take some time off work.",
             "hint": "Miss Smith mengalami stres kerja.",
@@ -8564,8 +8564,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Dialogue 2: What health issues does Mr Kane have?",
             "options": [
-              "Bad pains in his back and legs, and he is overweight.",
               "A sore throat and fever.",
+              "Bad pains in his back and legs, and he is overweight.",
               "An ear infection.",
               "A broken arm."
             ],
@@ -8576,10 +8576,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Dialogue 2: What diet advice does the doctor give Mr Kane?",
             "options": [
-              "He shouldn't eat burgers and pizza; he should eat lots of fruit and vegetables.",
-              "He should eat pizza every evening.",
               "He should only drink fruit juice.",
-              "He should stop drinking water."
+              "He should eat pizza every evening.",
+              "He should stop drinking water.",
+              "He shouldn't eat burgers and pizza; he should eat lots of fruit and vegetables."
             ],
             "answer": "He shouldn't eat burgers and pizza; he should eat lots of fruit and vegetables.",
             "hint": "Dokter melarang makanan cepat saji.",
@@ -8588,9 +8588,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Dialogue 2: How often should Mr Kane exercise?",
             "options": [
-              "Twice a week.",
-              "Every day for three hours.",
               "Once a month.",
+              "Every day for three hours.",
+              "Twice a week.",
               "Never."
             ],
             "answer": "Twice a week.",
@@ -8601,9 +8601,9 @@ const GRAMMAR_UNITS = [
             "q": "6. Dialogue 3: Why can't Janet sleep at night?",
             "options": [
               "She moved house recently and is anxious trying to organise everything alone.",
+              "She is watching TV all night.",
               "Her neighbours are playing loud music.",
-              "She drinks too much coffee.",
-              "She is watching TV all night."
+              "She drinks too much coffee."
             ],
             "answer": "She moved house recently and is anxious trying to organise everything alone.",
             "hint": "Janet pindah rumah sebulan lalu.",
@@ -8613,9 +8613,9 @@ const GRAMMAR_UNITS = [
             "q": "7. Dialogue 3: What should Janet do according to the doctor?",
             "options": [
               "She should get somebody to help her and shouldn't work until late.",
+              "She should sleep during the day.",
               "She should stay up all night painting.",
-              "She should buy a new house.",
-              "She should sleep during the day."
+              "She should buy a new house."
             ],
             "answer": "She should get somebody to help her and shouldn't work until late.",
             "hint": "Dokter menyarankan bantuan orang lain dan istirahat.",
@@ -8858,8 +8858,8 @@ const GRAMMAR_UNITS = [
             "q": "1. Which cities has Jessica visited in the United States?",
             "options": [
               "New York and Washington.",
-              "San Francisco and Los Angeles.",
               "San Diego and Chicago.",
+              "San Francisco and Los Angeles.",
               "Miami and Boston."
             ],
             "answer": "New York and Washington.",
@@ -8869,10 +8869,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Has Jessica ever visited San Francisco or Los Angeles?",
             "options": [
-              "No, she has never been there.",
               "Yes, she spent a month there.",
-              "Yes, she went there last winter.",
-              "Yes, she lives there."
+              "Yes, she lives there.",
+              "No, she has never been there.",
+              "Yes, she went there last winter."
             ],
             "answer": "No, she has never been there.",
             "hint": "Jessica menyebutkan 'I've never been to...'",
@@ -8881,10 +8881,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Which place in California has Emily stayed in?",
             "options": [
-              "San Diego and San Francisco.",
               "Sacramento and Hollywood.",
               "Beverly Hills.",
-              "San Jose."
+              "San Jose.",
+              "San Diego and San Francisco."
             ],
             "answer": "San Diego and San Francisco.",
             "hint": "Emily mengatakan San Francisco itu indah dan dia juga pernah tinggal di San Diego.",
@@ -8895,8 +8895,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "No, she hasn't, but Emily has.",
               "Yes, she went there with Emily.",
-              "Yes, two years ago.",
-              "She was born there."
+              "She was born there.",
+              "Yes, two years ago."
             ],
             "answer": "No, she hasn't, but Emily has.",
             "hint": "Jessica menjawab pertanyaan Emily tentang Irlandia.",
@@ -8906,9 +8906,9 @@ const GRAMMAR_UNITS = [
             "q": "5. What does Emily think of Ireland compared to California?",
             "options": [
               "It's quite different from California, but just as beautiful.",
-              "It's much hotter than California.",
+              "It's very boring.",
               "She didn't like it.",
-              "It's very boring."
+              "It's much hotter than California."
             ],
             "answer": "It's quite different from California, but just as beautiful.",
             "hint": "Dengarkan pendapat Emily tentang keindahan Irlandia.",
@@ -9227,10 +9227,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. I have [BLANK] finished my essay, so I can relax now.",
             "options": [
-              "already",
-              "yet",
+              "since",
               "ever",
-              "since"
+              "already",
+              "yet"
             ],
             "answer": "already",
             "hint": "Sudah selesai lebih cepat dari perkiraan.",
@@ -9239,9 +9239,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Have you called the doctor [BLANK]?",
             "options": [
-              "yet",
-              "just",
               "since",
+              "just",
+              "yet",
               "already"
             ],
             "answer": "yet",
@@ -9251,9 +9251,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Be careful! I have [BLANK] washed the floor, and it's still wet.",
             "options": [
-              "just",
-              "yet",
               "for",
+              "yet",
+              "just",
               "ever"
             ],
             "answer": "just",
@@ -9275,10 +9275,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Don't tell me what happens in the movie; I haven't seen it [BLANK]!",
             "options": [
+              "for",
               "yet",
               "already",
-              "just",
-              "for"
+              "just"
             ],
             "answer": "yet",
             "hint": "Belum menontonnya.",
@@ -9288,9 +9288,9 @@ const GRAMMAR_UNITS = [
             "q": "6. Look! The postman has [BLANK] delivered a parcel for you.",
             "options": [
               "just",
-              "yet",
+              "never",
               "since",
-              "never"
+              "yet"
             ],
             "answer": "just",
             "hint": "Baru saja mengantarkan paket.",
@@ -9309,8 +9309,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. I have lived here [BLANK] three years.",
             "options": [
-              "for",
-              "since"
+              "since",
+              "for"
             ],
             "answer": "for",
             "hint": "Three years adalah durasi (periode waktu).",
@@ -9319,8 +9319,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. She has worked at the bank [BLANK] 2018.",
             "options": [
-              "since",
-              "for"
+              "for",
+              "since"
             ],
             "answer": "since",
             "hint": "2018 adalah titik awal waktu (tahun).",
@@ -9339,8 +9339,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. We have been waiting for the bus [BLANK] two hours.",
             "options": [
-              "for",
-              "since"
+              "since",
+              "for"
             ],
             "answer": "for",
             "hint": "Two hours adalah periode panjang waktu.",
@@ -9359,8 +9359,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. My brother has had that car [BLANK] six months.",
             "options": [
-              "for",
-              "since"
+              "since",
+              "for"
             ],
             "answer": "for",
             "hint": "Six months adalah kurun waktu.",
@@ -9399,8 +9399,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. I [BLANK] Italy last summer with my family.",
             "options": [
-              "visited",
               "have visited",
+              "visited",
               "visit",
               "was visiting"
             ],
@@ -9411,10 +9411,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. She [BLANK] in Madrid for five years, and she still loves living there.",
             "options": [
-              "has lived",
               "lived",
-              "lives",
-              "was living"
+              "has lived",
+              "was living",
+              "lives"
             ],
             "answer": "has lived",
             "hint": "Kegiatan masih berlangsung sampai sekarang.",
@@ -9425,8 +9425,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "bought",
               "have bought",
-              "buy",
-              "were buying"
+              "were buying",
+              "buy"
             ],
             "answer": "bought",
             "hint": "'yesterday afternoon' adalah waktu yang sudah selesai.",
@@ -9435,9 +9435,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. [BLANK] your homework yet?",
             "options": [
-              "Have you finished",
-              "Did you finish",
               "Do you finish",
+              "Did you finish",
+              "Have you finished",
               "Were you finishing"
             ],
             "answer": "Have you finished",
@@ -9448,9 +9448,9 @@ const GRAMMAR_UNITS = [
             "q": "5. They [BLANK] to the cinema on Friday evening.",
             "options": [
               "went",
+              "are going",
               "have gone",
-              "go",
-              "are going"
+              "go"
             ],
             "answer": "went",
             "hint": "'on Friday evening' menunjukkan waktu spesifik di masa lalu.",
@@ -9459,10 +9459,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. I [BLANK] sushi, but I'd like to try it one day.",
             "options": [
-              "have never tasted",
-              "never tasted",
               "did never taste",
-              "was never tasting"
+              "was never tasting",
+              "have never tasted",
+              "never tasted"
             ],
             "answer": "have never tasted",
             "hint": "Membicarakan pengalaman hidup hingga saat ini.",
@@ -9482,8 +9482,8 @@ const GRAMMAR_UNITS = [
             "q": "1. Salah: 'I have seen him yesterday at the supermarket.' &rarr; Benar: [BLANK]",
             "options": [
               "I saw him yesterday at the supermarket.",
-              "I have saw him yesterday at the supermarket.",
               "I see him yesterday at the supermarket.",
+              "I have saw him yesterday at the supermarket.",
               "I was seen him yesterday at the supermarket."
             ],
             "answer": "I saw him yesterday at the supermarket.",
@@ -9494,9 +9494,9 @@ const GRAMMAR_UNITS = [
             "q": "2. Salah: 'She didn't finish her project yet.' &rarr; Benar: [BLANK]",
             "options": [
               "She hasn't finished her project yet.",
-              "She haven't finished her project yet.",
+              "She isn't finished her project yet.",
               "She doesn't finish her project yet.",
-              "She isn't finished her project yet."
+              "She haven't finished her project yet."
             ],
             "answer": "She hasn't finished her project yet.",
             "hint": "Yet berpasangan dengan hasn't finished.",
@@ -9505,10 +9505,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Salah: 'We have lived here since three years.' &rarr; Benar: [BLANK]",
             "options": [
-              "We have lived here for three years.",
               "We lived here since three years ago.",
-              "We are living here since three years.",
-              "We have live here for three years."
+              "We have lived here for three years.",
+              "We have live here for three years.",
+              "We are living here since three years."
             ],
             "answer": "We have lived here for three years.",
             "hint": "Durasi 'three years' memakai for, bukan since.",
@@ -9517,10 +9517,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Salah: 'Did you ever fly in a helicopter?' &rarr; Benar: [BLANK]",
             "options": [
-              "Have you ever flown in a helicopter?",
               "Did you ever flown in a helicopter?",
               "Have you ever flew in a helicopter?",
-              "Do you ever flown in a helicopter?"
+              "Do you ever flown in a helicopter?",
+              "Have you ever flown in a helicopter?"
             ],
             "answer": "Have you ever flown in a helicopter?",
             "hint": "Pertanyaan pengalaman hidup menggunakan Have you ever + V3.",
@@ -9530,9 +9530,9 @@ const GRAMMAR_UNITS = [
             "q": "5. Salah: 'He has already went home.' &rarr; Benar: [BLANK]",
             "options": [
               "He has already gone home.",
-              "He already went home yet.",
               "He is already gone home.",
-              "He has already go home."
+              "He has already go home.",
+              "He already went home yet."
             ],
             "answer": "He has already gone home.",
             "hint": "Bentuk V3 dari go adalah gone.",
@@ -9681,8 +9681,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. apple &rarr; [BLANK]",
             "options": [
-              "Countable (dapat dihitung)",
-              "Uncountable (tidak dapat dihitung)"
+              "Uncountable (tidak dapat dihitung)",
+              "Countable (dapat dihitung)"
             ],
             "answer": "Countable (dapat dihitung)",
             "hint": "Buah apel bisa dihitung satu, dua, tiga...",
@@ -9703,8 +9703,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. chair &rarr; [BLANK]",
             "options": [
-              "Countable (dapat dihitung)",
-              "Uncountable (tidak dapat dihitung)"
+              "Uncountable (tidak dapat dihitung)",
+              "Countable (dapat dihitung)"
             ],
             "answer": "Countable (dapat dihitung)",
             "hint": "Kursi dapat dihitung.",
@@ -9725,8 +9725,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. bread &rarr; [BLANK]",
             "options": [
-              "Uncountable (tidak dapat dihitung)",
-              "Countable (dapat dihitung)"
+              "Countable (dapat dihitung)",
+              "Uncountable (tidak dapat dihitung)"
             ],
             "answer": "Uncountable (tidak dapat dihitung)",
             "hint": "Roti (bread) dianggap sebagai materi/massa tak terhitung, dihitung per slice atau loaf.",
@@ -9810,8 +9810,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. There is [BLANK] butter in the fridge.",
             "options": [
-              "some",
-              "any"
+              "any",
+              "some"
             ],
             "answer": "some",
             "hint": "Kalimat berita positif.",
@@ -9820,8 +9820,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Are there [BLANK] eggs left in the carton?",
             "options": [
-              "any",
-              "some"
+              "some",
+              "any"
             ],
             "answer": "any",
             "hint": "Pertanyaan umum.",
@@ -9830,8 +9830,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. We don't have [BLANK] sugar to bake the cake.",
             "options": [
-              "any",
-              "some"
+              "some",
+              "any"
             ],
             "answer": "any",
             "hint": "Kalimat negatif (don't have).",
@@ -9840,8 +9840,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Would you like [BLANK] hot chocolate?",
             "options": [
-              "some",
-              "any"
+              "any",
+              "some"
             ],
             "answer": "some",
             "hint": "Tawaran ramah (offer).",
@@ -9860,8 +9860,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. He didn't take [BLANK] photos during the concert.",
             "options": [
-              "any",
-              "some"
+              "some",
+              "any"
             ],
             "answer": "any",
             "hint": "Kalimat negatif (didn't take).",
@@ -9945,8 +9945,8 @@ const GRAMMAR_UNITS = [
             "q": "1. There are [BLANK] tourists in the museum today.",
             "options": [
               "a lot of",
-              "much",
-              "any"
+              "any",
+              "much"
             ],
             "answer": "a lot of",
             "hint": "Kalimat positif untuk jumlah banyak.",
@@ -9955,8 +9955,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. We don't have [BLANK] petrol left in the car.",
             "options": [
-              "much",
               "many",
+              "much",
               "a few"
             ],
             "answer": "much",
@@ -9966,9 +9966,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. She didn't invite [BLANK] people to her birthday party.",
             "options": [
+              "little",
               "many",
-              "much",
-              "little"
+              "much"
             ],
             "answer": "many",
             "hint": "People adalah countable jamak dalam kalimat negatif.",
@@ -9978,8 +9978,8 @@ const GRAMMAR_UNITS = [
             "q": "4. He drinks [BLANK] coffee every morning.",
             "options": [
               "a lot of",
-              "many",
-              "any"
+              "any",
+              "many"
             ],
             "answer": "a lot of",
             "hint": "Kalimat afirmatif/positif untuk uncountable.",
@@ -10119,10 +10119,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Salah: 'I don't have many money.' &rarr; Benar: [BLANK]",
             "options": [
-              "I don't have much money.",
               "I don't have a few money.",
               "I have many money.",
-              "I don't have some money."
+              "I don't have some money.",
+              "I don't have much money."
             ],
             "answer": "I don't have much money.",
             "hint": "Money adalah uncountable, gunakan much.",
@@ -10131,10 +10131,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Salah: 'Can I have any water, please?' &rarr; Benar: [BLANK]",
             "options": [
-              "Can I have some water, please?",
               "Can I have many water, please?",
-              "Can I have a few water, please?",
-              "Can I have an water, please?"
+              "Can I have some water, please?",
+              "Can I have an water, please?",
+              "Can I have a few water, please?"
             ],
             "answer": "Can I have some water, please?",
             "hint": "Permintaan sopan (request) menggunakan some.",
@@ -10155,10 +10155,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Salah: 'She put a few sugar in her tea.' &rarr; Benar: [BLANK]",
             "options": [
-              "She put a little sugar in her tea.",
               "She put many sugar in her tea.",
+              "She put few sugar in her tea.",
               "She put a sugar in her tea.",
-              "She put few sugar in her tea."
+              "She put a little sugar in her tea."
             ],
             "answer": "She put a little sugar in her tea.",
             "hint": "Sugar adalah uncountable.",
@@ -10231,9 +10231,9 @@ const GRAMMAR_UNITS = [
             "q": "1. 'who' digunakan untuk merujuk pada: [BLANK]",
             "options": [
               "Orang (people)",
-              "Benda atau binatang (things or animals)",
+              "Kepemilikan (possession)",
               "Tempat (places)",
-              "Kepemilikan (possession)"
+              "Benda atau binatang (things or animals)"
             ],
             "answer": "Orang (people)",
             "hint": "'who' selalu merujuk pada manusia/orang.",
@@ -10242,10 +10242,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. 'which' digunakan untuk merujuk pada: [BLANK]",
             "options": [
-              "Benda atau binatang (things or animals)",
               "Orang (people)",
-              "Tempat (places)",
-              "Waktu (time)"
+              "Benda atau binatang (things or animals)",
+              "Waktu (time)",
+              "Tempat (places)"
             ],
             "answer": "Benda atau binatang (things or animals)",
             "hint": "'which' merujuk pada benda mati atau hewan.",
@@ -10254,10 +10254,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. 'where' digunakan untuk merujuk pada: [BLANK]",
             "options": [
-              "Tempat (places)",
-              "Orang (people)",
               "Kepemilikan (possession)",
-              "Alasan (reasons)"
+              "Orang (people)",
+              "Alasan (reasons)",
+              "Tempat (places)"
             ],
             "answer": "Tempat (places)",
             "hint": "'where' berkaitan dengan lokasi atau tempat.",
@@ -10266,10 +10266,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. 'whose' digunakan untuk merujuk pada: [BLANK]",
             "options": [
-              "Kepemilikan (possession)",
-              "Orang (people)",
               "Benda (things)",
-              "Tempat (places)"
+              "Tempat (places)",
+              "Kepemilikan (possession)",
+              "Orang (people)"
             ],
             "answer": "Kepemilikan (possession)",
             "hint": "'whose' menunjukkan milik siapa.",
@@ -10358,9 +10358,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. The restaurant [BLANK] we had dinner last night was fantastic.",
             "options": [
+              "who",
               "where",
-              "which",
-              "who"
+              "which"
             ],
             "answer": "where",
             "hint": "Restaurant adalah lokasi tempat kita makan.",
@@ -10380,9 +10380,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. The laptop [BLANK] is on the table belongs to Mark.",
             "options": [
-              "which",
               "who",
-              "where"
+              "where",
+              "which"
             ],
             "answer": "which",
             "hint": "The laptop adalah benda.",
@@ -10391,9 +10391,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. This is the park [BLANK] we used to play football every Sunday.",
             "options": [
-              "where",
+              "who",
               "which",
-              "who"
+              "where"
             ],
             "answer": "where",
             "hint": "The park adalah lokasi tempat bermain.",
@@ -10402,9 +10402,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. The shoes [BLANK] I bought online are too small.",
             "options": [
+              "where",
               "which",
-              "who",
-              "where"
+              "who"
             ],
             "answer": "which",
             "hint": "The shoes adalah benda.",
@@ -10414,8 +10414,8 @@ const GRAMMAR_UNITS = [
             "q": "6. I spoke to the manager [BLANK] was very helpful.",
             "options": [
               "who",
-              "which",
-              "where"
+              "where",
+              "which"
             ],
             "answer": "who",
             "hint": "The manager adalah orang.",
@@ -10542,8 +10542,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. The movie which we watched last night was thrilling.",
             "options": [
-              "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa",
-              "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa"
+              "TIDAK dapat dihilangkan (Cannot be omitted) - karena merupakan subjek klausa",
+              "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa"
             ],
             "answer": "DAPAT dihilangkan (Can be omitted) - karena merupakan objek klausa",
             "hint": "Subjek klausa berikutnya adalah 'we', jadi 'which' adalah objek.",
@@ -10592,10 +10592,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. An author is someone [BLANK] writes books.",
             "options": [
-              "who",
-              "which",
               "where",
-              "whose"
+              "which",
+              "whose",
+              "who"
             ],
             "answer": "who",
             "hint": "Author adalah manusia pembuat buku.",
@@ -10604,10 +10604,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. The cafe [BLANK] they serve the best hot chocolate is just around the corner.",
             "options": [
-              "where",
-              "which",
               "who",
-              "whose"
+              "where",
+              "whose",
+              "which"
             ],
             "answer": "where",
             "hint": "Cafe adalah tempat.",
@@ -10616,10 +10616,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Is this the camera [BLANK] you lost last week?",
             "options": [
-              "which",
               "who",
-              "where",
-              "whose"
+              "which",
+              "whose",
+              "where"
             ],
             "answer": "which",
             "hint": "Camera adalah benda.",
@@ -10628,9 +10628,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. We met a neighbour [BLANK] son is studying in Oxford.",
             "options": [
-              "whose",
-              "who",
               "which",
+              "who",
+              "whose",
               "where"
             ],
             "answer": "whose",
@@ -10772,10 +10772,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Salah: 'The person which called you didn't leave a message.' &rarr; Benar: [BLANK]",
             "options": [
-              "The person who called you didn't leave a message.",
-              "The person where called you didn't leave a message.",
+              "The person whom called you didn't leave a message.",
               "The person whose called you didn't leave a message.",
-              "The person whom called you didn't leave a message."
+              "The person who called you didn't leave a message.",
+              "The person where called you didn't leave a message."
             ],
             "answer": "The person who called you didn't leave a message.",
             "hint": "Person adalah orang, tidak boleh memakai which.",
@@ -10785,9 +10785,9 @@ const GRAMMAR_UNITS = [
             "q": "2. Salah: 'I love the city which I was born.' &rarr; Benar: [BLANK]",
             "options": [
               "I love the city where I was born.",
+              "I love the city that I was born in where.",
               "I love the city who I was born.",
-              "I love the city whose I was born.",
-              "I love the city that I was born in where."
+              "I love the city whose I was born."
             ],
             "answer": "I love the city where I was born.",
             "hint": "Kota tempat dilahirkan membutuhkan kata keterangan tempat.",
@@ -10796,10 +10796,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Salah: 'He is the man who's car was stolen yesterday.' &rarr; Benar: [BLANK]",
             "options": [
-              "He is the man whose car was stolen yesterday.",
               "He is the man which car was stolen yesterday.",
+              "He is the man whom car was stolen yesterday.",
               "He is the man where car was stolen yesterday.",
-              "He is the man whom car was stolen yesterday."
+              "He is the man whose car was stolen yesterday."
             ],
             "answer": "He is the man whose car was stolen yesterday.",
             "hint": "Menyatakan kepemilikan mobil (bukan who is).",
@@ -10860,9 +10860,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Kata kerja 'enjoy' selalu diikuti oleh: [BLANK]",
             "options": [
+              "Bare infinitive (V1)",
               "Gerund (V-ing)",
-              "to-Infinitive (to + V1)",
-              "Bare infinitive (V1)"
+              "to-Infinitive (to + V1)"
             ],
             "answer": "Gerund (V-ing)",
             "hint": "Contoh: enjoy playing tennis.",
@@ -10871,9 +10871,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Kata kerja 'decide' selalu diikuti oleh: [BLANK]",
             "options": [
+              "Kata sifat",
               "to-Infinitive (to + V1)",
-              "Gerund (V-ing)",
-              "Kata sifat"
+              "Gerund (V-ing)"
             ],
             "answer": "to-Infinitive (to + V1)",
             "hint": "Contoh: decide to buy a new car.",
@@ -10894,8 +10894,8 @@ const GRAMMAR_UNITS = [
             "q": "4. Kata kerja 'promise' selalu diikuti oleh: [BLANK]",
             "options": [
               "to-Infinitive (to + V1)",
-              "Gerund (V-ing)",
-              "Bare infinitive"
+              "Bare infinitive",
+              "Gerund (V-ing)"
             ],
             "answer": "to-Infinitive (to + V1)",
             "hint": "Contoh: promise to help someone.",
@@ -10915,9 +10915,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Kata kerja 'hope' selalu diikuti oleh: [BLANK]",
             "options": [
-              "to-Infinitive (to + V1)",
               "Gerund (V-ing)",
-              "Preposition of place"
+              "Preposition of place",
+              "to-Infinitive (to + V1)"
             ],
             "answer": "to-Infinitive (to + V1)",
             "hint": "Contoh: hope to pass the test.",
@@ -11057,9 +11057,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. She suggested [BLANK] a picnic in the park.",
             "options": [
+              "have",
               "having",
-              "to have",
-              "have"
+              "to have"
             ],
             "answer": "having",
             "hint": "'suggest' diikuti gerund.",
@@ -11091,8 +11091,8 @@ const GRAMMAR_UNITS = [
             "q": "5. He promised [BLANK] me as soon as he arrived.",
             "options": [
               "to call",
-              "calling",
-              "call"
+              "call",
+              "calling"
             ],
             "answer": "to call",
             "hint": "'promise' diikuti to-infinitive.",
@@ -11122,8 +11122,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Kalimat 2: 'I learnt to speak English when I was a child.' &rarr; Pola yang digunakan:",
             "options": [
-              "to-Infinitive: to speak",
-              "Gerund (-ing): speaking"
+              "Gerund (-ing): speaking",
+              "to-Infinitive: to speak"
             ],
             "answer": "to-Infinitive: to speak",
             "hint": "Dengarkan kata setelah learnt: 'to speak'.",
@@ -11142,8 +11142,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Kalimat 4: 'They were allowed to stay late.' &rarr; Pola yang digunakan:",
             "options": [
-              "to-Infinitive: to stay",
-              "Gerund (-ing): staying"
+              "Gerund (-ing): staying",
+              "to-Infinitive: to stay"
             ],
             "answer": "to-Infinitive: to stay",
             "hint": "Dengarkan kata setelah allowed: 'to stay'.",
@@ -11174,9 +11174,9 @@ const GRAMMAR_UNITS = [
             "q": "1. Why can't Angela have dinner with Andy tonight?",
             "options": [
               "She has a Russian class.",
+              "She has to clean her room.",
               "She has to study Maths.",
-              "She is going to the doctor.",
-              "She has to clean her room."
+              "She is going to the doctor."
             ],
             "answer": "She has a Russian class.",
             "hint": "Angela menyebutkan ada les bahasa malam ini.",
@@ -11185,10 +11185,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. What does Andy want to do on Saturday evening?",
             "options": [
-              "Go to the cinema, because he loves watching films.",
               "Go to an Italian restaurant.",
+              "Stay at home and play video games.",
               "Play football in the park.",
-              "Stay at home and play video games."
+              "Go to the cinema, because he loves watching films."
             ],
             "answer": "Go to the cinema, because he loves watching films.",
             "hint": "Andy sangat suka menonton film.",
@@ -11197,10 +11197,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Which film show time was Andy thinking of going to?",
             "options": [
-              "The eight o'clock show.",
-              "The five o'clock show.",
               "The ten o'clock show.",
-              "The afternoon matinee."
+              "The five o'clock show.",
+              "The afternoon matinee.",
+              "The eight o'clock show."
             ],
             "answer": "The eight o'clock show.",
             "hint": "Dengarkan jam tayang yang diusulkan Andy.",
@@ -11209,10 +11209,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Why can't Andy pick Angela up at her house by car?",
             "options": [
-              "He promised to lend his car to his brother on Saturday.",
               "His car is broken.",
-              "He doesn't have a driving licence.",
-              "He doesn't know where she lives."
+              "He promised to lend his car to his brother on Saturday.",
+              "He doesn't know where she lives.",
+              "He doesn't have a driving licence."
             ],
             "answer": "He promised to lend his car to his brother on Saturday.",
             "hint": "Andy sudah berjanji meminjamkan mobil ke saudaranya.",
@@ -11222,9 +11222,9 @@ const GRAMMAR_UNITS = [
             "q": "5. What time does Andy expect to be ready and meet Angela?",
             "options": [
               "By half past seven (7:30).",
+              "At six-thirty (6:30).",
               "At eight o'clock (8:00).",
-              "At seven o'clock (7:00).",
-              "At six-thirty (6:30)."
+              "At seven o'clock (7:00)."
             ],
             "answer": "By half past seven (7:30).",
             "hint": "Dengarkan jam pertemuan yang disepakati.",
@@ -11310,10 +11310,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Don't forget &rarr; [BLANK]",
             "options": [
-              "to lock the front door.",
-              "buying new clothes at weekends.",
+              "eating fast food.",
               "to be ready by seven.",
-              "eating fast food."
+              "buying new clothes at weekends.",
+              "to lock the front door."
             ],
             "answer": "to lock the front door.",
             "hint": "Pengingat untuk mengunci pintu.",
@@ -11334,9 +11334,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. We expect &rarr; [BLANK]",
             "options": [
+              "going swimming tomorrow.",
               "to be ready by seven o'clock.",
               "buying new shoes.",
-              "going swimming tomorrow.",
               "swimming across the river."
             ],
             "answer": "to be ready by seven o'clock.",
@@ -11357,8 +11357,8 @@ const GRAMMAR_UNITS = [
             "q": "1. Ungkapan yang benar untuk hobi berenang:",
             "options": [
               "I enjoy swimming in the sea during summer.",
-              "I enjoy to swim in the sea.",
-              "I enjoy swim in the sea."
+              "I enjoy swim in the sea.",
+              "I enjoy to swim in the sea."
             ],
             "answer": "I enjoy swimming in the sea during summer.",
             "hint": "'enjoy' membutuhkan bentuk -ing.",
@@ -11389,8 +11389,8 @@ const GRAMMAR_UNITS = [
             "q": "1. Salah: 'I enjoy to play football with my friends.' &rarr; Benar: [BLANK]",
             "options": [
               "I enjoy playing football with my friends.",
-              "I enjoy play football with my friends.",
-              "I enjoy played football with my friends."
+              "I enjoy played football with my friends.",
+              "I enjoy play football with my friends."
             ],
             "answer": "I enjoy playing football with my friends.",
             "hint": "Enjoy + V-ing.",
@@ -11399,9 +11399,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Salah: 'She decided studying French next term.' &rarr; Benar: [BLANK]",
             "options": [
-              "She decided to study French next term.",
+              "She decided for study French next term.",
               "She decided study French next term.",
-              "She decided for study French next term."
+              "She decided to study French next term."
             ],
             "answer": "She decided to study French next term.",
             "hint": "Decide + to-infinitive.",
@@ -11411,8 +11411,8 @@ const GRAMMAR_UNITS = [
             "q": "3. Salah: 'We avoided to make noise in the library.' &rarr; Benar: [BLANK]",
             "options": [
               "We avoided making noise in the library.",
-              "We avoided make noise in the library.",
-              "We avoided of making noise in the library."
+              "We avoided of making noise in the library.",
+              "We avoided make noise in the library."
             ],
             "answer": "We avoided making noise in the library.",
             "hint": "Avoid + V-ing.",
@@ -11473,10 +11473,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. If you heat water to 100 degrees Celsius, &rarr; [BLANK]",
             "options": [
-              "it boils.",
               "it freezes.",
+              "it became ice.",
               "it will evaporate yesterday.",
-              "it became ice."
+              "it boils."
             ],
             "answer": "it boils.",
             "hint": "Air pada suhu 100°C mendidih.",
@@ -11485,10 +11485,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. If you freeze water, &rarr; [BLANK]",
             "options": [
-              "it turns into ice.",
               "it gets very hot.",
-              "it boils.",
-              "it disappears."
+              "it turns into ice.",
+              "it disappears.",
+              "it boils."
             ],
             "answer": "it turns into ice.",
             "hint": "Air membeku menjadi es.",
@@ -11497,10 +11497,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. If people don't eat or drink, &rarr; [BLANK]",
             "options": [
-              "they die.",
-              "they get stronger.",
+              "they sleep forever.",
               "they feel energetic.",
-              "they sleep forever."
+              "they get stronger.",
+              "they die."
             ],
             "answer": "they die.",
             "hint": "Kebutuhan dasar manusia.",
@@ -11510,9 +11510,9 @@ const GRAMMAR_UNITS = [
             "q": "4. If you mix yellow and blue, &rarr; [BLANK]",
             "options": [
               "you get green.",
+              "you get black.",
               "you get red.",
-              "you get purple.",
-              "you get black."
+              "you get purple."
             ],
             "answer": "you get green.",
             "hint": "Pencampuran warna kuning dan biru.",
@@ -11598,8 +11598,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. We will go swimming tomorrow [BLANK] the weather is warm.",
             "options": [
-              "if",
-              "unless"
+              "unless",
+              "if"
             ],
             "answer": "if",
             "hint": "Syarat positif: jika cuacanya hangat.",
@@ -11608,8 +11608,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. He will be angry [BLANK] you don't tell him the truth.",
             "options": [
-              "if",
-              "unless"
+              "unless",
+              "if"
             ],
             "answer": "if",
             "hint": "Sudah ada kata don't di dalam klausa.",
@@ -11618,8 +11618,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. We will be late [BLANK] we leave right now.",
             "options": [
-              "unless",
-              "if"
+              "if",
+              "unless"
             ],
             "answer": "unless",
             "hint": "Kecuali jika kita berangkat sekarang.",
@@ -11766,10 +11766,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. I will call you as soon as I [BLANK] at the airport.",
             "options": [
-              "arrive",
               "will arrive",
               "arrived",
-              "am arriving"
+              "am arriving",
+              "arrive"
             ],
             "answer": "arrive",
             "hint": "Setelah 'as soon as' gunakan Present Simple.",
@@ -11778,10 +11778,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Before she goes to bed, she [BLANK] the doors.",
             "options": [
-              "will lock",
-              "locks",
               "locked",
-              "is locking"
+              "is locking",
+              "will lock",
+              "locks"
             ],
             "answer": "will lock",
             "hint": "Klausa utama menggunakan will + V1.",
@@ -11790,9 +11790,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. We will have dinner after dad [BLANK] home from work.",
             "options": [
-              "comes",
               "will come",
               "came",
+              "comes",
               "is coming"
             ],
             "answer": "comes",
@@ -11802,10 +11802,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. When I [BLANK] time, I will help you with your project.",
             "options": [
-              "have",
               "will have",
-              "had",
-              "am having"
+              "am having",
+              "have",
+              "had"
             ],
             "answer": "have",
             "hint": "Klausa 'when' menggunakan Present Simple.",
@@ -11872,9 +11872,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. If you don't wear a warm coat, &rarr; [BLANK]",
             "options": [
-              "you will catch a cold.",
               "I will wash the dishes.",
               "as soon as the movie ends.",
+              "you will catch a cold.",
               "before the train leaves."
             ],
             "answer": "you will catch a cold.",
@@ -11884,10 +11884,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. After we finish dinner, &rarr; [BLANK]",
             "options": [
-              "I will wash the dishes.",
               "you will catch a cold.",
               "it boils.",
-              "if it rains tomorrow."
+              "if it rains tomorrow.",
+              "I will wash the dishes."
             ],
             "answer": "I will wash the dishes.",
             "hint": "Selesai makan malam &rarr; mencuci piring.",
@@ -11896,9 +11896,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. We must hurry to the platform &rarr; [BLANK]",
             "options": [
-              "before the train leaves.",
               "unless you study hard.",
               "after he will arrive.",
+              "before the train leaves.",
               "when it boiled."
             ],
             "answer": "before the train leaves.",
@@ -11908,8 +11908,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. I will turn off the television &rarr; [BLANK]",
             "options": [
-              "as soon as this programme finishes.",
               "unless you are happy.",
+              "as soon as this programme finishes.",
               "if he bought new shoes.",
               "when I was tired."
             ],
@@ -11932,9 +11932,9 @@ const GRAMMAR_UNITS = [
             "q": "1. Audio: 'If he has to work late...' &rarr; [BLANK]",
             "options": [
               "he won't be able to join us for dinner.",
+              "he goes to sleep immediately.",
               "he bought a new car yesterday.",
-              "he would fly to Paris.",
-              "he goes to sleep immediately."
+              "he would fly to Paris."
             ],
             "answer": "he won't be able to join us for dinner.",
             "hint": "Jika harus kerja lembur, dia tidak bisa ikut makan malam.",
@@ -11943,9 +11943,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Audio: 'If it's a nice day tomorrow...' &rarr; [BLANK]",
             "options": [
-              "we'll go to the beach for a swim.",
               "we stayed at home all day.",
               "it would be very cold.",
+              "we'll go to the beach for a swim.",
               "we don't like it."
             ],
             "answer": "we'll go to the beach for a swim.",
@@ -11955,9 +11955,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Audio: 'If you don't eat properly...' &rarr; [BLANK]",
             "options": [
+              "you would be strong.",
               "you'll feel tired and get sick.",
               "you ate all the food.",
-              "you would be strong.",
               "you are a chef."
             ],
             "answer": "you'll feel tired and get sick.",
@@ -11967,10 +11967,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Audio: 'I'll wear a sweater...' &rarr; [BLANK]",
             "options": [
-              "if the weather gets chilly tonight.",
               "when I bought it last week.",
-              "unless it was hot.",
-              "if I had more money."
+              "if the weather gets chilly tonight.",
+              "if I had more money.",
+              "unless it was hot."
             ],
             "answer": "if the weather gets chilly tonight.",
             "hint": "Pakai sweater jika cuaca dingin nanti malam.",
@@ -11979,8 +11979,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Audio: 'We'll have a picnic...' &rarr; [BLANK]",
             "options": [
-              "if it doesn't rain on Saturday.",
               "because we ate yesterday.",
+              "if it doesn't rain on Saturday.",
               "if we would like it.",
               "unless it is sunny."
             ],
@@ -11991,10 +11991,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Audio: 'If you're finished with that book...' &rarr; [BLANK]",
             "options": [
-              "can I please borrow it?",
-              "I bought it yesterday.",
+              "it was very boring.",
               "you would read it again.",
-              "it was very boring."
+              "I bought it yesterday.",
+              "can I please borrow it?"
             ],
             "answer": "can I please borrow it?",
             "hint": "Jika sudah selesai membaca buku, bolehkah dipinjam?",
@@ -12052,9 +12052,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Please wait here [BLANK] the doctor is ready to see you.",
             "options": [
+              "as soon as",
               "until",
               "unless",
-              "as soon as",
               "when"
             ],
             "answer": "until",
@@ -12064,10 +12064,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. I will send you a text message [BLANK] the plane lands.",
             "options": [
-              "as soon as",
-              "until",
               "unless",
-              "before"
+              "before",
+              "until",
+              "as soon as"
             ],
             "answer": "as soon as",
             "hint": "Segera setelah pesawat mendarat.",
@@ -12076,10 +12076,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. You cannot drive a car [BLANK] you have a valid driving licence.",
             "options": [
-              "unless",
-              "until",
               "as soon as",
-              "when"
+              "unless",
+              "when",
+              "until"
             ],
             "answer": "unless",
             "hint": "Kecuali jika Anda memiliki SIM.",
@@ -12090,8 +12090,8 @@ const GRAMMAR_UNITS = [
             "options": [
               "when",
               "unless",
-              "until",
-              "as soon"
+              "as soon",
+              "until"
             ],
             "answer": "when",
             "hint": "Ketika Anda lulus nanti.",
@@ -12110,10 +12110,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. We will leave as soon as Jack [BLANK] his keys.",
             "options": [
-              "finds",
-              "will find",
               "found",
-              "is finding"
+              "is finding",
+              "finds",
+              "will find"
             ],
             "answer": "finds",
             "hint": "Klausa 'as soon as' membutuhkan Present Simple.",
@@ -12123,9 +12123,9 @@ const GRAMMAR_UNITS = [
             "q": "2. I'll pay you back when I [BLANK] paid on Friday.",
             "options": [
               "get",
-              "will get",
+              "am getting",
               "got",
-              "am getting"
+              "will get"
             ],
             "answer": "get",
             "hint": "Klausa 'when' membutuhkan Present Simple.",
@@ -12134,10 +12134,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. She will stay at home until she [BLANK] completely better.",
             "options": [
-              "feels",
               "will feel",
               "felt",
-              "is feeling"
+              "is feeling",
+              "feels"
             ],
             "answer": "feels",
             "hint": "Klausa 'until' menggunakan Present Simple.",
@@ -12241,9 +12241,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. If I [BLANK] rich, I would travel around the world.",
             "options": [
+              "am",
               "were",
               "will be",
-              "am",
               "have been"
             ],
             "answer": "were",
@@ -12253,10 +12253,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. What would you do if you [BLANK] a million dollars?",
             "options": [
+              "would win",
               "won",
               "win",
-              "will win",
-              "would win"
+              "will win"
             ],
             "answer": "won",
             "hint": "If-clause menggunakan bentuk Past Simple dari win.",
@@ -12265,10 +12265,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. If she had more free time, she [BLANK] a new language.",
             "options": [
-              "would learn",
-              "will learn",
               "learnt",
-              "learns"
+              "learns",
+              "will learn",
+              "would learn"
             ],
             "answer": "would learn",
             "hint": "Main clause menggunakan would + V1.",
@@ -12277,10 +12277,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. We [BLANK] that house if it wasn't so expensive.",
             "options": [
-              "would buy",
               "bought",
-              "will buy",
-              "buy"
+              "would buy",
+              "buy",
+              "will buy"
             ],
             "answer": "would buy",
             "hint": "Main clause: would + buy.",
@@ -12357,9 +12357,9 @@ const GRAMMAR_UNITS = [
             "q": "1. If I met an alien from outer space, &rarr; [BLANK]",
             "options": [
               "I would take a photograph with it.",
-              "I would buy a big mansion.",
               "I will call the police.",
-              "I would lend you some money."
+              "I would lend you some money.",
+              "I would buy a big mansion."
             ],
             "answer": "I would take a photograph with it.",
             "hint": "Bertemu alien &rarr; berfoto bersama.",
@@ -12368,10 +12368,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. If I had lots of spare cash right now, &rarr; [BLANK]",
             "options": [
-              "I would buy a new gaming laptop.",
-              "I was happy.",
               "I will drink water.",
-              "I would fly to space yesterday."
+              "I would fly to space yesterday.",
+              "I was happy.",
+              "I would buy a new gaming laptop."
             ],
             "answer": "I would buy a new gaming laptop.",
             "hint": "Punya uang tunai lebih &rarr; beli laptop gaming.",
@@ -12380,10 +12380,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. If you asked him nicely, &rarr; [BLANK]",
             "options": [
-              "he would probably help you with the bags.",
               "he will be angry.",
+              "he wouldn't know.",
               "he helped you.",
-              "he wouldn't know."
+              "he would probably help you with the bags."
             ],
             "answer": "he would probably help you with the bags.",
             "hint": "Meminta tolong dengan sopan &rarr; dia mau membantu.",
@@ -12415,10 +12415,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. What is the very first thing Terry would buy if he won the lottery?",
             "options": [
-              "A new car, because his old car keeps breaking down.",
-              "A diamond ring for Monica.",
+              "A helicopter.",
               "A big yacht.",
-              "A helicopter."
+              "A new car, because his old car keeps breaking down.",
+              "A diamond ring for Monica."
             ],
             "answer": "A new car, because his old car keeps breaking down.",
             "hint": "Terry menyebutkan mobil lamanya sering mogok.",
@@ -12428,9 +12428,9 @@ const GRAMMAR_UNITS = [
             "q": "2. Where would Terry love to buy a house?",
             "options": [
               "In the country, close to where his parents live.",
-              "In central London.",
+              "On a tropical private island.",
               "In New York City.",
-              "On a tropical private island."
+              "In central London."
             ],
             "answer": "In the country, close to where his parents live.",
             "hint": "Terry ingin rumah di desa dekat orang tuanya.",
@@ -12439,10 +12439,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. What would Terry do to help others with his money?",
             "options": [
-              "He would donate a lot of money to organisations that help the needy.",
-              "He would build a personal amusement park.",
+              "He would buy gold bars.",
               "He would keep all the money in a safe.",
-              "He would buy gold bars."
+              "He would build a personal amusement park.",
+              "He would donate a lot of money to organisations that help the needy."
             ],
             "answer": "He would donate a lot of money to organisations that help the needy.",
             "hint": "Terry ingin menyumbang organisasi amal.",
@@ -12451,9 +12451,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Does Monica agree with donating to charitable causes?",
             "options": [
+              "She didn't hear what he said.",
               "Yes, she says if she won she would do the same.",
               "No, she thinks it's a waste of money.",
-              "She didn't hear what he said.",
               "She prefers buying jewellery."
             ],
             "answer": "Yes, she says if she won she would do the same.",
@@ -12463,10 +12463,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. What is the final thing Terry thought of doing for his next holiday?",
             "options": [
-              "Go to an exotic place and invite Monica too.",
-              "Go camping in his backyard.",
               "Stay at home alone.",
-              "Go to Antarctica."
+              "Go to Antarctica.",
+              "Go to an exotic place and invite Monica too.",
+              "Go camping in his backyard."
             ],
             "answer": "Go to an exotic place and invite Monica too.",
             "hint": "Dengarkan akhir percakapan mereka.",
@@ -12485,9 +12485,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. If I [BLANK] wings, I would fly across the ocean.",
             "options": [
-              "had",
               "have",
               "will have",
+              "had",
               "would have"
             ],
             "answer": "had",
@@ -12497,10 +12497,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. If it [BLANK] tomorrow, we will play tennis in the park.",
             "options": [
-              "doesn't rain",
               "didn't rain",
-              "won't rain",
-              "wouldn't rain"
+              "doesn't rain",
+              "wouldn't rain",
+              "won't rain"
             ],
             "answer": "doesn't rain",
             "hint": "Kemungkinan nyata besok hari &rarr; First Conditional (will play).",
@@ -12509,10 +12509,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. If I were the President, I [BLANK] education free for everyone.",
             "options": [
-              "would make",
+              "make",
               "will make",
-              "made",
-              "make"
+              "would make",
+              "made"
             ],
             "answer": "would make",
             "hint": "Pengandaian tidak nyata (If I were the President).",
@@ -12521,8 +12521,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. If you leave now, you [BLANK] the 9:00 train.",
             "options": [
-              "will catch",
               "would catch",
+              "will catch",
               "caught",
               "catch"
             ],
@@ -12593,10 +12593,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. If she spoke fluent Spanish, she [BLANK] for the job in Madrid.",
             "options": [
-              "would apply",
+              "applies",
               "will apply",
-              "applied",
-              "applies"
+              "would apply",
+              "applied"
             ],
             "answer": "would apply",
             "hint": "Spoke adalah past simple &rarr; pasangannya would + V1.",
@@ -12605,9 +12605,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. If I [BLANK] where my glasses were, I wouldn't be looking for them!",
             "options": [
+              "will know",
               "knew",
               "know",
-              "will know",
               "would know"
             ],
             "answer": "knew",
@@ -12617,10 +12617,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Where would you go on holiday if you [BLANK] choose anywhere in the world?",
             "options": [
-              "could",
-              "can",
               "will",
-              "would"
+              "could",
+              "would",
+              "can"
             ],
             "answer": "could",
             "hint": "Bentuk lampau dari can adalah could.",
@@ -12720,8 +12720,8 @@ const GRAMMAR_UNITS = [
             "q": "1. Salah: 'If I will win the lottery, I would buy a mansion.' &rarr; Benar: [BLANK]",
             "options": [
               "If I won the lottery, I would buy a mansion.",
-              "If I win the lottery, I would buy a mansion.",
-              "If I would win the lottery, I bought a mansion."
+              "If I would win the lottery, I bought a mansion.",
+              "If I win the lottery, I would buy a mansion."
             ],
             "answer": "If I won the lottery, I would buy a mansion.",
             "hint": "If-clause tidak boleh memakai will atau would.",
@@ -12730,9 +12730,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Salah: 'If she had a bike, she will ride to school.' &rarr; Benar: [BLANK]",
             "options": [
-              "If she had a bike, she would ride to school.",
+              "If she had a bike, she rode to school.",
               "If she has a bike, she would ride to school.",
-              "If she had a bike, she rode to school."
+              "If she had a bike, she would ride to school."
             ],
             "answer": "If she had a bike, she would ride to school.",
             "hint": "Main clause tipe 2 memakai would + V1, bukan will.",
@@ -12814,9 +12814,9 @@ const GRAMMAR_UNITS = [
             "q": "1. 'must' / 'have to' digunakan untuk menyatakan: [BLANK]",
             "options": [
               "Keharusan / kewajiban (obligation)",
+              "Kemampuan (ability)",
               "Larangan keras (prohibition)",
-              "Saran / anjuran (advice)",
-              "Kemampuan (ability)"
+              "Saran / anjuran (advice)"
             ],
             "answer": "Keharusan / kewajiban (obligation)",
             "hint": "Menyatakan sesuatu yang wajib dilakukan.",
@@ -12825,10 +12825,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. 'mustn't' digunakan untuk menyatakan: [BLANK]",
             "options": [
+              "Kemungkinan (possibility)",
               "Larangan keras (prohibition)",
-              "Ketidakhadiran kewajiban (no obligation)",
               "Saran (advice)",
-              "Kemungkinan (possibility)"
+              "Ketidakhadiran kewajiban (no obligation)"
             ],
             "answer": "Larangan keras (prohibition)",
             "hint": "Tidak boleh / dilarang keras.",
@@ -12837,10 +12837,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. 'don't have to' digunakan untuk menyatakan: [BLANK]",
             "options": [
-              "Tidak perlu / tidak wajib (lack of obligation)",
-              "Larangan keras (prohibition)",
+              "Izin (permission)",
               "Kemampuan (ability)",
-              "Izin (permission)"
+              "Larangan keras (prohibition)",
+              "Tidak perlu / tidak wajib (lack of obligation)"
             ],
             "answer": "Tidak perlu / tidak wajib (lack of obligation)",
             "hint": "Bebas memilih, tidak ada kewajiban.",
@@ -12849,10 +12849,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. 'should' / 'shouldn't' digunakan untuk menyatakan: [BLANK]",
             "options": [
-              "Saran / anjuran (advice)",
               "Kewajiban hukum (legal obligation)",
               "Kemampuan fisik (physical ability)",
-              "Kepemilikan (possession)"
+              "Kepemilikan (possession)",
+              "Saran / anjuran (advice)"
             ],
             "answer": "Saran / anjuran (advice)",
             "hint": "Nasehat yang baik dilakukan atau tidak.",
@@ -12919,8 +12919,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Tomorrow is Sunday, so I [BLANK] wake up early.",
             "options": [
-              "don't have to",
-              "mustn't"
+              "mustn't",
+              "don't have to"
             ],
             "answer": "don't have to",
             "hint": "Hari libur, tidak ada keharusan bangun pagi.",
@@ -12929,8 +12929,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. You [BLANK] touch that pot! It's boiling hot.",
             "options": [
-              "mustn't",
-              "don't have to"
+              "don't have to",
+              "mustn't"
             ],
             "answer": "mustn't",
             "hint": "Panci panas membahayakan jika disentuh.",
@@ -12949,8 +12949,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Passengers [BLANK] talk to the driver while the bus is moving.",
             "options": [
-              "mustn't",
-              "don't have to"
+              "don't have to",
+              "mustn't"
             ],
             "answer": "mustn't",
             "hint": "Aturan keselamatan melarang mengganggu supir.",
@@ -12969,9 +12969,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. You [BLANK] try this chocolate cake; it's absolutely delicious!",
             "options": [
-              "should",
+              "can't",
               "mustn't",
-              "can't"
+              "should"
             ],
             "answer": "should",
             "hint": "Saran mencicipi kue enak.",
@@ -12980,9 +12980,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. You [BLANK] show your passport when entering another country.",
             "options": [
-              "must",
+              "might",
               "should",
-              "might"
+              "must"
             ],
             "answer": "must",
             "hint": "Hukum imigrasi mewajibkan paspor.",
@@ -12992,8 +12992,8 @@ const GRAMMAR_UNITS = [
             "q": "3. You look very pale. You [BLANK] see a doctor.",
             "options": [
               "should",
-              "mustn't",
-              "don't have to"
+              "don't have to",
+              "mustn't"
             ],
             "answer": "should",
             "hint": "Nasihat kesehatan.",
@@ -13054,10 +13054,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. You [BLANK] bring an umbrella. The forecast said it will be sunny all day.",
             "options": [
-              "don't have to",
               "mustn't",
-              "must",
-              "should"
+              "don't have to",
+              "should",
+              "must"
             ],
             "answer": "don't have to",
             "hint": "Tidak perlu bawa karena tidak akan hujan.",
@@ -13066,10 +13066,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. You [BLANK] smoke inside the hospital. It's against the law.",
             "options": [
-              "mustn't",
-              "don't have to",
+              "should",
               "can",
-              "should"
+              "don't have to",
+              "mustn't"
             ],
             "answer": "mustn't",
             "hint": "Merokok di rumah sakit dilarang oleh hukum.",
@@ -13223,10 +13223,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Kalimat positif: 'I [BLANK] play tennis every Saturday when I was younger.'",
             "options": [
-              "used to",
+              "was used to",
               "use to",
               "am used to",
-              "was used to"
+              "used to"
             ],
             "answer": "used to",
             "hint": "Bentuk lampau positif berakhiran -d.",
@@ -13235,10 +13235,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Kalimat negatif: 'He [BLANK] like vegetables, but now he loves them.'",
             "options": [
-              "didn't use to",
+              "wasn't use to",
               "didn't used to",
-              "used not",
-              "wasn't use to"
+              "didn't use to",
+              "used not"
             ],
             "answer": "didn't use to",
             "hint": "Setelah kata bantu 'didn't', kata 'use' kembali ke bentuk dasar tanpa -d.",
@@ -13247,10 +13247,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Kalimat tanya: '[BLANK] you use to walk to school?'",
             "options": [
+              "Were",
               "Did",
               "Do",
-              "Have",
-              "Were"
+              "Have"
             ],
             "answer": "Did",
             "hint": "Kata bantu lampau untuk kalimat tanya adalah 'Did'.",
@@ -13442,10 +13442,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. How was the narrator's town in the past?",
             "options": [
-              "It used to be a quiet town where everyone knew each other.",
-              "It used to be an overcrowded industrial city.",
+              "It was completely empty.",
               "It used to be noisy and dirty.",
-              "It was completely empty."
+              "It used to be an overcrowded industrial city.",
+              "It used to be a quiet town where everyone knew each other."
             ],
             "answer": "It used to be a quiet town where everyone knew each other.",
             "hint": "Narator menyebutkan suasana kotanya dulu sangat tenang dan orang-orangnya ramah.",
@@ -13454,10 +13454,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. What did the air quality use to be like?",
             "options": [
-              "There didn't use to be any air pollution.",
               "There used to be heavy smoke everywhere.",
+              "There was constant fog.",
               "It was always polluted by factories.",
-              "There was constant fog."
+              "There didn't use to be any air pollution."
             ],
             "answer": "There didn't use to be any air pollution.",
             "hint": "Dulu tidak ada polusi udara.",
@@ -13466,9 +13466,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. What was there in place of the big supermarket nowadays?",
             "options": [
-              "There used to be small market stalls selling food.",
-              "There used to be a train station.",
               "There used to be a football stadium.",
+              "There used to be a train station.",
+              "There used to be small market stalls selling food.",
               "There used to be a huge parking lot."
             ],
             "answer": "There used to be small market stalls selling food.",
@@ -13478,9 +13478,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. What does the speaker miss the most about the past?",
             "options": [
-              "People stopping to chat when meeting each other.",
-              "The cheaper bus tickets.",
               "The cold winters.",
+              "The cheaper bus tickets.",
+              "People stopping to chat when meeting each other.",
               "Going to the cinema alone."
             ],
             "answer": "People stopping to chat when meeting each other.",
@@ -13501,9 +13501,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Last night, I [BLANK] dinner with my grandparents.",
             "options": [
-              "had",
+              "use to have",
               "used to have",
-              "use to have"
+              "had"
             ],
             "answer": "had",
             "hint": "Peristiwa satu kali spesifik semalam ('Last night').",
@@ -13512,9 +13512,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. When I was seven, I [BLANK] believe in fairies.",
             "options": [
-              "used to",
               "use to",
-              "am used to"
+              "am used to",
+              "used to"
             ],
             "answer": "used to",
             "hint": "Keyakinan masa kecil dalam rentang waktu lama.",
@@ -13523,9 +13523,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. In 2015, they [BLANK] to Rome for a two-week holiday.",
             "options": [
+              "use to go",
               "went",
-              "used to go",
-              "use to go"
+              "used to go"
             ],
             "answer": "went",
             "hint": "Liburan satu kali pada tahun 2015.",
@@ -13573,8 +13573,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Salah: 'Did you used to play football?' &rarr; Benar: [BLANK]",
             "options": [
-              "Did you use to play football?",
               "Did you used to played football?",
+              "Did you use to play football?",
               "Do you used to play football?"
             ],
             "answer": "Did you use to play football?",
@@ -13584,9 +13584,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Salah: 'I didn't used to like coffee.' &rarr; Benar: [BLANK]",
             "options": [
+              "I don't used to like coffee.",
               "I didn't use to like coffee.",
-              "I didn't use to liked coffee.",
-              "I don't used to like coffee."
+              "I didn't use to liked coffee."
             ],
             "answer": "I didn't use to like coffee.",
             "hint": "Setelah didn't, gunakan use to tanpa huruf d.",
@@ -13653,8 +13653,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. A: 'I love Italian food.' &rarr; B: '[BLANK]'",
             "options": [
-              "So do I.",
               "Neither do I.",
+              "So do I.",
               "So am I.",
               "Neither am I."
             ],
@@ -13665,10 +13665,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. A: 'I don't like horror movies.' &rarr; B: '[BLANK]'",
             "options": [
-              "Neither do I.",
-              "So do I.",
               "Neither am I.",
-              "So am I."
+              "So do I.",
+              "So am I.",
+              "Neither do I."
             ],
             "answer": "Neither do I.",
             "hint": "Kalimat negatif (don't like) disetujui dengan Neither.",
@@ -13677,10 +13677,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. A: 'I am very tired today.' &rarr; B: '[BLANK]'",
             "options": [
-              "So am I.",
+              "Neither do I.",
               "So do I.",
-              "Neither am I.",
-              "Neither do I."
+              "So am I.",
+              "Neither am I."
             ],
             "answer": "So am I.",
             "hint": "Kalimat menggunakan to be 'am'.",
@@ -13689,10 +13689,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. A: 'I can't swim very well.' &rarr; B: '[BLANK]'",
             "options": [
-              "Neither can I.",
-              "So can I.",
               "Neither do I.",
-              "So do I."
+              "So do I.",
+              "Neither can I.",
+              "So can I."
             ],
             "answer": "Neither can I.",
             "hint": "Kalimat negatif memakai modal 'can't'.",
@@ -13813,9 +13813,9 @@ const GRAMMAR_UNITS = [
             "q": "1. Audio: 'Megan must work harder.' &rarr; [BLANK]",
             "options": [
               "So must we.",
-              "Neither must we.",
               "So do we.",
-              "Neither do we."
+              "Neither do we.",
+              "Neither must we."
             ],
             "answer": "So must we.",
             "hint": "Pernyataan positif dengan modal 'must'.",
@@ -13825,9 +13825,9 @@ const GRAMMAR_UNITS = [
             "q": "2. Audio: 'We always ask that question.' &rarr; [BLANK]",
             "options": [
               "So do I.",
+              "Neither did I.",
               "Neither do I.",
-              "So am I.",
-              "Neither did I."
+              "So am I."
             ],
             "answer": "So do I.",
             "hint": "Pernyataan positif Present Simple dengan kata kerja 'ask'.",
@@ -13836,9 +13836,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Audio: 'They never do any homework in class.' &rarr; [BLANK]",
             "options": [
-              "Neither do we.",
               "So do we.",
               "So did we.",
+              "Neither do we.",
               "Neither did we."
             ],
             "answer": "Neither do we.",
@@ -13849,8 +13849,8 @@ const GRAMMAR_UNITS = [
             "q": "4. Audio: 'He feels ill.' &rarr; [BLANK]",
             "options": [
               "So do I.",
-              "Neither do I.",
               "So am I.",
+              "Neither do I.",
               "Neither am I."
             ],
             "answer": "So do I.",
@@ -13861,9 +13861,9 @@ const GRAMMAR_UNITS = [
             "q": "5. Audio: 'He's going to the mountains this weekend.' &rarr; [BLANK]",
             "options": [
               "So am I.",
-              "So do I.",
+              "So will I.",
               "Neither am I.",
-              "So will I."
+              "So do I."
             ],
             "answer": "So am I.",
             "hint": "Menggunakan bentuk to be (He is going).",
@@ -13872,10 +13872,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Audio: 'I've been to Japan.' &rarr; [BLANK]",
             "options": [
+              "So do I.",
               "So have I.",
               "So did I.",
-              "Neither have I.",
-              "So do I."
+              "Neither have I."
             ],
             "answer": "So have I.",
             "hint": "Present Perfect 'I've been' &rarr; So have I.",
@@ -13884,10 +13884,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "7. Audio: 'She wasn't here yesterday.' &rarr; [BLANK]",
             "options": [
-              "Neither was I.",
               "So was I.",
-              "Neither did I.",
-              "So did I."
+              "Neither was I.",
+              "So did I.",
+              "Neither did I."
             ],
             "answer": "Neither was I.",
             "hint": "Past to be negatif 'wasn't' &rarr; Neither was I.",
@@ -13897,9 +13897,9 @@ const GRAMMAR_UNITS = [
             "q": "8. Audio: 'We shouldn't talk so loudly.' &rarr; [BLANK]",
             "options": [
               "Neither should we.",
-              "So should we.",
+              "So do we.",
               "Neither do we.",
-              "So do we."
+              "So should we."
             ],
             "answer": "Neither should we.",
             "hint": "Modal negatif 'shouldn't' &rarr; Neither should we.",
@@ -14010,12 +14010,12 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. You don't like meat, &rarr; [BLANK]",
             "options": [
-              "do you?",
-              "don't we?",
+              "haven't they?",
               "does she?",
-              "can't he?",
               "are you?",
-              "haven't they?"
+              "can't he?",
+              "do you?",
+              "don't we?"
             ],
             "answer": "do you?",
             "hint": "Pernyataan negatif 'don't like' berpasangan dengan tag positif 'do you?'.",
@@ -14025,10 +14025,10 @@ const GRAMMAR_UNITS = [
             "q": "2. They've been travelling for hours, &rarr; [BLANK]",
             "options": [
               "haven't they?",
-              "do you?",
-              "don't we?",
-              "can't he?",
               "does she?",
+              "can't he?",
+              "don't we?",
+              "do you?",
               "are you?"
             ],
             "answer": "haven't they?",
@@ -14038,12 +14038,12 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Ben can play the piano, &rarr; [BLANK]",
             "options": [
-              "can't he?",
-              "do you?",
-              "don't we?",
-              "does she?",
               "are you?",
-              "haven't they?"
+              "don't we?",
+              "do you?",
+              "can't he?",
+              "haven't they?",
+              "does she?"
             ],
             "answer": "can't he?",
             "hint": "Modal positif 'can' &rarr; tag negatif 'can't he?'.",
@@ -14052,11 +14052,11 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. We have a free period before lunch today, &rarr; [BLANK]",
             "options": [
-              "don't we?",
-              "do you?",
-              "does she?",
               "can't he?",
+              "does she?",
+              "do you?",
               "are you?",
+              "don't we?",
               "haven't they?"
             ],
             "answer": "don't we?",
@@ -14066,12 +14066,12 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. She doesn't work at the leisure centre anymore, &rarr; [BLANK]",
             "options": [
-              "does she?",
-              "do you?",
-              "don't we?",
-              "can't he?",
               "are you?",
-              "haven't they?"
+              "do you?",
+              "haven't they?",
+              "can't he?",
+              "does she?",
+              "don't we?"
             ],
             "answer": "does she?",
             "hint": "Negatif 'doesn't work' &rarr; tag positif 'does she?'.",
@@ -14080,11 +14080,11 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. You aren't upset about what Timothy said, &rarr; [BLANK]",
             "options": [
-              "are you?",
               "do you?",
-              "don't we?",
-              "can't he?",
               "does she?",
+              "are you?",
+              "can't he?",
+              "don't we?",
               "haven't they?"
             ],
             "answer": "are you?",
@@ -14511,9 +14511,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Salah: 'We'll travel by car, don't we? - Yes, we did.' &rarr; Benar: [BLANK]",
             "options": [
-              "won't we? - Yes, we will.",
               "didn't we? - Yes, we did.",
-              "aren't we? - Yes, we are."
+              "aren't we? - Yes, we are.",
+              "won't we? - Yes, we will."
             ],
             "answer": "won't we? - Yes, we will.",
             "hint": "We'll = We will &rarr; tag: won't we?, respon: Yes, we will.",
@@ -14522,8 +14522,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Salah: 'Paul doesn't work at the bakery anymore, is he? - No, he does.' &rarr; Benar: [BLANK]",
             "options": [
-              "does he? - No, he doesn't.",
               "is he? - Yes, he is.",
+              "does he? - No, he doesn't.",
               "did he? - No, he didn't."
             ],
             "answer": "does he? - No, he doesn't.",
@@ -14816,9 +14816,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. Millions of people [BLANK] (play) football all around the world.",
             "options": [
-              "play (Active)",
+              "are played (Passive)",
               "is played (Passive)",
-              "are played (Passive)"
+              "play (Active)"
             ],
             "answer": "play (Active)",
             "hint": "Millions of people adalah pelaku aksi aktif.",
@@ -14838,9 +14838,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. The thief [BLANK] (catch) by the police last night.",
             "options": [
-              "was caught (Passive)",
+              "catches (Active)",
               "caught (Active)",
-              "catches (Active)"
+              "was caught (Passive)"
             ],
             "answer": "was caught (Passive)",
             "hint": "Pencuri ditangkap oleh polisi (Pasif).",
@@ -15268,9 +15268,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "1. We saw the car [BLANK] into the truck at the crossroads.",
             "options": [
-              "crash",
+              "to crash",
               "crashing",
-              "to crash"
+              "crash"
             ],
             "answer": "crash",
             "hint": "Peristiwa tabrakan terjadi dalam sekejap selesai (complete action).",
@@ -15279,9 +15279,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. When the police arrived, they saw the injured man [BLANK] on the ground.",
             "options": [
-              "lying",
+              "to lie",
               "lie",
-              "to lie"
+              "lying"
             ],
             "answer": "lying",
             "hint": "Pria itu sedang terbaring di tanah saat polisi datang.",
@@ -15291,8 +15291,8 @@ const GRAMMAR_UNITS = [
             "q": "3. Sam heard the telephone [BLANK], but he decided not to answer.",
             "options": [
               "ring",
-              "ringing",
-              "to ring"
+              "to ring",
+              "ringing"
             ],
             "answer": "ring",
             "hint": "Mendengar dering telepon.",
@@ -15301,9 +15301,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. We watched our friends [BLANK] tennis in the finals.",
             "options": [
+              "play",
               "playing",
-              "to play",
-              "play"
+              "to play"
             ],
             "answer": "playing",
             "hint": "Menonton pertandingan yang sedang berlangsung.",
@@ -15399,9 +15399,9 @@ const GRAMMAR_UNITS = [
             "q": "1. Pada gambar di sudut kanan bawah, kita melihat remaja mengenakan headphone: [BLANK]",
             "options": [
               "I can see a teenager listening to music.",
-              "I can see two men tasting food.",
               "I can hear an alarm ringing.",
-              "I can see a pilot flying a plane."
+              "I can see a pilot flying a plane.",
+              "I can see two men tasting food."
             ],
             "answer": "I can see a teenager listening to music.",
             "hint": "Remaja berheadphone sedang mendengarkan musik.",
@@ -15410,9 +15410,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "2. Pada meja bundar di sebelah kanan: [BLANK]",
             "options": [
-              "I can see two men tasting food.",
               "I can see an old man sleeping on the sofa.",
               "I can see a woman pulling a suitcase.",
+              "I can see two men tasting food.",
               "I can hear dogs barking."
             ],
             "answer": "I can see two men tasting food.",
@@ -15422,9 +15422,9 @@ const GRAMMAR_UNITS = [
           {
             "q": "3. Pada pria berjas hijau di sebelah kiri dekat bar: [BLANK]",
             "options": [
-              "I can see a man talking on his mobile phone.",
-              "I can see people boarding a plane.",
               "I can hear a baby crying.",
+              "I can see people boarding a plane.",
+              "I can see a man talking on his mobile phone.",
               "I can see children playing football."
             ],
             "answer": "I can see a man talking on his mobile phone.",
@@ -15434,8 +15434,8 @@ const GRAMMAR_UNITS = [
           {
             "q": "4. Di area sofa ruang tunggu di tengah: [BLANK]",
             "options": [
-              "I can see a man reading a newspaper and someone sleeping.",
               "I can see people swimming.",
+              "I can see a man reading a newspaper and someone sleeping.",
               "I can see monkeys dancing.",
               "I can see cars racing."
             ],
@@ -15446,10 +15446,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "5. Di bagian depan tengah: [BLANK]",
             "options": [
-              "I can see a boy blowing a big pink bubble with chewing gum.",
               "I can see a policeman arresting a thief.",
               "I can see a girl eating an ice cream cone.",
-              "I can see someone painting a wall."
+              "I can see someone painting a wall.",
+              "I can see a boy blowing a big pink bubble with chewing gum."
             ],
             "answer": "I can see a boy blowing a big pink bubble with chewing gum.",
             "hint": "Anak laki-laki meniup balon permen karet pink.",
@@ -15458,10 +15458,10 @@ const GRAMMAR_UNITS = [
           {
             "q": "6. Di dekat papan keberangkatan (Departures): [BLANK]",
             "options": [
-              "I can see passengers checking their flight times.",
               "I can see tourists swimming in the sea.",
+              "I can see a train passing by.",
               "I can see a waiter serving pizza.",
-              "I can see a train passing by."
+              "I can see passengers checking their flight times."
             ],
             "answer": "I can see passengers checking their flight times.",
             "hint": "Penumpang melihat jadwal penerbangan.",

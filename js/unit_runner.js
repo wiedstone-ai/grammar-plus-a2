@@ -471,10 +471,19 @@ function isAnswerCorrect(user, expected) {
 
   if (u === e) return true;
 
+  // Alphanumeric clean match (ignores differences in separators like " / " vs ", " or punctuation)
+  const uClean = u.replace(/[^a-z0-9]/g, "");
+  const eClean = e.replace(/[^a-z0-9]/g, "");
+  if (uClean.length > 0 && uClean === eClean) return true;
+
   // Handle slash options misal "she's / she is"
   if (expected.includes("/")) {
     const parts = expected.split("/").map(p => normalizeAnswerString(p));
     if (parts.includes(u)) return true;
+    for (const part of parts) {
+      const pClean = part.replace(/[^a-z0-9]/g, "");
+      if (pClean.length > 0 && pClean === uClean) return true;
+    }
   }
 
   // Handle tanda kurung opsional misal "can (not)"
@@ -482,6 +491,9 @@ function isAnswerCorrect(user, expected) {
     const withoutParens = normalizeAnswerString(expected.replace(/\(.*?\)/g, "").replace(/\s+/g, " "));
     const fullWithParens = normalizeAnswerString(expected.replace(/[()]/g, ""));
     if (u === withoutParens || u === fullWithParens) return true;
+    const wClean = withoutParens.replace(/[^a-z0-9]/g, "");
+    const fClean = fullWithParens.replace(/[^a-z0-9]/g, "");
+    if (uClean.length > 0 && (uClean === wClean || uClean === fClean)) return true;
   }
 
   return false;
@@ -512,12 +524,14 @@ function submitCurrentExercise() {
       userAns = UnitRunnerState.userAnswers[idx] || "";
     }
 
+    const expected = (q.answer !== undefined ? q.answer : (q.a || "")).trim();
+    const alternates = Array.isArray(q.alternateAnswers) ? q.alternateAnswers : 
+                       (Array.isArray(q.acceptableAnswers) ? q.acceptableAnswers : []);
+
     // Periksa kebenaran
-    let isCorrect = false;
-    if (q.acceptableAnswers && Array.isArray(q.acceptableAnswers)) {
-      isCorrect = q.acceptableAnswers.some(ans => isAnswerCorrect(userAns, ans));
-    } else {
-      isCorrect = isAnswerCorrect(userAns, q.a);
+    let isCorrect = isAnswerCorrect(userAns, expected);
+    if (!isCorrect && alternates.length > 0) {
+      isCorrect = alternates.some(ans => isAnswerCorrect(userAns, ans));
     }
 
     const fbBox = document.getElementById(`feedback-q-${idx}`);
@@ -527,14 +541,14 @@ function submitCurrentExercise() {
       correctCount++;
       if (fbBox) {
         fbBox.className = "feedback-box feedback-correct";
-        fbBox.innerHTML = `<span>✓</span> <strong>Benar!</strong> Jawaban Anda tepat.`;
+        fbBox.innerHTML = `<span>✓</span> <strong>Benar!</strong> Jawaban Anda tepat.${q.explanation ? ` <span style="font-weight: normal; color: #166534; font-size: 0.85rem;">&bull; ${escapeHtml(q.explanation)}</span>` : ''}`;
       }
       if (qBox) qBox.classList.remove("question-wrong-highlight");
     } else {
       if (firstWrongIdx === -1) firstWrongIdx = idx;
       if (fbBox) {
         fbBox.className = "feedback-box feedback-wrong";
-        fbBox.innerHTML = `<span>✗</span> <strong>Belum Tepat.</strong> Jawaban Anda: <em>"${escapeHtml(userAns || "(kosong)")}"</em> &bull; Kunci: <strong>"${escapeHtml(q.a)}"</strong>`;
+        fbBox.innerHTML = `<span>✗</span> <strong>Belum Tepat.</strong> Jawaban Anda: <em>"${escapeHtml(userAns || "(kosong)")}"</em> &bull; Kunci: <strong>"${escapeHtml(expected)}"</strong>${q.explanation ? `<div style="font-size: 0.825rem; color: #991B1B; margin-top: 0.35rem; font-weight: normal;">Penjelasan: ${escapeHtml(q.explanation)}</div>` : ''}`;
       }
       if (qBox) qBox.classList.add("question-wrong-highlight");
     }
@@ -542,7 +556,7 @@ function submitCurrentExercise() {
     details.push({
       soal: q.q,
       jawabanSiswa: userAns,
-      kunci: q.a,
+      kunci: expected,
       benar: isCorrect
     });
   });

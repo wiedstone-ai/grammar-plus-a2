@@ -147,33 +147,41 @@
           <div class="card" style="margin-bottom: 1.25rem;">
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
               <div>
-                <label for="exercise-unit-select" class="form-label" style="margin-bottom: 0.25rem;">Pilih Unit Pembelajaran:</label>
-                <select id="exercise-unit-select" class="form-control" style="font-weight: 600; min-width: 320px;" onchange="loadUnitExercises(parseInt(this.value, 10))">
-                  <option value="1">Unit 1: Kata sifat dan kata ganti posesif; whose</option>
-                  <option value="2">Unit 2: Penggunaan have, can, dan could</option>
-                  <option value="3">Unit 3: Mengajak, menerima, menolak</option>
-                  <option value="4">Unit 4: Bentuk masa depan: be going to</option>
-                  <option value="5">Unit 5: Kata ganti refleksif</option>
-                  <option value="6">Unit 6: Penggunaan to get</option>
-                  <option value="7">Unit 7: could (Kemampuan & Kesopanan)</option>
-                  <option value="8">Unit 8: some, any, no, every</option>
-                  <option value="9">Unit 9: Bentuk majemuk dari some, any, no, every</option>
-                  <option value="10">Unit 10: have to / don't have to</option>
-                  <option value="11">Unit 11: should, shall, ought to atau shouldn't</option>
-                  <option value="12">Unit 12: Present perfect</option>
-                  <option value="13">Unit 13: Present perfect continuous</option>
-                  <option value="14">Unit 14: Klausa penghubung</option>
-                  <option value="15">Unit 15: Kata kerja + infinitif; kata kerja + ing</option>
-                  <option value="16">Unit 16: will - Future simple</option>
-                  <option value="17">Unit 17: Bentuk kondisional pertama</option>
-                  <option value="18">Unit 18: Bentuk kondisional kedua</option>
-                  <option value="19">Unit 19: Kalimat tidak langsung</option>
-                  <option value="20">Unit 20: used to</option>
-                  <option value="21">Unit 21: Persetujuan dan ketidaksetujuan</option>
-                  <option value="22">Unit 22: Pertanyaan dan jawaban singkat</option>
-                  <option value="23">Unit 23: Bentuk pasif</option>
-                  <option value="24">Unit 24: Kata kerja indrawi</option>
-                </select>
+                <label for="exercise-unit-select" class="form-label" style="margin-bottom: 0.25rem;">Pilih Unit Pembelajaran (Halaman Mandiri Terpisah Super Ringan):</label>
+                <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                  <select id="exercise-unit-select" class="form-control" style="font-weight: 600; min-width: 320px;" onchange="if(this.value){ window.location.href = 'units/unit_' + this.value + '.html'; }">
+                    <option value="1">Unit 1: Kata sifat dan kata ganti posesif; whose</option>
+                    <option value="2">Unit 2: Penggunaan have, can, dan could</option>
+                    <option value="3">Unit 3: Mengajak, menerima, menolak</option>
+                    <option value="4">Unit 4: Bentuk masa depan: be going to</option>
+                    <option value="5">Unit 5: Kata ganti refleksif</option>
+                    <option value="6">Unit 6: Penggunaan to get</option>
+                    <option value="7">Unit 7: could (Kemampuan & Kesopanan)</option>
+                    <option value="8">Unit 8: some, any, no, every</option>
+                    <option value="9">Unit 9: Bentuk majemuk dari some, any, no, every</option>
+                    <option value="10">Unit 10: have to / don't have to</option>
+                    <option value="11">Unit 11: should, shall, ought to atau shouldn't</option>
+                    <option value="12">Unit 12: Present perfect</option>
+                    <option value="13">Unit 13: Present perfect continuous</option>
+                    <option value="14">Unit 14: Klausa penghubung</option>
+                    <option value="15">Unit 15: Kata kerja + infinitif; kata kerja + ing</option>
+                    <option value="16">Unit 16: will - Future simple</option>
+                    <option value="17">Unit 17: Bentuk kondisional pertama</option>
+                    <option value="18">Unit 18: Bentuk kondisional kedua</option>
+                    <option value="19">Unit 19: Kalimat tidak langsung</option>
+                    <option value="20">Unit 20: used to</option>
+                    <option value="21">Unit 21: Persetujuan dan ketidaksetujuan</option>
+                    <option value="22">Unit 22: Pertanyaan dan jawaban singkat</option>
+                    <option value="23">Unit 23: Bentuk pasif</option>
+                    <option value="24">Unit 24: Kata kerja indrawi</option>
+                  </select>
+                  <button type="button" class="btn btn-primary" onclick="const sel = document.getElementById('exercise-unit-select'); if(sel) window.location.href = 'units/unit_' + sel.value + '.html';" style="font-weight: 700;">
+                    🚀 Buka Halaman Unit &rarr;
+                  </button>
+                </div>
+                <div style="font-size: 0.8rem; color: #1E40AF; margin-top: 0.4rem;">
+                  ⚡ <em>Setiap unit dibuka di halaman terpisah yang super cepat dan bebas lag.</em>
+                </div>
               </div>
               <div>
                 <span class="badge badge-success" style="padding: 0.5rem 0.85rem; font-size: 0.85rem;">
