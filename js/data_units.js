@@ -1,7 +1,4 @@
-// Data Lengkap Buku Tata Bahasa Inggris Grammar Plus A2 (Sarah Jane Lewis)
-// Disusun secara sistematis untuk GitHub Pages & Portal Pembelajaran
-
-const GRAMMAR_UNITS = [
+const A2_UNITS_DATA = [
   {
     "id": 1,
     "title": "Kata Sifat dan Kata Ganti Posesif; Whose",
@@ -398,8 +395,7 @@ const GRAMMAR_UNITS = [
             "explanation": "Marsha menyukai voli.",
             "image": "images/items/u1_ex4_q10_volleyball.jpg"
           }
-        ],
-        "image": "images/u1_ex4_belongings.jpg"
+        ]
       },
       {
         "id": "u1_ex5",
@@ -1183,8 +1179,7 @@ const GRAMMAR_UNITS = [
             "explanation": "Mengobrol santai adalah 'have a chat'.",
             "image": "images/items/u2_ex2_q8_chat.jpg"
           }
-        ],
-        "image": "images/u2_ex2_activities.jpg"
+        ]
       },
       {
         "id": "u2_ex3",
@@ -2513,8 +2508,7 @@ const GRAMMAR_UNITS = [
             "hint": "Keinginan mencoba makanan Jepang",
             "explanation": "Keinginan mencoba makanan baru: 'She would like to eat sushi'."
           }
-        ],
-        "image": "images/u3_ex6_food_likes.jpg"
+        ]
       },
       {
         "id": "u3_ex7",
@@ -3510,8 +3504,7 @@ const GRAMMAR_UNITS = [
             "explanation": "Audio TR 6 nomor 6: 'He's going to travel by plane.'",
             "image": "images/items/u4_ex5_q6_plane.png"
           }
-        ],
-        "image": "images/u4_ex5_pictures.jpg"
+        ]
       },
       {
         "id": "u4_ex6",
@@ -4544,8 +4537,7 @@ const GRAMMAR_UNITS = [
             "explanation": "Get hungry = merasa lapar.",
             "image": "images/items/u6_ex1_q8_hungry.jpg"
           }
-        ],
-        "image": "images/u6_ex1_get_adjectives.jpg"
+        ]
       },
       {
         "id": "u6_ex2",
@@ -6280,8 +6272,7 @@ const GRAMMAR_UNITS = [
             "explanation": "'There are some magazines in the shop.'",
             "image": "images/items/u8_ex2_q6_magazines.jpg"
           }
-        ],
-        "image": "images/u8_ex2_quantifiers.jpg"
+        ]
       },
       {
         "id": "u8_ex3",
@@ -9739,8 +9730,7 @@ const GRAMMAR_UNITS = [
             "explanation": "Bread dalam bahasa Inggris adalah uncountable noun.",
             "image": "images/items/u13_ex1_q6_bread.jpg"
           }
-        ],
-        "image": "images/u13_ex1_nouns.jpg"
+        ]
       },
       {
         "id": "u13_ex2",
@@ -10766,8 +10756,7 @@ const GRAMMAR_UNITS = [
             "explanation": "Toko roti &rarr; 'where'.",
             "image": "images/items/u14_ex9_q4_bakery.jpg"
           }
-        ],
-        "image": "images/u14_ex9_definitions.jpg"
+        ]
       },
       {
         "id": "u14_ex10",
@@ -15481,7 +15470,3 @@ const GRAMMAR_UNITS = [
     ]
   }
 ];
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = { GRAMMAR_UNITS };
-}

@@ -1173,15 +1173,15 @@ function renderSingleExercise(exercise, unit) {
   if (exercise.type === "fill") {
     questionsHtml = exercise.questions.map((q, idx) => `
       <div class="question-item" id="q-box-${idx}">
-        <div style="display: flex; gap: 0.85rem; align-items: flex-start; flex-wrap: wrap;">
+        <div class="question-row">
           ${q.image ? `
-            <div class="question-thumb-box" style="flex-shrink: 0; margin-top: 0.15rem;">
+            <div class="question-thumb-box">
               <a href="${escapeHtml(q.image)}" target="_blank" rel="noopener noreferrer" title="Klik untuk memperbesar gambar">
-                <img src="${escapeHtml(q.image)}" alt="Ilustrasi butir soal" style="width: 84px; height: 84px; object-fit: contain; border-radius: 8px; border: 1.5px solid #CBD5E1; background: #FFFFFF; padding: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.06)';">
+                <img src="${escapeHtml(q.image)}" alt="Ilustrasi butir soal" class="question-thumb-img">
               </a>
             </div>
           ` : ''}
-          <div style="flex: 1; min-width: 220px;">
+          <div class="question-body">
             <div class="question-text">${q.q.replace('[BLANK]', `<input type="text" class="fill-input" id="input-q-${idx}" placeholder="Ketik jawaban..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`).replace('[BLANK2]', `<input type="text" class="fill-input" id="input-q-${idx}-b" placeholder="Lanjutan..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`).replace('[BLANK3]', `<input type="text" class="fill-input" id="input-q-${idx}-c" placeholder="Lanjutan..." autocomplete="off" oninput="onInputAnswerChange(${idx})">`)}</div>
             ${q.hint ? `<div style="font-size: 0.775rem; color: #64748B; margin-top: 0.35rem; display: flex; align-items: center; gap: 0.3rem;"><span>💡</span> Petunjuk: ${q.hint}</div>` : ''}
             <div class="feedback-box" id="feedback-q-${idx}"></div>
@@ -1193,15 +1193,15 @@ function renderSingleExercise(exercise, unit) {
     // Choice / Pilihan Ganda (Gunakan indeks opsi agar bebas bug karakter petik / contractions)
     questionsHtml = exercise.questions.map((q, idx) => `
       <div class="question-item" id="q-box-${idx}">
-        <div style="display: flex; gap: 0.85rem; align-items: flex-start; flex-wrap: wrap;">
+        <div class="question-row">
           ${q.image ? `
-            <div class="question-thumb-box" style="flex-shrink: 0; margin-top: 0.15rem;">
+            <div class="question-thumb-box">
               <a href="${escapeHtml(q.image)}" target="_blank" rel="noopener noreferrer" title="Klik untuk memperbesar gambar">
-                <img src="${escapeHtml(q.image)}" alt="Ilustrasi butir soal" style="width: 88px; height: 88px; object-fit: contain; border-radius: 8px; border: 1.5px solid #CBD5E1; background: #FFFFFF; padding: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.06)';">
+                <img src="${escapeHtml(q.image)}" alt="Ilustrasi butir soal" class="question-thumb-img">
               </a>
             </div>
           ` : ''}
-          <div style="flex: 1; min-width: 220px;">
+          <div class="question-body">
             <div class="question-text">${idx + 1}. ${q.q.replace('[BLANK]', '_______')}</div>
             <div class="options-group">
               ${q.options.map((opt, optIdx) => `
