@@ -279,6 +279,34 @@ function renderActiveExercise() {
     }).join("");
   }
 
+  // Visual Guide Illustration Card
+  let exImgHtml = "";
+  if (exercise.image) {
+    let exImgPath = exercise.image;
+    if (exImgPath && !exImgPath.startsWith("http") && !exImgPath.startsWith("../")) {
+      exImgPath = "../" + exImgPath;
+    }
+    exImgHtml = `
+      <div class="exercise-illustration-card">
+        <div class="exercise-illustration-header">
+          <div class="exercise-illustration-title">
+            <span class="illustration-icon">🎨</span>
+            <span>Panduan Visual Materi &bull; Amati Gambar Sebelum Menjawab</span>
+          </div>
+          <button type="button" class="btn-zoom-preview" onclick="openExerciseLightbox('${escapeHtml(exImgPath)}', '${escapeHtml(exercise.title)}')">
+            <span>🔍</span> Perbesar Gambar
+          </button>
+        </div>
+        <div class="exercise-illustration-body">
+          <img src="${escapeHtml(exImgPath)}" alt="${escapeHtml(exercise.title)}" class="exercise-main-img" onclick="openExerciseLightbox('${escapeHtml(exImgPath)}', '${escapeHtml(exercise.title)}')">
+        </div>
+        <div class="exercise-illustration-footer">
+          <span>💡</span> Klik gambar untuk memperbesar resolusi penuh &bull; Amati nomor/panel gambar untuk menjawab soal di bawah
+        </div>
+      </div>
+    `;
+  }
+
   container.innerHTML = `
     <div class="exercise-header">
       <div class="exercise-meta-top">
@@ -291,6 +319,7 @@ function renderActiveExercise() {
     </div>
 
     ${audioHtml}
+    ${exImgHtml}
 
     <div class="questions-list">
       ${questionsHtml}
@@ -686,3 +715,47 @@ function showUnitToast(message, type = "info") {
     setTimeout(() => toast.remove(), 300);
   }, 3500);
 }
+
+// Lightbox Modal for High-Resolution Guide Images
+function openExerciseLightbox(src, title) {
+  let modal = document.getElementById("exercise-image-lightbox");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "exercise-image-lightbox";
+    modal.className = "image-lightbox-modal";
+    modal.innerHTML = `
+      <div class="image-lightbox-dialog" onclick="event.stopPropagation()">
+        <button type="button" class="image-lightbox-close" onclick="closeExerciseLightbox()" title="Tutup (Esc)">&times;</button>
+        <img src="" alt="Preview" class="image-lightbox-img" id="lightbox-modal-img">
+        <div class="image-lightbox-bar">
+          <span id="lightbox-modal-title">Panduan Visual</span>
+          <span style="font-size: 0.75rem; opacity: 0.85;">💡 Klik latar belakang atau tekan Esc untuk menutup</span>
+        </div>
+      </div>
+    `;
+    modal.addEventListener("click", closeExerciseLightbox);
+    document.body.appendChild(modal);
+  }
+  const imgEl = document.getElementById("lightbox-modal-img");
+  const titleEl = document.getElementById("lightbox-modal-title");
+  if (imgEl) imgEl.src = src;
+  if (titleEl) titleEl.textContent = title || "Panduan Visual";
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeExerciseLightbox() {
+  const modal = document.getElementById("exercise-image-lightbox");
+  if (modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeExerciseLightbox();
+  }
+});
+

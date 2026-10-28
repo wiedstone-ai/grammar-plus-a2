@@ -321,7 +321,7 @@
           "unitId": 1,
           "page": 4,
           "title": "Latihan 4: Milik Siapakah Barang-Barang Ini? (Naskah Audio TR 2)",
-          "instruction": "Tuliskan pemilik barang sesuai rekaman audio TR 2: Marsha's, Nick's, Caroline's, atau Sam's. (Perhatikan ilustrasi gambar kartun lucu pada setiap butir soal sebagai petunjuk visual).",
+          "instruction": "Tuliskan pemilik barang sesuai rekaman audio TR 2: Marsha's, Nick's, Caroline's, atau Sam's. (Amati gambar panduan barang-barang di atas).",
           "type": "fill",
           "audioTrack": "TR 2",
           "questions": [
@@ -329,8 +329,7 @@
               "q": "1. a book on Shakespeare's plays &rarr; [BLANK]",
               "answer": "Caroline's",
               "hint": "Guru sejarah yang melatih drama Hamlet",
-              "explanation": "Caroline melatih pementasan drama 'Hamlet' karya Shakespeare.",
-              "image": "images/items/u1_ex4_q1_shakespeare.jpg"
+              "explanation": "Caroline melatih pementasan drama 'Hamlet' karya Shakespeare."
             },
             {
               "q": "2. a rucksack &rarr; [BLANK]",
@@ -339,64 +338,55 @@
                 "Marsha's"
               ],
               "hint": "Tas punggung",
-              "explanation": "Rucksack digunakan oleh Caroline / Marsha.",
-              "image": "images/items/u1_ex4_q2_rucksack.jpg"
+              "explanation": "Rucksack digunakan oleh Caroline / Marsha."
             },
             {
               "q": "3. a bike &rarr; [BLANK]",
               "answer": "Sam's",
               "hint": "Polisi yang suka bersepeda pulang kerja",
-              "explanation": "Sam 'sometimes after work he rides his bike.'",
-              "image": "images/items/u1_ex4_q3_bike.jpg"
+              "explanation": "Sam 'sometimes after work he rides his bike.'"
             },
             {
               "q": "4. cows &rarr; [BLANK]",
               "answer": "Nick's",
               "hint": "Petani yang memelihara hewan",
-              "explanation": "Nick adalah petani yang memberi makan hewan ternaknya.",
-              "image": "images/items/u1_ex4_q4_cows.jpg"
+              "explanation": "Nick adalah petani yang memberi makan hewan ternaknya."
             },
             {
               "q": "5. a moped &rarr; [BLANK]",
               "answer": "Marsha's",
               "hint": "Gadis 15 tahun dengan moped merah",
-              "explanation": "Marsha memiliki 'bright red moped'.",
-              "image": "images/items/u1_ex4_q5_moped.jpg"
+              "explanation": "Marsha memiliki 'bright red moped'."
             },
             {
               "q": "6. a tennis racket &rarr; [BLANK]",
               "answer": "Marsha's",
               "hint": "Olahraga favorit tenis dan bola voli",
-              "explanation": "Olahraga favorit Marsha adalah tenis dan bola voli.",
-              "image": "images/items/u1_ex4_q6_tennis.jpg"
+              "explanation": "Olahraga favorit Marsha adalah tenis dan bola voli."
             },
             {
               "q": "7. the latest J.K. Rowling novel &rarr; [BLANK]",
               "answer": "Sam's",
               "hint": "Suka membaca buku fantasi dan petualangan",
-              "explanation": "Sam membaca banyak cerita petualangan dan fantasi di waktu luang.",
-              "image": "images/items/u1_ex4_q7_novel.jpg"
+              "explanation": "Sam membaca banyak cerita petualangan dan fantasi di waktu luang."
             },
             {
               "q": "8. tickets for the cinema &rarr; [BLANK]",
               "answer": "Nick's",
               "hint": "Suka pergi ke bioskop bersama istrinya",
-              "explanation": "Nick pergi ke bioskop bersama istrinya di akhir pekan.",
-              "image": "images/items/u1_ex4_q8_cinema.jpg"
+              "explanation": "Nick pergi ke bioskop bersama istrinya di akhir pekan."
             },
             {
               "q": "9. a football &rarr; [BLANK]",
               "answer": "Sam's",
               "hint": "Suka menonton pertandingan sepak bola",
-              "explanation": "Sam menonton pertandingan sepak bola pada hari Minggu.",
-              "image": "images/items/u1_ex4_q9_football.jpg"
+              "explanation": "Sam menonton pertandingan sepak bola pada hari Minggu."
             },
             {
               "q": "10. a volleyball &rarr; [BLANK]",
               "answer": "Marsha's",
               "hint": "Olahraga favorit Marsha",
-              "explanation": "Marsha menyukai voli.",
-              "image": "images/items/u1_ex4_q10_volleyball.jpg"
+              "explanation": "Marsha menyukai voli."
             }
           ],
           "image": "images/u1_ex4_belongings.jpg"
@@ -1089,8 +1079,7 @@
               ],
               "answer": "have a meal",
               "hint": "Makan hidangan",
-              "explanation": "Makan bersama di meja makan adalah 'have a meal'.",
-              "image": "images/items/u2_ex2_q1_meal.jpg"
+              "explanation": "Makan bersama di meja makan adalah 'have a meal'."
             },
             {
               "q": "2. Bayi yang sedang mandi air hangat di bak mandi &rarr; [BLANK]",
@@ -1102,8 +1091,7 @@
               ],
               "answer": "have a bath",
               "hint": "Mandi di bak",
-              "explanation": "Mandi berendam di bak mandi adalah 'have a bath'.",
-              "image": "images/items/u2_ex2_q2_bath.jpg"
+              "explanation": "Mandi berendam di bak mandi adalah 'have a bath'."
             },
             {
               "q": "3. Tidur lelap dan mengalami mimpi indah &rarr; [BLANK]",
@@ -1115,8 +1103,7 @@
               ],
               "answer": "have a dream",
               "hint": "Bermimpi",
-              "explanation": "Bermimpi adalah 'have a dream'.",
-              "image": "images/items/u2_ex2_q3_dream.jpg"
+              "explanation": "Bermimpi adalah 'have a dream'."
             },
             {
               "q": "4. Merayakan pesta bersama teman-teman dengan musik &rarr; [BLANK]",
@@ -1128,8 +1115,7 @@
               ],
               "answer": "have a party",
               "hint": "Pesta",
-              "explanation": "Mengadakan pesta adalah 'have a party'.",
-              "image": "images/items/u2_ex2_q4_party.jpg"
+              "explanation": "Mengadakan pesta adalah 'have a party'."
             },
             {
               "q": "5. Bersantai di kursi pantai di bawah payung matahari &rarr; [BLANK]",
@@ -1141,8 +1127,7 @@
               ],
               "answer": "have a holiday",
               "hint": "Liburan di pantai",
-              "explanation": "Berlibur adalah 'have a holiday'.",
-              "image": "images/items/u2_ex2_q5_holiday.jpg"
+              "explanation": "Berlibur adalah 'have a holiday'."
             },
             {
               "q": "6. Menyantap telur mata sapi, sereal, dan kopi di pagi hari &rarr; [BLANK]",
@@ -1154,8 +1139,7 @@
               ],
               "answer": "have breakfast",
               "hint": "Sarapan pagi",
-              "explanation": "Sarapan di pagi hari adalah 'have breakfast'.",
-              "image": "images/items/u2_ex2_q6_breakfast.jpg"
+              "explanation": "Sarapan di pagi hari adalah 'have breakfast'."
             },
             {
               "q": "7. Dua orang pria berjas sedang berdebat sengit &rarr; [BLANK]",
@@ -1167,8 +1151,7 @@
               ],
               "answer": "have an argument",
               "hint": "Berdebat / bertengkar",
-              "explanation": "Berdebat sengit adalah 'have an argument'.",
-              "image": "images/items/u2_ex2_q7_argument.jpg"
+              "explanation": "Berdebat sengit adalah 'have an argument'."
             },
             {
               "q": "8. Dua orang wanita mengobrol santai sambil berjalan &rarr; [BLANK]",
@@ -1180,8 +1163,7 @@
               ],
               "answer": "have a chat",
               "hint": "Mengobrol santai",
-              "explanation": "Mengobrol santai adalah 'have a chat'.",
-              "image": "images/items/u2_ex2_q8_chat.jpg"
+              "explanation": "Mengobrol santai adalah 'have a chat'."
             }
           ],
           "image": "images/u2_ex2_activities.jpg"
@@ -2415,8 +2397,7 @@
               ],
               "answer": "She likes Coldplay.",
               "hint": "Kesukaan umum (hobi/favorit)",
-              "explanation": "Memiliki semua album membuktikan ia suka (likes) band tersebut.",
-              "image": "images/items/u3_ex6_q1_cake.jpg"
+              "explanation": "Memiliki semua album membuktikan ia suka (likes) band tersebut."
             },
             {
               "q": "2. Peter has more than twenty cookbooks.",
@@ -2426,8 +2407,7 @@
               ],
               "answer": "He likes cooking.",
               "hint": "Hobi memasak secara umum",
-              "explanation": "Punya lebih dari 20 buku resep menunjukkan ia suka memasak ('likes cooking').",
-              "image": "images/items/u3_ex6_q2_water.jpg"
+              "explanation": "Punya lebih dari 20 buku resep menunjukkan ia suka memasak ('likes cooking')."
             },
             {
               "q": "3. My car is ten years old!",
@@ -2437,8 +2417,7 @@
               ],
               "answer": "I would like a new car.",
               "hint": "Keinginan memiliki mobil baru",
-              "explanation": "Mobilnya sudah 10 tahun, jadi ia menginginkan mobil baru ('would like a new car').",
-              "image": "images/items/u3_ex6_q3_games.jpg"
+              "explanation": "Mobilnya sudah 10 tahun, jadi ia menginginkan mobil baru ('would like a new car')."
             },
             {
               "q": "4. Cathy thinks her house is very small.",
@@ -2448,8 +2427,7 @@
               ],
               "answer": "She would like a bigger house.",
               "hint": "Keinginan rumah yang lebih besar",
-              "explanation": "Rumahnya sempit, ia ingin rumah yang lebih besar ('would like a bigger house').",
-              "image": "images/items/u3_ex6_q4_music.jpg"
+              "explanation": "Rumahnya sempit, ia ingin rumah yang lebih besar ('would like a bigger house')."
             },
             {
               "q": "5. My children have four cats, three dogs, and a bird.",
@@ -2459,8 +2437,7 @@
               ],
               "answer": "They like animals.",
               "hint": "Penyayang binatang secara umum",
-              "explanation": "Punya banyak hewan peliharaan menunjukkan mereka suka hewan ('like animals').",
-              "image": "images/items/u3_ex6_q5_tea.jpg"
+              "explanation": "Punya banyak hewan peliharaan menunjukkan mereka suka hewan ('like animals')."
             },
             {
               "q": "6. There's a good film on TV tonight.",
@@ -2470,8 +2447,7 @@
               ],
               "answer": "I would like to watch it.",
               "hint": "Keinginan menonton film malam ini",
-              "explanation": "Keinginan spesifik malam ini memakai 'would like to watch it'.",
-              "image": "images/items/u3_ex6_q6_fruits.jpg"
+              "explanation": "Keinginan spesifik malam ini memakai 'would like to watch it'."
             },
             {
               "q": "7. Simon buys a lot of music from the Internet.",
@@ -3447,8 +3423,7 @@
                 "She is going to cut her hair"
               ],
               "hint": "Wanita memotong rambut.",
-              "explanation": "Audio TR 6 nomor 1: 'She's going to cut her hair.'",
-              "image": "images/items/u4_ex5_q1_haircut.png"
+              "explanation": "Audio TR 6 nomor 1: 'She's going to cut her hair.'"
             },
             {
               "q": "2. Gambar 2 (Pria membuka pintu mengajak anjing berkalung tali) &rarr; Audio TR 6: [BLANK]",
@@ -3459,8 +3434,7 @@
                 "He is going to take the dog for a walk"
               ],
               "hint": "Mengajak anjing jalan-jalan.",
-              "explanation": "Audio TR 6 nomor 2: 'He's going to take the dog for a walk.'",
-              "image": "images/items/u4_ex5_q2_dog.png"
+              "explanation": "Audio TR 6 nomor 2: 'He's going to take the dog for a walk.'"
             },
             {
               "q": "3. Gambar 3 (Murid-murid bersiap belajar di kelas) &rarr; Audio TR 6: [BLANK]",
@@ -3471,8 +3445,7 @@
                 "They are going to have a lesson"
               ],
               "hint": "Mengikuti pelajaran (have a lesson).",
-              "explanation": "Audio TR 6 nomor 3: 'They're going to have a lesson.'",
-              "image": "images/items/u4_ex5_q3_lesson.png"
+              "explanation": "Audio TR 6 nomor 3: 'They're going to have a lesson.'"
             },
             {
               "q": "4. Gambar 4 (Awan hitam pekat di atas kepala pria) &rarr; Audio TR 6: [BLANK]",
@@ -3483,8 +3456,7 @@
                 "It is going to rain"
               ],
               "hint": "Hujan akan turun.",
-              "explanation": "Audio TR 6 nomor 4: 'It's going to rain.'",
-              "image": "images/items/u4_ex5_q4_rain.png"
+              "explanation": "Audio TR 6 nomor 4: 'It's going to rain.'"
             },
             {
               "q": "5. Gambar 5 (Dua anak menaiki sepeda mereka) &rarr; Audio TR 6: [BLANK]",
@@ -3495,8 +3467,7 @@
                 "They are going to ride their bikes"
               ],
               "hint": "Mengendarai sepeda.",
-              "explanation": "Audio TR 6 nomor 5: 'They're going to ride their bikes.'",
-              "image": "images/items/u4_ex5_q5_bicycle.png"
+              "explanation": "Audio TR 6 nomor 5: 'They're going to ride their bikes.'"
             },
             {
               "q": "6. Gambar 6 (Pria di ruang tunggu keberangkatan melihat pesawat) &rarr; Audio TR 6: [BLANK]",
@@ -3507,11 +3478,10 @@
                 "He is going to travel by plane"
               ],
               "hint": "Bepergian dengan pesawat.",
-              "explanation": "Audio TR 6 nomor 6: 'He's going to travel by plane.'",
-              "image": "images/items/u4_ex5_q6_plane.png"
+              "explanation": "Audio TR 6 nomor 6: 'He's going to travel by plane.'"
             }
           ],
-          "image": "images/u4_ex5_pictures.png"
+          "image": "images/u4_ex5_pictures.jpg"
         },
         {
           "id": "u4_ex6",
@@ -3582,7 +3552,7 @@
               "explanation": "Bentuk be going to: 'I'm going to go to the cinema with my friends'."
             }
           ],
-          "image": "images/u4_ex6_diary.png"
+          "image": "images/u4_ex6_diary.jpg"
         }
       ]
     },
@@ -4486,8 +4456,7 @@
               "q": "1. When I read a book, I always [BLANK].",
               "answer": "get tired",
               "hint": "Mengantuk/lelah saat membaca",
-              "explanation": "Get tired = menjadi lelah/mengantuk.",
-              "image": "images/items/u6_ex1_q1_tired.jpg"
+              "explanation": "Get tired = menjadi lelah/mengantuk."
             },
             {
               "q": "2. People like [BLANK] in famous churches.",
@@ -4496,15 +4465,13 @@
                 "get married"
               ],
               "hint": "Menikah di gereja terkenal",
-              "explanation": "To get married = menikah.",
-              "image": "images/items/u6_ex1_q2_married.jpg"
+              "explanation": "To get married = menikah."
             },
             {
               "q": "3. When she doesn't study, her mother [BLANK].",
               "answer": "gets angry",
               "hint": "Ibu menjadi marah",
-              "explanation": "Subjek her mother (tunggal) -> gets angry.",
-              "image": "images/items/u6_ex1_q3_angry.jpg"
+              "explanation": "Subjek her mother (tunggal) -> gets angry."
             },
             {
               "q": "4. Mark isn't ready, he [BLANK].",
@@ -4513,36 +4480,31 @@
                 "is getting ready"
               ],
               "hint": "Sedang memakai baju",
-              "explanation": "Mark sedang memakai baju -> is getting dressed.",
-              "image": "images/items/u6_ex1_q4_dressed.jpg"
+              "explanation": "Mark sedang memakai baju -> is getting dressed."
             },
             {
               "q": "5. Don't eat so much fast food. You are [BLANK].",
               "answer": "getting fat",
               "hint": "Menjadi gemuk",
-              "explanation": "Getting fat = bertambah gemuk.",
-              "image": "images/items/u6_ex1_q5_fat.jpg"
+              "explanation": "Getting fat = bertambah gemuk."
             },
             {
               "q": "6. Do you need directions? I don't want you to [BLANK].",
               "answer": "get lost",
               "hint": "Tersesat di jalan",
-              "explanation": "Get lost = tersesat.",
-              "image": "images/items/u6_ex1_q6_lost.jpg"
+              "explanation": "Get lost = tersesat."
             },
             {
               "q": "7. I think my dog is [BLANK]. He doesn't like going for walks anymore.",
               "answer": "getting old",
               "hint": "Menjadi tua",
-              "explanation": "Getting old = semakin tua.",
-              "image": "images/items/u6_ex1_q7_old.jpg"
+              "explanation": "Getting old = semakin tua."
             },
             {
               "q": "8. When I'm at work, I usually [BLANK] around 1 o'clock.",
               "answer": "get hungry",
               "hint": "Merasa lapar",
-              "explanation": "Get hungry = merasa lapar.",
-              "image": "images/items/u6_ex1_q8_hungry.jpg"
+              "explanation": "Get hungry = merasa lapar."
             }
           ],
           "image": "images/u6_ex1_get_adjectives.jpg"
@@ -5953,7 +5915,7 @@
               "explanation": "Audio TR 11: '...don't worry; the Central Station is very big. You can't miss it!'"
             }
           ],
-          "image": "images/u7_ex6_map.png"
+          "image": "images/u7_ex6_map.jpg"
         },
         {
           "id": "u7_ex7",
@@ -6212,8 +6174,7 @@
               ],
               "answer": "The woman doesn't have any sugar.",
               "hint": "Toples gula kosong.",
-              "explanation": "Kalimat negatif: 'The woman doesn't have any sugar.'",
-              "image": "images/items/u8_ex2_q1_sugar.jpg"
+              "explanation": "Kalimat negatif: 'The woman doesn't have any sugar.'"
             },
             {
               "q": "2. Gambar 2 (Sapi, domba, dan kuda di padang rumput) &rarr; Deskripsi yang tepat:",
@@ -6225,8 +6186,7 @@
               ],
               "answer": "There are some animals in the field.",
               "hint": "Ada beberapa hewan di padang rumput.",
-              "explanation": "Kalimat positif jamak: 'There are some animals in the field.'",
-              "image": "images/items/u8_ex2_q2_animals.jpg"
+              "explanation": "Kalimat positif jamak: 'There are some animals in the field.'"
             },
             {
               "q": "3. Gambar 3 (Mobil van bermuatan kursi, meja, dan lemari) &rarr; Deskripsi yang tepat:",
@@ -6238,8 +6198,7 @@
               ],
               "answer": "The van has got some furniture.",
               "hint": "Ada perabot di dalam mobil.",
-              "explanation": "Furniture uncountable memakai 'some furniture'.",
-              "image": "images/items/u8_ex2_q3_furniture.jpg"
+              "explanation": "Furniture uncountable memakai 'some furniture'."
             },
             {
               "q": "4. Gambar 4 (Jalan raya dengan dua mobil) &rarr; Deskripsi yang tepat:",
@@ -6251,8 +6210,7 @@
               ],
               "answer": "There is some traffic on the road.",
               "hint": "Ada lalu lintas kendaraan di jalan.",
-              "explanation": "'There is some traffic on the road.'",
-              "image": "images/items/u8_ex2_q4_traffic.jpg"
+              "explanation": "'There is some traffic on the road.'"
             },
             {
               "q": "5. Gambar 5 (Mangkuk berisi buah persik/buah-buahan) &rarr; Deskripsi yang tepat:",
@@ -6264,8 +6222,7 @@
               ],
               "answer": "There are some peaches in the bowl.",
               "hint": "Ada buah persik dalam mangkuk.",
-              "explanation": "Pola kalimat afirmatif: 'There are some peaches in the bowl.'",
-              "image": "images/items/u8_ex2_q5_peaches.jpg"
+              "explanation": "Pola kalimat afirmatif: 'There are some peaches in the bowl.'"
             },
             {
               "q": "6. Gambar 6 (Kios majalah penuh pajangan) &rarr; Deskripsi yang tepat:",
@@ -6277,8 +6234,7 @@
               ],
               "answer": "There are some magazines in the shop.",
               "hint": "Ada banyak majalah di toko.",
-              "explanation": "'There are some magazines in the shop.'",
-              "image": "images/items/u8_ex2_q6_magazines.jpg"
+              "explanation": "'There are some magazines in the shop.'"
             }
           ],
           "image": "images/u8_ex2_quantifiers.jpg"
@@ -9681,8 +9637,7 @@
               ],
               "answer": "Uncountable (tidak dapat dihitung)",
               "hint": "Zat cair tidak dapat dihitung satu per satu.",
-              "explanation": "Air (water) adalah uncountable noun.",
-              "image": "images/items/u13_ex1_q1_water.jpg"
+              "explanation": "Air (water) adalah uncountable noun."
             },
             {
               "q": "2. apple &rarr; [BLANK]",
@@ -9692,8 +9647,7 @@
               ],
               "answer": "Countable (dapat dihitung)",
               "hint": "Buah apel bisa dihitung satu, dua, tiga...",
-              "explanation": "Apel (apple) dapat dihitung: one apple, two apples.",
-              "image": "images/items/u13_ex1_q2_apple.jpg"
+              "explanation": "Apel (apple) dapat dihitung: one apple, two apples."
             },
             {
               "q": "3. money &rarr; [BLANK]",
@@ -9703,8 +9657,7 @@
               ],
               "answer": "Uncountable (tidak dapat dihitung)",
               "hint": "Kata 'money' secara gramatikal tidak bisa dihitung (yang dihitung adalah mata uangnya seperti dollars/rupiah).",
-              "explanation": "Money adalah kata benda tak terhitung (uncountable noun).",
-              "image": "images/items/u13_ex1_q3_money.jpg"
+              "explanation": "Money adalah kata benda tak terhitung (uncountable noun)."
             },
             {
               "q": "4. chair &rarr; [BLANK]",
@@ -9714,8 +9667,7 @@
               ],
               "answer": "Countable (dapat dihitung)",
               "hint": "Kursi dapat dihitung.",
-              "explanation": "Chair adalah countable noun: one chair, two chairs.",
-              "image": "images/items/u13_ex1_q4_chair.jpg"
+              "explanation": "Chair adalah countable noun: one chair, two chairs."
             },
             {
               "q": "5. information &rarr; [BLANK]",
@@ -9725,8 +9677,7 @@
               ],
               "answer": "Uncountable (tidak dapat dihitung)",
               "hint": "Information tidak memiliki bentuk jamak -s dalam bahasa Inggris.",
-              "explanation": "Information selalu uncountable noun.",
-              "image": "images/items/u13_ex1_q5_information.jpg"
+              "explanation": "Information selalu uncountable noun."
             },
             {
               "q": "6. bread &rarr; [BLANK]",
@@ -9736,8 +9687,7 @@
               ],
               "answer": "Uncountable (tidak dapat dihitung)",
               "hint": "Roti (bread) dianggap sebagai materi/massa tak terhitung, dihitung per slice atau loaf.",
-              "explanation": "Bread dalam bahasa Inggris adalah uncountable noun.",
-              "image": "images/items/u13_ex1_q6_bread.jpg"
+              "explanation": "Bread dalam bahasa Inggris adalah uncountable noun."
             }
           ],
           "image": "images/u13_ex1_nouns.jpg"
@@ -10731,8 +10681,7 @@
                 "Where"
               ],
               "hint": "A place adalah tempat.",
-              "explanation": "Tempat meminjam buku &rarr; 'where'.",
-              "image": "images/items/u14_ex9_q1_library.jpg"
+              "explanation": "Tempat meminjam buku &rarr; 'where'."
             },
             {
               "q": "2. A pilot is a person [BLANK] flies aeroplanes.",
@@ -10742,8 +10691,7 @@
                 "Who"
               ],
               "hint": "A person adalah orang.",
-              "explanation": "Orang penerbang pesawat &rarr; 'who'.",
-              "image": "images/items/u14_ex9_q2_pilot.jpg"
+              "explanation": "Orang penerbang pesawat &rarr; 'who'."
             },
             {
               "q": "3. A thermometer is an instrument [BLANK] measures temperature.",
@@ -10753,8 +10701,7 @@
                 "Which"
               ],
               "hint": "An instrument adalah alat ukur (benda).",
-              "explanation": "Alat pengukur &rarr; 'which'.",
-              "image": "images/items/u14_ex9_q3_thermometer.jpg"
+              "explanation": "Alat pengukur &rarr; 'which'."
             },
             {
               "q": "4. A bakery is a shop [BLANK] you can buy fresh bread and cakes.",
@@ -10763,8 +10710,7 @@
                 "Where"
               ],
               "hint": "A shop adalah tempat berbelanja.",
-              "explanation": "Toko roti &rarr; 'where'.",
-              "image": "images/items/u14_ex9_q4_bakery.jpg"
+              "explanation": "Toko roti &rarr; 'where'."
             }
           ],
           "image": "images/u14_ex9_definitions.jpg"
@@ -13496,7 +13442,7 @@
               "explanation": "Audio TR 25: 'I miss that; we used to always chat when we met each other.'"
             }
           ],
-          "image": "images/u20_ex6_town.png"
+          "image": "images/u20_ex6_town.jpg"
         },
         {
           "id": "u20_ex7",

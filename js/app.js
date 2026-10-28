@@ -1227,18 +1227,22 @@ function renderSingleExercise(exercise, unit) {
     <p class="exercise-instruction">${exercise.instruction}</p>
     ${audioHtml}
 
-    ${(exercise.image && !exercise.questions.some(q => q.image)) ? `
-      <div class="exercise-illustration-card" style="margin: 1.25rem 0; text-align: center; background: #F8FAFC; padding: 1rem; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-        <div style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.65rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
-          <span style="font-size: 1.1rem;">🎨</span> Ilustrasi Gambar Panduan &bull; Peta / Suasana Soal
+    ${exercise.image ? `
+      <div class="exercise-illustration-card">
+        <div class="exercise-illustration-header">
+          <div class="exercise-illustration-title">
+            <span class="illustration-icon">🎨</span>
+            <span>Panduan Visual Materi &bull; Amati Gambar Sebelum Menjawab</span>
+          </div>
+          <button type="button" class="btn-zoom-preview" onclick="openExerciseLightbox('${escapeHtml(exercise.image)}', '${escapeHtml(exercise.title)}')">
+            <span>🔍</span> Perbesar Gambar
+          </button>
         </div>
-        <div style="position: relative; display: inline-block; max-width: 100%;">
-          <a href="${escapeHtml(exercise.image)}" target="_blank" rel="noopener noreferrer" title="Klik untuk memperbesar gambar">
-            <img src="${escapeHtml(exercise.image)}" alt="${escapeHtml(exercise.title)}" style="max-width: 100%; max-height: 440px; border-radius: 8px; border: 1px solid #CBD5E1; box-shadow: 0 4px 14px rgba(0,0,0,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: zoom-in;" onmouseover="this.style.transform='scale(1.01)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 14px rgba(0,0,0,0.08)';">
-          </a>
+        <div class="exercise-illustration-body">
+          <img src="${escapeHtml(exercise.image)}" alt="${escapeHtml(exercise.title)}" class="exercise-main-img" onclick="openExerciseLightbox('${escapeHtml(exercise.image)}', '${escapeHtml(exercise.title)}')">
         </div>
-        <div style="font-size: 0.75rem; color: #64748B; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
-          <span>🔍</span> Klik gambar untuk membuka resolusi penuh di tab baru
+        <div class="exercise-illustration-footer">
+          <span>💡</span> Klik gambar untuk memperbesar resolusi penuh &bull; Amati nomor/panel gambar untuk menjawab soal di bawah
         </div>
       </div>
     ` : ''}
@@ -2957,3 +2961,47 @@ function escapeHtml(text) {
   const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
   return String(text).replace(/[&<>"']/g, m => map[m]);
 }
+
+// Lightbox Modal for High-Resolution Guide Images
+function openExerciseLightbox(src, title) {
+  let modal = document.getElementById("exercise-image-lightbox");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "exercise-image-lightbox";
+    modal.className = "image-lightbox-modal";
+    modal.innerHTML = `
+      <div class="image-lightbox-dialog" onclick="event.stopPropagation()">
+        <button type="button" class="image-lightbox-close" onclick="closeExerciseLightbox()" title="Tutup (Esc)">&times;</button>
+        <img src="" alt="Preview" class="image-lightbox-img" id="lightbox-modal-img">
+        <div class="image-lightbox-bar">
+          <span id="lightbox-modal-title">Panduan Visual</span>
+          <span style="font-size: 0.75rem; opacity: 0.85;">💡 Klik latar belakang atau tekan Esc untuk menutup</span>
+        </div>
+      </div>
+    `;
+    modal.addEventListener("click", closeExerciseLightbox);
+    document.body.appendChild(modal);
+  }
+  const imgEl = document.getElementById("lightbox-modal-img");
+  const titleEl = document.getElementById("lightbox-modal-title");
+  if (imgEl) imgEl.src = src;
+  if (titleEl) titleEl.textContent = title || "Panduan Visual";
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeExerciseLightbox() {
+  const modal = document.getElementById("exercise-image-lightbox");
+  if (modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeExerciseLightbox();
+  }
+});
+
