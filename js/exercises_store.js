@@ -89,6 +89,12 @@ const ExercisesStore = {
     if (typeof window !== "undefined" && Array.isArray(window.GRAMMAR_UNITS) && window.GRAMMAR_UNITS.length > 0) {
       return window.GRAMMAR_UNITS;
     }
+    if (typeof A2_UNITS_DATA !== "undefined" && Array.isArray(A2_UNITS_DATA) && A2_UNITS_DATA.length > 0) {
+      return A2_UNITS_DATA;
+    }
+    if (typeof window !== "undefined" && Array.isArray(window.A2_UNITS_DATA) && window.A2_UNITS_DATA.length > 0) {
+      return window.A2_UNITS_DATA;
+    }
     return [];
   },
 

@@ -261,7 +261,7 @@ function renderActiveExercise() {
               </div>
             ` : ''}
             <div class="question-body">
-              <div class="question-text">${idx + 1}. ${escapeHtml(q.q)}</div>
+              <div class="question-text">${(/^\s*\d+[\.\)]\s*/.test(q.q)) ? escapeHtml(q.q).replace(/&amp;rarr;/g, '&rarr;').replace('[BLANK]', '_______') : `${idx + 1}. ${escapeHtml(q.q).replace(/&amp;rarr;/g, '&rarr;').replace('[BLANK]', '_______')}`}</div>
               <div class="choice-options-grid" id="options-q-${idx}">
                 ${q.options.map((opt, optIdx) => `
                   <button type="button" class="choice-btn" id="choice-btn-${idx}-${optIdx}" onclick="selectChoiceOption(${idx}, ${optIdx})">

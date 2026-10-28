@@ -41,6 +41,12 @@ function getGrammarUnits() {
   if (typeof GRAMMAR_UNITS !== "undefined" && Array.isArray(GRAMMAR_UNITS) && GRAMMAR_UNITS.length > 0) {
     return GRAMMAR_UNITS;
   }
+  if (typeof window !== "undefined" && Array.isArray(window.A2_UNITS_DATA) && window.A2_UNITS_DATA.length > 0) {
+    return window.A2_UNITS_DATA;
+  }
+  if (typeof A2_UNITS_DATA !== "undefined" && Array.isArray(A2_UNITS_DATA) && A2_UNITS_DATA.length > 0) {
+    return A2_UNITS_DATA;
+  }
   return [];
 }
 
@@ -273,6 +279,8 @@ function switchTab(targetId) {
     renderStudentRecord();
   } else if (targetId === "section-guru") {
     renderTeacherDashboard();
+  } else if (targetId === "section-lampiran") {
+    initAppendices();
   }
   
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1202,7 +1210,7 @@ function renderSingleExercise(exercise, unit) {
             </div>
           ` : ''}
           <div class="question-body">
-            <div class="question-text">${idx + 1}. ${q.q.replace('[BLANK]', '_______')}</div>
+            <div class="question-text">${(/^\s*\d+[\.\)]\s*/.test(q.q)) ? q.q.replace('[BLANK]', '_______') : `${idx + 1}. ${q.q.replace('[BLANK]', '_______')}`}</div>
             <div class="options-group">
               ${q.options.map((opt, optIdx) => `
                 <button type="button" class="btn-option" id="btn-opt-${idx}-${optIdx}" onclick="selectOptionByIndex(${idx}, ${optIdx})">
