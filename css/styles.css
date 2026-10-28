@@ -2298,3 +2298,51 @@ body {
   transform: rotate(90deg) scale(1.1);
 }
 
+/* ========================================================== */
+/* QUESTION THUMBNAIL BOX & IMAGE (CLEAN, CARD-STYLE)         */
+/* ========================================================== */
+.question-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.question-thumb-box {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.06);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: zoom-in;
+}
+
+.question-thumb-box:hover {
+  transform: scale(1.06);
+  border-color: #3B82F6;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.16);
+}
+
+.question-thumb-img {
+  width: 100%;
+  height: 100%;
+  max-width: 82px;
+  max-height: 82px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+.question-body {
+  flex: 1;
+  min-width: 240px;
+}
+
