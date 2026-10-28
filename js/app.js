@@ -45,6 +45,88 @@ function getGrammarUnits() {
 }
 
 // ==========================================
+// DAFTAR LATIHAN LISTENING & HELPER PERSENTASE / KELULUSAN
+// ==========================================
+const A2_LISTENING_EXERCISES = new Set([
+  'u1_ex4', 'u3_ex5', 'u3_ex9', 'u3_ex10', 'u4_ex5', 'u5_ex4',
+  'u6_ex2', 'u6_ex8', 'u7_ex3', 'u7_ex6', 'u7_ex7', 'u9_ex6',
+  'u10_ex4', 'u10_ex6', 'u11_ex1', 'u11_ex7', 'u12_ex2', 'u12_ex6',
+  'u14_ex8', 'u15_ex5', 'u15_ex6', 'u17_ex4', 'u18_ex4', 'u20_ex6',
+  'u21_ex4', 'u22_ex4'
+]);
+
+function isListeningExercise(sc) {
+  if (!sc) return false;
+  if (sc.audioTrack) return true;
+  if (sc.exerciseId && A2_LISTENING_EXERCISES.has(String(sc.exerciseId).toLowerCase().trim())) return true;
+  return false;
+}
+
+/**
+ * Normalisasi dan kalkulasi persentase secara presisi (0 - 100)
+ * Menangani angka desimal dari Google Sheets (misal 1 untuk 100%, 0.83 untuk 83%),
+ * string format ("100%", "83%"), serta fallback rasio skor / totalSoal riil.
+ */
+function parsePercentage(val, skor, totalSoal) {
+  if (skor !== undefined && skor !== null && totalSoal !== undefined && totalSoal !== null) {
+    const s = Number(skor);
+    const t = Number(totalSoal);
+    if (!isNaN(s) && !isNaN(t) && t > 0) {
+      return Math.min(100, Math.max(0, Math.round((s / t) * 100)));
+    }
+  }
+  if (val === undefined || val === null || val === "") return 0;
+  if (typeof val === "string") {
+    const cleanStr = val.trim();
+    const hasPercentSign = cleanStr.includes("%");
+    const num = parseFloat(cleanStr.replace("%", "").trim());
+    if (!isNaN(num)) {
+      if (!hasPercentSign && num > 0 && num <= 1) {
+        return Math.min(100, Math.round(num * 100));
+      }
+      return Math.min(100, Math.max(0, Math.round(num)));
+    }
+    return 0;
+  }
+  if (typeof val === "number" && !isNaN(val)) {
+    if (val > 0 && val <= 1) {
+      return Math.min(100, Math.round(val * 100));
+    }
+    return Math.min(100, Math.max(0, Math.round(val)));
+  }
+  return 0;
+}
+
+function formatPercentage(val, skor, totalSoal) {
+  return `${parsePercentage(val, skor, totalSoal)}%`;
+}
+
+function isScorePassed(sc) {
+  if (!sc) return false;
+  if (sc.status) {
+    const st = String(sc.status).trim().toUpperCase();
+    if (st === "LULUS") return true;
+    if (st === "REMIDI" || st === "TIDAK LULUS") return false;
+  }
+  return parsePercentage(sc.persentase, sc.skor, sc.totalSoal) >= (APP_CONFIG.minPassingScore || 75);
+}
+
+function normalizeScoreRecord(sc) {
+  if (!sc) return sc;
+  const skorNum = parseInt(sc.skor, 10) || 0;
+  const totalNum = parseInt(sc.totalSoal, 10) || 0;
+  const pct = parsePercentage(sc.persentase, skorNum, totalNum);
+  const passed = isScorePassed(sc);
+
+  return Object.assign({}, sc, {
+    skor: skorNum,
+    totalSoal: totalNum,
+    persentase: `${pct}%`,
+    status: passed ? "LULUS" : "REMIDI"
+  });
+}
+
+// ==========================================
 // 1. INISIALISASI SAAT HALAMAN DIMUAT
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -116,7 +198,12 @@ function initStorage() {
 
   const savedScores = localStorage.getItem("grammar_a2_scores");
   if (savedScores) {
-    try { AppState.scores = JSON.parse(savedScores); } catch (e) { AppState.scores = []; }
+    try {
+      const parsed = JSON.parse(savedScores);
+      AppState.scores = Array.isArray(parsed) ? parsed.map(normalizeScoreRecord) : [];
+    } catch (e) {
+      AppState.scores = [];
+    }
   }
 
   // Jika URL Google Apps Script tersedia, tes koneksi dan sinkronkan data
@@ -1234,7 +1321,7 @@ function submitExerciseGrade(e) {
   }
 
   // Simpan ke Rekaman Nilai
-  const scoreRecord = {
+  const scoreRecord = normalizeScoreRecord({
     timestamp: new Date().toLocaleString("id-ID"),
     username: AppState.currentUser.username,
     nama: AppState.currentUser.nama,
@@ -1251,7 +1338,7 @@ function submitExerciseGrade(e) {
     status: isPassed ? "LULUS" : "REMIDI",
     detailJawaban: details,
     synced: false
-  };
+  });
 
   // Cek apakah murid sudah memiliki riwayat untuk latihan ini (agar saat perbaikan nilai / remidi, nilai diperbarui tanpa duplikasi)
   const existingIdx = AppState.scores.findIndex(
@@ -1322,12 +1409,12 @@ function renderStudentRecord() {
   }
 
   // Filter nilai siswa aktif
-  const myScores = AppState.scores.filter(s => s.username === user.username);
+  const myScores = AppState.scores.filter(s => (s.username || "").toUpperCase() === (user.username || "").toUpperCase());
   const totalLatihan = myScores.length;
   const avgPercentage = totalLatihan > 0
-    ? Math.round(myScores.reduce((acc, cur) => acc + parseInt(cur.persentase, 10), 0) / totalLatihan)
+    ? Math.round(myScores.reduce((acc, cur) => acc + parsePercentage(cur.persentase, cur.skor, cur.totalSoal), 0) / totalLatihan)
     : 0;
-  const totalLulus = myScores.filter(s => s.status === "LULUS").length;
+  const totalLulus = myScores.filter(s => isScorePassed(s)).length;
 
   container.innerHTML = `
     <!-- Header Resmi Saat Cetak PDF -->
@@ -1404,10 +1491,10 @@ function renderStudentRecord() {
                   <td><strong>Unit ${sc.unitId}</strong> - ${sc.unitName}</td>
                   <td>${sc.exerciseId}</td>
                   <td>${sc.skor} / ${sc.totalSoal}</td>
-                  <td><strong>${sc.persentase}</strong></td>
+                  <td><strong>${formatPercentage(sc.persentase, sc.skor, sc.totalSoal)}</strong></td>
                   <td>
-                    <span class="badge ${sc.status === 'LULUS' ? 'badge-success' : 'badge-danger'}">
-                      ${sc.status}
+                    <span class="badge ${isScorePassed(sc) ? 'badge-success' : 'badge-danger'}">
+                      ${isScorePassed(sc) ? 'LULUS' : 'REMIDI'}
                     </span>
                   </td>
                 </tr>
@@ -1538,8 +1625,8 @@ function renderTeacherDashboard() {
                 <td>Unit ${sc.unitId}</td>
                 <td>${sc.exerciseId}</td>
                 <td>${sc.skor}/${sc.totalSoal}</td>
-                <td><strong>${sc.persentase}</strong></td>
-                <td><span class="badge ${sc.status === 'LULUS' ? 'badge-success' : 'badge-danger'}">${sc.status}</span></td>
+                <td><strong>${formatPercentage(sc.persentase, sc.skor, sc.totalSoal)}</strong></td>
+                <td><span class="badge ${isScorePassed(sc) ? 'badge-success' : 'badge-danger'}">${isScorePassed(sc) ? 'LULUS' : 'REMIDI'}</span></td>
               </tr>
             `).join("")}
           </tbody>
@@ -1574,8 +1661,8 @@ function exportGradesToExcel() {
     "Kode Latihan": sc.exerciseId,
     "Skor": sc.skor,
     "Total Soal": sc.totalSoal,
-    "Persentase": sc.persentase,
-    "Status Kelulusan": sc.status
+    "Persentase": formatPercentage(sc.persentase, sc.skor, sc.totalSoal),
+    "Status Kelulusan": isScorePassed(sc) ? "LULUS" : "REMIDI"
   }));
 
   // Siapkan Data Sheet 2: Daftar Siswa
@@ -1684,7 +1771,7 @@ function getLeaderboardStudentsData() {
   const combinedScores = [...realScores];
   SEED_MOTIVATIONAL_SCORES.forEach(sc => {
     if (!realScores.some(rs => (rs.username || "").toUpperCase() === sc.username.toUpperCase() && rs.exerciseId === sc.exerciseId)) {
-      combinedScores.push(sc);
+      combinedScores.push(normalizeScoreRecord(sc));
     }
   });
 
@@ -1693,8 +1780,8 @@ function getLeaderboardStudentsData() {
     const stScores = combinedScores.filter(sc => (sc.username || "").toUpperCase() === stUser);
     
     const completedCount = stScores.length;
-    const passedCount = stScores.filter(sc => sc.status === "LULUS").length;
-    const perfectCount = stScores.filter(sc => sc.persentase === "100%" || parseInt(sc.persentase, 10) === 100).length;
+    const passedCount = stScores.filter(sc => isScorePassed(sc)).length;
+    const perfectCount = stScores.filter(sc => parsePercentage(sc.persentase, sc.skor, sc.totalSoal) === 100).length;
     
     let totalCorrectSoal = 0;
     let sumPercentage = 0;
@@ -1703,13 +1790,10 @@ function getLeaderboardStudentsData() {
 
     stScores.forEach(sc => {
       totalCorrectSoal += (parseInt(sc.skor, 10) || 0);
-      const pct = parseInt(sc.persentase, 10) || 0;
+      const pct = parsePercentage(sc.persentase, sc.skor, sc.totalSoal);
       sumPercentage += pct;
       if (sc.unitId) unitsSet.add(sc.unitId);
-      if (
-        (sc.exerciseId && /u[1-9]|u10_ex[46]|u4_ex5|u5_ex4|u6_ex[28]|u7_ex[367]|u9_ex6/i.test(sc.exerciseId)) ||
-        (sc.audioTrack)
-      ) {
+      if (isListeningExercise(sc)) {
         listeningCount++;
       }
     });
@@ -1762,7 +1846,7 @@ function getLeaderboardStudentsData() {
       titleInfo: titleInfo,
       badges: badges,
       unitsCompletedCount: unitsSet.size,
-      scoresList: stScores
+      scoresList: stScores.map(normalizeScoreRecord)
     };
   });
 }
@@ -2214,8 +2298,8 @@ function openStudentDetailModal(username) {
                   <td>Unit ${sc.unitId || '-'}</td>
                   <td>${sc.exerciseId || '-'}</td>
                   <td>${sc.skor}/${sc.totalSoal}</td>
-                  <td><strong>${sc.persentase}</strong></td>
-                  <td><span class="badge ${sc.status === 'LULUS' ? 'badge-success' : 'badge-danger'}">${sc.status}</span></td>
+                  <td><strong>${formatPercentage(sc.persentase, sc.skor, sc.totalSoal)}</strong></td>
+                  <td><span class="badge ${isScorePassed(sc) ? 'badge-success' : 'badge-danger'}">${isScorePassed(sc) ? 'LULUS' : 'REMIDI'}</span></td>
                 </tr>
               `).join("")}
             </tbody>
@@ -2487,17 +2571,35 @@ async function fetchScoresFromGAS() {
       const map = new Map();
       AppState.scores.forEach(s => {
         if (s && s.username && s.exerciseId) {
-          const key = `${s.username.toUpperCase()}___${s.exerciseId}`;
-          map.set(key, s);
+          const norm = normalizeScoreRecord(s);
+          const key = `${norm.username.toUpperCase()}___${norm.exerciseId}`;
+          map.set(key, norm);
         }
       });
       data.scores.forEach(sc => {
         if (!sc || !sc.username || !sc.exerciseId) return;
-        const key = `${sc.username.toUpperCase()}___${sc.exerciseId}`;
-        map.set(key, Object.assign({}, sc, { synced: true }));
+        const norm = normalizeScoreRecord(sc);
+        const key = `${norm.username.toUpperCase()}___${norm.exerciseId}`;
+        const existing = map.get(key);
+        // Pertahankan skor terbaik jika ada
+        if (!existing || norm.skor >= (Number(existing.skor) || 0)) {
+          map.set(key, Object.assign({}, norm, { synced: true }));
+        }
       });
       AppState.scores = Array.from(map.values());
       saveScoresToStorage();
+
+      // Render ulang jika pengguna sedang membuka tab Leaderboard, Capaian Siswa, atau Guru
+      const activeTab = document.querySelector(".section-pane.active");
+      if (activeTab) {
+        if (activeTab.id === "section-leaderboard") {
+          renderLeaderboard();
+        } else if (activeTab.id === "section-capaian") {
+          renderStudentDashboard();
+        } else if (activeTab.id === "section-guru") {
+          renderTeacherDashboard();
+        }
+      }
     }
   } catch (err) {
     console.log("Could not fetch remote scores from GAS:", err);

@@ -123,23 +123,50 @@ function handleAction(action, body, callback) {
         const exId = String(row[9] || "").trim();
         if (!filterUsername || u === filterUsername) {
           const key = u + "___" + exId;
-          scoresMap[key] = {
-            timestamp: row[0],
-            username: row[1],
-            nama: row[2],
-            tingkat: row[3],
-            fase: row[4],
-            rombel: row[5],
-            presensi: row[6],
-            unitId: row[7],
-            unitName: row[8],
-            exerciseId: exId,
-            skor: row[10],
-            totalSoal: row[11],
-            persentase: row[12],
-            status: row[13],
-            detailJawaban: row[14]
-          };
+          const skorNum = Number(row[10]) || 0;
+          const totalNum = Number(row[11]) || 0;
+          let pctStr = "0%";
+
+          // 1. Prioritaskan kalkulasi persentase dari skor & totalSoal
+          if (totalNum > 0) {
+            pctStr = Math.round((skorNum / totalNum) * 100) + "%";
+          } else {
+            // 2. Normalisasi format persentase jika sel berupa angka desimal Sheets (0 - 1)
+            const rawPct = row[12];
+            if (typeof rawPct === "number") {
+              pctStr = (rawPct > 0 && rawPct <= 1 ? Math.round(rawPct * 100) : Math.round(rawPct)) + "%";
+            } else if (rawPct !== undefined && rawPct !== null && rawPct !== "") {
+              const num = parseFloat(String(rawPct).replace("%", "").trim());
+              if (!isNaN(num)) {
+                pctStr = (!String(rawPct).includes("%") && num > 0 && num <= 1 ? Math.round(num * 100) : Math.round(num)) + "%";
+              }
+            }
+          }
+
+          const rawStatus = String(row[13] || "").trim().toUpperCase();
+          const isPassed = rawStatus === "LULUS" || parseInt(pctStr, 10) >= 75;
+
+          const existing = scoresMap[key];
+          // Simpan nilai atau pertahankan nilai terbaik jika ada pengulangan
+          if (!existing || skorNum >= (Number(existing.skor) || 0)) {
+            scoresMap[key] = {
+              timestamp: row[0],
+              username: row[1],
+              nama: row[2],
+              tingkat: row[3],
+              fase: row[4],
+              rombel: row[5],
+              presensi: row[6],
+              unitId: row[7],
+              unitName: row[8],
+              exerciseId: exId,
+              skor: skorNum,
+              totalSoal: totalNum,
+              persentase: pctStr,
+              status: isPassed ? "LULUS" : "REMIDI",
+              detailJawaban: row[14]
+            };
+          }
         }
       }
       return jsonResponse({ status: "success", scores: Object.values(scoresMap) }, callback);
@@ -324,10 +351,17 @@ function handleAction(action, body, callback) {
       const unitId = String(body.unitId || "-").trim();
       const unitName = String(body.unitName || "-").trim();
       const exerciseId = String(body.exerciseId || "-").trim();
-      const skor = body.skor !== undefined ? body.skor : 0;
-      const totalSoal = body.totalSoal !== undefined ? body.totalSoal : 0;
-      const persentase = String(body.persentase || "0%").trim();
-      const status = String(body.status || "Selesai").trim();
+      const skor = body.skor !== undefined ? Number(body.skor) : 0;
+      const totalSoal = body.totalSoal !== undefined ? Number(body.totalSoal) : 0;
+      let persentase = String(body.persentase || "").trim();
+      if (totalSoal > 0) {
+        persentase = Math.round((skor / totalSoal) * 100) + "%";
+      } else if (!persentase.endsWith("%")) {
+        const num = parseFloat(persentase);
+        persentase = (!isNaN(num) ? (num > 0 && num <= 1 ? Math.round(num * 100) : Math.round(num)) : 0) + "%";
+      }
+      const rawStatus = String(body.status || "").trim().toUpperCase();
+      const status = (rawStatus === "LULUS" || parseInt(persentase, 10) >= 75) ? "LULUS" : "REMIDI";
 
       let detailStr = body.detailJawaban;
       if (typeof detailStr === "object") {
