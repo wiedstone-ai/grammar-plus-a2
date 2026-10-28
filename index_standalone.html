@@ -19170,7 +19170,7 @@ function renderUnitGrid(filterKeyword = "") {
         </div>
         <div class="unit-card-footer">
           <span>📖 ${u.exercises ? u.exercises.length : 0} Latihan</span>
-          <a href="units/unit_${u.id}.html" class="btn-fast-unit" onclick="event.stopPropagation();" title="Buka unit secara terpisah (Sangat Ringan & Cepat)">⚡ Halaman Ringan</a>
+          <a href="units/unit_${u.id}.html" class="btn-fast-unit" onclick="event.stopPropagation();">Masuk &rarr;</a>
         </div>
       </div>
     `;
@@ -19246,10 +19246,10 @@ function openUnitDetail(unitId) {
     <!-- Tombol Mulai Latihan -->
     <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
       <a href="units/unit_${unit.id}.html" class="btn btn-primary btn-lg" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-        ⚡ Buka Halaman Unit ${unit.id} (Super Ringan &amp; Cepat)
+        📝 Masuk &amp; Kerjakan Latihan Unit ${unit.id}
       </a>
       <button class="btn btn-secondary btn-lg" onclick="loadUnitExercises(${unit.id})">
-        📝 Kerjakan di Halaman Ini
+        📖 Kerjakan di Halaman Ini
       </button>
     </div>
   `;
